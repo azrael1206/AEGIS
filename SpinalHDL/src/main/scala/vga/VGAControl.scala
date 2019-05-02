@@ -23,36 +23,42 @@ class VGAControl(config : VGAConfig) extends Component{
     io.vga.pixelY := vCounter
     io.vga.pixelX := hCounter
 
+    // Check if the hCounter is at the end of the line
     when (hCounter === (config.hDisplayArea + config.hBackPorch + config.hFrontPorch + config.hRetrace - 1)) {
       hEnd := True
     } otherwise {
       hEnd := False
     }
 
+    // Check if the vCounter is at the end of the frame
     when (vCounter === (config.vDisplayArea + config.vBackPorch + config.vFrontPorch + config.vRetrace - 1)) {
       vEnd := True
     } otherwise {
       vEnd := False
     }
 
+    // Only set hsync when one is in the retrace/sync of a line
     when (hCounter >= (config.hDisplayArea + config.hFrontPorch) & hCounter <= (config.hDisplayArea + config.hFrontPorch + config.hRetrace - 1)) {
       hSync := True
     } otherwise {
       hSync := False
     }
 
+    // Only set vsync when one is in the retrace/sync of a frame
     when (vCounter >= (config.vDisplayArea + config.vFrontPorch) & vCounter <= (config.vDisplayArea + config.vFrontPorch + config.vRetrace - 1)) {
       vSync := True
     } otherwise {
       vSync := False
     }
 
+    // Only read from the buffer when one draw the image
     when (hCounter < config.hDisplayArea & vCounter < config.vDisplayArea) {
       io.vga.videoOn := True
     } otherwise {
       io.vga.videoOn := False
     }
 
+    // Counter calculation
     when (hEnd) {
       hCounter.clearAll()
       when (vEnd) {
@@ -66,20 +72,3 @@ class VGAControl(config : VGAConfig) extends Component{
 
   }
 }
-
-
-/*
-import spinal.core._
-import spinal.core.sim._
-import spinal.sim._
-import vga._
-
-object VGATestSim {
-  def main(args: Array[String]): Unit = {
-    SimConfig.allOptimisation.compile(new VGAControl(new VGAConfig())).doSimUntilVoid{
-      dut =>
-        dut.clockDomain.forkStimulus(10)
-    }
-  }
-}
-*/

@@ -28,6 +28,18 @@ object VivadoFlow {
 
   val isWindows = System.getProperty("os.name").toLowerCase().contains("win")
 
+
+  //vivadoPath = path to the Vivado binarys
+  //workspacePath = path to the temporary Workspace. Attention the folder is deleted before every run
+  //family = FPGA family, for example Artix 7
+  //device = the model number of the FPGA
+  //frequencyTarget = at which frequency the design runs
+  //processorCount = not used yet
+  //constraintPath = path to the constraint file. When no constraint file exists a standard constraint file will be made
+  //mmcm = if true a mmcm with the frequencyTarget will be generatet. A blackbox for the mmcm is in the package spinal.lib.eda.xilinx
+  //writeBitstream = if true a Bitstream file will be written
+  //mergedPath = this is for when you use a black box with load a vhdl or verilog file
+  //optimize = it has three options standard is the default option, speed is for max frequency and area is for small area
   def apply(vivadoPath : String,workspacePath : String,toplevelPath : String,family : String,device : String,frequencyTarget : HertzNumber = null,processorCount : Int = 1, constraintPath : String = null, mmcm : Boolean = false, writeBitstream : Boolean = false, mergedPath : String = null, optimize : String = "standard") : Report = {
     val projectName = toplevelPath.split("/").last.split("[.]").head
     val targetPeriod = (if (frequencyTarget != null) frequencyTarget else 400 MHz).toTime

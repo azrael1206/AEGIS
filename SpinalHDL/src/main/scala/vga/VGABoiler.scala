@@ -1,21 +1,20 @@
 package vga
 
 import spinal.core._
-import spinal.lib._
 
 class VGABoiler extends Component{
   val io = new Bundle {
     val sw = in Bits(3 bit)
-    //val vga = master(VGAInterface(new VGAConfig()))
     val hSync = out Bool
     val vSync = out Bool
     val rgb = out Bits(3 bit)
     val clk = in Bool
     val reset = in Bool
   }
-
+  // Has to be this way, cause frequency for 720p is weird
   val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(148.5 MHz))
 
+  // The rest is just for testing purposes
   val pll = new PLL()
   pll.io.clkIn := io.clk
 
