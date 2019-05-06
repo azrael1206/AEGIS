@@ -22,7 +22,7 @@ class VGABoiler extends Component{
   vgaClockDomain.reset := io.reset & !pll.io.isLocked
 
   val clkArea = new ClockingArea(vgaClockDomain) {
-    val vga = new VGAControl(new VGAConfig())
+    val vga = new VGAControl(VGAConfig.setAs_1920_1080_60)
 
 
     vga.io.vga.hSync <> io.hSync
@@ -40,9 +40,8 @@ class VGABoiler extends Component{
 object VGABoiler {
   def main(args: Array[String]) {
     //targetDirectory="gen/src/vhdl"
-    new SpinalConfig(
-      defaultClockDomainFrequency = FixedFrequency(148.5 MHz)
-    ).generateVhdl(new VGABoiler())
+
+    SpinalVhdl(new VGABoiler())
 
     val temp = VivadoFlow(
       vivadoPath = "/opt/Xilinx/Vivado/2017.3/bin",
