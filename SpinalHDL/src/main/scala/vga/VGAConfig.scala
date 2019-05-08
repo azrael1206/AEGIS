@@ -14,7 +14,7 @@ case class VGAConfig(hDisplayArea : Int,
                      freq: HertzNumber,
                      colorR : Int,
                      colorG : Int,
-                     colorB : Int,)
+                     colorB : Int)
 
 object VGAConfig {
   def setAs_640_480_60 : VGAConfig = VGAConfig(

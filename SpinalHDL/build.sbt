@@ -10,7 +10,8 @@ lazy val root = (project in file(".")).
       "com.github.spinalhdl" % "spinalhdl-core_2.11" % "latest.release",
       "com.github.spinalhdl" % "spinalhdl-lib_2.11" % "latest.release",
       "org.scalatest" % "scalatest_2.11" % "2.2.1",
-      "org.yaml" % "snakeyaml" % "1.8"
+      "org.yaml" % "snakeyaml" % "1.8",
+      "org.scalafx" %% "scalafx" % "8.0.144-R12"
     ),
     name := "AEGIS"
   )//.dependsOn(spinalHdlSim,spinalHdlCore,spinalHdlLib)
