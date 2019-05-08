@@ -14,7 +14,7 @@ case class VGAConfig(hDisplayArea : Int,
                      freq: HertzNumber,
                      colorR : Int,
                      colorG : Int,
-                     colorB : Int,)
+                     colorB : Int)
 
 object VGAConfig {
   def setAs_640_480_60 : VGAConfig = VGAConfig(
@@ -92,6 +92,19 @@ case class VGAInterface(config : VGAConfig) extends Bundle with IMasterSlave{
 
   def asMaster(): Unit = {
     out (hSync, vSync, videoOn, pixelX, pixelY)
+  }
+
+}
+
+case class VGAInterfaceOut(config : VGAConfig) extends Bundle with IMasterSlave{
+
+
+  val hSync = Bool
+  val vSync = Bool
+  val rgb = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
+
+  def asMaster(): Unit = {
+    out (hSync, vSync, rgb)
   }
 
 }

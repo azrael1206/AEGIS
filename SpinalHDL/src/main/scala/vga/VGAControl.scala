@@ -13,10 +13,10 @@ class VGAControl(config : VGAConfig) extends Component{
 
     val hEnd = Bool
     val vEnd = Bool
-    val hCounter = Reg(UInt(log2Up(config.hDisplayArea + config.hBackPorch + config.hFrontPorch + config.hRetrace - 1) bits))
-    val vCounter = Reg(UInt(log2Up(config.vDisplayArea + config.vBackPorch + config.vFrontPorch + config.vRetrace - 1) bits))
-    val vSync = Reg(Bool)
-    val hSync = Reg(Bool)
+    val hCounter = Reg(UInt(log2Up(config.hDisplayArea + config.hBackPorch + config.hFrontPorch + config.hRetrace - 1) bits)) init 0
+    val vCounter = Reg(UInt(log2Up(config.vDisplayArea + config.vBackPorch + config.vFrontPorch + config.vRetrace - 1) bits)) init 0
+    val vSync = Reg(Bool) init False
+    val hSync = Reg(Bool) init False
 
     io.vga.vSync := vSync
     io.vga.hSync := hSync
@@ -39,16 +39,16 @@ class VGAControl(config : VGAConfig) extends Component{
 
     // Only set hsync when one is in the retrace/sync of a line
     when (hCounter >= (config.hDisplayArea + config.hFrontPorch) & hCounter <= (config.hDisplayArea + config.hFrontPorch + config.hRetrace - 1)) {
-      hSync := True
-    } otherwise {
       hSync := False
+    } otherwise {
+      hSync := True
     }
 
     // Only set vsync when one is in the retrace/sync of a frame
     when (vCounter >= (config.vDisplayArea + config.vFrontPorch) & vCounter <= (config.vDisplayArea + config.vFrontPorch + config.vRetrace - 1)) {
-      vSync := True
-    } otherwise {
       vSync := False
+    } otherwise {
+      vSync := True
     }
 
     // Only read from the buffer when one draw the image
