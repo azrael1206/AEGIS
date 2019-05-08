@@ -2,6 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+> This is the simulation branch of this repository, use it only for this purpose
+
 AEGIS is the implementation of an embedded GPU in SpinalHDL.
 As this project is still under heavy development use it with caution.
 
