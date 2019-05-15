@@ -18,7 +18,7 @@ Planned are:
 
 - [x] Video output
 - [ ] Framebuffer
-- [ ] Bus to a CPU
+- [ ] Bus to a CPU (RISC V, VexRiscv?)
 - [ ] Blitter
 - [ ] Line drawing through the Bresenham Algorithm
 

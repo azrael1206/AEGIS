@@ -20,4 +20,6 @@
 **/_minted*
 **/flow
 **/gen
+**/build
+**/*.pdf
 
