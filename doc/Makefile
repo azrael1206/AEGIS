@@ -1,4 +1,4 @@
-FILE		= './src/main'
+FILE		= './main'
 JOBNAME 	= 'Paper'
 OUTPUT_FILE = 'Paper'
 
