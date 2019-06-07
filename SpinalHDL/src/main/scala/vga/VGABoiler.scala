@@ -31,6 +31,7 @@ class VGABoiler(config : VGAConfig) extends Component{
     val bresham = new BreshamLine(config)
     val breshamCircle = new BreshamCircle(config)
 
+
     vga.io.vga.hSync <> io.hSync
     vga.io.vga.vSync <> io.vSync
     /*bresham.io.colorIn(0) := io.sw(0).asBits
@@ -41,8 +42,8 @@ class VGABoiler(config : VGAConfig) extends Component{
     bresham.io.coord1(1) := 0
     bresham.io.coord2(0) := U"d640"
     bresham.io.coord2(1) := U"d480"*/
-    breshamCircle.io.coord(0) := U"d320"
-    breshamCircle.io.coord(1) := U"d50"
+    breshamCircle.io.coord(0) := U"d615"
+    breshamCircle.io.coord(1) := U"d455"
     breshamCircle.io.r := U"d100"
     breshamCircle.io.start := True
     io.rgb := vga.io.vga.rgb(2) ## vga.io.vga.rgb(1) ## vga.io.vga.rgb(0)
@@ -50,7 +51,8 @@ class VGABoiler(config : VGAConfig) extends Component{
     vga.io.wData(0) := io.sw(0).asBits
     vga.io.wData(1) := io.sw(1).asBits
     vga.io.wData(2) := io.sw(2).asBits
-    vga.io.wAddress := (breshamCircle.io.address(1) ## breshamCircle.io.address(0)).asUInt
+    //Abfagen das er über die Grenzen geht
+    vga.io.wAddress := (breshamCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
 
   }
 
