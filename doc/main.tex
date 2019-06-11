@@ -87,8 +87,6 @@
 \renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
 
 \usepackage{titlesec} % Allows customization of titles
-%\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
-%\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
 \titleformat{\section}[block]{\Large\scshape}{\thesection.}{1em}{} % Change the look of the section titles
 \titleformat{\subsection}[block]{\large\scshape}{\thesubsection.}{1em}{} % Change the look of the section titles
 
@@ -115,7 +113,7 @@
 \title{An Architecture for Embedded Graphical Interfaces} % Article title
 
 \author{%
-	\textsc{Brendan Christy} \and \textsc{Ingo Braun} \\[1ex]
+	\textsc{Brendan Christy} \and \textsc{Ingo Braun} \and\\[-2ex]
 	\vspace{1pt} \footnotesize Department of Computer Science, University of Applied Sciences RheinMain, Germany \\ 
 	\vspace{1pt} \footnotesize \texttt{\{brendan.b.christy, ingo.braun\}@student.hs-rm.de}
 }
@@ -124,7 +122,7 @@
 
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-		\noindent Some Text
+		\noindent \blindtext
 	\end{abstract}
 }
 
@@ -138,7 +136,24 @@
 	%----------------------------------------------------------------------------------------
 	%	ARTICLE CONTENTS
 	%----------------------------------------------------------------------------------------
+	\section{Introduction}
 	
+	\section{Prerequisites}
+	
+	\subsection{GPU}
+	\input{src/pre_gpu}
+	
+	\subsection{Bresenham Algorithm}
+	\input{src/pre_bresenham}
+	
+	\subsection{Bit Blitter}
+	\input{src/pre_blit}
+	
+	\section{Implementation}
+	
+	\section{Conclusion}
+	
+	\section{Future Work}
 	
 	\printbibliography
 	
