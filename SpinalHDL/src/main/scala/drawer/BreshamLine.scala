@@ -9,11 +9,10 @@ class BreshamLine(config : VGAConfig) extends Component{
   val io = new Bundle {
       val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
       val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
-      val colorIn = in Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
       val start = in Bool
       val ready = out Bool
       val address = out Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
-      //val colorOut = out Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
+      val setPixel = out Bool
   }
 
   val dx = Reg(SInt(1 + log2Up(config.hDisplayArea) bits)) init 0
@@ -35,16 +34,12 @@ class BreshamLine(config : VGAConfig) extends Component{
   io.ready := True
   io.address(0) := x
   io.address(1) := y
-  //io.colorIn(0) := io.colorOut(2)
-  //io.colorIn(1) := io.colorOut(1)
-  //io.colorIn(2) := io.colorOut(0)
-  //io.colorOut(0).clearAll()
-  //io.colorOut(1).clearAll()
-  //io.colorOut(2).clearAll()
   downTemp.clear()
   rightTemp.clear()
   e2.clearAll()
   errTemp.clearAll()
+  io.setPixel := False
+
   val breshamSM = new StateMachine {
     val idle = new State with EntryPoint
     val calc = new State
@@ -53,7 +48,6 @@ class BreshamLine(config : VGAConfig) extends Component{
 
     idle.whenIsActive{
       when(io.start) {
-        io.ready := False
         dx := (io.coord2(0).asSInt - io.coord1(0).asSInt).resized
         dy := (io.coord2(1).asSInt - io.coord1(1).asSInt).resized
         x := io.coord1(0).resized
@@ -65,6 +59,7 @@ class BreshamLine(config : VGAConfig) extends Component{
     }
 
     calc.whenIsActive{
+      io.ready := False
       rightTemp := (dx > 0)
       downTemp := (dy > 0)
 
@@ -80,11 +75,13 @@ class BreshamLine(config : VGAConfig) extends Component{
     }
 
     calc2.whenIsActive{
+      io.ready := False
       err := (dx + dy).resized
       goto(running)
     }
 
     running.whenIsActive{
+      io.setPixel:= True
       io.ready := False
 
       when (x === x2 & y === y2) {

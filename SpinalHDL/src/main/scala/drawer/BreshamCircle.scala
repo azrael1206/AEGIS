@@ -20,11 +20,10 @@ class BreshamCircle (config : VGAConfig) extends Component{
   val y = Reg(SInt(2 + log2Up(config.vDisplayArea) bits)) init 0
   val err = Reg(SInt(2 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)) init 0
   val rTemp = Reg(SInt(2 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)) init 0
-
-
-
-  xTemp.clearAll()
-  yTemp.clearAll()
+  val x1 = Reg(UInt(1 + log2Up(config.hDisplayArea) bits)) init 0
+  val y1 = Reg(UInt(1 + log2Up(config.vDisplayArea) bits)) init 0
+  io.address(0).clearAll()
+  io.address(1).clearAll()
   io.ready := True
   io.setPixel := False
   val BreshamCircSM = new StateMachine {
@@ -39,6 +38,8 @@ class BreshamCircle (config : VGAConfig) extends Component{
 
     idle.whenIsActive{
       when (io.start) {
+        x1 := io.coord(0)
+        y1 := io.coord(1)
         x := (- io.r.asSInt).resized
         y := 0
         err := (2 - (io.r << 1).asSInt).resized
@@ -49,32 +50,32 @@ class BreshamCircle (config : VGAConfig) extends Component{
     setPixel1.whenIsActive{
       io.ready := False
       io.setPixel := True
-      io.address(0)  := (io.coord(0).asSInt - x).asUInt.resized
-      io.address(1) := (io.coord(1).asSInt + y).asUInt.resized
+      io.address(0)  := (x1.asSInt - x).asUInt.resized
+      io.address(1) := (y1.asSInt + y).asUInt.resized
       goto(setPixel2)
     }
 
     setPixel2.whenIsActive{
       io.ready := False
       io.setPixel := True
-      io.address(0) := (io.coord(0).asSInt - y).asUInt.resized
-      io.address(1):= (io.coord(1).asSInt - x).asUInt.resized
+      io.address(0) := (x1.asSInt - y).asUInt.resized
+      io.address(1):= (y1.asSInt - x).asUInt.resized
       goto(setPixel3)
     }
 
     setPixel3.whenIsActive{
       io.ready := False
       io.setPixel := True
-      io.address(0)  := (io.coord(0).asSInt + x).asUInt.resized
-      io.address(1) := (io.coord(1).asSInt - y).asUInt.resized
+      io.address(0)  := (x1.asSInt + x).asUInt.resized
+      io.address(1) := (y1.asSInt - y).asUInt.resized
       goto(setPixel4)
     }
 
     setPixel4.whenIsActive{
       io.ready := False
       io.setPixel := True
-      io.address(0)  := (io.coord(0).asSInt + y).asUInt.resized
-      io.address(1) := (io.coord(1).asSInt + x).asUInt.resized
+      io.address(0)  := (x1.asSInt + y).asUInt.resized
+      io.address(1) := (y1.asSInt + x).asUInt.resized
       goto(calcEnd)
     }
 

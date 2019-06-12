@@ -25,7 +25,7 @@ case class Buffer(config : VGAConfig) extends Component{
   }
 
 
-  val buffer = Mem(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits)), vAreaTemp * hAreaTemp)
+  val buffer = Mem(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits)), 2 * (vAreaTemp * hAreaTemp))
 
   buffer.write(io.interface.wAddress, io.interface.wData, io.interface.wValid)
   io.interface.rData := buffer.readSync(io.interface.rAddress, io.interface.rValid)
