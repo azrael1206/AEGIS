@@ -7,8 +7,8 @@ import vga._
 class BreshamLine(config : VGAConfig) extends Component{
 
   val io = new Bundle {
-      val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
-      val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
+      val coord1 = in Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
+      val coord2 = in Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
       val start = in Bool
       val ready = out Bool
       val address = out Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
