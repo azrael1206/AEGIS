@@ -7,8 +7,8 @@ import vga.VGAConfig
 class BreshamCircle (config : VGAConfig) extends Component{
 
   val io = new Bundle {
-    val coord = in Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
-    val r = in UInt(log2Up(config.hDisplayArea) bits)
+    val coord = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
+    val r = in UInt(1 + log2Up(config.hDisplayArea) bits)
     val start = in Bool
     val ready = out Bool
     val setPixel = out Bool
@@ -38,8 +38,8 @@ class BreshamCircle (config : VGAConfig) extends Component{
 
     idle.whenIsActive{
       when (io.start) {
-        x1 := io.coord(0).resized
-        y1 := io.coord(1).resized
+        x1 := io.coord(0)
+        y1 := io.coord(1)
         x := (- io.r.asSInt).resized
         y := 0
         err := (2 - (io.r << 1).asSInt).resized

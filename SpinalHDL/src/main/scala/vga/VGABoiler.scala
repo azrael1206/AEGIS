@@ -13,6 +13,11 @@ class VGABoiler(config : VGAConfig) extends Component{
     val rgb = out Bits(3 bit)
     val clk = in Bool
     val reset = in Bool
+    val a1 = in Bool
+    val b1 = in Bool
+    //val a2 = in Bool
+    //val b2 = in Bool
+
   }
   //noIoPrefix()
   // Has to be this way, cause frequency for 720p is weird
@@ -37,6 +42,27 @@ class VGABoiler(config : VGAConfig) extends Component{
     val bally = Reg(UInt(log2Up(480) bits)) init 240
     val x = Reg(SInt(3 bits)) init 2
     val y = Reg(SInt(3 bits)) init 1
+    val playerOne = RotaryEncoder()
+    val paddlePlayerOne = Reg(UInt(log2Up(480) bits)) init 240
+    val paddleOneHit = Reg(Bool) init False
+
+    playerOne.io.a := io.a1
+    playerOne.io.b := io.b1
+
+    when(playerOne.io.event & playerOne.io.left) {
+      when (paddlePlayerOne -10 -4 <= 0) {
+        paddlePlayerOne := U"d10"
+      } otherwise {
+        paddlePlayerOne := paddlePlayerOne - 4
+      }
+    } elsewhen (playerOne.io.event & !playerOne.io.left) {
+      when (paddlePlayerOne + 10 + 4 >= 480) {
+        paddlePlayerOne := U"d470"
+      } otherwise {
+        paddlePlayerOne := paddlePlayerOne + 4
+      }
+    }
+
 
     vga.io.vga.hSync <> io.hSync
     vga.io.vga.vSync <> io.vSync
@@ -208,9 +234,9 @@ class VGABoiler(config : VGAConfig) extends Component{
         vga.io.wData(2).clearAll()
         when(breshamCircle.io.ready) {
           fill.io.coord1(0) := U"d15"
-          fill.io.coord1(1) := bally - U"d10"
+          fill.io.coord1(1) :=paddlePlayerOne - U"d10"
           fill.io.coord2(0) := U"d18"
-          fill.io.coord2(1) := bally + U"d10"
+          fill.io.coord2(1) := paddlePlayerOne + U"d10"
           fill.io.start := True
           goto(leftPadle)
         }
@@ -248,7 +274,7 @@ class VGABoiler(config : VGAConfig) extends Component{
           when (!vga.io.vga.vSync) {
             ballx := (ballx.asSInt + x).asUInt
             bally := (bally.asSInt + y).asUInt
-            when(ballx === 622 || ballx === 18) {
+            when(ballx === 622 || paddleOneHit || ballx === 10) {
               x := -x
               ballx := (ballx.asSInt + (-x)).asUInt
             }
@@ -261,6 +287,12 @@ class VGABoiler(config : VGAConfig) extends Component{
           }
       }
 
+    }
+
+    when (ballx === 18 & bally >= paddlePlayerOne -10 & bally <= paddlePlayerOne + 10) {
+      paddleOneHit := True
+    } otherwise {
+      paddleOneHit := False
     }
 
     io.rgb := vga.io.vga.rgb(2) ## vga.io.vga.rgb(1) ## vga.io.vga.rgb(0)
@@ -279,7 +311,7 @@ object VGABoiler {
       workspacePath = "./flow/",
       toplevelPath = "VGABoiler.vhd",
       family = "Artix 7", device = "xc7a100tcsg324-1",
-      frequencyTarget = 100.7 MHz,
+      frequencyTarget = 100 MHz,
       constraintPath = "NEXYS4DDR.xdc",
       mmcm = true,
       writeBitstream = true)
