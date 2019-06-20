@@ -122,7 +122,13 @@
 
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-		\noindent \blindtext
+		\noindent With Project AEGIS we propose an open-source hardware based graphics accelerator for embedded systems, specifically for the VexRiscv by Charles Papon. 
+		Like the VexRiscv, Project AEGIS will be written in SpinalHDL, a high level synthesis library for Scala, which simplifies 
+		the process of creating your own hardware, as one can use the full featureset of Scala. During the project we will be able to
+		rasterize lines and circles, bliting bit graphics, and will have a core for various arithmetic operations.
+		The creation of an open-source hardware based graphics accelerator has several reasons. One key factor is to have hardware sovereignity, meaning to become independent form
+		hardware manufacturers. Additionaly it is also important to learn how GPUs work, since not much of the inner workings is publicised. Lastly certain
+		embedded systems have the need of displaying data. This can be done with Project AEGIS.
 	\end{abstract}
 }
 
@@ -137,6 +143,7 @@
 	%	ARTICLE CONTENTS
 	%----------------------------------------------------------------------------------------
 	\section{Introduction}
+	\input{src/intro}
 	
 	\section{Prerequisites}
 	
@@ -149,7 +156,14 @@
 	\subsection{Bit Blitter}
 	\input{src/pre_blit}
 	
-	\section{Implementation}
+	\section{Design and Implementation}
+	\subsection{VGA and Framebuffer}
+	
+	\subsection{Bresenham Line and Circle}
+	
+	\subsection{AEGIS Core}
+	\input{src/desimpl_core}
+	
 	
 	\section{Conclusion}
 	

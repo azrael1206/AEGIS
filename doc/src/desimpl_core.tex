@@ -1,0 +1,16 @@
+\subsubsection*{Design}
+
+\begin{figure}[H]
+	\caption{Graphical Design of the AEGIS Core}
+	\centering
+	\includegraphics[width=0.5\textwidth]{pre_coredesign}
+	\label{img:coredes}
+\end{figure}
+
+\begin{itemize}
+	\item As seen in \cref{img:coredes} The core will consist of memory, an ALU combined with the Blitter, and several smaller cores.
+	\item The memory is split up into two major parts. The first consists of the double frame buffer, keeping track of the information needed to draw a frame, while the second part is the object memory for the Blitter.
+	\item As the functions of the Blitter correlate with the functions of an ALU, we decided to merge them into one. The ALU/Blitter is the only part of the core that is allowed to read and write to the memory.
+	\item The smaller cores consist of the graphical functions. These are the two variations of the Bresenham Algorithm, and the function of filling a rectangle.
+	\item 
+\end{itemize}
