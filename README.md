@@ -17,8 +17,9 @@ As of now the only two features are a VGA output @ 720p with 60Hz and the beginn
 Planned are:
 
 - [x] Video output
-- [ ] Framebuffer
-- [ ] Bus to a CPU (RISC V, VexRiscv?)
+- [x] Framebuffer (Double-Buffering)
+- [ ] Bus to a CPU (RISC V, VexRiscv)
 - [ ] Blitter
-- [ ] Line drawing through the Bresenham Algorithm
-
+- [x] Line drawing through the Bresenham Algorithm
+- [x] Circle drawing through the Bresenham Algorithm
+- [ ] Ellipse drawing through the Bresenham Algorithm
