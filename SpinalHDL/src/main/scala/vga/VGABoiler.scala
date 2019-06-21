@@ -11,17 +11,19 @@ class VGABoiler(config : VGAConfig) extends Component{
     val hSync = out Bool
     val vSync = out Bool
     val rgb = out Bits(3 bit)
+    val videoOn = out Bool
     val clk = in Bool
     val reset = in Bool
     val a1 = in Bool
     val b1 = in Bool
-    //val a2 = in Bool
-    //val b2 = in Bool
+    val a2 = in Bool
+    val b2 = in Bool
+    val vgaClock = out Bool
 
   }
   //noIoPrefix()
   // Has to be this way, cause frequency for 720p is weird
-  val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(100.7 MHz))
+  val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(50 MHz))
 
   // The rest is just for testing purposes
   //val pll = new PLL()
@@ -37,7 +39,6 @@ class VGABoiler(config : VGAConfig) extends Component{
     val bresham = new BreshamLine(config)
     val breshamCircle = new BreshamCircle(config)
     val fill = new FillRetancle(config)
-    val counter = Reg(UInt(log2Up (100000000) bits)) init 0
     val ballx = Reg(UInt(log2Up(640) bits)) init 60
     val bally = Reg(UInt(log2Up(480) bits)) init 240
     val x = Reg(SInt(3 bits)) init 2
@@ -46,26 +47,47 @@ class VGABoiler(config : VGAConfig) extends Component{
     val paddlePlayerOne = Reg(UInt(log2Up(480) bits)) init 240
     val paddleOneHit = Reg(Bool) init False
 
+    val playerTwo = RotaryEncoder()
+    val paddlePlayerTwo = Reg(UInt(log2Up(480) bits)) init 240
+    val paddleTwoHit = Reg(Bool) init False
+
     playerOne.io.a := io.a1
     playerOne.io.b := io.b1
+    playerTwo.io.a := io.a2
+    playerTwo.io.b := io.b2
+
 
     when(playerOne.io.event & playerOne.io.left) {
-      when (paddlePlayerOne -10 -4 <= 0) {
+      when (((U"0" ## paddlePlayerOne).asSInt - 15 - 10) <= 0) {
         paddlePlayerOne := U"d10"
       } otherwise {
-        paddlePlayerOne := paddlePlayerOne - 4
+        paddlePlayerOne := paddlePlayerOne - 10
       }
     } elsewhen (playerOne.io.event & !playerOne.io.left) {
-      when (paddlePlayerOne + 10 + 4 >= 480) {
+      when (paddlePlayerOne + 15 + 10 >= 480) {
         paddlePlayerOne := U"d470"
       } otherwise {
-        paddlePlayerOne := paddlePlayerOne + 4
+        paddlePlayerOne := paddlePlayerOne + 10
       }
     }
 
+    when(playerTwo.io.event & playerTwo.io.left) {
+      when (((U"0" ## paddlePlayerTwo).asSInt - 15 - 10) <= 0) {
+        paddlePlayerTwo := U"d10"
+      } otherwise {
+        paddlePlayerTwo := paddlePlayerTwo - 10
+      }
+    } elsewhen (playerTwo.io.event & !playerTwo.io.left) {
+      when (paddlePlayerTwo + 15 + 10 >= 480) {
+        paddlePlayerTwo := U"d470"
+      } otherwise {
+        paddlePlayerTwo := paddlePlayerTwo + 10
+      }
+    }
 
     vga.io.vga.hSync <> io.hSync
     vga.io.vga.vSync <> io.vSync
+    vga.io.vga.videoOn <> io.videoOn
 
     fill.io.start := False
     fill.io.coord1(0).clearAll()
@@ -205,7 +227,7 @@ class VGABoiler(config : VGAConfig) extends Component{
         when (bresham.io.ready) {
           breshamCircle.io.coord(0) := U"d310"
           breshamCircle.io.coord(1) := U"d230"
-          breshamCircle.io.r := U"d10"
+          breshamCircle.io.r := U"d30"
           breshamCircle.io.start := True
           goto(kreisMittellinie)
         }
@@ -234,9 +256,9 @@ class VGABoiler(config : VGAConfig) extends Component{
         vga.io.wData(2).clearAll()
         when(breshamCircle.io.ready) {
           fill.io.coord1(0) := U"d15"
-          fill.io.coord1(1) :=paddlePlayerOne - U"d10"
+          fill.io.coord1(1) :=paddlePlayerOne - U"d15"
           fill.io.coord2(0) := U"d18"
-          fill.io.coord2(1) := paddlePlayerOne + U"d10"
+          fill.io.coord2(1) := paddlePlayerOne + U"d15"
           fill.io.start := True
           goto(leftPadle)
         }
@@ -250,9 +272,9 @@ class VGABoiler(config : VGAConfig) extends Component{
         vga.io.wData(2) := 0
           when(fill.io.ready) {
             fill.io.coord1(0) := U"d622"
-            fill.io.coord1(1) := bally - U"d10"
+            fill.io.coord1(1) := paddlePlayerTwo - U"d15"
             fill.io.coord2(0) := U"d625"
-            fill.io.coord2(1) := bally + U"d10"
+            fill.io.coord2(1) := paddlePlayerTwo + U"d15"
             fill.io.start := True
             goto(rightPadle)
           }
@@ -274,7 +296,7 @@ class VGABoiler(config : VGAConfig) extends Component{
           when (!vga.io.vga.vSync) {
             ballx := (ballx.asSInt + x).asUInt
             bally := (bally.asSInt + y).asUInt
-            when(ballx === 622 || paddleOneHit || ballx === 10) {
+            when(ballx === 630 || paddleOneHit || ballx === 10 || paddleTwoHit) {
               x := -x
               ballx := (ballx.asSInt + (-x)).asUInt
             }
@@ -289,14 +311,30 @@ class VGABoiler(config : VGAConfig) extends Component{
 
     }
 
-    when (ballx === 18 & bally >= paddlePlayerOne -10 & bally <= paddlePlayerOne + 10) {
+    when (ballx === 18 & bally >= paddlePlayerOne -15 & bally <= paddlePlayerOne + 15) {
       paddleOneHit := True
     } otherwise {
       paddleOneHit := False
     }
 
+    when (ballx === 622 & bally >= paddlePlayerTwo -15 & bally <= paddlePlayerTwo + 15) {
+      paddleTwoHit := True
+    } otherwise {
+      paddleTwoHit := False
+    }
+
     io.rgb := vga.io.vga.rgb(2) ## vga.io.vga.rgb(1) ## vga.io.vga.rgb(0)
+
+    var vgaClock = new SlowArea(50 MHz) {
+      var clock = Reg(Bool) init False
+      io.vgaClock := clock
+      clock := !clock
+    }
+
   }
+
+
+
 
 }
 
@@ -305,7 +343,7 @@ object VGABoiler {
     //targetDirectory="gen/src/vhdl"
 
     SpinalVhdl(new VGABoiler(VGAConfig.setAs_640_480_60))
-
+/*
     val temp = VivadoFlow(
       vivadoPath = "/opt/Xilinx/Vivado/2017.3/bin",
       workspacePath = "./flow/",
@@ -319,6 +357,6 @@ object VGABoiler {
     println(temp.getArea())
     println(temp.getFMax())
 
-
+*/
   }
 }

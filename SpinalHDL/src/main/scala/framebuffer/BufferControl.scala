@@ -19,6 +19,7 @@ class BufferControl(config : VGAConfig) extends Component{
   val buffer = Buffer(config)
   val hSyncDelay = Reg(Bool) init False
   val vSyncDelay = Reg(Bool) init False
+  val videoOn = Reg(Bool) init False
   val switchBuffer = Reg(Bool) init False
 
   when(io.switch) {
@@ -27,6 +28,7 @@ class BufferControl(config : VGAConfig) extends Component{
 
   io.vga.vSync := vSyncDelay
   io.vga.hSync := hSyncDelay
+  io.vga.videoOn := videoOn
   when (vga.io.vga.videoOn) {
     io.vga.rgb := buffer.io.interface.rData
   } otherwise {
@@ -36,6 +38,7 @@ class BufferControl(config : VGAConfig) extends Component{
   }
   vSyncDelay := vga.io.vga.vSync
   hSyncDelay := vga.io.vga.hSync
+  videoOn := vga.io.vga.videoOn
 
   buffer.io.interface.rValid := vga.io.vga.videoOn
   buffer.io.interface.rAddress := (switchBuffer.asBits ## (vga.io.vga.pixelY ## vga.io.vga.pixelX).resize(19)).asUInt.resized

@@ -1,0 +1,41 @@
+
+State Machine - |VGA_Demo|VGABoiler:vga_c|clkArea_demo_stateReg
+Name clkArea_demo_stateReg.clkArea_demo_rightPadle clkArea_demo_stateReg.clkArea_demo_leftPadle clkArea_demo_stateReg.clkArea_demo_ball clkArea_demo_stateReg.clkArea_demo_wait2Redraw clkArea_demo_stateReg.clkArea_demo_kreisMittellinie clkArea_demo_stateReg.clkArea_demo_mittelLinie clkArea_demo_stateReg.clkArea_demo_rechteSeitenlinie clkArea_demo_stateReg.clkArea_demo_untereSeitenlinie clkArea_demo_stateReg.clkArea_demo_linkeSeitenlinie clkArea_demo_stateReg.clkArea_demo_obereSeitenlinie clkArea_demo_stateReg.clkArea_demo_spielfeld clkArea_demo_stateReg.clkArea_demo_idle clkArea_demo_stateReg.boot 
+clkArea_demo_stateReg.boot 0 0 0 0 0 0 0 0 0 0 0 0 0 
+clkArea_demo_stateReg.clkArea_demo_idle 0 0 0 0 0 0 0 0 0 0 0 1 1 
+clkArea_demo_stateReg.clkArea_demo_spielfeld 0 0 0 0 0 0 0 0 0 0 1 0 1 
+clkArea_demo_stateReg.clkArea_demo_obereSeitenlinie 0 0 0 0 0 0 0 0 0 1 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_linkeSeitenlinie 0 0 0 0 0 0 0 0 1 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_untereSeitenlinie 0 0 0 0 0 0 0 1 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_rechteSeitenlinie 0 0 0 0 0 0 1 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_mittelLinie 0 0 0 0 0 1 0 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_kreisMittellinie 0 0 0 0 1 0 0 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_wait2Redraw 0 0 0 1 0 0 0 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_ball 0 0 1 0 0 0 0 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_leftPadle 0 1 0 0 0 0 0 0 0 0 0 0 1 
+clkArea_demo_stateReg.clkArea_demo_rightPadle 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|fill_stateReg
+Name fill_stateReg.fill_fill fill_stateReg.fill_idle fill_stateReg.boot 
+fill_stateReg.boot 0 0 0 
+fill_stateReg.fill_idle 0 1 1 
+fill_stateReg.fill_fill 1 0 1 
+
+State Machine - |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|BreshamCircSM_stateReg
+Name BreshamCircSM_stateReg.BreshamCircSM_calcEnd2 BreshamCircSM_stateReg.BreshamCircSM_calcEnd BreshamCircSM_stateReg.BreshamCircSM_setPixel4 BreshamCircSM_stateReg.BreshamCircSM_setPixel3 BreshamCircSM_stateReg.BreshamCircSM_setPixel2 BreshamCircSM_stateReg.BreshamCircSM_setPixel1 BreshamCircSM_stateReg.BreshamCircSM_idle BreshamCircSM_stateReg.boot 
+BreshamCircSM_stateReg.boot 0 0 0 0 0 0 0 0 
+BreshamCircSM_stateReg.BreshamCircSM_idle 0 0 0 0 0 0 1 1 
+BreshamCircSM_stateReg.BreshamCircSM_setPixel1 0 0 0 0 0 1 0 1 
+BreshamCircSM_stateReg.BreshamCircSM_setPixel2 0 0 0 0 1 0 0 1 
+BreshamCircSM_stateReg.BreshamCircSM_setPixel3 0 0 0 1 0 0 0 1 
+BreshamCircSM_stateReg.BreshamCircSM_setPixel4 0 0 1 0 0 0 0 1 
+BreshamCircSM_stateReg.BreshamCircSM_calcEnd 0 1 0 0 0 0 0 1 
+BreshamCircSM_stateReg.BreshamCircSM_calcEnd2 1 0 0 0 0 0 0 1 
+
+State Machine - |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|breshamSM_stateReg
+Name breshamSM_stateReg.breshamSM_running breshamSM_stateReg.breshamSM_calc2 breshamSM_stateReg.breshamSM_calc breshamSM_stateReg.breshamSM_idle breshamSM_stateReg.boot 
+breshamSM_stateReg.boot 0 0 0 0 0 
+breshamSM_stateReg.breshamSM_idle 0 0 0 1 1 
+breshamSM_stateReg.breshamSM_calc 0 0 1 0 1 
+breshamSM_stateReg.breshamSM_calc2 0 1 0 0 1 
+breshamSM_stateReg.breshamSM_running 1 0 0 0 1 

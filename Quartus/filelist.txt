@@ -1,0 +1,4 @@
+filelist.txt
+DE1_SOC_golden_top.sdc
+platform_setup.tcl
+devplatforms/15.1.0/DE01_SOC_goldentop/filelist.txt

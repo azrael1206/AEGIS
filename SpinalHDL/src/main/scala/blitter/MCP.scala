@@ -1,6 +1,6 @@
 package blitter
 
-import drawer.{BreshamCircle, BreshamLine, FillRetancle}
+import drawer._
 import framebuffer.BufferControl
 import spinal.core._
 import spinal.lib._

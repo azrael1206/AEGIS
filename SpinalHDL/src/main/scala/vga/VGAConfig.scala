@@ -26,7 +26,7 @@ object VGAConfig {
     vFrontPorch = 10,
     vBackPorch = 33,
     vRetrace = 2,
-    freq = 25.175 MHz,
+    freq = 25 MHz,
     colorR = 1,
     colorG = 1,
     colorB = 1
@@ -102,9 +102,10 @@ case class VGAInterfaceOut(config : VGAConfig) extends Bundle with IMasterSlave{
   val hSync = Bool
   val vSync = Bool
   val rgb = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
+  val videoOn = Bool
 
   def asMaster(): Unit = {
-    out (hSync, vSync, rgb)
+    out (hSync, vSync, rgb, videoOn)
   }
 
 }
