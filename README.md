@@ -8,11 +8,14 @@ As this project is still under heavy development use it with caution.
 ## Requirements
 
 - Scala Build Tool (sbt)
-- Vivado
+- Vivado or Quartus
 
 ## Features
 
-As of now the only two features are a VGA output @ 720p with 60Hz and the beginning of a Framebuffer.
+- VGA up to 720p 60Hz
+- double Framebuffer
+- Line and Cirlce Drawing through the Bresenham Algorithm
+- fill a Retancle
 
 Planned are:
 
@@ -22,4 +25,4 @@ Planned are:
 - [ ] Blitter
 - [x] Line drawing through the Bresenham Algorithm
 - [x] Circle drawing through the Bresenham Algorithm
-- [ ] Ellipse drawing through the Bresenham Algorithm
+- [ ] Ellipse drawing through the Bresenham Algorithm?
