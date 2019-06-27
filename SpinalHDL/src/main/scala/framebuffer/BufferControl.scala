@@ -11,7 +11,8 @@ class BufferControl(config : VGAConfig) extends Component{
     val vga = master(VGAInterfaceOut(config))
     val wValid = in Bool
     val wData = in Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
-    val wAddress = in UInt(log2Up(config.vDisplayArea) + log2Up(config.hDisplayArea) bits)
+    val wAddress = in UInt(1 + log2Up(config.vDisplayArea) + log2Up(config.hDisplayArea) bits)
+    val rData = out Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
     val switch = in Bool
   }
 
@@ -43,6 +44,7 @@ class BufferControl(config : VGAConfig) extends Component{
   buffer.io.interface.rValid := vga.io.vga.videoOn
   buffer.io.interface.rAddress := (switchBuffer.asBits ## (vga.io.vga.pixelY ## vga.io.vga.pixelX).resize(19)).asUInt.resized
   buffer.io.interface.wValid := io.wValid
-  buffer.io.interface.wAddress := ((!switchBuffer).asBits ## io.wAddress).asUInt
+  buffer.io.interface.rwAddress := io.wAddress
   buffer.io.interface.wData := io.wData
+  io.rData := buffer.io.interface.rdata2
 }

@@ -264,7 +264,7 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
       pipelinedMemoryBusConfig = pipelinedMemoryBusConfig
     )
     mainBusMapping += ram.io.bus -> (0x80000000l, onChipRamSize)
-    mainBusMapping += gpu.io.bus -> (0x30000000l, 1 MB)
+    mainBusMapping += gpu.io.axicpu -> (0x30000000l, 1 MB)
 
     val apbBridge = new PipelinedMemoryBusToApbBridge(
       apb3Config = Apb3Config(

@@ -1,4 +1,9 @@
-
+The original Bresenham Algorithms was developed by J. Bresenham in 1965. The target was to build a algorithm to draw a line between to coordinates on a pixel grid. All the other Bresenham Algorithms that exists, for examble to draw a circle are developed by others. In the following section, the Bresenham Line and Circle algorithm were explained.
 \subsubsection*{Line Drawing}
+The original line algorithm from Bresenham uses only addition, substraction and a multiplication with two on integer variable. In a cardesian coordinate system it exist eight variation of a gradient from a line, called octanes. The algorithm uses only one octanes. It archived it by transforming the coordinates.
 
+The first step is to set the start coordinate. After that an error variable is set. The error variable is for the decision, which pixel is set next. Is value of the error variable smaller than zero it goes one step in the x direction, is the value bigger equal to zero it goes one step in the y and one step in the x direction. It ends when the new x any y coordinate equals the end x and y coordinate.
+
+The figure (BEISPIEL WIE BRESENHAM LINIE FUNKTIONIERT) show how the algorithm function. 
 \subsubsection*{Circle Drawing}
+The circle algorithm function are similar to the line algorithm but it has some differences. One difference is, that it has a circle radius and the coordinate of the middle point of the circle. 

@@ -245,6 +245,7 @@ toplevel_vgaClock_clk => vgaArea_hCounter[8].CLK
 toplevel_vgaClock_clk => vgaArea_hCounter[9].CLK
 toplevel_vgaClock_clk => zz_2_regNext.CLK
 toplevel_vgaClock_clk => zz_1[0].CLK
+toplevel_vgaClock_clk => zz_1[1].CLK
 toplevel_vgaClock_reset => vgaArea_hSync.ACLR
 toplevel_vgaClock_reset => vgaArea_vSync.ACLR
 toplevel_vgaClock_reset => vgaArea_vCounter[0].ACLR
@@ -269,6 +270,7 @@ toplevel_vgaClock_reset => vgaArea_hCounter[8].ACLR
 toplevel_vgaClock_reset => vgaArea_hCounter[9].ACLR
 toplevel_vgaClock_reset => zz_2_regNext.ACLR
 toplevel_vgaClock_reset => zz_1[0].ACLR
+toplevel_vgaClock_reset => zz_1[1].ACLR
 
 
 |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2

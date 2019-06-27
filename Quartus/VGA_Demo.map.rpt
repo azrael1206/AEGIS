@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA_Demo
-Fri Jun 21 16:55:01 2019
+Wed Jun 26 13:01:44 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -62,13 +62,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Jun 21 16:55:01 2019       ;
+; Analysis & Synthesis Status     ; Successful - Wed Jun 26 13:01:44 2019       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; VGA_Demo                                    ;
 ; Top-level Entity Name           ; VGA_Demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 258                                         ;
+; Total registers                 ; 259                                         ;
 ; Total pins                      ; 31                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 3,145,728                                   ;
@@ -216,16 +216,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 528                                                                        ;
+; Estimate of Logic utilization (ALMs needed) ; 529                                                                        ;
 ;                                             ;                                                                            ;
-; Combinational ALUT usage for logic          ; 804                                                                        ;
+; Combinational ALUT usage for logic          ; 806                                                                        ;
 ;     -- 7 input functions                    ; 1                                                                          ;
 ;     -- 6 input functions                    ; 243                                                                        ;
 ;     -- 5 input functions                    ; 177                                                                        ;
 ;     -- 4 input functions                    ; 106                                                                        ;
-;     -- <=3 input functions                  ; 277                                                                        ;
+;     -- <=3 input functions                  ; 279                                                                        ;
 ;                                             ;                                                                            ;
-; Dedicated logic registers                   ; 258                                                                        ;
+; Dedicated logic registers                   ; 259                                                                        ;
 ;                                             ;                                                                            ;
 ; I/O pins                                    ; 31                                                                         ;
 ; Total MLAB memory bits                      ; 0                                                                          ;
@@ -237,9 +237,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1                                                                          ;
 ;                                             ;                                                                            ;
 ; Maximum fan-out node                        ; clock:clock_c|clock_0002:clock_inst|altera_pll:altera_pll_i|outclk_wire[0] ;
-; Maximum fan-out                             ; 643                                                                        ;
-; Total fan-out                               ; 16046                                                                      ;
-; Average fan-out                             ; 10.63                                                                      ;
+; Maximum fan-out                             ; 644                                                                        ;
+; Total fan-out                               ; 16052                                                                      ;
+; Average fan-out                             ; 10.62                                                                      ;
 +---------------------------------------------+----------------------------------------------------------------------------+
 
 
@@ -248,17 +248,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                               ; Entity Name     ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |VGA_Demo                                       ; 804 (1)             ; 258 (0)                   ; 3145728           ; 0          ; 31   ; 0            ; |VGA_Demo                                                                                                                                         ; VGA_Demo        ; work         ;
-;    |VGABoiler:vga_c|                            ; 803 (115)           ; 258 (35)                  ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c                                                                                                                         ; VGABoiler       ; work         ;
+; |VGA_Demo                                       ; 806 (1)             ; 259 (0)                   ; 3145728           ; 0          ; 31   ; 0            ; |VGA_Demo                                                                                                                                         ; VGA_Demo        ; work         ;
+;    |VGABoiler:vga_c|                            ; 805 (115)           ; 259 (35)                  ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c                                                                                                                         ; VGABoiler       ; work         ;
 ;       |BreshamCircle:clkArea_breshamCircle|     ; 175 (175)           ; 91 (91)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle                                                                                     ; BreshamCircle   ; work         ;
 ;       |BreshamLine:clkArea_bresham|             ; 173 (173)           ; 72 (72)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham                                                                                             ; BreshamLine     ; work         ;
-;       |BufferControl:clkArea_vga|               ; 298 (4)             ; 34 (4)                    ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga                                                                                               ; BufferControl   ; work         ;
+;       |BufferControl:clkArea_vga|               ; 300 (4)             ; 35 (4)                    ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga                                                                                               ; BufferControl   ; work         ;
 ;          |Buffer_1:buffer_2|                    ; 262 (0)             ; 7 (0)                     ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2                                                                             ; Buffer_1        ; work         ;
 ;             |altsyncram:buffer_2_rtl_0|         ; 262 (0)             ; 7 (0)                     ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2|altsyncram:buffer_2_rtl_0                                                   ; altsyncram      ; work         ;
 ;                |altsyncram_4gq1:auto_generated| ; 262 (0)             ; 7 (7)                     ; 3145728           ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2|altsyncram:buffer_2_rtl_0|altsyncram_4gq1:auto_generated                    ; altsyncram_4gq1 ; work         ;
 ;                   |decode_koa:decode2|          ; 136 (136)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2|altsyncram:buffer_2_rtl_0|altsyncram_4gq1:auto_generated|decode_koa:decode2 ; decode_koa      ; work         ;
 ;                   |mux_vib:mux3|                ; 126 (126)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|Buffer_1:buffer_2|altsyncram:buffer_2_rtl_0|altsyncram_4gq1:auto_generated|mux_vib:mux3       ; mux_vib         ; work         ;
-;          |VGAControl:vga|                       ; 32 (32)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|VGAControl:vga                                                                                ; VGAControl      ; work         ;
+;          |VGAControl:vga|                       ; 34 (34)             ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|BufferControl:clkArea_vga|VGAControl:vga                                                                                ; VGAControl      ; work         ;
 ;       |FillRetancle:clkArea_fill|               ; 42 (42)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill                                                                                               ; FillRetancle    ; work         ;
 ;    |clock:clock_c|                              ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|clock:clock_c                                                                                                                           ; clock           ; clock        ;
 ;       |clock_0002:clock_inst|                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |VGA_Demo|clock:clock_c|clock_0002:clock_inst                                                                                                     ; clock_0002      ; clock        ;
@@ -375,16 +375,16 @@ Encoding Type:  One-Hot
 ; VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|y1[9]           ; Stuck at GND due to stuck port data_in                                                      ;
 ; VGABoiler:vga_c|BreshamLine:clkArea_bresham|x2[0,7]                 ; Stuck at GND due to stuck port data_in                                                      ;
 ; VGABoiler:vga_c|BreshamLine:clkArea_bresham|y2[0,5]                 ; Stuck at GND due to stuck port data_in                                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerTwo[0..2]                       ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerOne[1..3]                       ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerTwo[8]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerTwo[0,1]                        ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
 ; VGABoiler:vga_c|clkArea_paddlePlayerOne[0]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerTwo[2,8]                        ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerOne[1..3]                       ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
 ; VGABoiler:vga_c|clkArea_paddlePlayerTwo[3]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[8]                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerOne[4,5]                        ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerTwo[5..7]                       ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerOne[5]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerTwo[7]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerOne[4]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
+; VGABoiler:vga_c|clkArea_paddlePlayerTwo[4..6]                       ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
 ; VGABoiler:vga_c|clkArea_paddlePlayerOne[6]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
-; VGABoiler:vga_c|clkArea_paddlePlayerTwo[4]                          ; Merged with VGABoiler:vga_c|clkArea_paddlePlayerOne[7]                                      ;
-; VGABoiler:vga_c|BufferControl:clkArea_vga|VGAControl:vga|zz_1[0]    ; Merged with VGABoiler:vga_c|clkArea_vgaClock_clock                                          ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|x1[6,9]                   ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|x1[5]                                 ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|x2[0,5,6]                 ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|x1[5]                                 ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|x2[1]                     ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|x1[0]                                 ;
@@ -402,6 +402,7 @@ Encoding Type:  One-Hot
 ; VGABoiler:vga_c|clkArea_x[1]                                        ; Stuck at VCC due to stuck port data_in                                                      ;
 ; VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|x1[0]           ; Stuck at GND due to stuck port data_in                                                      ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|y2[5..7]                  ; Stuck at VCC due to stuck port data_in                                                      ;
+; VGABoiler:vga_c|BufferControl:clkArea_vga|VGAControl:vga|zz_1[0]    ; Merged with VGABoiler:vga_c|clkArea_vgaClock_clock                                          ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|y2[1..4]                  ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|y2[0]                                 ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|x1[1]                     ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|y2[0]                                 ;
 ; VGABoiler:vga_c|FillRetancle:clkArea_fill|x2[7]                     ; Merged with VGABoiler:vga_c|FillRetancle:clkArea_fill|y2[8]                                 ;
@@ -442,10 +443,10 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 258   ;
+; Total registers                              ; 259   ;
 ; Number of registers using Synchronous Clear  ; 39    ;
 ; Number of registers using Synchronous Load   ; 86    ;
-; Number of registers using Asynchronous Clear ; 227   ;
+; Number of registers using Asynchronous Clear ; 228   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 225   ;
 ; Number of registers using Preset             ; 0     ;
@@ -485,23 +486,23 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|x1[6]   ;
 ; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterY[8]       ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterY[5]       ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|x[8]    ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|y[0]            ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|y[8]            ;
-; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|dy[1]           ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|y[9]    ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|x[0]            ;
-; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|x[2]            ;
-; 5:1                ; 20 bits   ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|err[2]          ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|dx[2]           ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterX[8]       ;
-; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterX[6]       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|err[0]  ;
-; 7:1                ; 19 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|err[18] ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterY[7]       ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|x[7]    ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|y[1]            ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|y[2]            ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 0 LEs                ; 30 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|dy[2]           ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|y[5]    ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|x[7]            ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|x[6]            ;
+; 5:1                ; 20 bits   ; 60 LEs        ; 40 LEs               ; 20 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|err[13]         ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 0 LEs                ; 33 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|dx[5]           ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterX[7]       ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|counterX[5]       ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|err[1]  ;
+; 7:1                ; 19 bits   ; 76 LEs        ; 38 LEs               ; 38 LEs                 ; Yes        ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|err[13] ;
 ; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |VGA_Demo|VGABoiler:vga_c|Selector38                                  ;
 ; 5:1                ; 19 bits   ; 57 LEs        ; 57 LEs               ; 0 LEs                  ; No         ; |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|Add1    ;
-; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |VGA_Demo|VGABoiler:vga_c|Selector25                                  ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |VGA_Demo|VGABoiler:vga_c|Selector26                                  ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 6 LEs                ; 8 LEs                  ; No         ; |VGA_Demo|VGABoiler:vga_c|Selector34                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
@@ -913,15 +914,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 258                         ;
-;     CLR               ; 32                          ;
+; arriav_ff             ; 259                         ;
+;     CLR               ; 33                          ;
 ;     CLR SLD           ; 1                           ;
 ;     ENA               ; 15                          ;
 ;     ENA CLR           ; 86                          ;
 ;     ENA CLR SCLR      ; 39                          ;
 ;     ENA CLR SLD       ; 69                          ;
 ;     ENA SLD           ; 16                          ;
-; arriav_lcell_comb     ; 805                         ;
+; arriav_lcell_comb     ; 807                         ;
 ;     arith             ; 231                         ;
 ;         1 data inputs ; 68                          ;
 ;         2 data inputs ; 113                         ;
@@ -930,10 +931,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 24                          ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 573                         ;
+;     normal            ; 575                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 13                          ;
-;         2 data inputs ; 26                          ;
+;         2 data inputs ; 28                          ;
 ;         3 data inputs ; 49                          ;
 ;         4 data inputs ; 88                          ;
 ;         5 data inputs ; 153                         ;
@@ -943,7 +944,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 384                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.68                        ;
+; Average LUT depth     ; 3.67                        ;
 +-----------------------+-----------------------------+
 
 
@@ -952,7 +953,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -962,7 +963,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Jun 21 16:54:44 2019
+    Info: Processing started: Wed Jun 26 13:01:27 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA_Demo -c VGA_Demo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -1121,16 +1122,16 @@ Info (286030): Timing-Driven Synthesis is running
 Info (17049): 39 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1306 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1307 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 29 output pins
-    Info (21061): Implemented 890 logic cells
+    Info (21061): Implemented 891 logic cells
     Info (21064): Implemented 384 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 1116 megabytes
-    Info: Processing ended: Fri Jun 21 16:55:01 2019
+    Info: Peak virtual memory: 1121 megabytes
+    Info: Processing ended: Wed Jun 26 13:01:44 2019
     Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:34
+    Info: Total CPU time (on all processors): 00:00:33
 
 

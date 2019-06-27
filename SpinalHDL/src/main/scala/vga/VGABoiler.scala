@@ -23,7 +23,7 @@ class VGABoiler(config : VGAConfig) extends Component{
   }
   //noIoPrefix()
   // Has to be this way, cause frequency for 720p is weird
-  val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(50 MHz))
+  val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(100 MHz))
 
   // The rest is just for testing purposes
   //val pll = new PLL()
@@ -325,7 +325,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
     io.rgb := vga.io.vga.rgb(2) ## vga.io.vga.rgb(1) ## vga.io.vga.rgb(0)
 
-    var vgaClock = new SlowArea(50 MHz) {
+    var vgaClock = new SlowArea(100 MHz) {
       var clock = Reg(Bool) init False
       io.vgaClock := clock
       clock := !clock
