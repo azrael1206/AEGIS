@@ -11,8 +11,8 @@ As some functions of the blitter correlate with the functions of the ALU (REFERE
 	\label{img:coredes}
 \end{figure}
 
-For the communication between the CPU and the graphics accelerator, we use two Axi4 buses. The first one is a Axi4Shared for the communication with the CPU, and the second one is a Axi4readonly for the communication with the RAM.
+For the communication between the CPU and the graphics accelerator, we use two AXI4 buses. The first one is a Axi4Shared for the communication with the CPU, and the second one is a Axi4readonly for the communication with the RAM.
 
-When a write command is send over the AXI4 bus the graphics accelerator looks at the address. Is the address in the range of the double frame buffer, then it writes to it. Otherwise the address determinds, what the graphics accelerator do. Further information he needs to operate get it from RAM at the address in the data value. 
+When a write command is send over the AXI4 bus the graphics accelerator looks at the address. Is the address in the range of the double frame buffer, then it writes to it. Otherwise the address determines, what the graphics accelerator do. Further information he needs to operate get it from RAM at the address in the data value. 
 
 \subsubsection*{Implementation}
