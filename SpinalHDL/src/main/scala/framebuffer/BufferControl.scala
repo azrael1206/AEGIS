@@ -42,7 +42,7 @@ class BufferControl(config : VGAConfig) extends Component{
   videoOn := vga.io.vga.videoOn
 
   buffer.io.interface.rValid := vga.io.vga.videoOn
-  buffer.io.interface.rAddress := (switchBuffer.asBits ## (vga.io.vga.pixelY ## vga.io.vga.pixelX).resize(19)).asUInt.resized
+  buffer.io.interface.rAddress := (io.switch.asBits ## (vga.io.vga.pixelY ## vga.io.vga.pixelX).resize(log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea))).asUInt.resized
   buffer.io.interface.wValid := io.wValid
   buffer.io.interface.rwAddress := io.wAddress
   buffer.io.interface.wData := io.wData
