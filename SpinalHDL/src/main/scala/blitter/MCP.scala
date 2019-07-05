@@ -84,6 +84,8 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   io.axicpu.readRsp.last := True
   io.axicpu.readRsp.id := id
 
+  io.axiram.readCmd.addr := address
+
   vga.io.wData(0) := io.axicpu.writeData.data(10 downto 0).resize(config.colorR)
   vga.io.wData(1) := io.axicpu.writeData.data(21 downto 11).resize(config.colorG)
   vga.io.wData(2) := io.axicpu.writeData.data(31 downto 22).resize(config.colorB)
@@ -97,6 +99,7 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   val mcpState = new StateMachine {
     val idle = new State with EntryPoint
     val response = new State
+    val readData = new StateFsm(fsm = internalFSM())
     val copyOutFont = new State
     val fRect = new State
     val bCircle = new State
@@ -111,11 +114,17 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
         when (!io.axicpu.sharedCmd.addr(23)) {
           io.axicpu.sharedCmd.ready := True
           io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
+          goto(response)
         } otherwise{
-
+          address := io.axicpu.sharedCmd.addr
+          io.axicpu.sharedCmd.ready := True
+          io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
+          goto(readData)
         }
       }
     }
+
+
 
     response.whenIsActive{
       when(write) {
@@ -170,6 +179,45 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   }
 
 
+
+  def internalFSM() = new StateMachine{
+    val idle = new State with EntryPoint
+    val readRam = new State
+
+
+    idle.whenIsActive{
+      switch(address(22 downto 1)) {
+        is(0) {
+          io.axiram.readCmd.len := 5
+          io.axiram.readCmd.valid := True
+        }
+        is(1) {
+          io.axiram.readCmd.len := 4
+          io.axiram.readCmd.valid := True
+        }
+        is(2) {
+          io.axiram.readCmd.len := 5
+          io.axiram.readCmd.valid := True
+        }
+        is(3) {
+          io.axiram.readCmd.len := 5
+          io.axiram.readCmd.valid := True
+        }
+        is(4) {
+          io.axiram.readCmd.len := 256
+          io.axiram.readCmd.valid := True
+        }
+        is(5) {
+          io.axiram.readCmd.len := 2
+          io.axiram.readCmd.valid := True
+        }
+        is(6) {
+          io.axiram.readCmd.len := 66
+          io.axiram.readCmd.valid := True
+        }
+      }
+    }
+  }
 
 
 
