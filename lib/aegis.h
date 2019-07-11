@@ -97,8 +97,6 @@ uint32_t draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col
   */
 uint32_t draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
 
-
-
 /**
   * Using the extended Bresenham Circle drawing algorithm to draw an ellipse with the bounding box from (x1 | y1) to (x2 | y2).
   * On success this function will return 0, on error this function will return a value greater than 0.
@@ -157,6 +155,5 @@ uint32_t draw_font(uint32_t x, uint32_t y, char character, Color col);
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
 uint32_t draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint32_t* mask);
-
 
 #endif // !__AEGIS_H

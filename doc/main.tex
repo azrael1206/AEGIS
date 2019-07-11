@@ -20,6 +20,8 @@
 
 \usepackage{mathtools}
 
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Bilder
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,6 +39,8 @@
 % Listings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{listings}
+
+\usepackage[ruled, english]{algorithm2e}
 
 \usepackage{xcolor}
 \lstset{
@@ -122,13 +126,13 @@
 
 \renewcommand{\maketitlehookd}{%
 	\begin{abstract}
-		\noindent With Project AEGIS we propose an open-source hardware based graphics accelerator for embedded systems, specifically for the VexRiscv by Charles Papon. 
+		\noindent With Project AEGIS we propose an open-source hardware based graphics accelerator for low-cost embedded systems, specifically for the VexRiscv by Charles Papon. 
 		Like the VexRiscv, Project AEGIS will be written in SpinalHDL, a high level synthesis library for Scala, which simplifies 
 		the process of creating your own hardware, as one can use the full featureset of Scala. During the project we will be able to
 		rasterize lines and circles, bliting bit graphics, and will have a core for various arithmetic operations.
 		The creation of an open-source hardware based graphics accelerator has several reasons. One key factor is to have hardware sovereignity, meaning to become independent form
 		hardware manufacturers. Additionaly it is also important to learn how GPUs work, since not much of the inner workings is publicised. Lastly certain
-		embedded systems have the need of displaying data. This can be done with Project AEGIS.
+		embedded systems have the need of displaying data. This can be done with Project AEGIS. TODO: REWRITE MOST OF IT
 	\end{abstract}
 }
 

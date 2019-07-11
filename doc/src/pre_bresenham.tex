@@ -1,11 +1,38 @@
-The original Bresenham Algorithms was developed by J. Bresenham in 1965. The target was to build a algorithm to draw a line between to coordinates on a pixel grid. All the other Bresenham Algorithms that exists, for example to draw a circle are developed by others. In the following section, the Bresenham Line and Circle algorithm were explained.
+The original Bresenham Algorithms was developed by J. Bresenham in 1965~\cite{Bresenham65Line}. The target was to build a algorithm to draw a line between to coordinates on a pixel grid. The family of Bresenham Algorithms that exist, e.g. to draw a circle are developed by others. In the following section, the Bresenham Line and Circle algorithm will be explained.
 \subsubsection*{Line Drawing}
-The original line algorithm from Bresenham uses only addition, subtraction and a multiplication with two on integer variable. In a Cartesian coordinate system it exist eight variation of a gradient from a line, called octanes. The algorithm uses only one octants. It archived it by transforming the coordinates.
+The original line drawing algorithm uses only additions, subtractions, and a multiplication with the constant value of two. In a Cartesian coordinate system it exist eight variation of a gradient from a line, called octanes. The algorithm uses only one octants. It archived it by transforming the coordinates.
+
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\KwIn{\(x_0,~ y_0,~ x_1,~ y_1\)}
+	\(d_x \gets \abs{x_1 - x_0}\)\;
+	\(d_y \gets \abs{y_1 - y_0}\)\;
+	\(s_x \gets x_0 < x_1~ ? ~1 ~:~ -1 \)\;
+	\(s_y \gets y_0 < y_1~ ?~ 1 ~:~ -1\)\;
+	err \( \gets d_x + d_y \)
+	
+	\While{\(1\)}{
+		draw Pixel at \(x_0 | y_0\) \;
+		\If{\(x_0 = x_1\) and \(y_0 = y_1\)}{
+			break\;
+		}
+		err2 \(\gets 2 \times err\)\;
+		\If{err2 \(> d_y\)}{
+			err \(\gets \text{err} + d_y\)\;
+			\(x_0 \gets x_0 + s_x\)\;
+		}
+		\If{err2 \(< d_x\)}{
+			err \(\gets \text{err} + d_x\)\;
+			\(y_0 \gets y_0 + s_y\)\;
+		}
+		
+	}
+	
+	\caption{Bresenham Line Drawing Algorithm}
+	\label{alg:bresline}
+\end{algorithm}
 
 The first step is to set the start coordinate. After that an error variable is set. The error variable is for the decision, which pixel is set next. Is value of the error variable smaller than zero it goes one step in the x direction, is the value bigger equal to zero it goes one step in the y and one step in the x direction. It ends when the new x and y coordinate equals the end x and y coordinate.
-
-(ADD IMAGE HERE FOR BRESENHAM ALGORITHM)
-
-The figure show how the algorithm function. 
+ 
 \subsubsection*{Circle Drawing}
 The circle algorithm function are similar to the line algorithm but it has some differences. One difference is, that it has a circle radius and the coordinate of the middle point of the circle.
