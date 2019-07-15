@@ -10,7 +10,6 @@
  *  AUTHOR: 
  *      Brendan Christy 
  *      Ingo Braun 
- * 
  */
 
 #ifndef __AEGIS_H__
@@ -19,25 +18,25 @@
 // ------------ INCLUDES ------------
 
 #include <stdint.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 // ------------ CONSTANTS ------------
 
 #define BRESENHAM_LINE_ADDR          0xd0000000
 #define BRESENHAM_CIRCLE_ADDR        0xd0000004
 #define BRESENHAM_ELLIPSE_ADDR       0xd0000008
-#define FILL_RECTANGLE_ADDR          0xd0000012
-#define BLITTER_COPY_FONT            0xd0000016
-#define BLITTER_DRAW_FONT_ADDR       0xd0000020
-#define BLITTER_DRAW_SPRITE_ADDR     0xd0000024
+#define FILL_RECTANGLE_ADDR          0xd000000c
+#define BLITTER_COPY_FONT_ADDR       0xd0000010
+#define BLITTER_DRAW_FONT_ADDR       0xd0000014
+#define BLITTER_DRAW_SPRITE_ADDR     0xd0000018
 
 // ------------ MACROS ------------
 
-#define COLOR(red, green, blue) {\
+#define COLOR(red, green, blue)\
     red << (10 + 11) | \
     green << 10 | \
-    blue \
-}
-
+    blue 
 
 // ------------ STRUCTURES ------------
 
@@ -48,29 +47,66 @@ typedef struct {
 } Color;
 
 typedef struct {
-    uint32_t x1;
-    uint32_t y1;
-    uint32_t x2;
-    uint32_t y2;
-    uint32_t color;
-} Line;
+  uint32_t x1;
+  uint32_t y1;
+  uint32_t x2;
+  uint32_t y2;
+  uint32_t col;
+}Line;
 
 typedef struct {
-    uint32_t x1;
-    uint32_t y1;
-    uint32_t r;
-    uint32_t color;
-} Circle;
+  uint32_t x1;
+  uint32_t y1;
+  uint32_t r;
+  uint32_t col;
+}Circle;
 
 typedef struct {
-    uint32_t x1;
-    uint32_t y1;
-    uint32_t x2;
-    uint32_t y2;
-    uint32_t color;
-} Rect;
+  uint32_t x1;
+  uint32_t y1;
+  uint32_t x2;
+  uint32_t y2;
+  uint32_t col;
+}Ellipse;
+
+typedef struct {
+  uint32_t x1;
+  uint32_t y1;
+  uint32_t x2;
+  uint32_t y2;
+  uint32_t col;
+}Rectangle;
+
+// ------------ GLOBALS ------------
+
+volatile Line* line_addr;
+volatile Circle* circle_addr;
+volatile Ellipse* ellipse_addr;
+volatile Rectangle* fill_addr;
+volatile uint32_t* cp_font_addr;
+volatile uint32_t* dr_font_addr;
+volatile uint32_t* blitter_addr;
+
+Line* line_val;
+Circle* circle_val;
+Ellipse* ellipse_val;
+Rectangle* fill_val;
+uint32_t* cp_font_val;
+uint32_t* dr_font_val;
+uint32_t* blitter_val;
 
 // ------------ FUNCTIONS ------------
+
+/**
+  * 
+  * 
+  */
+uint32_t init_aegis();
+
+/**
+  * 
+  */
+uint32_t deinit_aegis();
 
 /**
   * Using the Bresenham Line drawing algorithm to draw a line from (x1 | y1) to (x2 | y2).
@@ -135,6 +171,8 @@ uint32_t copy_font(uint32_t* font);
 /**
   * Bit Blit a character from the loaded font to the position (x | y)
   * On success this function will return 0, on error this function will return a value greater than 0.
+  * 
+  * 127 Character, every character has 64 bit
   * 
   * @param x The starting X-Coordinate
   * @param y The starting Y-Coordinate
