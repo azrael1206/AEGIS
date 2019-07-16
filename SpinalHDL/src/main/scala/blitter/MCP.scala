@@ -27,12 +27,16 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   val storeRadius = Reg(UInt(log2Up(config.hDisplayArea) bits)) init 0
   val storeColor  = Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits)))
   val write      = Reg(Bool)
+  val mode = Reg(UInt(3 bits))
+  val counter = Reg(UInt(8 bits))
+  val toCount = Reg(Bits(8 bits))
   val switch = Reg(Bool) init False
   val vga = new BufferControl(config)
   val bresLine = new BreshamLine(config)
   val bresCircle = new BreshamCircle(config)
   val fillRect = new FillRetancle(config)
   val blitterFont = new BlitterFontCopy(config)
+  val buffer = Reg(Bits(32 bits))
   val fontRam = new FontRam
 
 
@@ -183,40 +187,142 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   def internalFSM() = new StateMachine{
     val idle = new State with EntryPoint
     val readRam = new State
+    val twoCoord = new State
+    val oneCoord = new State
+    val font = new State
+    val copyFont = new State
+    val copySprite = new State
 
 
     idle.whenIsActive{
+      counter := 0
       switch(address(22 downto 1)) {
+        //Bresenham Line
         is(0) {
           io.axiram.readCmd.len := 5
           io.axiram.readCmd.valid := True
+          toCount := 5
+          goto(readRam)
         }
+        //Bresenham Cirlce
         is(1) {
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
+          toCount := 4
         }
+        //Bresenham Ellipse
         is(2) {
-          io.axiram.readCmd.len := 5
+          io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
+
         }
         is(3) {
-          io.axiram.readCmd.len := 5
+          //Fill rect
+          io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
         }
         is(4) {
-          io.axiram.readCmd.len := 256
+          //Blitter copy Font from Ram
+          io.axiram.readCmd.len := 254
           io.axiram.readCmd.valid := True
         }
         is(5) {
+          //Blitter copy font from GPURAM to Framebuffer
           io.axiram.readCmd.len := 2
           io.axiram.readCmd.valid := True
         }
         is(6) {
-          io.axiram.readCmd.len := 66
+          //Blitter copy Sprite to Framebuffer
+          io.axiram.readCmd.len := 67
           io.axiram.readCmd.valid := True
+          toCount := 67
         }
       }
     }
+
+    readRam.whenIsActive{
+      when(io.axiram.readRsp.valid) {
+        buffer := io.axiram.r.data
+        io.axiram.readRsp.valid := True
+        switch(mode) {
+          is(0) {
+            goto(twoCoord)
+          }
+          is(1) {
+            goto(oneCoord)
+          }
+          is(2) {
+            goto(font)
+          }
+          is(3) {
+            goto(copyFont)
+          }
+          is(4) {
+            goto(copySprite)
+          }
+        }
+      }
+    }
+
+    twoCoord.whenIsActive{
+      switch(counter) {
+        is(0) {
+          storeVals1(0) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(1) {
+          storeVals1(1) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(2) {
+          storeVals2(0) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(3) {
+          storeVals2(1) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+
+        }
+        is(4) {
+          storeColor(0) := buffer(10 downto 0).resized
+          storeColor(1) := buffer(21 downto 11).resized
+          storeColor(2) := buffer(31 downto 10).resized
+          exitFsm()
+        }
+      }
+    }
+
+    oneCoord.whenIsActive {
+      switch(counter) {
+        is(0) {
+          storeVals1(0) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(1) {
+          storeVals1(1) := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(2) {
+          storeRadius := buffer.asUInt
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(3) {
+          storeColor(0) := buffer(10 downto 0).resized
+          storeColor(1) := buffer(21 downto 11).resized
+          storeColor(2) := buffer(31 downto 10).resized
+          exitFsm()
+        }
+      }
+    }
+
+
   }
 
 

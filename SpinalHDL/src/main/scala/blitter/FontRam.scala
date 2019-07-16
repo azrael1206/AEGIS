@@ -11,7 +11,7 @@ class FontRam() extends Component{
     val write = in Bool
   }
 
-  val fontRam = new Mem(Bits(64 bits), 256)
+  val fontRam = new Mem(Bits(32 bits), 256)
 
   io.dataOut := fontRam.readWriteSync(io.address, io.dataIn, True, io.write)
 }

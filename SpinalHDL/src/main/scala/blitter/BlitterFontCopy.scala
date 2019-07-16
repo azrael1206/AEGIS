@@ -40,9 +40,7 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
       switch(x + y) {
         for (i <- 0 to 64) {
           is(i) {
-            when (io.font(i)) {
-              io.write := True
-            }
+            io.write := io.font(i)
           }
         }
       }
