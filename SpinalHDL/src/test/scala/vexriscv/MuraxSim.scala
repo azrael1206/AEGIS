@@ -27,7 +27,7 @@ object MuraxSim {
       val jtagClkPeriod = mainClkPeriod*4
       val uartBaudRate = 115200
       val uartBaudPeriod = (1e12/uartBaudRate).toLong
-
+/*
       val clockDomain = ClockDomain(dut.io.mainClk, dut.io.asyncReset)
       clockDomain.forkStimulus(mainClkPeriod)
 //      clockDomain.forkSimSpeedPrinter(2)
@@ -105,6 +105,12 @@ object MuraxSim {
           if(simSlowDown) Thread.sleep(400)
         }
       }
+
+ */
     }
+
+
   }
+
+
 }

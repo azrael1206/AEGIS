@@ -17,7 +17,7 @@ import spinal.lib.memory.sdram._
 import spinal.lib.misc.HexTools
 import spinal.lib.soc.pinsec.{PinsecTimerCtrl, PinsecTimerCtrlExternal}
 import spinal.lib.system.debugger.{JtagAxi4SharedDebugger, JtagBridge, SystemDebugger, SystemDebuggerConfig}
-import vga.{VGAConfig, VGAInterface}
+import vga.{VGAConfig, VGAInterface, VGAInterfaceOut}
 import blitter._
 
 import scala.collection.mutable.ArrayBuffer
@@ -34,7 +34,7 @@ object BrieyConfig{
 
   def default = {
     val config = BrieyConfig(
-      axiFrequency = 50 MHz,
+      axiFrequency = 100 MHz,
       onChipRamSize  = 4 kB,
       sdramLayout = IS42x320D.layout,
       sdramTimings = IS42x320D.timingGrade7,
@@ -185,7 +185,7 @@ class Briey(config: BrieyConfig) extends Component{
     val gpioA         = master(TriStateArray(32 bits))
     val gpioB         = master(TriStateArray(32 bits))
     val uart          = master(Uart())
-    val vga           = master(VGAInterface(VGAConfig.setAs_640_480_60))
+    val vga           = master(VGAInterfaceOut(VGAConfig.setAs_640_480_60))
     val timerExternal = in(PinsecTimerCtrlExternal())
     val coreInterrupt = in Bool
   }
@@ -270,9 +270,9 @@ class Briey(config: BrieyConfig) extends Component{
 
     val uartCtrl = Apb3UartCtrl(uartCtrlConfig)
 
-    val gpu = new MCP(VGAConfig.setAs_640_480_60, Axi4Config(32,32,4))
+    val gpu = new MCP(VGAConfig.setAs_640_480_60, Axi4Config(23,32,5))
 
-
+    io.vga <> gpu.io.vga
 
 
     val core = new Area{
@@ -307,7 +307,7 @@ class Briey(config: BrieyConfig) extends Component{
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
       apbBridge.io.axi -> (0xF0000000L,   1 MB),
-      gpu.io.axicpu -> (0xF0000000L, 4 MB)
+      gpu.io.axicpu -> (0xD0000000L, 4 MB)
     )
 
     axiCrossbar.addConnections(
@@ -374,10 +374,7 @@ class Briey(config: BrieyConfig) extends Component{
 //DE1-SoC
 object Briey{
   def main(args: Array[String]) {
-    val config = SpinalConfig()
-    config.generateVerilog({
-      val toplevel = new Briey(BrieyConfig.default)
-    })
+    SpinalVhdl(new Briey(BrieyConfig.default))
   }
 }
 /*

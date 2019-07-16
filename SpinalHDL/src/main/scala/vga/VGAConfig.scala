@@ -87,13 +87,11 @@ case class VGAInterface(config : VGAConfig) extends Bundle with IMasterSlave{
   val hSync = Bool
   val vSync = Bool
   val videoOn = Bool
-  val vgaConfig = Bool
   val pixelX = UInt(log2Up(config.hDisplayArea + config.hBackPorch + config.hFrontPorch + config.hRetrace - 1) bits)
   val pixelY = UInt(log2Up(config.vDisplayArea + config.vBackPorch + config.vFrontPorch + config.vRetrace - 1) bits)
-  val rgb = out Bits(config.colorR + config.colorB + config.colorG bit)
 
   def asMaster(): Unit = {
-    out (hSync, vSync, videoOn, pixelX, pixelY, vgaConfig, rgb)
+    out (hSync, vSync, videoOn, pixelX, pixelY)
   }
 
 }
@@ -105,9 +103,10 @@ case class VGAInterfaceOut(config : VGAConfig) extends Bundle with IMasterSlave{
   val vSync = Bool
   val rgb = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
   val videoOn = Bool
+  val videoClock = Bool
 
   def asMaster(): Unit = {
-    out (hSync, vSync, rgb, videoOn)
+    out (hSync, vSync, rgb, videoOn, videoClock)
   }
 
 }

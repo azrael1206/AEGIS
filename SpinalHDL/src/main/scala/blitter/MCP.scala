@@ -30,7 +30,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
   val mode = Reg(UInt(3 bits))
   val counter = Reg(UInt(8 bits))
   val toCount = Reg(Bits(8 bits))
-  val switch = Reg(Bool) init False
+  val switchVGA = Reg(Bool) init False
   val alpha = Reg(Bits(64 bits))
   val sprite = Vec(Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))), 64)
   val vga = new BufferControl(config)
@@ -47,7 +47,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
   vga.io.wData(1).clearAll()
   vga.io.wData(2).clearAll()
   vga.io.wValid.clear()
-  vga.io.switch := switch
+  vga.io.switch := switchVGA
 
   fillRect.io.start := False
   fillRect.io.coord1(0).clearAll()
@@ -199,7 +199,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
     }
 
     fRect.whenIsActive{
-      vga.io.wAddress := (switch.asBits ## fillRect.io.address.asBits).asUInt.resized
+      vga.io.wAddress := (switchVGA.asBits ## fillRect.io.address.asBits).asUInt.resized
       vga.io.wData := storeColor
       vga.io.wValid := fillRect.io.setPixel
       when (fillRect.io.ready) {
@@ -208,7 +208,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
     }
 
     bCircle.whenIsActive{
-      vga.io.wAddress := (switch.asBits ## bresCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+      vga.io.wAddress := (switchVGA.asBits ## bresCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
       vga.io.wData := storeColor
       vga.io.wValid := bresCircle.io.setPixel
       when (fillRect.io.ready) {
@@ -217,7 +217,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
     }
 
     bLine.whenIsActive{
-      vga.io.wAddress := (switch.asBits ## bresLine.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresLine.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+      vga.io.wAddress := (switchVGA.asBits ## bresLine.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresLine.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
       vga.io.wData := storeColor
       vga.io.wValid := bresCircle.io.setPixel
       when (fillRect.io.ready) {
@@ -241,6 +241,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
 
     idle.whenIsActive{
       counter := 0
+
       switch(address(22 downto 1)) {
         //Bresenham Line
         is(0) {
@@ -403,11 +404,11 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
           counter := counter + 1
           goto(readRam)
         }
-        for (i <- 4 to 68) {
+        for (i <- 2 to 65) {
           is(i) {
             sprite(i-2)(0) := buffer(10 downto 0).resized
-            sprite(i-2)(1) := buffer(10 downto 0).resized
-            sprite(i-2)(2) := buffer(10 downto 0).resized
+            sprite(i-2)(1) := buffer(21 downto 11).resized
+            sprite(i-2)(2) := buffer(31 downto 12).resized
             counter := counter + 1
             goto(readRam)
           }
@@ -432,7 +433,7 @@ class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
   }
   var vgaClock = new SlowArea(100 MHz) {
     var clock = Reg(Bool) init False
-    io.vgaClock := clock
+    io.vga.videoClock := clock
     clock := !clock
   }
 
