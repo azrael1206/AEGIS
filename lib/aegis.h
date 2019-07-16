@@ -101,12 +101,12 @@ uint32_t* blitter_val;
   * 
   * 
   */
-uint32_t init_aegis();
+uint32_t ae_init();
 
 /**
   * 
   */
-uint32_t deinit_aegis();
+uint32_t ae_deinit();
 
 /**
   * Using the Bresenham Line drawing algorithm to draw a line from (x1 | y1) to (x2 | y2).
@@ -119,7 +119,7 @@ uint32_t deinit_aegis();
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
+uint32_t ae_draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
 
 /**
   * Using the Bresenham Circle drawing algorithm to draw a circle at (x1 | y1) with radius r.
@@ -131,7 +131,7 @@ uint32_t draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
+uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
 
 /**
   * Using the extended Bresenham Circle drawing algorithm to draw an ellipse with the bounding box from (x1 | y1) to (x2 | y2).
@@ -144,7 +144,7 @@ uint32_t draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
+uint32_t ae_draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
 
 /**
   * Draw a filled Rectangle from (x1 | y1) to (x2 | y2).
@@ -157,22 +157,23 @@ uint32_t draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
+uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
 
 /**
   * Copy the given font from CPU memory into GPU memory.
   * On success this function will return 0, on error this function will return a value greater than 0.
   * 
+  * 127 Character, every character has 64 bit
+  * NOTE: The array has to be double as long because of the size of the character and the size of the datatype
+  * 
   * @param font
   * @return The result if the loading happend successfully (0) or not (> 0)
   */
-uint32_t copy_font(uint32_t* font);
+uint32_t ae_copy_font(uint32_t* font);
 
 /**
   * Bit Blit a character from the loaded font to the position (x | y)
   * On success this function will return 0, on error this function will return a value greater than 0.
-  * 
-  * 127 Character, every character has 64 bit
   * 
   * @param x The starting X-Coordinate
   * @param y The starting Y-Coordinate
@@ -180,7 +181,7 @@ uint32_t copy_font(uint32_t* font);
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t draw_font(uint32_t x, uint32_t y, char character, Color col);
+uint32_t ae_draw_font(uint32_t x, uint32_t y, char character, Color col);
 
 /**
   * Bit Blit a given Sprite with an alpha mask to the position (x | y). Sprites and alpha masks are of the size 8*8. 
@@ -192,6 +193,6 @@ uint32_t draw_font(uint32_t x, uint32_t y, char character, Color col);
   * @param mask Alpha Mask for the sprite
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint32_t* mask);
+uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint32_t* mask);
 
 #endif // !__AEGIS_H
