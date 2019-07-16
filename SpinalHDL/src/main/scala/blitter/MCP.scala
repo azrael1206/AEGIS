@@ -10,7 +10,7 @@ import vga._
 import vexriscv._
 import spinal.lib.bus.amba4.axi._
 
-class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4config: Axi4Config) extends Component{
+class MCP(config : VGAConfig, axi4config: Axi4Config) extends Component{
 
   val io = new Bundle {
     val vga = master(VGAInterfaceOut(config))
@@ -31,6 +31,8 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   val counter = Reg(UInt(8 bits))
   val toCount = Reg(Bits(8 bits))
   val switch = Reg(Bool) init False
+  val alpha = Reg(Bits(64 bits))
+  val sprite = Vec(Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))), 64)
   val vga = new BufferControl(config)
   val bresLine = new BreshamLine(config)
   val bresCircle = new BreshamCircle(config)
@@ -64,9 +66,11 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
   bresCircle.io.r.clearAll()
   bresCircle.io.start := False
 
-  fontRam.io.address.clearAll
+  fontRam.io.address := storeRadius
+  fontRam.io.address2 := storeRadius + 128
   fontRam.io.dataIn.clearAll
   fontRam.io.write := False
+
 
   blitterFont.io.start := False
   blitterFont.io.addressYIn.clearAll()
@@ -120,15 +124,13 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
           io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
           goto(response)
         } otherwise{
-          address := io.axicpu.sharedCmd.addr
+          address := io.axicpu.writeData.data.asUInt
           io.axicpu.sharedCmd.ready := True
           io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
-          goto(readData)
+          goto(response)
         }
       }
     }
-
-
 
     response.whenIsActive{
       when(write) {
@@ -144,6 +146,49 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
       }
     }
 
+    readData.whenCompleted{
+      switch(address(22 downto 1)) {
+        //Bresenham Line
+        is(0) {
+          bresLine.io.coord1 := storeVals1
+          bresLine.io.coord2 := storeVals2
+          bresLine.io.start := True
+          goto(bLine)
+        }
+        //Bresenham Cirlce
+        is(1) {
+          bresCircle.io.coord := storeVals1
+          bresCircle.io.r := storeRadius
+          bresCircle.io.start := True
+          goto(bCircle)
+        }
+        //Bresenham Ellipse
+        is(2) {
+          goto(idle)
+        }
+        is(3) {
+          //Fill rect
+          fillRect.io.coord1 := storeVals2
+          fillRect.io.coord2 := storeVals2
+          fillRect.io.start := True
+          goto(fRect)
+        }
+        is(4) {
+          //Blitter copy Font from Ram
+          goto(idle)
+        }
+        is(5) {
+          //Blitter copy font from GPURAM to Framebuffer
+          blitterFont.io.addressXIn := storeVals1(0)
+          blitterFont.io.addressYIn := storeVals1(1)
+          goto(copyOutFont)
+        }
+        is(6) {
+          //Blitter copy Sprite to Framebuffer
+          goto(idle)
+        }
+      }
+    }
     copyOutFont.whenIsActive{
       vga.io.wAddress := blitterFont.io.addressOut.resized
       vga.io.wData := storeColor
@@ -199,45 +244,52 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
       switch(address(22 downto 1)) {
         //Bresenham Line
         is(0) {
-          io.axiram.readCmd.len := 5
+          io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
-          toCount := 5
-          goto(readRam)
+          mode := 0
         }
         //Bresenham Cirlce
         is(1) {
-          io.axiram.readCmd.len := 4
+          io.axiram.readCmd.len := 3
           io.axiram.readCmd.valid := True
-          toCount := 4
+          mode := 1
         }
         //Bresenham Ellipse
         is(2) {
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
-
+          mode := 0
         }
         is(3) {
           //Fill rect
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
+          mode := 0
         }
         is(4) {
           //Blitter copy Font from Ram
           io.axiram.readCmd.len := 254
           io.axiram.readCmd.valid := True
+          mode := 2
         }
         is(5) {
           //Blitter copy font from GPURAM to Framebuffer
           io.axiram.readCmd.len := 2
           io.axiram.readCmd.valid := True
+          mode := 1
         }
         is(6) {
           //Blitter copy Sprite to Framebuffer
           io.axiram.readCmd.len := 67
           io.axiram.readCmd.valid := True
-          toCount := 67
+          mode := 3
+        }
+        default {
+          goto(idle)
         }
       }
+      goto(readRam)
+
     }
 
     readRam.whenIsActive{
@@ -255,10 +307,10 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
             goto(font)
           }
           is(3) {
-            goto(copyFont)
-          }
-          is(4) {
             goto(copySprite)
+          }
+          default {
+            exitFsm()
           }
         }
       }
@@ -267,22 +319,22 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
     twoCoord.whenIsActive{
       switch(counter) {
         is(0) {
-          storeVals1(0) := buffer.asUInt
+          storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
         is(1) {
-          storeVals1(1) := buffer.asUInt
+          storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
         is(2) {
-          storeVals2(0) := buffer.asUInt
+          storeVals2(0) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
         is(3) {
-          storeVals2(1) := buffer.asUInt
+          storeVals2(1) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
 
@@ -293,23 +345,26 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
           storeColor(2) := buffer(31 downto 10).resized
           exitFsm()
         }
+        default {
+          exitFsm()
+        }
       }
     }
 
     oneCoord.whenIsActive {
       switch(counter) {
         is(0) {
-          storeVals1(0) := buffer.asUInt
+          storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
         is(1) {
-          storeVals1(1) := buffer.asUInt
+          storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
         is(2) {
-          storeRadius := buffer.asUInt
+          storeRadius := buffer.asUInt.resized
           counter := counter + 1
           goto(readRam)
         }
@@ -319,12 +374,67 @@ class MCP(config : VGAConfig, piplinedBusConfig : PipelinedMemoryBusConfig, axi4
           storeColor(2) := buffer(31 downto 10).resized
           exitFsm()
         }
+        default
+          exitFsm()
+      }
+    }
+
+    font.whenIsActive{
+      fontRam.io.write := True
+      fontRam.io.dataIn := buffer
+      fontRam.io.address := counter
+      counter := counter + 1
+      when (counter + 1 =/= 256 ) {
+        goto(readRam)
+      } otherwise {
+        exitFsm()
+      }
+    }
+
+    copySprite.whenIsActive{
+      switch(counter) {
+        is(0) {
+          storeVals1(0) := buffer.asUInt.resized
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(1) {
+          storeVals1(1) := buffer.asUInt.resized
+          counter := counter + 1
+          goto(readRam)
+        }
+        for (i <- 4 to 68) {
+          is(i) {
+            sprite(i-2)(0) := buffer(10 downto 0).resized
+            sprite(i-2)(1) := buffer(10 downto 0).resized
+            sprite(i-2)(2) := buffer(10 downto 0).resized
+            counter := counter + 1
+            goto(readRam)
+          }
+        }
+        is(66) {
+          alpha(31 downto 0) := buffer
+          counter := counter + 1
+          goto(readRam)
+        }
+        is(67) {
+          alpha(63 downto 32) := buffer
+          counter := counter + 1
+          exitFsm()
+        }
+        default {
+          exitFsm()
+        }
       }
     }
 
 
   }
-
+  var vgaClock = new SlowArea(100 MHz) {
+    var clock = Reg(Bool) init False
+    io.vgaClock := clock
+    clock := !clock
+  }
 
 
 }

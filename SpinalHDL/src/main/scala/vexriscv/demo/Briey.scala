@@ -17,6 +17,8 @@ import spinal.lib.memory.sdram._
 import spinal.lib.misc.HexTools
 import spinal.lib.soc.pinsec.{PinsecTimerCtrl, PinsecTimerCtrlExternal}
 import spinal.lib.system.debugger.{JtagAxi4SharedDebugger, JtagBridge, SystemDebugger, SystemDebuggerConfig}
+import vga.{VGAConfig, VGAInterface}
+import blitter._
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -183,7 +185,7 @@ class Briey(config: BrieyConfig) extends Component{
     val gpioA         = master(TriStateArray(32 bits))
     val gpioB         = master(TriStateArray(32 bits))
     val uart          = master(Uart())
-    val vga           = master(Vga(vgaRgbConfig))
+    val vga           = master(VGAInterface(VGAConfig.setAs_640_480_60))
     val timerExternal = in(PinsecTimerCtrlExternal())
     val coreInterrupt = in Bool
   }
@@ -268,17 +270,8 @@ class Briey(config: BrieyConfig) extends Component{
 
     val uartCtrl = Apb3UartCtrl(uartCtrlConfig)
 
+    val gpu = new MCP(VGAConfig.setAs_640_480_60, Axi4Config(32,32,4))
 
-    val vgaCtrlConfig = Axi4VgaCtrlGenerics(
-      axiAddressWidth = 32,
-      axiDataWidth    = 32,
-      burstLength     = 8,
-      frameSizeMax    = 2048*1512*2,
-      fifoSize        = 512,
-      rgbConfig       = vgaRgbConfig,
-      vgaClock        = vgaClockDomain
-    )
-    val vgaCtrl = Axi4VgaCtrl(vgaCtrlConfig)
 
 
 
@@ -313,13 +306,14 @@ class Briey(config: BrieyConfig) extends Component{
     axiCrossbar.addSlaves(
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
-      apbBridge.io.axi -> (0xF0000000L,   1 MB)
+      apbBridge.io.axi -> (0xF0000000L,   1 MB),
+      gpu.io.axicpu -> (0xF0000000L, 4 MB)
     )
 
     axiCrossbar.addConnections(
       core.iBus       -> List(ram.io.axi, sdramCtrl.io.axi),
       core.dBus       -> List(ram.io.axi, sdramCtrl.io.axi, apbBridge.io.axi),
-      vgaCtrl.io.axi  -> List(            sdramCtrl.io.axi)
+      gpu.io.axiram  -> List(            sdramCtrl.io.axi)
     )
 
 
@@ -344,7 +338,7 @@ class Briey(config: BrieyConfig) extends Component{
       crossbar.readRsp               <<  ctrl.readRsp
     })
 
-    axiCrossbar.addPipelining(vgaCtrl.io.axi)((ctrl,crossbar) => {
+    axiCrossbar.addPipelining(gpu.io.axiram)((ctrl,crossbar) => {
       ctrl.readCmd.halfPipe()    >>  crossbar.readCmd
       ctrl.readRsp               <<  crossbar.readRsp
     })
@@ -365,8 +359,7 @@ class Briey(config: BrieyConfig) extends Component{
         gpioACtrl.io.apb -> (0x00000, 4 kB),
         gpioBCtrl.io.apb -> (0x01000, 4 kB),
         uartCtrl.io.apb  -> (0x10000, 4 kB),
-        timerCtrl.io.apb -> (0x20000, 4 kB),
-        vgaCtrl.io.apb   -> (0x30000, 4 kB)
+        timerCtrl.io.apb -> (0x20000, 4 kB)
       )
     )
   }
@@ -376,7 +369,6 @@ class Briey(config: BrieyConfig) extends Component{
   io.timerExternal  <> axi.timerCtrl.io.external
   io.uart           <> axi.uartCtrl.io.uart
   io.sdram          <> axi.sdramCtrl.io.sdram
-  io.vga            <> axi.vgaCtrl.io.vga
 }
 
 //DE1-SoC
@@ -385,13 +377,10 @@ object Briey{
     val config = SpinalConfig()
     config.generateVerilog({
       val toplevel = new Briey(BrieyConfig.default)
-      toplevel.axi.vgaCtrl.vga.ctrl.io.error.addAttribute(Verilator.public)
-      toplevel.axi.vgaCtrl.vga.ctrl.io.frameStart.addAttribute(Verilator.public)
-      toplevel
     })
   }
 }
-
+/*
 //DE1-SoC with memory init
 object BrieyWithMemoryInit{
   def main(args: Array[String]) {
@@ -439,3 +428,4 @@ object BrieyDe0Nano{
     })
   }
 }
+*/

@@ -325,11 +325,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
     io.rgb := vga.io.vga.rgb(2) ## vga.io.vga.rgb(1) ## vga.io.vga.rgb(0)
 
-    var vgaClock = new SlowArea(100 MHz) {
-      var clock = Reg(Bool) init False
-      io.vgaClock := clock
-      clock := !clock
-    }
+
 
   }
 

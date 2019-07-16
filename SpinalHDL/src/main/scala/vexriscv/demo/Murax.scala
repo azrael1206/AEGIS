@@ -155,7 +155,7 @@ object MuraxConfig{
 
 case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
   import config._
-
+  /*
   val io = new Bundle {
     //Clocks / reset
     val asyncReset = in Bool
@@ -227,6 +227,7 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
         plugins = cpuPlugins += new DebugPlugin(debugClockDomain, hardwareBreakpointCount)
       )
     )
+
     val gpu = new MCP(vgaconfig, PipelinedMemoryBusConfig(32, 32))
     //Checkout plugins used to instanciate the CPU to connect them to the SoC
     val timerInterrupt = False
@@ -256,7 +257,7 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
 
 
     io.vga <> gpu.io.vga
-    //****** MainBus slaves ********
+    //****** MainBus slaves ********/
     val mainBusMapping = ArrayBuffer[(PipelinedMemoryBus,SizeMapping)]()
     val ram = new MuraxPipelinedMemoryBusRam(
       onChipRamSize = onChipRamSize,
@@ -278,7 +279,7 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
 
 
 
-    //******** APB peripherals *********
+    //******** APB peripherals *********/
     val apbMapping = ArrayBuffer[(Apb3, SizeMapping)]()
     val gpioACtrl = Apb3Gpio(gpioWidth = gpioWidth, withReadSync = true)
     io.gpioA <> gpioACtrl.io.gpio
@@ -315,7 +316,7 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
 
 
 
-    //******** Memory mappings *********
+    //******** Memory mappings *********/
     val apbDecoder = Apb3Decoder(
       master = apbBridge.io.apb,
       slaves = apbMapping
@@ -328,7 +329,13 @@ case class Murax(config : MuraxConfig, vgaconfig : VGAConfig) extends Component{
         pipelineMaster = pipelineMainBus
       )
     }
+
+
   }
+
+
+   */
+
 }
 
 
