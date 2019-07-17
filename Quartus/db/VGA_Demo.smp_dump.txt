@@ -1,27 +1,52 @@
 
-State Machine - |VGA_Demo|VGABoiler:vga_c|clkArea_demo_stateReg
-Name clkArea_demo_stateReg.clkArea_demo_rightPadle clkArea_demo_stateReg.clkArea_demo_leftPadle clkArea_demo_stateReg.clkArea_demo_ball clkArea_demo_stateReg.clkArea_demo_wait2Redraw clkArea_demo_stateReg.clkArea_demo_kreisMittellinie clkArea_demo_stateReg.clkArea_demo_mittelLinie clkArea_demo_stateReg.clkArea_demo_rechteSeitenlinie clkArea_demo_stateReg.clkArea_demo_untereSeitenlinie clkArea_demo_stateReg.clkArea_demo_linkeSeitenlinie clkArea_demo_stateReg.clkArea_demo_obereSeitenlinie clkArea_demo_stateReg.clkArea_demo_spielfeld clkArea_demo_stateReg.clkArea_demo_idle clkArea_demo_stateReg.boot 
-clkArea_demo_stateReg.boot 0 0 0 0 0 0 0 0 0 0 0 0 0 
-clkArea_demo_stateReg.clkArea_demo_idle 0 0 0 0 0 0 0 0 0 0 0 1 1 
-clkArea_demo_stateReg.clkArea_demo_spielfeld 0 0 0 0 0 0 0 0 0 0 1 0 1 
-clkArea_demo_stateReg.clkArea_demo_obereSeitenlinie 0 0 0 0 0 0 0 0 0 1 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_linkeSeitenlinie 0 0 0 0 0 0 0 0 1 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_untereSeitenlinie 0 0 0 0 0 0 0 1 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_rechteSeitenlinie 0 0 0 0 0 0 1 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_mittelLinie 0 0 0 0 0 1 0 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_kreisMittellinie 0 0 0 0 1 0 0 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_wait2Redraw 0 0 0 1 0 0 0 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_ball 0 0 1 0 0 0 0 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_leftPadle 0 1 0 0 0 0 0 0 0 0 0 0 1 
-clkArea_demo_stateReg.clkArea_demo_rightPadle 1 0 0 0 0 0 0 0 0 0 0 0 1 
+State Machine - |Briey|JtagBridge:jtagBridge_1|jtag_tap_fsm_state
+Name jtag_tap_fsm_state.DR_UPDATE jtag_tap_fsm_state.DR_EXIT2 jtag_tap_fsm_state.DR_PAUSE jtag_tap_fsm_state.DR_EXIT1 jtag_tap_fsm_state.DR_SHIFT jtag_tap_fsm_state.DR_CAPTURE jtag_tap_fsm_state.DR_SELECT jtag_tap_fsm_state.IR_UPDATE jtag_tap_fsm_state.IR_EXIT2 jtag_tap_fsm_state.IR_PAUSE jtag_tap_fsm_state.IR_EXIT1 jtag_tap_fsm_state.IR_SHIFT jtag_tap_fsm_state.IR_CAPTURE jtag_tap_fsm_state.IR_SELECT jtag_tap_fsm_state.IDLE jtag_tap_fsm_state.RESET 
+jtag_tap_fsm_state.RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+jtag_tap_fsm_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+jtag_tap_fsm_state.IR_SELECT 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+jtag_tap_fsm_state.IR_CAPTURE 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+jtag_tap_fsm_state.IR_SHIFT 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+jtag_tap_fsm_state.IR_EXIT1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+jtag_tap_fsm_state.IR_PAUSE 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+jtag_tap_fsm_state.IR_EXIT2 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.IR_UPDATE 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_SELECT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_CAPTURE 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_SHIFT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_EXIT1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_PAUSE 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_EXIT2 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+jtag_tap_fsm_state.DR_UPDATE 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
-State Machine - |VGA_Demo|VGABoiler:vga_c|FillRetancle:clkArea_fill|fill_stateReg
+State Machine - |Briey|MCP:axi_gpu|mcpState_stateReg
+Name mcpState_stateReg.mcpState_bLine mcpState_stateReg.mcpState_bCircle mcpState_stateReg.mcpState_fRect mcpState_stateReg.mcpState_copyOutFont mcpState_stateReg.mcpState_readData mcpState_stateReg.mcpState_response mcpState_stateReg.mcpState_idle mcpState_stateReg.boot 
+mcpState_stateReg.boot 0 0 0 0 0 0 0 0 
+mcpState_stateReg.mcpState_idle 0 0 0 0 0 0 1 1 
+mcpState_stateReg.mcpState_response 0 0 0 0 0 1 0 1 
+mcpState_stateReg.mcpState_readData 0 0 0 0 1 0 0 1 
+mcpState_stateReg.mcpState_copyOutFont 0 0 0 1 0 0 0 1 
+mcpState_stateReg.mcpState_fRect 0 0 1 0 0 0 0 1 
+mcpState_stateReg.mcpState_bCircle 0 1 0 0 0 0 0 1 
+mcpState_stateReg.mcpState_bLine 1 0 0 0 0 0 0 1 
+
+State Machine - |Briey|MCP:axi_gpu|mcpState_readData_fsm_stateReg
+Name mcpState_readData_fsm_stateReg.e7 mcpState_readData_fsm_stateReg.e6 mcpState_readData_fsm_stateReg.e5 mcpState_readData_fsm_stateReg.e4 mcpState_readData_fsm_stateReg.e3 mcpState_readData_fsm_stateReg.e2 mcpState_readData_fsm_stateReg.e1 mcpState_readData_fsm_stateReg.boot 
+mcpState_readData_fsm_stateReg.boot 0 0 0 0 0 0 0 0 
+mcpState_readData_fsm_stateReg.e1 0 0 0 0 0 0 1 1 
+mcpState_readData_fsm_stateReg.e2 0 0 0 0 0 1 0 1 
+mcpState_readData_fsm_stateReg.e3 0 0 0 0 1 0 0 1 
+mcpState_readData_fsm_stateReg.e4 0 0 0 1 0 0 0 1 
+mcpState_readData_fsm_stateReg.e5 0 0 1 0 0 0 0 1 
+mcpState_readData_fsm_stateReg.e6 0 1 0 0 0 0 0 1 
+mcpState_readData_fsm_stateReg.e7 1 0 0 0 0 0 0 1 
+
+State Machine - |Briey|MCP:axi_gpu|FillRetancle:fillRect|fill_stateReg
 Name fill_stateReg.fill_fill fill_stateReg.fill_idle fill_stateReg.boot 
 fill_stateReg.boot 0 0 0 
 fill_stateReg.fill_idle 0 1 1 
 fill_stateReg.fill_fill 1 0 1 
 
-State Machine - |VGA_Demo|VGABoiler:vga_c|BreshamCircle:clkArea_breshamCircle|BreshamCircSM_stateReg
+State Machine - |Briey|MCP:axi_gpu|BreshamCircle:bresCircle|BreshamCircSM_stateReg
 Name BreshamCircSM_stateReg.BreshamCircSM_calcEnd2 BreshamCircSM_stateReg.BreshamCircSM_calcEnd BreshamCircSM_stateReg.BreshamCircSM_setPixel4 BreshamCircSM_stateReg.BreshamCircSM_setPixel3 BreshamCircSM_stateReg.BreshamCircSM_setPixel2 BreshamCircSM_stateReg.BreshamCircSM_setPixel1 BreshamCircSM_stateReg.BreshamCircSM_idle BreshamCircSM_stateReg.boot 
 BreshamCircSM_stateReg.boot 0 0 0 0 0 0 0 0 
 BreshamCircSM_stateReg.BreshamCircSM_idle 0 0 0 0 0 0 1 1 
@@ -32,10 +57,49 @@ BreshamCircSM_stateReg.BreshamCircSM_setPixel4 0 0 1 0 0 0 0 1
 BreshamCircSM_stateReg.BreshamCircSM_calcEnd 0 1 0 0 0 0 0 1 
 BreshamCircSM_stateReg.BreshamCircSM_calcEnd2 1 0 0 0 0 0 0 1 
 
-State Machine - |VGA_Demo|VGABoiler:vga_c|BreshamLine:clkArea_bresham|breshamSM_stateReg
+State Machine - |Briey|MCP:axi_gpu|BreshamLine:bresLine|breshamSM_stateReg
 Name breshamSM_stateReg.breshamSM_running breshamSM_stateReg.breshamSM_calc2 breshamSM_stateReg.breshamSM_calc breshamSM_stateReg.breshamSM_idle breshamSM_stateReg.boot 
 breshamSM_stateReg.boot 0 0 0 0 0 
 breshamSM_stateReg.breshamSM_idle 0 0 0 1 1 
 breshamSM_stateReg.breshamSM_calc 0 0 1 0 1 
 breshamSM_stateReg.breshamSM_calc2 0 1 0 0 1 
 breshamSM_stateReg.breshamSM_running 1 0 0 0 1 
+
+State Machine - |Briey|Apb3UartCtrl:axi_uartCtrl|UartCtrl:uartCtrl_1|UartCtrlRx:rx|stateMachine_state
+Name stateMachine_state.STOP stateMachine_state.PARITY stateMachine_state.DATA stateMachine_state.START stateMachine_state.IDLE 
+stateMachine_state.IDLE 0 0 0 0 0 
+stateMachine_state.START 0 0 0 1 1 
+stateMachine_state.DATA 0 0 1 0 1 
+stateMachine_state.PARITY 0 1 0 0 1 
+stateMachine_state.STOP 1 0 0 0 1 
+
+State Machine - |Briey|Apb3UartCtrl:axi_uartCtrl|UartCtrl:uartCtrl_1|UartCtrlTx:tx|stateMachine_state
+Name stateMachine_state.STOP stateMachine_state.PARITY stateMachine_state.DATA stateMachine_state.START stateMachine_state.IDLE 
+stateMachine_state.IDLE 0 0 0 0 0 
+stateMachine_state.START 0 0 0 1 1 
+stateMachine_state.DATA 0 0 1 0 1 
+stateMachine_state.PARITY 0 1 0 0 1 
+stateMachine_state.STOP 1 0 0 0 1 
+
+State Machine - |Briey|Axi4SharedToApb3Bridge:axi_apbBridge|phase
+Name phase.RESPONSE phase.ACCESS_1 phase.SETUP 
+phase.SETUP 0 0 0 
+phase.ACCESS_1 0 1 1 
+phase.RESPONSE 1 0 1 
+
+State Machine - |Briey|Axi4SharedSdramCtrl:axi_sdramCtrl|SdramCtrl:ctrl|zz_10
+Name zz_10.WRITE zz_10.READ zz_10.ACTIVE zz_10.REFRESH zz_10.PRECHARGE_SINGLE zz_10.PRECHARGE_ALL zz_10.MODE 
+zz_10.MODE 0 0 0 0 0 0 0 
+zz_10.PRECHARGE_ALL 0 0 0 0 0 1 1 
+zz_10.PRECHARGE_SINGLE 0 0 0 0 1 0 1 
+zz_10.REFRESH 0 0 0 1 0 0 1 
+zz_10.ACTIVE 0 0 1 0 0 0 1 
+zz_10.READ 0 1 0 0 0 0 1 
+zz_10.WRITE 1 0 0 0 0 0 1 
+
+State Machine - |Briey|Axi4SharedSdramCtrl:axi_sdramCtrl|SdramCtrl:ctrl|frontend_state
+Name frontend_state.RUN frontend_state.BOOT_MODE frontend_state.BOOT_REFRESH frontend_state.BOOT_PRECHARGE 
+frontend_state.BOOT_PRECHARGE 0 0 0 0 
+frontend_state.BOOT_REFRESH 0 0 1 1 
+frontend_state.BOOT_MODE 0 1 0 1 
+frontend_state.RUN 1 0 0 1 

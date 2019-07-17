@@ -59,7 +59,7 @@ object BrieyConfig{
           resetVector = 0x80000000l,
           prediction = STATIC,
           config = InstructionCacheConfig(
-            cacheSize = 4096,
+            cacheSize = 256,
             bytePerLine =32,
             wayCount = 1,
             addressWidth = 32,
@@ -82,7 +82,7 @@ object BrieyConfig{
         //                    ),
         new DBusCachedPlugin(
           config = new DataCacheConfig(
-            cacheSize         = 4096,
+            cacheSize         = 256,
             bytePerLine       = 32,
             wayCount          = 1,
             addressWidth      = 32,
@@ -270,9 +270,9 @@ class Briey(config: BrieyConfig) extends Component{
 
     val uartCtrl = Apb3UartCtrl(uartCtrlConfig)
 
-    val gpu = new MCP(VGAConfig.setAs_640_480_60, Axi4Config(23,32,5))
+    val gpu = MCP(VGAConfig.setAs_640_480_60)
 
-    io.vga <> gpu.io.vga
+
 
 
     val core = new Area{
@@ -306,14 +306,15 @@ class Briey(config: BrieyConfig) extends Component{
     axiCrossbar.addSlaves(
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
-      apbBridge.io.axi -> (0xF0000000L,   1 MB),
-      gpu.io.axicpu -> (0xD0000000L, 4 MB)
+      gpu.io.axicpu    -> (0xD0000000L,   8 MB),
+      apbBridge.io.axi -> (0xF0000000L,   1 MB)
+
     )
 
     axiCrossbar.addConnections(
       core.iBus       -> List(ram.io.axi, sdramCtrl.io.axi),
-      core.dBus       -> List(ram.io.axi, sdramCtrl.io.axi, apbBridge.io.axi),
-      gpu.io.axiram  -> List(            sdramCtrl.io.axi)
+      core.dBus       -> List(ram.io.axi, sdramCtrl.io.axi, apbBridge.io.axi, gpu.io.axicpu),
+      gpu.io.axiram   -> List(            sdramCtrl.io.axi)
     )
 
 
@@ -369,6 +370,7 @@ class Briey(config: BrieyConfig) extends Component{
   io.timerExternal  <> axi.timerCtrl.io.external
   io.uart           <> axi.uartCtrl.io.uart
   io.sdram          <> axi.sdramCtrl.io.sdram
+  io.vga            <> axi.gpu.io.vga
 }
 
 //DE1-SoC

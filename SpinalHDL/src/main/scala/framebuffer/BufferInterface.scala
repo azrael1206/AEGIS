@@ -15,7 +15,7 @@ case class BufferInterface(config : VGAConfig) extends Bundle with IMasterSlave{
   val rdata2 = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
 
   def asMaster(): Unit = {
-    out (rData)
+    out (rData, rdata2)
     in (rValid, rAddress, wValid, wData, rwAddress)
   }
 }

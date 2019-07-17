@@ -1,17 +1,17 @@
-Analysis & Synthesis Status : Successful - Wed Jun 26 13:01:44 2019
+Analysis & Synthesis Status : Successful - Wed Jul 17 14:55:46 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : VGA_Demo
-Top-level Entity Name : VGA_Demo
+Top-level Entity Name : Briey
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 259
-Total pins : 31
+Total registers : 40045
+Total pins : 266
 Total virtual pins : 0
-Total block memory bits : 3,145,728
-Total DSP Blocks : 0
+Total block memory bits : 4,721,312
+Total DSP Blocks : 4
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
 Total HSSI TX PCSs : 0
 Total HSSI PMA TX Serializers : 0
-Total PLLs : 1
+Total PLLs : 0
 Total DLLs : 0
