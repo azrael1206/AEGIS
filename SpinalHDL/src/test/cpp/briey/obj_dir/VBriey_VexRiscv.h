@@ -9,7 +9,6 @@
 #include "VBriey__Dpi.h"
 
 class VBriey__Syms;
-class VerilatedVcd;
 
 //----------
 
@@ -159,15 +158,11 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__IBusCachedPlugin_fetchPc_samplePcNext,0,0);
 	VL_SIG8(__PVT___zz_111_,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_stages_1_inputSample,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_inputSample,0,0);
 	VL_SIG8(__PVT___zz_117_,0,0);
 	VL_SIG8(__PVT___zz_119_,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_readyForError,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_decodeInput_payload_rsp_error,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_iBusRsp_decodeInput_payload_isRvc,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_0,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_1,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_2,0,0);
@@ -184,12 +179,12 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__execute_SrcPlugin_less,0,0);
 	VL_SIG8(__PVT__memory_DivPlugin_div_needRevert,0,0);
 	VL_SIG8(__PVT__memory_DivPlugin_div_counter_willIncrement,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT__memory_DivPlugin_div_counter_willClear,0,0);
 	VL_SIG8(__PVT__memory_DivPlugin_div_counter_valueNext,5,0);
 	VL_SIG8(__PVT__memory_DivPlugin_div_counter_value,5,0);
 	VL_SIG8(__PVT__memory_DivPlugin_div_done,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT___zz_163_,0,0);
 	VL_SIG8(__PVT___zz_164_,0,0);
 	VL_SIG8(__PVT___zz_166_,0,0);
@@ -235,66 +230,59 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__CsrPlugin_hadException,0,0);
 	VL_SIG8(__PVT__CsrPlugin_targetPrivilege,1,0);
 	VL_SIG8(__PVT__CsrPlugin_trapCause,3,0);
-	VL_SIG8(__PVT__CsrPlugin_xtvec_mode,1,0);
 	VL_SIG8(execute_CsrPlugin_inWfi,0,0);
-	VL_SIG8(__PVT__execute_CsrPlugin_wfiWake,0,0);
 	VL_SIG8(__PVT__execute_CsrPlugin_blockedBySideEffects,0,0);
-	VL_SIG8(__PVT__execute_CsrPlugin_illegalAccess,0,0);
-	VL_SIG8(__PVT__execute_CsrPlugin_illegalInstruction,0,0);
 	VL_SIG8(__PVT__execute_CsrPlugin_writeEnable,0,0);
-	VL_SIG8(__PVT__DebugPlugin_firstCycle,0,0);
-	VL_SIG8(__PVT__DebugPlugin_secondCycle,0,0);
 	VL_SIG8(__PVT__DebugPlugin_resetIt,0,0);
 	VL_SIG8(__PVT__DebugPlugin_haltIt,0,0);
 	VL_SIG8(__PVT__DebugPlugin_stepIt,0,0);
 	VL_SIG8(__PVT__DebugPlugin_isPipBusy,0,0);
 	VL_SIG8(__PVT__DebugPlugin_godmode,0,0);
 	VL_SIG8(__PVT__DebugPlugin_haltedByBreak,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT___zz_199_,0,0);
 	VL_SIG8(__PVT__DebugPlugin_resetIt_regNext,0,0);
-	VL_SIG8(__PVT__decode_to_execute_IS_CSR,0,0);
-	VL_SIG8(__PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE,0,0);
-	VL_SIG8(__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE,0,0);
 	VL_SIG8(__PVT__decode_to_execute_MEMORY_MANAGMENT,0,0);
-	VL_SIG8(__PVT__decode_to_execute_SRC1_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_MEMORY_ENABLE,0,0);
-	VL_SIG8(__PVT__execute_to_memory_MEMORY_ENABLE,0,0);
-	VL_SIG8(__PVT__memory_to_writeBack_MEMORY_ENABLE,0,0);
-	VL_SIG8(__PVT__decode_to_execute_ALU_BITWISE_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_SRC_USE_SUB_LESS,0,0);
-	VL_SIG8(__PVT__execute_to_memory_BRANCH_DO,0,0);
-	VL_SIG8(__PVT__decode_to_execute_IS_DIV,0,0);
-	VL_SIG8(__PVT__execute_to_memory_IS_DIV,0,0);
-	VL_SIG8(__PVT__decode_to_execute_SRC2_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_ALU_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_SHIFT_CTRL,1,0);
-	VL_SIG8(__PVT__execute_to_memory_SHIFT_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_SRC2_FORCE_ZERO,0,0);
-	VL_SIG8(__PVT__decode_to_execute_ENV_CTRL,0,0);
-	VL_SIG8(__PVT__execute_to_memory_ENV_CTRL,0,0);
-	VL_SIG8(__PVT__memory_to_writeBack_ENV_CTRL,0,0);
-	VL_SIG8(__PVT__decode_to_execute_SRC_LESS_UNSIGNED,0,0);
-	VL_SIG8(__PVT__decode_to_execute_IS_MUL,0,0);
-	VL_SIG8(__PVT__execute_to_memory_IS_MUL,0,0);
-	VL_SIG8(__PVT__memory_to_writeBack_IS_MUL,0,0);
 	VL_SIG8(__PVT__decode_to_execute_REGFILE_WRITE_VALID,0,0);
 	VL_SIG8(__PVT__execute_to_memory_REGFILE_WRITE_VALID,0,0);
 	VL_SIG8(__PVT__memory_to_writeBack_REGFILE_WRITE_VALID,0,0);
-	VL_SIG8(__PVT__decode_to_execute_CSR_READ_OPCODE,0,0);
-	VL_SIG8(__PVT__decode_to_execute_DO_EBREAK,0,0);
+	VL_SIG8(__PVT__decode_to_execute_IS_RS1_SIGNED,0,0);
+	VL_SIG8(__PVT__decode_to_execute_CSR_WRITE_OPCODE,0,0);
+	VL_SIG8(__PVT__decode_to_execute_IS_CSR,0,0);
+	VL_SIG8(__PVT__decode_to_execute_ENV_CTRL,0,0);
+    };
+    struct {
+	VL_SIG8(__PVT__execute_to_memory_ENV_CTRL,0,0);
+	VL_SIG8(__PVT__memory_to_writeBack_ENV_CTRL,0,0);
+	VL_SIG8(__PVT__decode_to_execute_SRC2_CTRL,1,0);
+	VL_SIG8(__PVT__decode_to_execute_MEMORY_ENABLE,0,0);
+	VL_SIG8(__PVT__execute_to_memory_MEMORY_ENABLE,0,0);
+	VL_SIG8(__PVT__memory_to_writeBack_MEMORY_ENABLE,0,0);
+	VL_SIG8(__PVT__decode_to_execute_IS_DIV,0,0);
+	VL_SIG8(__PVT__execute_to_memory_IS_DIV,0,0);
+	VL_SIG8(__PVT__execute_to_memory_MEMORY_ADDRESS_LOW,1,0);
+	VL_SIG8(__PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW,1,0);
+	VL_SIG8(__PVT__decode_to_execute_SHIFT_CTRL,1,0);
+	VL_SIG8(__PVT__execute_to_memory_SHIFT_CTRL,1,0);
+	VL_SIG8(__PVT__decode_to_execute_SRC2_FORCE_ZERO,0,0);
+	VL_SIG8(__PVT__decode_to_execute_BRANCH_CTRL,1,0);
+	VL_SIG8(__PVT__decode_to_execute_SRC_USE_SUB_LESS,0,0);
+	VL_SIG8(__PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2,0,0);
+	VL_SIG8(__PVT__decode_to_execute_IS_MUL,0,0);
+	VL_SIG8(__PVT__execute_to_memory_IS_MUL,0,0);
+	VL_SIG8(__PVT__memory_to_writeBack_IS_MUL,0,0);
+	VL_SIG8(__PVT__decode_to_execute_BYPASSABLE_EXECUTE_STAGE,0,0);
 	VL_SIG8(__PVT__decode_to_execute_MEMORY_WR,0,0);
 	VL_SIG8(__PVT__execute_to_memory_MEMORY_WR,0,0);
 	VL_SIG8(__PVT__memory_to_writeBack_MEMORY_WR,0,0);
-	VL_SIG8(__PVT__execute_to_memory_MEMORY_ADDRESS_LOW,1,0);
-	VL_SIG8(__PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW,1,0);
-	VL_SIG8(__PVT__decode_to_execute_CSR_WRITE_OPCODE,0,0);
+	VL_SIG8(__PVT__decode_to_execute_SRC_LESS_UNSIGNED,0,0);
+	VL_SIG8(__PVT__decode_to_execute_ALU_BITWISE_CTRL,1,0);
+	VL_SIG8(__PVT__decode_to_execute_SRC1_CTRL,1,0);
+	VL_SIG8(__PVT__execute_to_memory_BRANCH_DO,0,0);
+	VL_SIG8(__PVT__decode_to_execute_ALU_CTRL,1,0);
+	VL_SIG8(__PVT__decode_to_execute_DO_EBREAK,0,0);
 	VL_SIG8(__PVT__decode_to_execute_IS_RS2_SIGNED,0,0);
-	VL_SIG8(__PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2,0,0);
-	VL_SIG8(__PVT__decode_to_execute_IS_RS1_SIGNED,0,0);
-	VL_SIG8(__PVT__decode_to_execute_BRANCH_CTRL,1,0);
-	VL_SIG8(__PVT__decode_to_execute_BYPASSABLE_EXECUTE_STAGE,0,0);
+	VL_SIG8(__PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE,0,0);
+	VL_SIG8(__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE,0,0);
 	VL_SIG8(__PVT___zz_200_,2,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT___zz_13_,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT___zz_14_,0,0);
@@ -307,17 +295,11 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter,3,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT___zz_3_,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__lineLoader_cmdSent,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wordIndex,2,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_isIoAccess,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowRead,0,0);
-	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowWrite,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowExecute,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_valid,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_error,0,0);
 	VL_SIG8(__PVT__IBusCachedPlugin_cache__DOT__io_cpu_fetch_dataBypassValid_regNextWhen,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT__dataCache_1___DOT___zz_12_,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT___zz_13_,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT___zz_14_,0,0);
@@ -333,12 +315,9 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteCmd_payload_way,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteCmd_payload_address,2,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_valid,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_error,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteLastCmd_valid,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_way,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_address,2,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_valid,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_error,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__dataReadCmd_valid,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__dataReadCmd_payload,5,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__dataWriteCmd_valid,0,0);
@@ -356,9 +335,7 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mmuRspFreeze,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mmuRsp_isIoAccess,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mmuRsp_allowWrite,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mmuRsp_allowExecute,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mmuRsp_exception,0,0);
-	VL_SIG8(__PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_valid,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_error,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_waysHits,0,0);
 	VL_SIG8(__PVT__dataCache_1___DOT__stageB_mask,3,0);
@@ -382,8 +359,6 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG(__PVT___zz_220_,31,0);
 	VL_SIG(__PVT___zz_221_,31,0);
 	VL_SIG(__PVT__dataCache_1___05Fio_cpu_writeBack_data,31,0);
-    };
-    struct {
 	VL_SIG(__PVT__dataCache_1___05Fio_mem_cmd_payload_address,31,0);
 	VL_SIG(__PVT___zz_38_,31,0);
 	VL_SIG(__PVT__decode_RS2,31,0);
@@ -392,8 +367,6 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG(__PVT___zz_91_,31,0);
 	VL_SIG(__PVT___zz_96_,31,0);
 	VL_SIG(__PVT__decode_INSTRUCTION,31,0);
-	VL_SIG(__PVT___zz_98_,31,0);
-	VL_SIG(__PVT___zz_99_,31,0);
 	VL_SIG(lastStageInstruction,31,0);
 	VL_SIG(lastStagePc,31,0);
 	VL_SIG(__PVT__IBusCachedPlugin_pcs_4,31,0);
@@ -408,6 +381,8 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG(__PVT___zz_137_,31,0);
 	VL_SIG(lastStageRegFileWrite_payload_data,31,0);
 	VL_SIG(__PVT___zz_151_,31,0);
+    };
+    struct {
 	VL_SIG(__PVT___zz_153_,19,0);
 	VL_SIG(__PVT___zz_155_,19,0);
 	VL_SIG(__PVT___zz_156_,31,0);
@@ -432,33 +407,20 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG(__PVT__execute_CsrPlugin_readData,31,0);
 	VL_SIG(__PVT__execute_CsrPlugin_writeData,31,0);
 	VL_SIG(__PVT__DebugPlugin_busReadDataReg,31,0);
-	VL_SIG(__PVT__execute_to_memory_SHIFT_RIGHT,31,0);
-	VL_SIG(__PVT__execute_to_memory_BRANCH_CALC,31,0);
-	VL_SIG(__PVT__decode_to_execute_FORMAL_PC_NEXT,31,0);
-	VL_SIG(__PVT__execute_to_memory_FORMAL_PC_NEXT,31,0);
-	VL_SIG(__PVT__memory_to_writeBack_FORMAL_PC_NEXT,31,0);
-	VL_SIG(__PVT__decode_to_execute_RS1,31,0);
-	VL_SIG(__PVT__decode_to_execute_PC,31,0);
-	VL_SIG(__PVT__execute_to_memory_PC,31,0);
-	VL_SIG(__PVT__memory_to_writeBack_PC,31,0);
-	VL_SIG(__PVT__execute_to_memory_REGFILE_WRITE_DATA,31,0);
-	VL_SIG(__PVT__memory_to_writeBack_REGFILE_WRITE_DATA,31,0);
+	VL_SIG(__PVT__decode_to_execute_RS2,31,0);
 	VL_SIG(__PVT__decode_to_execute_INSTRUCTION,31,0);
 	VL_SIG(__PVT__execute_to_memory_INSTRUCTION,31,0);
 	VL_SIG(__PVT__memory_to_writeBack_INSTRUCTION,31,0);
-	VL_SIG(__PVT__decode_to_execute_RS2,31,0);
+	VL_SIG(__PVT__execute_to_memory_BRANCH_CALC,31,0);
+	VL_SIG(__PVT__decode_to_execute_RS1,31,0);
+	VL_SIG(__PVT__execute_to_memory_SHIFT_RIGHT,31,0);
 	VL_SIG(__PVT__execute_to_memory_MUL_LL,31,0);
-    };
-    struct {
+	VL_SIG(__PVT__execute_to_memory_REGFILE_WRITE_DATA,31,0);
+	VL_SIG(__PVT__memory_to_writeBack_REGFILE_WRITE_DATA,31,0);
+	VL_SIG(__PVT__decode_to_execute_PC,31,0);
+	VL_SIG(__PVT__execute_to_memory_PC,31,0);
+	VL_SIG(__PVT__memory_to_writeBack_PC,31,0);
 	VL_SIG(__PVT__IBusCachedPlugin_injectionPort_payload_regNext,31,0);
-	VL_SIGW(__PVT__decode_SHIFT_CTRL_string,71,0,3);
-	VL_SIGW(__PVT__decode_SRC1_CTRL_string,95,0,3);
-	VL_SIGW(__PVT__memory_SHIFT_CTRL_string,71,0,3);
-	VL_SIGW(__PVT__execute_SHIFT_CTRL_string,71,0,3);
-	VL_SIGW(__PVT__execute_SRC1_CTRL_string,95,0,3);
-	VL_SIGW(__PVT__decode_to_execute_SRC1_CTRL_string,95,0,3);
-	VL_SIGW(__PVT__decode_to_execute_SHIFT_CTRL_string,71,0,3);
-	VL_SIGW(__PVT__execute_to_memory_SHIFT_CTRL_string,71,0,3);
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT___zz_11_,25,0);
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT___zz_12_,31,0);
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT__lineLoader_address,31,0);
@@ -469,26 +431,24 @@ VL_MODULE(VBriey_VexRiscv) {
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT__io_cpu_fetch_dataBypass_regNextWhen,31,0);
 	VL_SIG(__PVT__dataCache_1___DOT___zz_10_,25,0);
 	VL_SIG(__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_address,23,0);
-	VL_SIG(__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_address,23,0);
 	VL_SIG(__PVT__dataCache_1___DOT__dataWriteCmd_payload_data,31,0);
 	VL_SIG(__PVT__dataCache_1___DOT__stageA_request_data,31,0);
 	VL_SIG(__PVT__dataCache_1___DOT__stageB_request_data,31,0);
 	VL_SIG(__PVT__dataCache_1___DOT__stageB_mmuRsp_physicalAddress,31,0);
-	VL_SIG(__PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_address,23,0);
 	VL_SIG(__PVT__dataCache_1___DOT__stageB_dataReadRsp_0,31,0);
 	VL_SIG64(__PVT___zz_321_,32,0);
 	VL_SIG64(__PVT__memory_DivPlugin_rs1,32,0);
 	VL_SIG64(__PVT___zz_160_,32,0);
 	VL_SIG64(__PVT___zz_161_,32,0);
 	VL_SIG64(__PVT___zz_165_,32,0);
-	VL_SIG64(__PVT__CsrPlugin_mcycle,63,0);
-	VL_SIG64(__PVT__CsrPlugin_minstret,63,0);
-	VL_SIG64(__PVT__execute_to_memory_MUL_HL,33,0);
-	VL_SIG64(__PVT__memory_to_writeBack_MUL_LOW,51,0);
 	VL_SIG64(__PVT__execute_to_memory_MUL_LH,33,0);
+	VL_SIG64(__PVT__memory_to_writeBack_MUL_LOW,51,0);
 	VL_SIG64(__PVT__execute_to_memory_MUL_HH,33,0);
 	VL_SIG64(__PVT__memory_to_writeBack_MUL_HH,33,0);
+	VL_SIG64(__PVT__execute_to_memory_MUL_HL,33,0);
 	VL_SIG(RegFilePlugin_regFile[32],31,0);
+    };
+    struct {
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT__ways_0_tags[8],25,0);
 	VL_SIG(__PVT__IBusCachedPlugin_cache__DOT__ways_0_datas[64],31,0);
 	VL_SIG(__PVT__dataCache_1___DOT__ways_0_tags[8],25,0);
@@ -500,7 +460,6 @@ VL_MODULE(VBriey_VexRiscv) {
     
     // LOCAL VARIABLES
     // Begin mtask footprint  all: 
-    VL_SIG8(__Vxrand4,1,0);
     VL_SIG8(__Vxrand3,3,0);
     VL_SIG8(__Vxrand2,3,0);
     VL_SIG8(dataCache_1___DOT____Vxrand14,0,0);
@@ -514,27 +473,11 @@ VL_MODULE(VBriey_VexRiscv) {
     VL_SIG8(dataCache_1___DOT____Vxrand3,0,0);
     VL_SIG8(dataCache_1___DOT____Vxrand2,5,0);
     VL_SIG8(dataCache_1___DOT____Vxrand1,2,0);
-    VL_SIG8(__Vtableidx3,1,0);
-    VL_SIG8(__Vtableidx7,1,0);
-    VL_SIG8(__Vtableidx11,1,0);
-    VL_SIG8(__Vtableidx13,1,0);
-    VL_SIG8(__Vtableidx15,1,0);
-    VL_SIG8(__Vtableidx21,1,0);
-    VL_SIG8(__Vtableidx22,1,0);
-    VL_SIG8(__Vtableidx23,1,0);
     VL_SIG(__Vxrand5,29,0);
     VL_SIG(__Vxrand1,31,0);
     VL_SIG(dataCache_1___DOT____Vxrand12,31,0);
     VL_SIG(dataCache_1___DOT____Vxrand10,31,0);
     VL_SIG(dataCache_1___DOT____Vxrand7,23,0);
-    static VL_ST_SIGW(__Vtable3___PVT__decode_SHIFT_CTRL_string[4],71,0,3);
-    static VL_ST_SIGW(__Vtable7___PVT__decode_SRC1_CTRL_string[4],95,0,3);
-    static VL_ST_SIGW(__Vtable11___PVT__memory_SHIFT_CTRL_string[4],71,0,3);
-    static VL_ST_SIGW(__Vtable13___PVT__execute_SHIFT_CTRL_string[4],71,0,3);
-    static VL_ST_SIGW(__Vtable15___PVT__execute_SRC1_CTRL_string[4],95,0,3);
-    static VL_ST_SIGW(__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[4],95,0,3);
-    static VL_ST_SIGW(__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[4],71,0,3);
-    static VL_ST_SIGW(__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[4],71,0,3);
     
     // INTERNAL VARIABLES
   private:
@@ -549,7 +492,6 @@ VL_MODULE(VBriey_VexRiscv) {
   public:
     VBriey_VexRiscv(const char* name="TOP");
     ~VBriey_VexRiscv();
-    void trace(VerilatedVcdC* tfp, int levels, int options=0);
     
     // API METHODS
     
@@ -572,9 +514,6 @@ VL_MODULE(VBriey_VexRiscv) {
     static void _sequent__TOP__Briey__axi_core_cpu__8(VBriey__Syms* __restrict vlSymsp);
     static void _sequent__TOP__Briey__axi_core_cpu__9(VBriey__Syms* __restrict vlSymsp);
     static void _settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restrict vlSymsp);
-    static void traceInit(VerilatedVcd* vcdp, void* userthis, uint32_t code);
-    static void traceFull(VerilatedVcd* vcdp, void* userthis, uint32_t code);
-    static void traceChg(VerilatedVcd* vcdp, void* userthis, uint32_t code);
 } VL_ATTR_ALIGNED(128);
 
 #endif // guard

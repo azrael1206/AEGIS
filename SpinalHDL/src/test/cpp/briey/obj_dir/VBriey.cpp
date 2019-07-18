@@ -51,7 +51,6 @@ void VBriey::eval() {
     QData __Vchange = 1;
     do {
 	VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
-	vlSymsp->__Vm_activity = true;
 	_eval(vlSymsp);
 	if (VL_UNLIKELY(++__VclockLoop > 100)) {
 	    // About to fail, so enable debug to see what's not settling.
@@ -70,7 +69,6 @@ void VBriey::eval() {
 void VBriey::_eval_initial_loop(VBriey__Syms* __restrict vlSymsp) {
     vlSymsp->__Vm_didInit = true;
     _eval_initial(vlSymsp);
-    vlSymsp->__Vm_activity = true;
     // Evaluate till stable
     int __VclockLoop = 0;
     QData __Vchange = 1;
@@ -193,35 +191,29 @@ void VBriey::_eval(VBriey__Syms* __restrict vlSymsp) {
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlTOPp->_combo__TOP__1(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (2U | vlTOPp->__Vm_traceActivity);
     if (((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__4(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (4U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__3(vlSymsp);
 	vlTOPp->_sequent__TOP__4(vlSymsp);
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__5(vlSymsp);
     }
     if (((~ (IData)(vlTOPp->io_jtag_tck)) & (IData)(vlTOPp->__Vclklast__TOP__io_jtag_tck))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__6(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (8U | vlTOPp->__Vm_traceActivity);
 	vlTOPp->_sequent__TOP__5(vlSymsp);
     }
     if (((IData)(vlTOPp->io_jtag_tck) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_jtag_tck)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__7(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x10U | vlTOPp->__Vm_traceActivity);
     }
     if ((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_systemReset) 
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__8(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x20U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__4(vlSymsp);
     }
     if ((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_axiReset) 
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_axiReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__9(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x40U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__5(vlSymsp);
 	vlTOPp->_sequent__TOP__6(vlSymsp);
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__10(vlSymsp);
@@ -229,7 +221,6 @@ void VBriey::_eval(VBriey__Syms* __restrict vlSymsp) {
     }
     if (((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__11(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x80U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__7(vlSymsp);
     }
     vlSymsp->TOP__Briey._combo__TOP__Briey__12(vlSymsp);
@@ -237,19 +228,16 @@ void VBriey::_eval(VBriey__Syms* __restrict vlSymsp) {
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__8(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x100U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__13(vlSymsp);
     }
     if ((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_axiReset) 
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_axiReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__15(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x200U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__9(vlSymsp);
     }
     if (((IData)(vlTOPp->io_jtag_tck) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_jtag_tck)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__16(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x400U | vlTOPp->__Vm_traceActivity);
     }
     if (((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_axiReset) 
 	   & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_axiReset))) 
@@ -257,29 +245,24 @@ void VBriey::_eval(VBriey__Syms* __restrict vlSymsp) {
 	     & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset)))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu._multiclk__TOP__Briey__axi_core_cpu__10(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x800U | vlTOPp->__Vm_traceActivity);
     }
     if (((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__17(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x1000U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__11(vlSymsp);
     }
     if ((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_systemReset) 
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__12(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x2000U | vlTOPp->__Vm_traceActivity);
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__18(vlSymsp);
     }
     if (((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk)))) {
 	vlSymsp->TOP__Briey._sequent__TOP__Briey__19(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x4000U | vlTOPp->__Vm_traceActivity);
     }
     if ((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_systemReset) 
 	  & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu._sequent__TOP__Briey__axi_core_cpu__13(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x8000U | vlTOPp->__Vm_traceActivity);
     }
     if (((((IData)(vlTOPp->__VinpClk__TOP__Briey____PVT__resetCtrl_axiReset) 
 	   & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_axiReset))) 
@@ -287,7 +270,6 @@ void VBriey::_eval(VBriey__Syms* __restrict vlSymsp) {
 	     & (~ (IData)(vlTOPp->__Vclklast__TOP____VinpClk__TOP__Briey____PVT__resetCtrl_systemReset)))) 
 	 | ((IData)(vlTOPp->io_axiClk) & (~ (IData)(vlTOPp->__Vclklast__TOP__io_axiClk))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu._multiclk__TOP__Briey__axi_core_cpu__14(vlSymsp);
-	vlTOPp->__Vm_traceActivity = (0x10000U | vlTOPp->__Vm_traceActivity);
     }
     // Final
     vlTOPp->__Vclklast__TOP__io_axiClk = vlTOPp->io_axiClk;
@@ -307,7 +289,6 @@ void VBriey::_eval_initial(VBriey__Syms* __restrict vlSymsp) {
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlSymsp->TOP__Briey__axi_core_cpu._initial__TOP__Briey__axi_core_cpu__1(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (1U | vlTOPp->__Vm_traceActivity);
     vlSymsp->TOP__Briey._initial__TOP__Briey__1(vlSymsp);
     vlTOPp->__Vclklast__TOP__io_axiClk = vlTOPp->io_axiClk;
     vlTOPp->__Vclklast__TOP__io_jtag_tck = vlTOPp->io_jtag_tck;
@@ -329,7 +310,6 @@ void VBriey::_eval_settle(VBriey__Syms* __restrict vlSymsp) {
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlTOPp->_settle__TOP__2(vlSymsp);
-    vlTOPp->__Vm_traceActivity = (1U | vlTOPp->__Vm_traceActivity);
     vlSymsp->TOP__Briey._settle__TOP__Briey__2(vlSymsp);
     vlSymsp->TOP__Briey__axi_core_cpu._settle__TOP__Briey__axi_core_cpu__2(vlSymsp);
     vlTOPp->_settle__TOP__3(vlSymsp);
@@ -345,8 +325,8 @@ VL_INLINE_OPT QData VBriey::_change_request(VBriey__Syms* __restrict vlSymsp) {
     QData __req = false;  // Logically a bool
     __req |= ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset)
 	 | (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset));
-    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:20121: resetCtrl_systemReset\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:20122: resetCtrl_axiReset\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19949: resetCtrl_systemReset\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19950: resetCtrl_axiReset\n"); );
     // Final
     vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset 
 	= vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset;
@@ -425,5 +405,4 @@ void VBriey::_ctor_var_reset() {
     __VinpClk__TOP__Briey____PVT__resetCtrl_axiReset = VL_RAND_RESET_I(1);
     __Vchglast__TOP__Briey__resetCtrl_systemReset = VL_RAND_RESET_I(1);
     __Vchglast__TOP__Briey__resetCtrl_axiReset = VL_RAND_RESET_I(1);
-    __Vm_traceActivity = VL_RAND_RESET_I(32);
 }

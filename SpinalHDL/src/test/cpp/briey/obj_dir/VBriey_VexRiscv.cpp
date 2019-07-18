@@ -11,15 +11,6 @@
 //--------------------
 // STATIC VARIABLES
 
-// Begin mtask footprint  all: 
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable3___PVT__decode_SHIFT_CTRL_string[4],71,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable7___PVT__decode_SRC1_CTRL_string[4],95,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable11___PVT__memory_SHIFT_CTRL_string[4],71,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable13___PVT__execute_SHIFT_CTRL_string[4],71,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable15___PVT__execute_SRC1_CTRL_string[4],95,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[4],95,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[4],71,0,3);
-VL_ST_SIGW(VBriey_VexRiscv::__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[4],71,0,3);
 
 //--------------------
 
@@ -44,14 +35,12 @@ void VBriey_VexRiscv::_initial__TOP__Briey__axi_core_cpu__1(VBriey__Syms* __rest
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_initial__TOP__Briey__axi_core_cpu__1\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // INITIAL at ../../../../Briey.v:16432
+    // INITIAL at ../../../../Briey.v:16260
     vlSymsp->TOP__Briey__axi_core_cpu.execute_CsrPlugin_inWfi = 0U;
-    // INITIAL at ../../../../Briey.v:16408
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand4 = VL_RAND_RESET_I(2);
     // INITIAL at ../../../../Briey.v:4108
     vlSymsp->TOP__Briey__axi_core_cpu.dataCache_1___DOT____Vxrand14 
 	= VL_RAND_RESET_I(1);
-    // INITIAL at ../../../../Briey.v:15512
+    // INITIAL at ../../../../Briey.v:15340
     vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand2 = VL_RAND_RESET_I(4);
     // INITIAL at ../../../../Briey.v:3861
     vlSymsp->TOP__Briey__axi_core_cpu.dataCache_1___DOT____Vxrand7 
@@ -77,7 +66,7 @@ void VBriey_VexRiscv::_initial__TOP__Briey__axi_core_cpu__1(VBriey__Syms* __rest
     // INITIAL at ../../../../Briey.v:4078
     vlSymsp->TOP__Briey__axi_core_cpu.dataCache_1___DOT____Vxrand12 
 	= VL_RAND_RESET_I(32);
-    // INITIAL at ../../../../Briey.v:15605
+    // INITIAL at ../../../../Briey.v:15433
     vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand3 = VL_RAND_RESET_I(4);
     // INITIAL at ../../../../Briey.v:3929
     vlSymsp->TOP__Briey__axi_core_cpu.dataCache_1___DOT____Vxrand11 
@@ -94,14 +83,10 @@ void VBriey_VexRiscv::_initial__TOP__Briey__axi_core_cpu__1(VBriey__Syms* __rest
     // INITIAL at ../../../../Briey.v:3887
     vlSymsp->TOP__Briey__axi_core_cpu.dataCache_1___DOT____Vxrand8 
 	= VL_RAND_RESET_I(1);
-    // INITIAL at ../../../../Briey.v:15178
+    // INITIAL at ../../../../Briey.v:15006
     vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand1 = VL_RAND_RESET_I(32);
-    // INITIAL at ../../../../Briey.v:16419
+    // INITIAL at ../../../../Briey.v:16247
     vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand5 = VL_RAND_RESET_I(30);
-    // INITIAL at ../../../../Briey.v:13370
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mcycle = VL_ULL(0);
-    // INITIAL at ../../../../Briey.v:13371
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_minstret = VL_ULL(0);
 }
 
 void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restrict vlSymsp) {
@@ -109,10 +94,10 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
     // Begin mtask footprint  all: 
-    VL_SIGW(__Vtemp15,95,0,3);
-    VL_SIGW(__Vtemp16,95,0,3);
-    VL_SIGW(__Vtemp17,95,0,3);
-    VL_SIGW(__Vtemp18,95,0,3);
+    VL_SIGW(__Vtemp7,95,0,3);
+    VL_SIGW(__Vtemp8,95,0,3);
+    VL_SIGW(__Vtemp9,95,0,3);
+    VL_SIGW(__Vtemp10,95,0,3);
     // Body
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_13_ 
 	= (1U & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter) 
@@ -128,60 +113,12 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_196_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mip_MEIP) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mie_MEIE));
-    // ALWAYS at ../../../../Briey.v:14350
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][2U];
-    // ALWAYS at ../../../../Briey.v:14404
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][2U];
-    // ALWAYS at ../../../../Briey.v:14590
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][2U];
-    // ALWAYS at ../../../../Briey.v:14633
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][2U];
-    // ALWAYS at ../../../../Briey.v:15160
+    // ALWAYS at ../../../../Briey.v:14988
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_103_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_103_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16624
+    // ALWAYS at ../../../../Briey.v:16452
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_ready = 0U;
     if ((4U & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_))) {
 	if ((1U & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_) 
@@ -196,7 +133,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    << 1U) | (QData)((IData)((1U & (IData)(
 						   (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs1 
 						    >> 0x1fU))))));
-    // ALWAYS at ../../../../Briey.v:15935
+    // ALWAYS at ../../../../Briey.v:15763
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_ 
 	= ((0xfffffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_RIGHT 
@@ -325,18 +262,18 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_) 
 	   | (0x80000000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_RIGHT 
 			     << 0x1fU)));
+    // ALWAYS at ../../../../Briey.v:15021
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 0U;
+    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 1U;
+    }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_15_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_valid) 
 	   & (IData)(vlSymsp->TOP__Briey.__PVT___zz_55_));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache_io_mem_cmd_valid 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_valid) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_cmdSent)));
-    // ALWAYS at ../../../../Briey.v:15193
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 0U;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 1U;
-    }
-    // ALWAYS at ../../../../Briey.v:14968
+    // ALWAYS at ../../../../Briey.v:14796
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_haltItself = 0U;
     if ((1U & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_) 
 		  >> 2U)))) {
@@ -363,13 +300,13 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_207_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__io_cpu_fetch_dataBypassValid_regNextWhen)));
-    // ALWAYS at ../../../../Briey.v:15207
+    // ALWAYS at ../../../../Briey.v:15035
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowException = 1U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowException = 0U;
     }
     vlSymsp->TOP__Briey__axi_core_cpu.lastStagePc = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_PC;
-    // ALWAYS at ../../../../Briey.v:16400
+    // ALWAYS at ../../../../Briey.v:16228
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_trapCause 
 	= vlSymsp->TOP__Briey__axi_core_cpu.CsrPlugin_interrupt_code;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
@@ -381,37 +318,13 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	   & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_valid) 
 		 | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 		    & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit))))));
-    // ALWAYS at ../../../../Briey.v:14368
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][2U];
-    // ALWAYS at ../../../../Briey.v:14624
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][2U];
-    // ALWAYS at ../../../../Briey.v:15153
+    // ALWAYS at ../../../../Briey.v:14981
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15200
+    // ALWAYS at ../../../../Briey.v:15028
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowInterrupts = 1U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_haltIt) 
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_stepIt))) {
@@ -440,7 +353,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ENABLE));
-    // ALWAYS at ../../../../Briey.v:16047
+    // ALWAYS at ../../../../Briey.v:15875
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_165_ 
 	= ((VL_ULL(0xffffffff) & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_165_) 
 	   | ((QData)((IData)(((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS1_SIGNED) 
@@ -465,7 +378,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	   & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_DO) 
 	      & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_CALC 
 		 >> 1U)));
-    // ALWAYS at ../../../../Briey.v:15303
+    // ALWAYS at ../../../../Briey.v:15131
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError = 1U;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_1)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError = 0U;
@@ -500,7 +413,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_219_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_MANAGMENT));
-    // ALWAYS at ../../../../Briey.v:16382
+    // ALWAYS at ../../../../Briey.v:16210
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_pipelineLiberator_done 
 	= ((0U == (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 		    << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) 
@@ -517,7 +430,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_163_ 
 	= ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2 
 	    >> 0x1fU) & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS2_SIGNED));
-    // ALWAYS at ../../../../Briey.v:16238
+    // ALWAYS at ../../../../Briey.v:16066
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -598,7 +511,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16276
+    // ALWAYS at ../../../../Briey.v:16104
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_ 
 	= ((0x3ffU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_)) 
 	   | (0x400U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -643,7 +556,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7feU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_)) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16291
+    // ALWAYS at ../../../../Briey.v:16119
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -720,7 +633,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7fffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16479
+    // ALWAYS at ../../../../Briey.v:16307
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_readData = 0U;
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		  >> 0x1fU)))) {
@@ -879,7 +792,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15802
+    // ALWAYS at ../../../../Briey.v:15630
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	= ((0U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL))
 	    ? vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS1
@@ -888,7 +801,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 			 ? (0xfffff000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
 			 : (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 				     >> 0xfU)))));
-    // ALWAYS at ../../../../Briey.v:15821
+    // ALWAYS at ../../../../Briey.v:15649
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -969,7 +882,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15845
+    // ALWAYS at ../../../../Briey.v:15673
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -1050,7 +963,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16546
+    // ALWAYS at ../../../../Briey.v:16374
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__debug_bus_rsp_data 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_busReadDataReg;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_199_)))) {
@@ -1074,7 +987,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	       | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_stepIt) 
 		  << 4U));
     }
-    // ALWAYS at ../../../../Briey.v:16557
+    // ALWAYS at ../../../../Briey.v:16385
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_valid = 0U;
     if (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___05Fio_mem_cmd_valid) {
 	if ((0U != (0x3fU & ((vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[1U] 
@@ -1101,7 +1014,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15564
+    // ALWAYS at ../../../../Briey.v:15392
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_215_ 
 	= (0xfU == (0xfU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_DATA 
 			    >> 0x1cU)));
@@ -1109,7 +1022,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	 & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageA_request_wr)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_215_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16529
+    // ALWAYS at ../../../../Briey.v:16357
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__debug_bus_cmd_ready = 1U;
     if (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___05Fio_mem_cmd_valid) {
 	if ((0U != (0x3fU & ((vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[1U] 
@@ -1128,17 +1041,17 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_161_ 
 	= (VL_ULL(0x1ffffffff) & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_160_ 
 				  - (QData)((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs2))));
+    // ALWAYS at ../../../../Briey.v:16149
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
+    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
+    }
     // ALWAYS at ../../../../Briey.v:4144
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_15_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16321
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
-    }
-    // ALWAYS at ../../../../Briey.v:15619
+    // ALWAYS at ../../../../Briey.v:15447
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_data;
     if ((1U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW))) {
@@ -1161,7 +1074,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14941
+    // ALWAYS at ../../../../Briey.v:14769
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_word;
     if ((0U != (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_))) {
@@ -1304,14 +1217,14 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataWriteCmd_payload_data 
 	    = vlSymsp->TOP__Briey.__PVT___zz_56_;
     }
-    // ALWAYS at ../../../../Briey.v:16012
+    // ALWAYS at ../../../../Briey.v:15840
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14827
+    // ALWAYS at ../../../../Briey.v:14655
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_44_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_DATA;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) {
@@ -1330,21 +1243,21 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_44_ 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_result;
     }
-    // ALWAYS at ../../../../Briey.v:15058
+    // ALWAYS at ../../../../Briey.v:14886
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15144
+    // ALWAYS at ../../../../Briey.v:14972
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherflushIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_234_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_235_) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherflushIt = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15029
+    // ALWAYS at ../../../../Briey.v:14857
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_234_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther = 1U;
@@ -1353,7 +1266,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_valid) 
 	    & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_pipelineLiberator_done)) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowInterrupts));
-    // ALWAYS at ../../../../Briey.v:16261
+    // ALWAYS at ../../../../Briey.v:16089
     if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_BranchPlugin_branch_src2 
 	    = ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_ 
@@ -1393,7 +1306,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 				      >> 0xfU))) | 
 	   (0xffffU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 		       >> 0x10U)));
-    // ALWAYS at ../../../../Briey.v:16517
+    // ALWAYS at ../../../../Briey.v:16345
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_writeData 
 	= ((0x2000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
 	    ? ((0x1000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
@@ -1402,7 +1315,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	        : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_readData 
 		   | vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_))
 	    : vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_);
-    // ALWAYS at ../../../../Briey.v:15898
+    // ALWAYS at ../../../../Briey.v:15726
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_ 
 	= ((0xfffffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
@@ -1531,7 +1444,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_) 
 	   | (0x80000000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 			     << 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15868
+    // ALWAYS at ../../../../Briey.v:15696
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_ 
 	= ((0U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC2_CTRL))
 	    ? vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2
@@ -1546,11 +1459,6 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 				    | (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 						>> 7U))))
 		    : vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PC)));
-    // ALWAYS at ../../../../Briey.v:3429
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement = 0U;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement = 1U;
-    }
     // ALWAYS at ../../../../Briey.v:3396
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_2_ = 0U;
     if ((1U & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire) 
@@ -1563,17 +1471,10 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    << 1U) | (QData)((IData)((1U & (~ (IData)(
 						      (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_161_ 
 						       >> 0x20U)))))));
-    // ALWAYS at ../../../../Briey.v:4154
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_valueNext 
-	= (7U & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_value) 
-		 + (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement)));
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willOverflow 
-	= ((7U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_value)) 
-	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_252_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mstatus_MIE) 
 	   | (3U > (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege)));
-    // ALWAYS at ../../../../Briey.v:16393
+    // ALWAYS at ../../../../Briey.v:16221
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_targetPrivilege;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
@@ -1581,125 +1482,13 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    = ((3U > (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege))
 	        ? 3U : (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege));
     }
-    // ALWAYS at ../../../../Briey.v:16470
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalInstruction = 0U;
-    if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid) 
-	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ENV_CTRL))) {
-	if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege) 
-	     < (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		      >> 0x1cU)))) {
-	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalInstruction = 1U;
-	}
-    }
-    // ALWAYS at ../../../../Briey.v:16434
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 1U;
-    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		  >> 0x1fU)))) {
-	if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		      >> 0x1eU)))) {
-	    if ((0x20000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-		if ((0x10000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-		    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-				  >> 0x1bU)))) {
-			if ((0x4000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-			    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					  >> 0x19U)))) {
-				if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					      >> 0x18U)))) {
-				    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						  >> 0x17U)))) {
-					if ((0x400000U 
-					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					} else {
-					    if ((0x200000U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						if (
-						    (0x100000U 
-						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_READ_OPCODE) {
-							vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						    }
-						} else {
-						    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_READ_OPCODE) {
-							vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						    }
-						}
-					    } else {
-						if (
-						    (0x100000U 
-						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					}
-				    }
-				}
-			    }
-			} else {
-			    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					  >> 0x19U)))) {
-				if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					      >> 0x18U)))) {
-				    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						  >> 0x17U)))) {
-					if ((0x400000U 
-					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					} else {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					}
-				    }
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	}
-    }
-    if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege) 
-	 < (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		  >> 0x1cU)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 1U;
-    }
-    if ((1U & ((~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid)) 
-	       | (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_CSR))))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-    }
+    // ALWAYS at ../../../../Briey.v:4154
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_valueNext 
+	= (7U & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_value) 
+		 + (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement)));
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willOverflow 
+	= ((7U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_value)) 
+	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_133_ 
 	= (1U & ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted 
 		  >> 7U) & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
@@ -1708,7 +1497,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= (1U & ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted 
 		  >> 0xfU) & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
 				 >> 0xeU))));
-    // ALWAYS at ../../../../Briey.v:15419
+    // ALWAYS at ../../../../Briey.v:15247
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_ 
 	= ((0x3ffU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_)) 
 	   | (0x400U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -1753,7 +1542,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7feU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_)) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15434
+    // ALWAYS at ../../../../Briey.v:15262
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -1830,7 +1619,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((0x7fffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15339
+    // ALWAYS at ../../../../Briey.v:15167
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -2014,216 +1803,186 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 		     >> 7U)) == (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 					  >> 0x14U)));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-	= (((0x2000030U == (0x2004074U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-	    << 0x1fU) | (((0U != (((0x5010U == (0x7034U 
+	= (((0U != (((0x48U == (0x48U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+		     << 5U) | (((0x1010U == (0x1010U 
+					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+				<< 4U) | (((0x2010U 
+					    == (0x2010U 
 						& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-				   << 1U) | (0x5020U 
-					     == (0x2007064U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-			  << 0x1eU) | (((0U != (((0x40001010U 
+					   << 3U) | 
+					  (((0x10U 
+					     == (0x50U 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+					    << 2U) 
+					   | (((4U 
+						== 
+						(0xcU 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+					       << 1U) 
+					      | (0U 
+						 == 
+						 (0x28U 
+						  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))) 
+	    << 0x1fU) | (((0x50U == (0x103050U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+			  << 0x1eU) | (((0U != (((4U 
 						  == 
-						  (0x40003054U 
+						  (0x14U 
 						   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						 << 2U) 
-						| (((0x1010U 
-						     == 
-						     (0x7034U 
-						      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						    << 1U) 
-						   | (0x1010U 
-						      == 
-						      (0x2007054U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
-					<< 0x1dU) | 
-				       (((0U != (((0x1050U 
+						 << 1U) 
+						| (0x4050U 
 						   == 
-						   (0x1050U 
+						   (0x4050U 
+						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+					<< 0x1dU) | 
+				       (((0U != (((4U 
+						   == 
+						   (0x44U 
 						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 						  << 1U) 
-						 | (0x2050U 
+						 | (0x4050U 
 						    == 
-						    (0x2050U 
+						    (0x4050U 
 						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 					 << 0x1cU) 
-					| (((0U != 
-					     (((4U 
-						== 
-						(4U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-					       << 4U) 
-					      | (((0x2010U 
-						   == 
-						   (0x2030U 
-						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						  << 3U) 
-						 | (((0x10U 
-						      == 
-						      (0x1030U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 2U) 
-						    | (((0x2020U 
-							 == 
-							 (0x2002060U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (0x20U 
-							  == 
-							  (0x2003020U 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
+					| (((0U == 
+					     (0x1000U 
+					      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 					    << 0x1bU) 
-					   | (((0U 
-						!= 
-						(((0x48U 
-						   == 
-						   (0x48U 
-						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						  << 5U) 
-						 | (((0x1010U 
-						      == 
-						      (0x1010U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 4U) 
-						    | (((0x2010U 
-							 == 
-							 (0x2010U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 3U) 
-						       | (((0x10U 
-							    == 
-							    (0x50U 
-							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							   << 2U) 
-							  | (((4U 
-							       == 
-							       (0xcU 
-								& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							      << 1U) 
-							     | (0U 
-								== 
-								(0x28U 
-								 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))) 
+					   | (((0x2004020U 
+						== 
+						(0x2004064U 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 					       << 0x1aU) 
 					      | (((0U 
 						   != 
-						   (((0x40U 
+						   (((0x1050U 
 						      == 
-						      (0x44U 
+						      (0x1050U 
 						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 2U) 
-						    | (((0x2010U 
-							 == 
-							 (0x2014U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (0x40000030U 
-							  == 
-							  (0x40000034U 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+						     << 1U) 
+						    | (0x2050U 
+						       == 
+						       (0x2050U 
+							& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 						  << 0x19U) 
 						 | (((0U 
 						      != 
-						      (((0x48U 
+						      (((0U 
 							 == 
-							 (0x48U 
+							 (0x44U 
 							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (4U 
-							  == 
-							  (0x1cU 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-						     << 0x18U) 
-						    | (((0x40U 
-							 == 
-							 (0x58U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 0x17U) 
-						       | (((0x2004020U 
+							<< 3U) 
+						       | (((0U 
 							    == 
-							    (0x2004064U 
+							    (0x18U 
+							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							   << 2U) 
+							  | (((0x2000U 
+							       == 
+							       (0x6004U 
+								& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							      << 1U) 
+							     | (0x1000U 
+								== 
+								(0x5004U 
+								 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))) 
+						     << 0x18U) 
+						    | (((0U 
+							 != 
+							 (((0x48U 
+							    == 
+							    (0x48U 
+							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							   << 1U) 
+							  | (4U 
+							     == 
+							     (0x1cU 
+							      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+							<< 0x17U) 
+						       | (((0x40U 
+							    == 
+							    (0x58U 
 							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 							   << 0x16U) 
 							  | (((0U 
 							       != 
-							       (((0x2000U 
+							       (((0x20U 
 								  == 
-								  (0x2010U 
+								  (0x34U 
 								   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 								 << 1U) 
-								| (0x1000U 
+								| (0x20U 
 								   == 
-								   (0x5000U 
+								   (0x64U 
 								    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 							      << 0x15U) 
-							     | (((0x20U 
-								  == 
-								  (0x20U 
-								   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								 << 0x14U) 
-								| (((0x50U 
+							     | (((0U 
+								  != 
+								  (((4U 
 								     == 
-								     (0x103050U 
+								     (4U 
 								      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								    << 0x13U) 
-								   | (((0x4010U 
+								    << 4U) 
+								   | (((0x2010U 
 									== 
-									(0x4014U 
+									(0x2030U 
 									 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								       << 0x12U) 
-								      | (((0x2010U 
+								       << 3U) 
+								      | (((0x10U 
 									   == 
-									   (0x6014U 
+									   (0x1030U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 2U) 
+									 | (((0x2020U 
+									      == 
+									      (0x2002060U 
+									       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									     << 1U) 
+									    | (0x20U 
+									       == 
+									       (0x2003020U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
+								 << 0x14U) 
+								| (((0U 
+								     != 
+								     (((0x40U 
+									== 
+									(0x50U 
+									 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+								       << 2U) 
+								      | (((0U 
+									   == 
+									   (0x38U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 1U) 
+									 | (0x40U 
+									    == 
+									    (0x103040U 
+									     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+								    << 0x13U) 
+								   | (((0U 
+									!= 
+									(((0x2000U 
+									   == 
+									   (0x2010U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 1U) 
+									 | (0x1000U 
+									    == 
+									    (0x5000U 
+									     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+								       << 0x12U) 
+								      | (((0x2000030U 
+									   == 
+									   (0x2004074U 
 									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 									  << 0x11U) 
-									 | (((0U 
-									      != 
-									      (((0U 
-										== 
-										(0x44U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 3U) 
-									       | (((0U 
-										== 
-										(0x18U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0x2000U 
-										== 
-										(0x6004U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x1000U 
-										== 
-										(0x5004U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))) 
+									 | (((0x1008U 
+									      == 
+									      (0x5048U 
+									       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 									     << 0x10U) 
 									    | (((0U 
-										!= 
-										(((0x40U 
-										== 
-										(0x50U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0U 
-										== 
-										(0x38U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x40U 
-										== 
-										(0x103040U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
-										<< 0xfU) 
-									       | (((0x4008U 
-										== 
-										(0x4048U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 0xeU) 
-										| (((0x1008U 
-										== 
-										(0x5048U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 0xdU) 
-										| (((0U 
 										!= 
 										(((0x40U 
 										== 
@@ -2249,10 +2008,37 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 										== 
 										(0x2000020U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
-										<< 0xcU) 
+										<< 0xfU) 
+									       | (((0x20U 
+										== 
+										(0x20U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 0xeU) 
 										| (((0U 
 										== 
-										(0x1000U 
+										(0x58U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 0xdU) 
+										| (((0U 
+										!= 
+										(((0x40U 
+										== 
+										(0x44U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 2U) 
+										| (((0x2010U 
+										== 
+										(0x2014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x40000030U 
+										== 
+										(0x40000034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+										<< 0xcU) 
+										| (((0x4008U 
+										== 
+										(0x4048U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 										<< 0xbU) 
 										| (((0x24U 
@@ -2270,11 +2056,55 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 										(0x3000U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 										<< 8U) 
+										| (((0U 
+										== 
+										(0x1000U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 7U) 
 										| (((0x50U 
 										== 
 										(0x10003050U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 7U) 
+										<< 6U) 
+										| (((0x4010U 
+										== 
+										(0x4014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 5U) 
+										| (((0x2010U 
+										== 
+										(0x6014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 4U) 
+										| (((0U 
+										!= 
+										(((0x5010U 
+										== 
+										(0x7034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x5020U 
+										== 
+										(0x2007064U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+										<< 3U) 
+										| (((0U 
+										!= 
+										(((0x40001010U 
+										== 
+										(0x40003054U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 2U) 
+										| (((0x1010U 
+										== 
+										(0x7034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x1010U 
+										== 
+										(0x2007054U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+										<< 2U) 
 										| (((0U 
 										!= 
 										(((4U 
@@ -2286,8 +2116,8 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 										== 
 										(0x70U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 6U) 
-										| (((0U 
+										<< 1U) 
+										| (0U 
 										!= 
 										(((4U 
 										== 
@@ -2297,59 +2127,13 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 										| (0U 
 										== 
 										(0x20U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 5U) 
-										| (((0U 
-										!= 
-										(((0x20U 
-										== 
-										(0x34U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x20U 
-										== 
-										(0x64U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 4U) 
-										| (((0U 
-										== 
-										(0x1000U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 3U) 
-										| (((0U 
-										== 
-										(0x58U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0U 
-										!= 
-										(((4U 
-										== 
-										(0x14U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x4050U 
-										== 
-										(0x4050U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 1U) 
-										| (0U 
-										!= 
-										(((4U 
-										== 
-										(0x44U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x4050U 
-										== 
-										(0x4050U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))))))))))))))))))))))))))))));
-    // ALWAYS at ../../../../Briey.v:14933
+    // ALWAYS at ../../../../Briey.v:14761
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_232_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15575
+    // ALWAYS at ../../../../Briey.v:15403
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_redo) {
@@ -2363,7 +2147,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 		   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_ENABLE)))) 
 	    & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_))) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_redo)));
-    // ALWAYS at ../../../../Briey.v:15604
+    // ALWAYS at ../../../../Briey.v:15432
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_payload_code 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand3;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
@@ -2383,7 +2167,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 		    ? 0xfU : 0xdU);
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15585
+    // ALWAYS at ../../../../Briey.v:15413
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_accessError) {
@@ -2421,7 +2205,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_BranchPlugin_eq 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	   == vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_);
-    // ALWAYS at ../../../../Briey.v:15886
+    // ALWAYS at ../../../../Briey.v:15714
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_addSub 
 	= ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	    + ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC_USE_SUB_LESS)
@@ -2432,6 +2216,12 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC2_FORCE_ZERO) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_addSub 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_;
+    }
+    // ALWAYS at ../../../../Briey.v:16246
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_base 
+	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand5;
+    if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_base = 0x20000008U;
     }
     // ALWAYS at ../../../../Briey.v:3843
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_valid 
@@ -2481,19 +2271,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_way 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_waysAllocator;
     }
-    // ALWAYS at ../../../../Briey.v:16407
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_mode 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand4;
-    if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_mode = 0U;
-    }
-    // ALWAYS at ../../../../Briey.v:16418
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_base 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand5;
-    if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_base = 0x20000008U;
-    }
-    // ALWAYS at ../../../../Briey.v:15637
+    // ALWAYS at ../../../../Briey.v:15465
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_ 
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_133_) 
@@ -2593,7 +2371,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_ 
 	= ((0xffffff00U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_) 
 	   | (0xffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted));
-    // ALWAYS at ../../../../Briey.v:15666
+    // ALWAYS at ../../../../Briey.v:15494
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_ 
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_135_) 
@@ -2661,43 +2439,18 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_ 
 	= ((0xffff0000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_) 
 	   | (0xffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted));
-    // ALWAYS at ../../../../Briey.v:14872
+    // ALWAYS at ../../../../Briey.v:14700
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_REGFILE_WRITE_VALID 
 	= (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		 >> 0x1aU));
+		 >> 0x1fU));
     if ((0U == (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 			 >> 7U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_REGFILE_WRITE_VALID = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:14118
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3 
-	= (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		 >> 0x1dU));
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][2U];
-    // ALWAYS at ../../../../Briey.v:14254
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7 
-	= (3U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_);
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][2U];
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_pcs_4 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress 
 	   + ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			    >> 0x17U))) ? (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_) 
+			    >> 0x16U))) ? (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_) 
 					    << 0x15U) 
 					   | ((0x100000U 
 					       & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -2719,22 +2472,22 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 						>> 0x14U)) 
 				     | (0x1eU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 						 >> 7U))))))));
-    // ALWAYS at ../../../../Briey.v:15361
+    // ALWAYS at ../../../../Briey.v:15189
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodePrediction_cmd_hadBranch 
 	= ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			 >> 0x17U))) | ((1U == (3U 
+			 >> 0x16U))) | ((1U == (3U 
 						& (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-						   >> 0x17U))) 
+						   >> 0x16U))) 
 					& (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_ 
 					   >> 0x12U)));
     if ((1U & ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			     >> 0x17U))) ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
+			     >> 0x16U))) ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 					    >> 0x15U)
 	        : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		   >> 8U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodePrediction_cmd_hadBranch = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16052
+    // ALWAYS at ../../../../Briey.v:15880
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_247_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE)))) {
@@ -2751,10 +2504,10 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	}
     }
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		  >> 0x10U)))) {
+		  >> 0x18U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_ = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16080
+    // ALWAYS at ../../../../Briey.v:15908
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_167_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_247_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE)))) {
@@ -2771,7 +2524,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	}
     }
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		  >> 4U)))) {
+		  >> 0x15U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_167_ = 0U;
     }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_ 
@@ -2780,7 +2533,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	       & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit) 
 		  | (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowExecute))))) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_)));
-    // ALWAYS at ../../../../Briey.v:15109
+    // ALWAYS at ../../../../Briey.v:14937
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll = 1U;
@@ -2880,7 +2633,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_13_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_haltIt = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15167
+    // ALWAYS at ../../../../Briey.v:14995
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 1U;
@@ -2888,7 +2641,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_238_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15078
+    // ALWAYS at ../../../../Briey.v:14906
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 1U;
@@ -2899,7 +2652,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_238_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15120
+    // ALWAYS at ../../../../Briey.v:14948
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherHalt = 0U;
     if ((0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack) 
 		 << 3U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory) 
@@ -2939,7 +2692,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 				   ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_ 
 				      >> 0x1fU) : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 						   >> 0x1fU))));
-    // ALWAYS at ../../../../Briey.v:15177
+    // ALWAYS at ../../../../Briey.v:15005
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_payload 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand1;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
@@ -2954,7 +2707,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mepc;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14881
+    // ALWAYS at ../../../../Briey.v:14709
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_DATA;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
@@ -2968,36 +2721,35 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     }
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_IS_MUL))) {
-	__Vtemp15[0U] = (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW);
-	__Vtemp15[1U] = ((0xfff00000U & (VL_NEGATE_I((IData)(
-							     (1U 
-							      & (IData)(
-									(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
-									 >> 0x33U))))) 
-					 << 0x14U)) 
-			 | (IData)((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
-				    >> 0x20U)));
-	__Vtemp15[2U] = (3U & (VL_NEGATE_I((IData)(
-						   (1U 
-						    & (IData)(
-							      (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
-							       >> 0x33U))))) 
-			       >> 0xcU));
-	VL_EXTEND_WQ(66,34, __Vtemp16, vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_HH);
-	VL_SHIFTL_WWI(66,66,32, __Vtemp17, __Vtemp16, 0x20U);
-	VL_ADD_W(3, __Vtemp18, __Vtemp15, __Vtemp17);
+	__Vtemp7[0U] = (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW);
+	__Vtemp7[1U] = ((0xfff00000U & (VL_NEGATE_I((IData)(
+							    (1U 
+							     & (IData)(
+								       (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
+									>> 0x33U))))) 
+					<< 0x14U)) 
+			| (IData)((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
+				   >> 0x20U)));
+	__Vtemp7[2U] = (3U & (VL_NEGATE_I((IData)((1U 
+						   & (IData)(
+							     (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
+							      >> 0x33U))))) 
+			      >> 0xcU));
+	VL_EXTEND_WQ(66,34, __Vtemp8, vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_HH);
+	VL_SHIFTL_WWI(66,66,32, __Vtemp9, __Vtemp8, 0x20U);
+	VL_ADD_W(3, __Vtemp10, __Vtemp7, __Vtemp9);
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_ 
 	    = ((0U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
 			     >> 0xcU))) ? (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW)
-	        : __Vtemp18[1U]);
+	        : __Vtemp10[1U]);
     }
-    // ALWAYS at ../../../../Briey.v:14926
+    // ALWAYS at ../../../../Briey.v:14754
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16366
+    // ALWAYS at ../../../../Briey.v:16194
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
@@ -3006,7 +2758,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15099
+    // ALWAYS at ../../../../Briey.v:14927
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_removeIt = 1U;
@@ -3014,7 +2766,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15014
+    // ALWAYS at ../../../../Briey.v:14842
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltItself = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_219_) 
 	 & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_flush_ready)))) {
@@ -3048,7 +2800,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_valid))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mmuRspFreeze = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15091
+    // ALWAYS at ../../../../Briey.v:14919
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_haltIt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself = 1U;
@@ -3056,7 +2808,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isFlushed 
 	= (0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll) 
 		   << 1U) | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll)));
-    // ALWAYS at ../../../../Briey.v:16130
+    // ALWAYS at ../../../../Briey.v:15958
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_180_ 
 	= ((0U != (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL)) 
 	   & ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL)) 
@@ -3070,7 +2822,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 					  >> 0xcU)))
 			     ? (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_less))
 			     : (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_less)))))));
-    // ALWAYS at ../../../../Briey.v:14742
+    // ALWAYS at ../../../../Briey.v:14570
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_38_ 
 	= ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_CTRL))
 	    ? ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_BITWISE_CTRL))
@@ -3111,7 +2863,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself));
-    // ALWAYS at ../../../../Briey.v:15068
+    // ALWAYS at ../../../../Briey.v:14896
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_branchExceptionPort_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 1U;
@@ -3119,7 +2871,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16356
+    // ALWAYS at ../../../../Briey.v:16184
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_memory 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_branchExceptionPort_valid) {
@@ -3128,7 +2880,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_memory = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:14754
+    // ALWAYS at ../../../../Briey.v:14582
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS2 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_221_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_) {
@@ -3163,7 +2915,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14784
+    // ALWAYS at ../../../../Briey.v:14612
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS1 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_220_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_) {
@@ -3198,7 +2950,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15475
+    // ALWAYS at ../../../../Briey.v:15303
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_232_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch = 1U;
@@ -3209,7 +2961,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:14919
+    // ALWAYS at ../../../../Briey.v:14747
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_230_) {
@@ -3220,21 +2972,14 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_VALID) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isFiring));
-    // ALWAYS at ../../../../Briey.v:15763
+    // ALWAYS at ../../../../Briey.v:15591
     vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_VALID) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isFiring));
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_149_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14948
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_98_ 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_FORMAL_PC_NEXT;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_98_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_CALC;
-    }
-    // ALWAYS at ../../../../Briey.v:15043
+    // ALWAYS at ../../../../Briey.v:14871
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 1U;
@@ -3247,7 +2992,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16021
+    // ALWAYS at ../../../../Briey.v:15849
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willClear = 0U;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willClear = 1U;
@@ -3259,7 +3004,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck) 
 	      | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)));
-    // ALWAYS at ../../../../Briey.v:15488
+    // ALWAYS at ../../../../Briey.v:15316
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_210_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit)));
@@ -3273,7 +3018,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_207_) 
 	    & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_error)) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_)));
-    // ALWAYS at ../../../../Briey.v:14864
+    // ALWAYS at ../../../../Briey.v:14692
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_62_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_62_ = 1U;
@@ -3287,7 +3032,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 		   << 3U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll) 
 			      << 2U) | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll) 
 					<< 1U))));
-    // ALWAYS at ../../../../Briey.v:16030
+    // ALWAYS at ../../../../Briey.v:15858
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_valueNext 
 	= (0x3fU & (((0x21U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_value)) 
 		     & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement))
@@ -3331,7 +3076,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltItself) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuckByOthers));
-    // ALWAYS at ../../../../Briey.v:15511
+    // ALWAYS at ../../../../Briey.v:15339
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_payload_code 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand2;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
@@ -3340,13 +3085,13 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_229_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_payload_code = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14912
+    // ALWAYS at ../../../../Briey.v:14740
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_229_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15498
+    // ALWAYS at ../../../../Briey.v:15326
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid 
@@ -3359,12 +3104,12 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherHalt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15036
+    // ALWAYS at ../../../../Briey.v:14864
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16349
+    // ALWAYS at ../../../../Briey.v:16177
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_execute 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_execute;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isFlushed) {
@@ -3373,12 +3118,12 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_5_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataReadCmd_valid) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)));
-    // ALWAYS at ../../../../Briey.v:15283
+    // ALWAYS at ../../../../Briey.v:15111
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15315
+    // ALWAYS at ../../../../Briey.v:15143
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid 
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_) 
 	    & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt))) 
@@ -3392,8 +3137,8 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_201_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	   & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-	      >> 0xdU));
-    // ALWAYS at ../../../../Briey.v:14990
+	      >> 0x10U));
+    // ALWAYS at ../../../../Briey.v:14818
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_haltByOther = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	 & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_) 
@@ -3442,7 +3187,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_ 
 	= (0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decodeExceptionPort_valid) 
 		   << 1U) | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid)));
-    // ALWAYS at ../../../../Briey.v:15261
+    // ALWAYS at ../../../../Briey.v:15089
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache_io_cpu_prefetch_haltIt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt = 1U;
@@ -3459,7 +3204,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_197_) 
 	   & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_197_) 
 		 - (IData)(1U))));
-    // ALWAYS at ../../../../Briey.v:16339
+    // ALWAYS at ../../../../Briey.v:16167
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_decode;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
@@ -3468,7 +3213,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15003
+    // ALWAYS at ../../../../Briey.v:14831
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt = 1U;
@@ -3476,7 +3221,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15226
+    // ALWAYS at ../../../../Briey.v:15054
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready))) {
@@ -3492,17 +3237,6 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 	   & (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	       & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isStuck))) 
 	      & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt))));
-    // ALWAYS at ../../../../Briey.v:14955
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	= ((IData)(4U) + vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress);
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_predictionJumpInterface_valid) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_pcs_4;
-    }
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress;
-    }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_jump_pcLoad_valid 
 	= (0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid) 
 		   << 4U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) 
@@ -3518,7 +3252,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 				  << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid) 
 					     << 1U) 
 					    | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid)))));
-    // ALWAYS at ../../../../Briey.v:15242
+    // ALWAYS at ../../../../Briey.v:15070
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_samplePcNext = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_samplePcNext = 1U;
@@ -3543,7 +3277,7 @@ void VBriey_VexRiscv::_settle__TOP__Briey__axi_core_cpu__2(VBriey__Syms* __restr
 			     | (1U & (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_105_) 
 				       >> 1U) | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_105_) 
 						 >> 3U)))));
-    // ALWAYS at ../../../../Briey.v:15233
+    // ALWAYS at ../../../../Briey.v:15061
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_pc 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.IBusCachedPlugin_fetchPc_pcReg 
 	   + ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc) 
@@ -3613,35 +3347,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 		     & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	VL_WRITEF("ERROR writeBack stuck by another plugin is not allowed\n");
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mcycle 
-	= (VL_ULL(1) + vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mcycle);
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_address 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_address;
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_valid 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_valid;
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_error 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_error;
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_address 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_address;
-    // ALWAYS at ../../../../Briey.v:4161
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_17_) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mmuRsp_allowExecute = 1U;
-    }
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_valid 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_valid;
-    // ALWAYS at ../../../../Briey.v:4161
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_way 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_way;
-    // ALWAYS at ../../../../Briey.v:17173
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_secondCycle 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_firstCycle;
-    // ALWAYS at ../../../../Briey.v:13889
+    // ALWAYS at ../../../../Briey.v:13717
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_62_) {
 	__Vdlyvval__RegFilePlugin_regFile__v0 = vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_payload_data;
 	__Vdlyvset__RegFilePlugin_regFile__v0 = 1U;
@@ -3657,11 +3363,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	__Vdlyvdim0__dataCache_1___DOT__ways_0_tags__v0 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__tagsWriteCmd_payload_address;
     }
-    // ALWAYS at ../../../../Briey.v:17173
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_199_ 
-	= (1U & (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[0U] 
-		 >> 2U));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_252_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_194_) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.CsrPlugin_interrupt_code = 7U;
@@ -3673,11 +3375,10 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.CsrPlugin_interrupt_code = 0xbU;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isFiring) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_minstret 
-	    = (VL_ULL(1) + vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_minstret);
-    }
+    // ALWAYS at ../../../../Briey.v:17001
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_199_ 
+	= (1U & (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[0U] 
+		 >> 2U));
     // ALWAYS at ../../../../Briey.v:3736
     if ((((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataWriteCmd_payload_mask) 
 	  >> 2U) & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_1_))) {
@@ -3717,30 +3418,22 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	__Vdlyvdim0__dataCache_1___DOT__ways_0_data_symbol1__v0 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataWriteCmd_payload_address;
     }
-    // ALWAYS at ../../../../Briey.v:13901
+    // ALWAYS at ../../../../Briey.v:13729
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_221_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.RegFilePlugin_regFile
 	[(0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_96_ 
 		   >> 0x14U))];
-    // ALWAYS at ../../../../Briey.v:13895
+    // ALWAYS at ../../../../Briey.v:13723
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_220_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.RegFilePlugin_regFile
 	[(0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_96_ 
 		   >> 0xfU))];
-    // ALWAYS at ../../../../Briey.v:3518
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowWrite = 1U;
-    }
-    // ALWAYS at ../../../../Briey.v:3518
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowRead = 1U;
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_171_ 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_252_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_194_) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_targetPrivilege = 3U;
@@ -3763,24 +3456,13 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_14_) {
 	__Vdly__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:3518
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_isIoAccess 
-	    = (0xfU == (0xfU & (vlSymsp->TOP__Briey__axi_core_cpu.IBusCachedPlugin_fetchPc_pcReg 
-				>> 0x1cU)));
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mip_MEIP 
 	= vlSymsp->TOP__Briey.__PVT__bufferCC_10___DOT__buffers_1;
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mip_MTIP 
 	= (0U != (IData)(vlSymsp->TOP__Briey.__PVT__axi_timerCtrl__DOT__interruptCtrl_1___05Fio_pendings));
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_FORMAL_PC_NEXT 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_FORMAL_PC_NEXT;
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionContext_code 
 	    = ((1U & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_343_))
@@ -3794,7 +3476,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionContext_code 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_payload_code;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs2 
 	    = (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_163_)
@@ -3802,67 +3484,67 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 		 : vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2) 
 	       + (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_163_));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS1_SIGNED 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 3U));
+		     >> 0x1bU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
+    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_CTRL 
+	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
+		     >> 4U));
+    }
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_BITWISE_CTRL 
 	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
 		     >> 8U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_CTRL 
-	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x11U));
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC_LESS_UNSIGNED 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x15U));
+		     >> 0x12U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mcause_exceptionCode 
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_trapCause;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC_USE_SUB_LESS 
-	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x19U));
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC2_FORCE_ZERO 
 	    = (1U & ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
 		      >> 0xaU) & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-				     >> 0x19U))));
+				     >> 0xcU))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
+    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC_USE_SUB_LESS 
+	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
+		     >> 0xcU));
+    }
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC2_CTRL 
-	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 5U));
-    }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL 
 	    = (3U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_);
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
+    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL 
+	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
+		     >> 0x1cU));
+    }
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_RIGHT 
 	    = (IData)((VL_ULL(0x1ffffffff) & VL_SHIFTRS_QQI(33,33,5, 
@@ -3876,45 +3558,29 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 							    (0x1fU 
 							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BYPASSABLE_EXECUTE_STAGE 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x1bU));
+		     >> 0x14U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_FORMAL_PC_NEXT 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_98_;
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_CSR 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x1cU));
+		     >> 0x19U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE;
     }
     // ALWAYS at ../../../../Briey.v:4161
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_address 
-	    = (0xffffffU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_10_ 
-			    >> 2U));
-    }
-    // ALWAYS at ../../../../Briey.v:4161
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_valid 
-	    = (1U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_10_);
-    }
-    // ALWAYS at ../../../../Briey.v:4161
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mask 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageA_mask;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_HH 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_HH;
@@ -3928,22 +3594,22 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 					    << 8U) 
 					   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_24_))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_ADDRESS_LOW;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_WR 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_WR;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_IS_MUL 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_IS_MUL;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
 	    = (VL_ULL(0xfffffffffffff) & (((((QData)((IData)(
@@ -3980,13 +3646,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 						& (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_HL 
 						   << 0x10U)))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_READ_OPCODE 
-	    = (0x20U != (0x7fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
-				  >> 7U)));
-    }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_WRITE_OPCODE 
 	    = (1U & (~ (((1U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -3998,7 +3658,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 			   & (0U == (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 					      >> 0xfU)))))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs1 
@@ -4013,7 +3673,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 				        : vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_165_) 
 				      + (QData)((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_164_))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_accumulator[0U] 
@@ -4027,28 +3687,28 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_accumulator[1U] = 0U;
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_accumulator[2U] = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_MANAGMENT 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0xeU));
+		     >> 0xbU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_IS_DIV 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_DIV;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_VALID 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_VALID;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_ENV_CTRL 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_ENV_CTRL;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mip_MSIP = 0U;
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		  >> 0x1fU)))) {
@@ -4113,7 +3773,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 						((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageA_mask) 
 						 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataWriteCmd_payload_mask)))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_DO 
 	    = (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2) 
@@ -4137,23 +3797,23 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_11_ 
 		     >> 1U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_170_ 
 	    = (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
 			>> 7U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mcause_interrupt 
 		= (1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException)));
 	}
     }
-    // ALWAYS at ../../../../Briey.v:17246
+    // ALWAYS at ../../../../Briey.v:17074
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_payload_regNext 
 	= vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[1U];
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    if ((0x20U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_value))) {
@@ -4165,12 +3825,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_DO_EBREAK 
 	    = (1U & ((~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_haltIt)) 
 		     & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			>> 7U)));
+			>> 6U)));
     }
     // ALWAYS at ../../../../Briey.v:3551
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) {
@@ -4242,7 +3902,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_17_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mmuRsp_exception = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mepc 
@@ -4304,7 +3964,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_request_wr 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageA_request_wr;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
 	    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
@@ -4313,12 +3973,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ENABLE 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_ENABLE;
     }
-    // ALWAYS at ../../../../Briey.v:17173
+    // ALWAYS at ../../../../Briey.v:17001
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_busReadDataReg 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_;
@@ -4336,72 +3996,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__io_cpu_fetch_dataBypassValid_regNextWhen 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit;
     }
-    // ALWAYSPOST at ../../../../Briey.v:13891
+    // ALWAYSPOST at ../../../../Briey.v:13719
     if (__Vdlyvset__RegFilePlugin_regFile__v0) {
 	vlSymsp->TOP__Briey__axi_core_cpu.RegFilePlugin_regFile[__Vdlyvdim0__RegFilePlugin_regFile__v0] 
 	    = __Vdlyvval__RegFilePlugin_regFile__v0;
     }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter 
 	= __Vdly__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter;
-    // ALWAYS at ../../../../Briey.v:17173
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_firstCycle = 0U;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__debug_bus_cmd_ready) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_firstCycle = 1U;
-    }
-    // ALWAYS at ../../../../Briey.v:16887
-    if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_FORMAL_PC_NEXT 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_;
-    }
-    // ALWAYS at ../../../../Briey.v:14404
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable15___PVT__execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx15][2U];
-    // ALWAYS at ../../../../Briey.v:14590
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx21][2U];
-    // ALWAYS at ../../../../Briey.v:14350
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable11___PVT__memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx11][2U];
-    // ALWAYS at ../../../../Briey.v:14633
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx23][2U];
-    // ALWAYS at ../../../../Briey.v:15935
+    // ALWAYS at ../../../../Briey.v:15763
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_ 
 	= ((0xfffffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_RIGHT 
@@ -4530,19 +4132,19 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_158_) 
 	   | (0x80000000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_SHIFT_RIGHT 
 			     << 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL 
 	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x1dU));
+		     >> 2U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0xcU));
+		     >> 0xfU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_HH 
 	    = (VL_ULL(0x3ffffffff) & VL_MULS_QQQ(34,34,34, 
@@ -4575,22 +4177,22 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__ways_0_data_symbol0
 	    [vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__dataReadCmd_payload];
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_ADDRESS_LOW 
 	    = (3U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_addSub);
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_WR 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_WR;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_IS_MUL 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_MUL;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_HL 
 	    = (VL_ULL(0x3ffffffff) & VL_MULS_QQQ(34,34,34, 
@@ -4601,7 +4203,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 								  (0xffffU 
 								   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_)))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_LH 
 	    = (VL_ULL(0x3ffffffff) & VL_MULS_QQQ(34,34,34, 
@@ -4612,7 +4214,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 						 (VL_ULL(0x3ffffffff) 
 						  & VL_EXTENDS_QI(34,17, vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_MulPlugin_bHigh))));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MUL_LL 
 	    = ((0xffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_) 
@@ -4623,18 +4225,18 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	    << 1U) | (QData)((IData)((1U & (IData)(
 						   (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs1 
 						    >> 0x1fU))))));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_DIV 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x16U));
+		     >> 0x1aU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_VALID 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_REGFILE_WRITE_VALID;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_ENV_CTRL 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ENV_CTRL;
@@ -4678,19 +4280,19 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageA_mask 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stage0_mask;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodePrediction_cmd_hadBranch;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((0x20U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_value))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done = 1U;
     }
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_needRevert 
 	    = (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_164_) 
@@ -4733,7 +4335,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_address 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & ((~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)) 
 	       & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_PC 
@@ -4754,7 +4356,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_14_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_waysHits) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_request_wr));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionContext_badAddr 
 	    = ((1U & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_343_))
@@ -4769,12 +4371,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionContext_badAddr 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_DATA;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_MEMORY_ENABLE 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_ENABLE;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit = 0U;
     }
@@ -4813,7 +4415,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__ways_0_datas[__Vdlyvdim0__IBusCachedPlugin_cache__DOT__ways_0_datas__v0] 
 	    = __Vdlyvval__IBusCachedPlugin_cache__DOT__ways_0_datas__v0;
     }
-    // ALWAYS at ../../../../Briey.v:15619
+    // ALWAYS at ../../../../Briey.v:15447
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_data;
     if ((1U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW))) {
@@ -4846,76 +4448,52 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__ways_0_tags[__Vdlyvdim0__dataCache_1___DOT__ways_0_tags__v0] 
 	    = __Vdlyvval__dataCache_1___DOT__ways_0_tags__v0;
     }
-    // ALWAYS at ../../../../Briey.v:14368
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable13___PVT__execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx13][2U];
-    // ALWAYS at ../../../../Briey.v:14624
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL;
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx22][2U];
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_MUL 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x1fU));
+		     >> 0x11U));
     }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_321_ 
 	= (((QData)((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs1)) 
 	    << 1U) | (QData)((IData)((1U & (~ (IData)(
 						      (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_161_ 
 						       >> 0x20U)))))));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_REGFILE_WRITE_VALID 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_REGFILE_WRITE_VALID;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ENV_CTRL 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x13U));
+		     >> 0x1eU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS2_SIGNED 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0xbU));
+		     >> 7U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS2;
     }
     vlSymsp->TOP__Briey__axi_core_cpu.lastStagePc = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_PC;
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_PC 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PC;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_WR 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x14U));
+		     >> 0xeU));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_CALC 
 	    = (0xfffffffeU & (((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL))
@@ -4923,32 +4501,32 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__3(VBriey
 			        : vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PC) 
 			      + vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_BranchPlugin_branch_src2));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_ENABLE 
 	    = (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 2U));
+		     >> 0xdU));
     }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_163_ 
 	= ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2 
 	    >> 0x1fU) & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS2_SIGNED));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS1 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS1;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL 
 	    = (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		     >> 0x17U));
+		     >> 0x16U));
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_PC 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress;
     }
-    // ALWAYS at ../../../../Briey.v:16047
+    // ALWAYS at ../../../../Briey.v:15875
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_165_ 
 	= ((VL_ULL(0xffffffff) & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_165_) 
 	   | ((QData)((IData)(((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_RS1_SIGNED) 
@@ -4972,7 +4550,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4(VBriey
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:17190
+    // ALWAYS at ../../../../Briey.v:17018
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_haltedByBreak = 0U;
     } else {
@@ -4993,7 +4571,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:17190
+    // ALWAYS at ../../../../Briey.v:17018
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_stepIt = 0U;
     } else {
@@ -5009,7 +4587,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:17190
+    // ALWAYS at ../../../../Briey.v:17018
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode = 0U;
     } else {
@@ -5029,17 +4607,17 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15160
+    // ALWAYS at ../../../../Briey.v:14988
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_103_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_103_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15193
+    // ALWAYS at ../../../../Briey.v:15021
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:17190
+    // ALWAYS at ../../../../Briey.v:17018
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_haltIt = 0U;
     } else {
@@ -5068,7 +4646,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__4(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15200
+    // ALWAYS at ../../../../Briey.v:15028
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowInterrupts = 1U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_haltIt) 
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_stepIt))) {
@@ -5097,44 +4675,20 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     __Vdly__CsrPlugin_mstatus_MIE = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mstatus_MIE;
     __Vdly__dataCache_1___DOT__stageB_mmuRsp_physicalAddress 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mmuRsp_physicalAddress;
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_value 
 	= ((IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)
 	    ? 0U : (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_valueNext));
-    // ALWAYS at ../../../../Briey.v:16643
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_wfiWake 
-	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
-	   & (0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_196_) 
-		      << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_195_) 
-				 << 1U) | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_194_)))));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_149_ 
 	= vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset;
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.IBusCachedPlugin_fetchPc_pcReg = 0x80000000U;
     } else {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_samplePcNext) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.IBusCachedPlugin_fetchPc_pcReg 
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_pc;
-	}
-    }
-    // ALWAYS at ../../../../Briey.v:16643
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_ 
-	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
-	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_));
-    // ALWAYS at ../../../../Briey.v:16643
-    if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
-    } else {
-	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc) {
-	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
-	}
-	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_jump_pcLoad_valid) {
-	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
-	}
-	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_241_) {
-	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 1U;
 	}
     }
     // ALWAYS at ../../../../Briey.v:3480
@@ -5148,6 +4702,24 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    if ((0U != (IData)(vlSymsp->TOP__Briey.__PVT__axi_core_iBus_decoder_io_input_r_payload_resp))) {
 		vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_hadError = 1U;
 	    }
+	}
+    }
+    // ALWAYS at ../../../../Briey.v:16471
+    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_ 
+	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
+	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_));
+    // ALWAYS at ../../../../Briey.v:16471
+    if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
+	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
+    } else {
+	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc) {
+	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
+	}
+	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_jump_pcLoad_valid) {
+	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 0U;
+	}
+	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_241_) {
+	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc = 1U;
 	}
     }
     // ALWAYS at ../../../../Briey.v:3480
@@ -5206,12 +4778,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_cmdSent = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_decode 
 	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
 	   & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isStuck) 
 	      & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode)));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_decodeRemoved = 0U;
     } else {
@@ -5223,7 +4795,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_decodeRemoved = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_DATA = 0U;
     } else {
@@ -5232,7 +4804,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_44_;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_valid = 0U;
     } else {
@@ -5249,7 +4821,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mie_MSIE = 0U;
     } else {
@@ -5302,7 +4874,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mie_MTIE = 0U;
     } else {
@@ -5355,7 +4927,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mie_MEIE = 0U;
     } else {
@@ -5430,32 +5002,32 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_memCmdSent = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_execute 
 	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
 	   & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)
 	       ? (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_execute)
 	       : ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode) 
 		  & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isStuck)))));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory 
 	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
 	   & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)
 	       ? (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_memory)
 	       : ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_execute) 
 		  & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException 
 	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
 	   & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack) 
 	      & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowException)));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack 
 	= ((~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)) 
 	   & ((~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)) 
 	      & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_memory) 
 		 & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_4 = 0U;
     } else {
@@ -5472,7 +5044,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_4 = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	__Vdly___zz_200_ = 0U;
     } else {
@@ -5503,7 +5075,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mstatus_MPP = 3U;
     } else {
@@ -5583,7 +5155,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    __Vdly__dataCache_1___DOT__loader_error = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	__Vdly__CsrPlugin_mstatus_MIE = 0U;
     } else {
@@ -5676,7 +5248,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    __Vdly__dataCache_1___DOT__stageB_flusher_valid = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_ = 0U;
     } else {
@@ -5716,14 +5288,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT___zz_15_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_valid) 
 	   & (IData)(vlSymsp->TOP__Briey.__PVT___zz_55_));
-    // ALWAYS at ../../../../Briey.v:16400
+    // ALWAYS at ../../../../Briey.v:16228
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_trapCause 
 	= vlSymsp->TOP__Briey__axi_core_cpu.CsrPlugin_interrupt_code;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_trapCause 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionContext_code;
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_3 = 0U;
     } else {
@@ -5740,7 +5312,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_3 = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16624
+    // ALWAYS at ../../../../Briey.v:16452
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_ready = 0U;
     if ((4U & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_))) {
 	if ((1U & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_) 
@@ -5750,7 +5322,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14968
+    // ALWAYS at ../../../../Briey.v:14796
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_haltItself = 0U;
     if ((1U & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_) 
 		  >> 2U)))) {
@@ -5760,7 +5332,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mstatus_MPIE = 0U;
     } else {
@@ -5827,7 +5399,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_ = 0U;
     } else {
@@ -5862,7 +5434,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willOverflow 
 	= ((7U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_value)) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_counter_willIncrement));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_2 = 0U;
     } else {
@@ -5879,7 +5451,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_2 = 0U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION = 0U;
     } else {
@@ -5888,7 +5460,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_INSTRUCTION;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_111_ 
 	= (1U & (~ (IData)(vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset)));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_14_ 
@@ -5896,7 +5468,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	   & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_valid) 
 		 | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 		    & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit))))));
-    // ALWAYS at ../../../../Briey.v:14933
+    // ALWAYS at ../../../../Briey.v:14761
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_232_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_ = 1U;
@@ -5947,7 +5519,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	       & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit) 
 		  | (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowExecute))))) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_)));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_1 = 0U;
     } else {
@@ -5977,13 +5549,13 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	= (1U & ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted 
 		  >> 0xfU) & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
 				 >> 0xeU))));
-    // ALWAYS at ../../../../Briey.v:14926
+    // ALWAYS at ../../../../Briey.v:14754
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_95_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15637
+    // ALWAYS at ../../../../Briey.v:15465
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_ 
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_133_) 
@@ -6083,7 +5655,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_ 
 	= ((0xffffff00U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_134_) 
 	   | (0xffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_DBusCachedPlugin_rspShifted));
-    // ALWAYS at ../../../../Briey.v:15666
+    // ALWAYS at ../../../../Briey.v:15494
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_ 
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_136_) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_135_) 
@@ -6158,7 +5730,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 		     == (0xffffffU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress 
 				      >> 8U)))))) & 
 	   (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_)));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_0 = 0U;
     } else {
@@ -6170,18 +5742,18 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_0 = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15303
+    // ALWAYS at ../../../../Briey.v:15131
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError = 1U;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injector_nextPcCalc_valids_1)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:14919
+    // ALWAYS at ../../../../Briey.v:14747
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_94_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_230_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15475
+    // ALWAYS at ../../../../Briey.v:15303
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_232_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch = 1U;
@@ -6196,7 +5768,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_207_) 
 	    & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_error)) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_)));
-    // ALWAYS at ../../../../Briey.v:15488
+    // ALWAYS at ../../../../Briey.v:15316
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_210_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_s1_tightlyCoupledHit)));
@@ -6206,7 +5778,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_readyForError)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_210_ = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15511
+    // ALWAYS at ../../../../Briey.v:15339
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_payload_code 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand2;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
@@ -6215,13 +5787,13 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__5(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_229_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_payload_code = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14912
+    // ALWAYS at ../../../../Briey.v:14740
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_93_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_229_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15283
+    // ALWAYS at ../../../../Briey.v:15111
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_issueDetected) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt = 1U;
@@ -6244,11 +5816,6 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__6(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:3429
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement = 0U;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement = 1U;
-    }
     // ALWAYS at ../../../../Briey.v:3396
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT___zz_2_ = 0U;
     if ((1U & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__lineLoader_fire) 
@@ -6262,19 +5829,19 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:17173
+    // ALWAYS at ../../../../Briey.v:17001
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_isPipBusy 
 	= ((0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 		    << 3U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) 
 			       << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid) 
 					  << 1U) | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid))))) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_DATA 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_38_;
     }
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_INSTRUCTION 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION;
@@ -6283,12 +5850,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0x2000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_INSTRUCTION)
 	    ? vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_accumulator[0U]
 	    : (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_rs1));
-    // ALWAYS at ../../../../Briey.v:16887
+    // ALWAYS at ../../../../Briey.v:16715
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION;
     }
-    // ALWAYS at ../../../../Briey.v:16238
+    // ALWAYS at ../../../../Briey.v:16066
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -6369,7 +5936,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16276
+    // ALWAYS at ../../../../Briey.v:16104
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_ 
 	= ((0x3ffU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_)) 
 	   | (0x400U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -6414,7 +5981,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0x7feU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_191_)) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16291
+    // ALWAYS at ../../../../Briey.v:16119
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -6491,7 +6058,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0x7fffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_193_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15802
+    // ALWAYS at ../../../../Briey.v:15630
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	= ((0U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC1_CTRL))
 	    ? vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS1
@@ -6500,7 +6067,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 			 ? (0xfffff000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
 			 : (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 				     >> 0xfU)))));
-    // ALWAYS at ../../../../Briey.v:15821
+    // ALWAYS at ../../../../Briey.v:15649
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -6581,7 +6148,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_153_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15845
+    // ALWAYS at ../../../../Briey.v:15673
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_ 
 	= ((0x7ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_) 
 	   | (0x80000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
@@ -6662,7 +6229,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0xffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_155_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:16261
+    // ALWAYS at ../../../../Briey.v:16089
     if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_BranchPlugin_branch_src2 
 	    = ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_189_ 
@@ -6702,7 +6269,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 				      >> 0xfU))) | 
 	   (0xffffU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 		       >> 0x10U)));
-    // ALWAYS at ../../../../Briey.v:15898
+    // ALWAYS at ../../../../Briey.v:15726
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_ 
 	= ((0xfffffffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
@@ -6831,7 +6398,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 	= ((0x7fffffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_157_) 
 	   | (0x80000000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 			     << 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15868
+    // ALWAYS at ../../../../Briey.v:15696
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_ 
 	= ((0U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC2_CTRL))
 	    ? vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_RS2
@@ -6860,7 +6427,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_BranchPlugin_eq 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	   == vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_);
-    // ALWAYS at ../../../../Briey.v:15886
+    // ALWAYS at ../../../../Briey.v:15714
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_SrcPlugin_addSub 
 	= ((vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 	    + ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_SRC_USE_SUB_LESS)
@@ -6887,7 +6454,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__7(VBriey
 				   ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_156_ 
 				      >> 0x1fU) : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_ 
 						   >> 0x1fU))));
-    // ALWAYS at ../../../../Briey.v:16130
+    // ALWAYS at ../../../../Briey.v:15958
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_180_ 
 	= ((0U != (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL)) 
 	   & ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_BRANCH_CTRL)) 
@@ -6907,17 +6474,17 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__8(VBriey
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__8\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:15207
+    // ALWAYS at ../../../../Briey.v:15035
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowException = 1U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_godmode) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowException = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16321
+    // ALWAYS at ../../../../Briey.v:16149
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_forceMachineWire) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege = 3U;
     }
-    // ALWAYS at ../../../../Briey.v:15564
+    // ALWAYS at ../../../../Briey.v:15392
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_215_ 
 	= (0xfU == (0xfU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_DATA 
 			    >> 0x1cU)));
@@ -6932,10 +6499,10 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Variables
     // Begin mtask footprint  all: 
-    VL_SIGW(__Vtemp31,95,0,3);
-    VL_SIGW(__Vtemp32,95,0,3);
-    VL_SIGW(__Vtemp33,95,0,3);
-    VL_SIGW(__Vtemp34,95,0,3);
+    VL_SIGW(__Vtemp13,95,0,3);
+    VL_SIGW(__Vtemp14,95,0,3);
+    VL_SIGW(__Vtemp15,95,0,3);
+    VL_SIGW(__Vtemp16,95,0,3);
     // Body
     // ALWAYS at ../../../../Briey.v:4043
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_accessError 
@@ -6952,20 +6519,20 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    = ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_error) 
 	       | (0U != (IData)(vlSymsp->TOP__Briey.__PVT___zz_57_)));
     }
-    // ALWAYS at ../../../../Briey.v:15153
+    // ALWAYS at ../../../../Briey.v:14981
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14941
+    // ALWAYS at ../../../../Briey.v:14769
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_word;
     if ((0U != (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_200_))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_payload_regNext;
     }
-    // ALWAYS at ../../../../Briey.v:16479
+    // ALWAYS at ../../../../Briey.v:16307
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_readData = 0U;
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
 		  >> 0x1fU)))) {
@@ -7124,7 +6691,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid = 0U;
     } else {
@@ -7138,7 +6705,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15419
+    // ALWAYS at ../../../../Briey.v:15247
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_ 
 	= ((0x3ffU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_)) 
 	   | (0x400U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -7183,7 +6750,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	= ((0x7feU & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_)) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15434
+    // ALWAYS at ../../../../Briey.v:15262
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -7260,7 +6827,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	= ((0x7fffeU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_131_) 
 	   | (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		    >> 0x1fU)));
-    // ALWAYS at ../../../../Briey.v:15339
+    // ALWAYS at ../../../../Briey.v:15167
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_ 
 	= ((0x3ffffU & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_) 
 	   | (0x40000U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -7444,216 +7011,186 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 		     >> 7U)) == (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 					  >> 0x14U)));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-	= (((0x2000030U == (0x2004074U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-	    << 0x1fU) | (((0U != (((0x5010U == (0x7034U 
+	= (((0U != (((0x48U == (0x48U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+		     << 5U) | (((0x1010U == (0x1010U 
+					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+				<< 4U) | (((0x2010U 
+					    == (0x2010U 
 						& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-				   << 1U) | (0x5020U 
-					     == (0x2007064U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-			  << 0x1eU) | (((0U != (((0x40001010U 
+					   << 3U) | 
+					  (((0x10U 
+					     == (0x50U 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+					    << 2U) 
+					   | (((4U 
+						== 
+						(0xcU 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+					       << 1U) 
+					      | (0U 
+						 == 
+						 (0x28U 
+						  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))) 
+	    << 0x1fU) | (((0x50U == (0x103050U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+			  << 0x1eU) | (((0U != (((4U 
 						  == 
-						  (0x40003054U 
+						  (0x14U 
 						   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						 << 2U) 
-						| (((0x1010U 
-						     == 
-						     (0x7034U 
-						      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						    << 1U) 
-						   | (0x1010U 
-						      == 
-						      (0x2007054U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
-					<< 0x1dU) | 
-				       (((0U != (((0x1050U 
+						 << 1U) 
+						| (0x4050U 
 						   == 
-						   (0x1050U 
+						   (0x4050U 
+						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+					<< 0x1dU) | 
+				       (((0U != (((4U 
+						   == 
+						   (0x44U 
 						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 						  << 1U) 
-						 | (0x2050U 
+						 | (0x4050U 
 						    == 
-						    (0x2050U 
+						    (0x4050U 
 						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 					 << 0x1cU) 
-					| (((0U != 
-					     (((4U 
-						== 
-						(4U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-					       << 4U) 
-					      | (((0x2010U 
-						   == 
-						   (0x2030U 
-						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						  << 3U) 
-						 | (((0x10U 
-						      == 
-						      (0x1030U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 2U) 
-						    | (((0x2020U 
-							 == 
-							 (0x2002060U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (0x20U 
-							  == 
-							  (0x2003020U 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
+					| (((0U == 
+					     (0x1000U 
+					      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 					    << 0x1bU) 
-					   | (((0U 
-						!= 
-						(((0x48U 
-						   == 
-						   (0x48U 
-						    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						  << 5U) 
-						 | (((0x1010U 
-						      == 
-						      (0x1010U 
-						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 4U) 
-						    | (((0x2010U 
-							 == 
-							 (0x2010U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 3U) 
-						       | (((0x10U 
-							    == 
-							    (0x50U 
-							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							   << 2U) 
-							  | (((4U 
-							       == 
-							       (0xcU 
-								& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							      << 1U) 
-							     | (0U 
-								== 
-								(0x28U 
-								 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))) 
+					   | (((0x2004020U 
+						== 
+						(0x2004064U 
+						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 					       << 0x1aU) 
 					      | (((0U 
 						   != 
-						   (((0x40U 
+						   (((0x1050U 
 						      == 
-						      (0x44U 
+						      (0x1050U 
 						       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-						     << 2U) 
-						    | (((0x2010U 
-							 == 
-							 (0x2014U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (0x40000030U 
-							  == 
-							  (0x40000034U 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+						     << 1U) 
+						    | (0x2050U 
+						       == 
+						       (0x2050U 
+							& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 						  << 0x19U) 
 						 | (((0U 
 						      != 
-						      (((0x48U 
+						      (((0U 
 							 == 
-							 (0x48U 
+							 (0x44U 
 							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 1U) 
-						       | (4U 
-							  == 
-							  (0x1cU 
-							   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-						     << 0x18U) 
-						    | (((0x40U 
-							 == 
-							 (0x58U 
-							  & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-							<< 0x17U) 
-						       | (((0x2004020U 
+							<< 3U) 
+						       | (((0U 
 							    == 
-							    (0x2004064U 
+							    (0x18U 
+							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							   << 2U) 
+							  | (((0x2000U 
+							       == 
+							       (0x6004U 
+								& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							      << 1U) 
+							     | (0x1000U 
+								== 
+								(0x5004U 
+								 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))) 
+						     << 0x18U) 
+						    | (((0U 
+							 != 
+							 (((0x48U 
+							    == 
+							    (0x48U 
+							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+							   << 1U) 
+							  | (4U 
+							     == 
+							     (0x1cU 
+							      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+							<< 0x17U) 
+						       | (((0x40U 
+							    == 
+							    (0x58U 
 							     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 							   << 0x16U) 
 							  | (((0U 
 							       != 
-							       (((0x2000U 
+							       (((0x20U 
 								  == 
-								  (0x2010U 
+								  (0x34U 
 								   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 								 << 1U) 
-								| (0x1000U 
+								| (0x20U 
 								   == 
-								   (0x5000U 
+								   (0x64U 
 								    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
 							      << 0x15U) 
-							     | (((0x20U 
-								  == 
-								  (0x20U 
-								   & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								 << 0x14U) 
-								| (((0x50U 
+							     | (((0U 
+								  != 
+								  (((4U 
 								     == 
-								     (0x103050U 
+								     (4U 
 								      & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								    << 0x13U) 
-								   | (((0x4010U 
+								    << 4U) 
+								   | (((0x2010U 
 									== 
-									(0x4014U 
+									(0x2030U 
 									 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-								       << 0x12U) 
-								      | (((0x2010U 
+								       << 3U) 
+								      | (((0x10U 
 									   == 
-									   (0x6014U 
+									   (0x1030U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 2U) 
+									 | (((0x2020U 
+									      == 
+									      (0x2002060U 
+									       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									     << 1U) 
+									    | (0x20U 
+									       == 
+									       (0x2003020U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
+								 << 0x14U) 
+								| (((0U 
+								     != 
+								     (((0x40U 
+									== 
+									(0x50U 
+									 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+								       << 2U) 
+								      | (((0U 
+									   == 
+									   (0x38U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 1U) 
+									 | (0x40U 
+									    == 
+									    (0x103040U 
+									     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+								    << 0x13U) 
+								   | (((0U 
+									!= 
+									(((0x2000U 
+									   == 
+									   (0x2010U 
+									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+									  << 1U) 
+									 | (0x1000U 
+									    == 
+									    (0x5000U 
+									     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+								       << 0x12U) 
+								      | (((0x2000030U 
+									   == 
+									   (0x2004074U 
 									    & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 									  << 0x11U) 
-									 | (((0U 
-									      != 
-									      (((0U 
-										== 
-										(0x44U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 3U) 
-									       | (((0U 
-										== 
-										(0x18U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0x2000U 
-										== 
-										(0x6004U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x1000U 
-										== 
-										(0x5004U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))) 
+									 | (((0x1008U 
+									      == 
+									      (0x5048U 
+									       & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 									     << 0x10U) 
 									    | (((0U 
-										!= 
-										(((0x40U 
-										== 
-										(0x50U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0U 
-										== 
-										(0x38U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x40U 
-										== 
-										(0x103040U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
-										<< 0xfU) 
-									       | (((0x4008U 
-										== 
-										(0x4048U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 0xeU) 
-										| (((0x1008U 
-										== 
-										(0x5048U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 0xdU) 
-										| (((0U 
 										!= 
 										(((0x40U 
 										== 
@@ -7679,10 +7216,37 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 										== 
 										(0x2000020U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))))) 
-										<< 0xcU) 
+										<< 0xfU) 
+									       | (((0x20U 
+										== 
+										(0x20U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 0xeU) 
 										| (((0U 
 										== 
-										(0x1000U 
+										(0x58U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 0xdU) 
+										| (((0U 
+										!= 
+										(((0x40U 
+										== 
+										(0x44U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 2U) 
+										| (((0x2010U 
+										== 
+										(0x2014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x40000030U 
+										== 
+										(0x40000034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+										<< 0xcU) 
+										| (((0x4008U 
+										== 
+										(0x4048U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 										<< 0xbU) 
 										| (((0x24U 
@@ -7700,11 +7264,55 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 										(0x3000U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
 										<< 8U) 
+										| (((0U 
+										== 
+										(0x1000U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 7U) 
 										| (((0x50U 
 										== 
 										(0x10003050U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 7U) 
+										<< 6U) 
+										| (((0x4010U 
+										== 
+										(0x4014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 5U) 
+										| (((0x2010U 
+										== 
+										(0x6014U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 4U) 
+										| (((0U 
+										!= 
+										(((0x5010U 
+										== 
+										(0x7034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x5020U 
+										== 
+										(0x2007064U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
+										<< 3U) 
+										| (((0U 
+										!= 
+										(((0x40001010U 
+										== 
+										(0x40003054U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 2U) 
+										| (((0x1010U 
+										== 
+										(0x7034U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
+										<< 1U) 
+										| (0x1010U 
+										== 
+										(0x2007054U 
+										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION))))) 
+										<< 2U) 
 										| (((0U 
 										!= 
 										(((4U 
@@ -7716,8 +7324,8 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 										== 
 										(0x70U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 6U) 
-										| (((0U 
+										<< 1U) 
+										| (0U 
 										!= 
 										(((4U 
 										== 
@@ -7727,54 +7335,8 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 										| (0U 
 										== 
 										(0x20U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 5U) 
-										| (((0U 
-										!= 
-										(((0x20U 
-										== 
-										(0x34U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x20U 
-										== 
-										(0x64U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 4U) 
-										| (((0U 
-										== 
-										(0x1000U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 3U) 
-										| (((0U 
-										== 
-										(0x58U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 2U) 
-										| (((0U 
-										!= 
-										(((4U 
-										== 
-										(0x14U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x4050U 
-										== 
-										(0x4050U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))) 
-										<< 1U) 
-										| (0U 
-										!= 
-										(((4U 
-										== 
-										(0x44U 
-										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)) 
-										<< 1U) 
-										| (0x4050U 
-										== 
-										(0x4050U 
 										& vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION)))))))))))))))))))))))))))))))))));
-    // ALWAYS at ../../../../Briey.v:16517
+    // ALWAYS at ../../../../Briey.v:16345
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_writeData 
 	= ((0x2000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
 	    ? ((0x1000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)
@@ -7783,43 +7345,18 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	        : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_readData 
 		   | vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_))
 	    : vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_151_);
-    // ALWAYS at ../../../../Briey.v:14872
+    // ALWAYS at ../../../../Briey.v:14700
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_REGFILE_WRITE_VALID 
 	= (1U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		 >> 0x1aU));
+		 >> 0x1fU));
     if ((0U == (0x1fU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 			 >> 7U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_REGFILE_WRITE_VALID = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:14118
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3 
-	= (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		 >> 0x1dU));
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SHIFT_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable3___PVT__decode_SHIFT_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx3][2U];
-    // ALWAYS at ../../../../Briey.v:14254
-    vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7 
-	= (3U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_);
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[0U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][0U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[1U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][1U];
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_SRC1_CTRL_string[2U] 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vtable7___PVT__decode_SRC1_CTRL_string
-	[vlSymsp->TOP__Briey__axi_core_cpu.__Vtableidx7][2U];
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_pcs_4 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress 
 	   + ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			    >> 0x17U))) ? (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_) 
+			    >> 0x16U))) ? (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_129_) 
 					    << 0x15U) 
 					   | ((0x100000U 
 					       & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
@@ -7841,22 +7378,22 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 						>> 0x14U)) 
 				     | (0x1eU & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 						 >> 7U))))))));
-    // ALWAYS at ../../../../Briey.v:15361
+    // ALWAYS at ../../../../Briey.v:15189
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodePrediction_cmd_hadBranch 
 	= ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			 >> 0x17U))) | ((1U == (3U 
+			 >> 0x16U))) | ((1U == (3U 
 						& (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-						   >> 0x17U))) 
+						   >> 0x16U))) 
 					& (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_122_ 
 					   >> 0x12U)));
     if ((1U & ((2U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-			     >> 0x17U))) ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
+			     >> 0x16U))) ? (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 					    >> 0x15U)
 	        : (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_INSTRUCTION 
 		   >> 8U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodePrediction_cmd_hadBranch = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid = 0U;
     } else {
@@ -7881,7 +7418,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MEMORY_ENABLE));
-    // ALWAYS at ../../../../Briey.v:14881
+    // ALWAYS at ../../../../Briey.v:14709
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_DATA;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
@@ -7895,8 +7432,8 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     }
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_IS_MUL))) {
-	__Vtemp31[0U] = (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW);
-	__Vtemp31[1U] = ((0xfff00000U & (VL_NEGATE_I((IData)(
+	__Vtemp13[0U] = (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW);
+	__Vtemp13[1U] = ((0xfff00000U & (VL_NEGATE_I((IData)(
 							     (1U 
 							      & (IData)(
 									(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
@@ -7904,19 +7441,19 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 					 << 0x14U)) 
 			 | (IData)((vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
 				    >> 0x20U)));
-	__Vtemp31[2U] = (3U & (VL_NEGATE_I((IData)(
+	__Vtemp13[2U] = (3U & (VL_NEGATE_I((IData)(
 						   (1U 
 						    & (IData)(
 							      (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW 
 							       >> 0x33U))))) 
 			       >> 0xcU));
-	VL_EXTEND_WQ(66,34, __Vtemp32, vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_HH);
-	VL_SHIFTL_WWI(66,66,32, __Vtemp33, __Vtemp32, 0x20U);
-	VL_ADD_W(3, __Vtemp34, __Vtemp31, __Vtemp33);
+	VL_EXTEND_WQ(66,34, __Vtemp14, vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_HH);
+	VL_SHIFTL_WWI(66,66,32, __Vtemp15, __Vtemp14, 0x20U);
+	VL_ADD_W(3, __Vtemp16, __Vtemp13, __Vtemp15);
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_91_ 
 	    = ((0U == (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_INSTRUCTION 
 			     >> 0xcU))) ? (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_MUL_LOW)
-	        : __Vtemp34[1U]);
+	        : __Vtemp16[1U]);
     }
     // ALWAYS at ../../../../Briey.v:4107
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_mem_cmd_payload_last 
@@ -8070,7 +7607,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_IS_DIV));
-    // ALWAYS at ../../../../Briey.v:16643
+    // ALWAYS at ../../../../Briey.v:16471
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid = 0U;
     } else {
@@ -8084,14 +7621,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15575
+    // ALWAYS at ../../../../Briey.v:15403
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_redo) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15604
+    // ALWAYS at ../../../../Briey.v:15432
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_payload_code 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand3;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
@@ -8111,7 +7648,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 		    ? 0xfU : 0xdU);
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15585
+    // ALWAYS at ../../../../Briey.v:15413
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_242_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_accessError) {
@@ -8132,14 +7669,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	     | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_accessError)) 
 	    | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_mmuException)) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_unalignedAccess));
-    // ALWAYS at ../../../../Briey.v:16012
+    // ALWAYS at ../../../../Briey.v:15840
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14827
+    // ALWAYS at ../../../../Briey.v:14655
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_44_ 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_REGFILE_WRITE_DATA;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) {
@@ -8158,14 +7695,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_44_ 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_result;
     }
-    // ALWAYS at ../../../../Briey.v:15058
+    // ALWAYS at ../../../../Briey.v:14886
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_228_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_done)))) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15315
+    // ALWAYS at ../../../../Briey.v:15143
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid 
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_119_) 
 	    & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt))) 
@@ -8176,7 +7713,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15109
+    // ALWAYS at ../../../../Briey.v:14937
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll = 1U;
@@ -8274,7 +7811,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_201_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	   & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-	      >> 0xdU));
+	      >> 0x10U));
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decodeExceptionPort_valid 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	   & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_90_)));
@@ -8296,7 +7833,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_219_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_MEMORY_MANAGMENT));
-    // ALWAYS at ../../../../Briey.v:16382
+    // ALWAYS at ../../../../Briey.v:16210
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_pipelineLiberator_done 
 	= ((0U == (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isValid) 
 		    << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isValid) 
@@ -8310,7 +7847,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_pipelineLiberator_done = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16366
+    // ALWAYS at ../../../../Briey.v:16194
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
@@ -8319,7 +7856,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_flushAll) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_writeBack = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15099
+    // ALWAYS at ../../../../Briey.v:14927
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_removeIt = 1U;
@@ -8345,7 +7882,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__loader_valid))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___DOT__stageB_mmuRspFreeze = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15091
+    // ALWAYS at ../../../../Briey.v:14919
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_writeBack_haltIt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself = 1U;
@@ -8364,7 +7901,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_201_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache_io_cpu_prefetch_haltIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14742
+    // ALWAYS at ../../../../Briey.v:14570
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_38_ 
 	= ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_CTRL))
 	    ? ((2U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ALU_BITWISE_CTRL))
@@ -8382,7 +7919,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_38_ 
 	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_readData;
     }
-    // ALWAYS at ../../../../Briey.v:16052
+    // ALWAYS at ../../../../Briey.v:15880
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_247_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE)))) {
@@ -8399,10 +7936,10 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	}
     }
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		  >> 0x10U)))) {
+		  >> 0x18U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_ = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:16080
+    // ALWAYS at ../../../../Briey.v:15908
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_167_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_247_) {
 	if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE)))) {
@@ -8419,17 +7956,17 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	}
     }
     if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_137_ 
-		  >> 4U)))) {
+		  >> 0x15U)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_167_ = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15144
+    // ALWAYS at ../../../../Briey.v:14972
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherflushIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_234_) {
 	if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_235_) {
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherflushIt = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15029
+    // ALWAYS at ../../../../Briey.v:14857
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_234_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther = 1U;
@@ -8455,12 +7992,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_haltItself) 
 	   | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself));
-    // ALWAYS at ../../../../Briey.v:15261
+    // ALWAYS at ../../../../Briey.v:15089
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache_io_cpu_prefetch_haltIt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14754
+    // ALWAYS at ../../../../Briey.v:14582
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS2 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_221_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_) {
@@ -8495,7 +8032,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14784
+    // ALWAYS at ../../../../Briey.v:14612
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_RS1 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_220_;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_169_) {
@@ -8540,21 +8077,14 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_168_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_VALID) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isFiring));
-    // ALWAYS at ../../../../Briey.v:15763
+    // ALWAYS at ../../../../Briey.v:15591
     vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_to_writeBack_REGFILE_WRITE_VALID) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_isFiring));
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_149_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:14948
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_98_ 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_FORMAL_PC_NEXT;
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_98_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_to_memory_BRANCH_CALC;
-    }
-    // ALWAYS at ../../../../Briey.v:15043
+    // ALWAYS at ../../../../Briey.v:14871
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 1U;
@@ -8567,7 +8097,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16021
+    // ALWAYS at ../../../../Briey.v:15849
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willClear = 0U;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willClear = 1U;
@@ -8579,7 +8109,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltByOther) 
 	   | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck) 
 	      | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself)));
-    // ALWAYS at ../../../../Briey.v:15014
+    // ALWAYS at ../../../../Briey.v:14842
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltItself = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_219_) 
 	 & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__dataCache_1___05Fio_cpu_flush_ready)))) {
@@ -8595,12 +8125,12 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__9(VBriey
 	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_haltItself = 1U;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:14864
+    // ALWAYS at ../../../../Briey.v:14692
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_62_ = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.lastStageRegFileWrite_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_62_ = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16030
+    // ALWAYS at ../../../../Briey.v:15858
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_valueNext 
 	= (0x3fU & (((0x21U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_value)) 
 		     & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_DivPlugin_div_counter_willIncrement))
@@ -8656,7 +8186,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_252_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mstatus_MIE) 
 	   | (3U > (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege)));
-    // ALWAYS at ../../../../Briey.v:16393
+    // ALWAYS at ../../../../Briey.v:16221
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_targetPrivilege;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_hadException) {
@@ -8667,130 +8197,11 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_239_ 
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_stepIt) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_incomingInstruction));
-    // ALWAYS at ../../../../Briey.v:16470
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalInstruction = 0U;
-    if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid) 
-	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ENV_CTRL))) {
-	if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege) 
-	     < (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		      >> 0x1cU)))) {
-	    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalInstruction = 1U;
-	}
-    }
-    // ALWAYS at ../../../../Briey.v:16434
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 1U;
-    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		  >> 0x1fU)))) {
-	if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		      >> 0x1eU)))) {
-	    if ((0x20000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-		if ((0x10000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-		    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-				  >> 0x1bU)))) {
-			if ((0x4000000U & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-			    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					  >> 0x19U)))) {
-				if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					      >> 0x18U)))) {
-				    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						  >> 0x17U)))) {
-					if ((0x400000U 
-					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					} else {
-					    if ((0x200000U 
-						 & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						if (
-						    (0x100000U 
-						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_READ_OPCODE) {
-							vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						    }
-						} else {
-						    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_CSR_READ_OPCODE) {
-							vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						    }
-						}
-					    } else {
-						if (
-						    (0x100000U 
-						     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					}
-				    }
-				}
-			    }
-			} else {
-			    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					  >> 0x19U)))) {
-				if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-					      >> 0x18U)))) {
-				    if ((1U & (~ (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						  >> 0x17U)))) {
-					if ((0x400000U 
-					     & vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION)) {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					} else {
-					    if ((1U 
-						 & (~ 
-						    (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-						     >> 0x15U)))) {
-						if (
-						    (1U 
-						     & (~ 
-							(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-							 >> 0x14U)))) {
-						    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-						}
-					    }
-					}
-				    }
-				}
-			    }
-			}
-		    }
-		}
-	    }
-	}
-    }
-    if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_privilege) 
-	 < (3U & (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_INSTRUCTION 
-		  >> 0x1cU)))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 1U;
-    }
-    if ((1U & ((~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isValid)) 
-	       | (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_IS_CSR))))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_CsrPlugin_illegalAccess = 0U;
-    }
     vlSymsp->TOP__Briey__axi_core_cpu.CsrPlugin_interruptJump 
 	= (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_interrupt_valid) 
 	    & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_pipelineLiberator_done)) 
 	   & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_allowInterrupts));
-    // ALWAYS at ../../../../Briey.v:14990
+    // ALWAYS at ../../../../Briey.v:14818
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_haltByOther = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	 & ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_166_) 
@@ -8810,13 +8221,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 				      & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_to_execute_ENV_CTRL)))))) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_haltByOther = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16407
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_mode 
-	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand4;
-    if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_mode = 0U;
-    }
-    // ALWAYS at ../../../../Briey.v:16418
+    // ALWAYS at ../../../../Briey.v:16246
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_xtvec_base 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand5;
     if ((3U == (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_targetPrivilege))) {
@@ -8831,7 +8236,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 	      | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isStuck) 
 		  | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isStuck)) 
 		 | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__writeBack_arbitration_haltItself))));
-    // ALWAYS at ../../../../Briey.v:15177
+    // ALWAYS at ../../../../Briey.v:15005
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_payload 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__Vxrand1;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
@@ -8846,7 +8251,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 		= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_mepc;
 	}
     }
-    // ALWAYS at ../../../../Briey.v:15167
+    // ALWAYS at ../../../../Briey.v:14995
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_237_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 1U;
@@ -8854,7 +8259,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_238_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15078
+    // ALWAYS at ../../../../Briey.v:14906
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_exceptionBus_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 1U;
@@ -8865,7 +8270,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_238_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:15120
+    // ALWAYS at ../../../../Briey.v:14948
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherHalt = 0U;
     if ((0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_writeBack) 
 		 << 3U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory) 
@@ -8910,7 +8315,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 		   << 3U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_flushAll) 
 			      << 2U) | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_flushAll) 
 					<< 1U))));
-    // ALWAYS at ../../../../Briey.v:15498
+    // ALWAYS at ../../../../Briey.v:15326
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_231_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid 
@@ -8923,7 +8328,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherHalt) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_decodeExceptionPort_valid = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15226
+    // ALWAYS at ../../../../Briey.v:15054
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc = 0U;
     if (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_117_) 
 	 & (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready))) {
@@ -8934,18 +8339,18 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 	   & (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready) 
 	       & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_iBusRsp_stages_0_halt))) 
 	      & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetcherHalt))));
-    // ALWAYS at ../../../../Briey.v:15036
+    // ALWAYS at ../../../../Briey.v:14864
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16349
+    // ALWAYS at ../../../../Briey.v:16177
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_execute 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_execute;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__execute_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_execute = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15068
+    // ALWAYS at ../../../../Briey.v:14896
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_branchExceptionPort_valid) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 1U;
@@ -8953,7 +8358,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__memory_arbitration_removeIt = 1U;
     }
-    // ALWAYS at ../../../../Briey.v:16356
+    // ALWAYS at ../../../../Briey.v:16184
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_memory 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_memory;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_branchExceptionPort_valid) {
@@ -8972,7 +8377,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 	= ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_197_) 
 	   & (~ ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_197_) 
 		 - (IData)(1U))));
-    // ALWAYS at ../../../../Briey.v:16339
+    // ALWAYS at ../../../../Briey.v:16167
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValidsRegs_decode;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
@@ -8981,7 +8386,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isFlushed) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_exceptionPortCtrl_exceptionValids_decode = 0U;
     }
-    // ALWAYS at ../../../../Briey.v:15003
+    // ALWAYS at ../../../../Briey.v:14831
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_233_) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt = 1U;
@@ -8994,17 +8399,6 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 	   & (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isValid) 
 	       & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_isStuck))) 
 	      & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__decode_arbitration_removeIt))));
-    // ALWAYS at ../../../../Briey.v:14955
-    vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	= ((IData)(4U) + vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress);
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_predictionJumpInterface_valid) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_pcs_4;
-    }
-    if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_rsp_redoFetch) {
-	vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_99_ 
-	    = vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress;
-    }
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_jump_pcLoad_valid 
 	= (0U != (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid) 
 		   << 4U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__BranchPlugin_jumpInterface_valid) 
@@ -9020,7 +8414,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 				  << 2U) | (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__CsrPlugin_jumpInterface_valid) 
 					     << 1U) 
 					    | (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DBusCachedPlugin_redoBranch_valid)))));
-    // ALWAYS at ../../../../Briey.v:15242
+    // ALWAYS at ../../../../Briey.v:15070
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_samplePcNext = 0U;
     if (vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_propagatePc) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_samplePcNext = 1U;
@@ -9045,7 +8439,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__10(VBri
 			     | (1U & (((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_105_) 
 				       >> 1U) | ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_105_) 
 						 >> 3U)))));
-    // ALWAYS at ../../../../Briey.v:15233
+    // ALWAYS at ../../../../Briey.v:15061
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_pc 
 	= (vlSymsp->TOP__Briey__axi_core_cpu.IBusCachedPlugin_fetchPc_pcReg 
 	   + ((IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_fetchPc_inc) 
@@ -9072,7 +8466,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__11(VBrie
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__11\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:17173
+    // ALWAYS at ../../../../Briey.v:17001
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_resetIt_regNext 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_resetIt;
 }
@@ -9081,7 +8475,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__12(VBrie
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__12\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:17190
+    // ALWAYS at ../../../../Briey.v:17018
     if (vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset) {
 	vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_resetIt = 0U;
     } else {
@@ -9100,7 +8494,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__12(VBrie
 	    }
 	}
     }
-    // ALWAYS at ../../../../Briey.v:16546
+    // ALWAYS at ../../../../Briey.v:16374
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__debug_bus_rsp_data 
 	= vlSymsp->TOP__Briey__axi_core_cpu.__PVT__DebugPlugin_busReadDataReg;
     if ((1U & (~ (IData)(vlSymsp->TOP__Briey__axi_core_cpu.__PVT___zz_199_)))) {
@@ -9130,7 +8524,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__13(VBrie
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_sequent__TOP__Briey__axi_core_cpu__13\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:16557
+    // ALWAYS at ../../../../Briey.v:16385
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__IBusCachedPlugin_injectionPort_valid = 0U;
     if (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___05Fio_mem_cmd_valid) {
 	if ((0U != (0x3fU & ((vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[1U] 
@@ -9151,7 +8545,7 @@ VL_INLINE_OPT void VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__14(VBri
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_multiclk__TOP__Briey__axi_core_cpu__14\n"); );
     VBriey* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // ALWAYS at ../../../../Briey.v:16529
+    // ALWAYS at ../../../../Briey.v:16357
     vlSymsp->TOP__Briey__axi_core_cpu.__PVT__debug_bus_cmd_ready = 1U;
     if (vlSymsp->TOP__Briey.__PVT__systemDebugger_1___05Fio_mem_cmd_valid) {
 	if ((0U != (0x3fU & ((vlSymsp->TOP__Briey.__PVT__systemDebugger_1___DOT__dispatcher_dataShifter[1U] 
@@ -9173,7 +8567,6 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     VL_DEBUG_IF(VL_DBG_MSGF("+        VBriey_VexRiscv::_ctor_var_reset\n"); );
     // Body
     __Vxrand5 = VL_RAND_RESET_I(30);
-    __Vxrand4 = VL_RAND_RESET_I(2);
     __Vxrand3 = VL_RAND_RESET_I(4);
     __Vxrand2 = VL_RAND_RESET_I(4);
     __Vxrand1 = VL_RAND_RESET_I(32);
@@ -9267,8 +8660,6 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT___zz_95_ = VL_RAND_RESET_I(1);
     __PVT___zz_96_ = VL_RAND_RESET_I(32);
     __PVT__decode_INSTRUCTION = VL_RAND_RESET_I(32);
-    __PVT___zz_98_ = VL_RAND_RESET_I(32);
-    __PVT___zz_99_ = VL_RAND_RESET_I(32);
     __PVT__decode_arbitration_haltItself = VL_RAND_RESET_I(1);
     __PVT__decode_arbitration_haltByOther = VL_RAND_RESET_I(1);
     __PVT__decode_arbitration_removeIt = VL_RAND_RESET_I(1);
@@ -9331,15 +8722,11 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__IBusCachedPlugin_fetchPc_samplePcNext = VL_RAND_RESET_I(1);
     __PVT___zz_111_ = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_iBusRsp_stages_0_halt = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_iBusRsp_stages_1_inputSample = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_input_ready = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_halt = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_iBusRsp_cacheRspArbitration_inputSample = VL_RAND_RESET_I(1);
     __PVT___zz_117_ = VL_RAND_RESET_I(1);
     __PVT___zz_119_ = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_iBusRsp_readyForError = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_iBusRsp_decodeInput_payload_rsp_error = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_iBusRsp_decodeInput_payload_isRvc = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_injector_nextPcCalc_valids_0 = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_injector_nextPcCalc_valids_1 = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_injector_nextPcCalc_valids_2 = VL_RAND_RESET_I(1);
@@ -9417,8 +8804,6 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__CsrPlugin_mcause_interrupt = VL_RAND_RESET_I(1);
     __PVT__CsrPlugin_mcause_exceptionCode = VL_RAND_RESET_I(4);
     __PVT__CsrPlugin_mtval = VL_RAND_RESET_I(32);
-    __PVT__CsrPlugin_mcycle = VL_RAND_RESET_Q(64);
-    __PVT__CsrPlugin_minstret = VL_RAND_RESET_Q(64);
     __PVT___zz_194_ = VL_RAND_RESET_I(1);
     __PVT___zz_195_ = VL_RAND_RESET_I(1);
     __PVT___zz_196_ = VL_RAND_RESET_I(1);
@@ -9441,18 +8826,12 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__CsrPlugin_hadException = VL_RAND_RESET_I(1);
     __PVT__CsrPlugin_targetPrivilege = VL_RAND_RESET_I(2);
     __PVT__CsrPlugin_trapCause = VL_RAND_RESET_I(4);
-    __PVT__CsrPlugin_xtvec_mode = VL_RAND_RESET_I(2);
     __PVT__CsrPlugin_xtvec_base = VL_RAND_RESET_I(30);
     execute_CsrPlugin_inWfi = VL_RAND_RESET_I(1);
-    __PVT__execute_CsrPlugin_wfiWake = VL_RAND_RESET_I(1);
     __PVT__execute_CsrPlugin_blockedBySideEffects = VL_RAND_RESET_I(1);
-    __PVT__execute_CsrPlugin_illegalAccess = VL_RAND_RESET_I(1);
-    __PVT__execute_CsrPlugin_illegalInstruction = VL_RAND_RESET_I(1);
     __PVT__execute_CsrPlugin_readData = VL_RAND_RESET_I(32);
     __PVT__execute_CsrPlugin_writeEnable = VL_RAND_RESET_I(1);
     __PVT__execute_CsrPlugin_writeData = VL_RAND_RESET_I(32);
-    __PVT__DebugPlugin_firstCycle = VL_RAND_RESET_I(1);
-    __PVT__DebugPlugin_secondCycle = VL_RAND_RESET_I(1);
     __PVT__DebugPlugin_resetIt = VL_RAND_RESET_I(1);
     __PVT__DebugPlugin_haltIt = VL_RAND_RESET_I(1);
     __PVT__DebugPlugin_stepIt = VL_RAND_RESET_I(1);
@@ -9462,78 +8841,66 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__DebugPlugin_busReadDataReg = VL_RAND_RESET_I(32);
     __PVT___zz_199_ = VL_RAND_RESET_I(1);
     __PVT__DebugPlugin_resetIt_regNext = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_MUL_HL = VL_RAND_RESET_Q(34);
-    __PVT__memory_to_writeBack_MUL_LOW = VL_RAND_RESET_Q(52);
-    __PVT__decode_to_execute_IS_CSR = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_SHIFT_RIGHT = VL_RAND_RESET_I(32);
+    __PVT__decode_to_execute_RS2 = VL_RAND_RESET_I(32);
     __PVT__decode_to_execute_MEMORY_MANAGMENT = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_SRC1_CTRL = VL_RAND_RESET_I(2);
-    __PVT__decode_to_execute_MEMORY_ENABLE = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_MEMORY_ENABLE = VL_RAND_RESET_I(1);
-    __PVT__memory_to_writeBack_MEMORY_ENABLE = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_ALU_BITWISE_CTRL = VL_RAND_RESET_I(2);
-    __PVT__decode_to_execute_SRC_USE_SUB_LESS = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_BRANCH_CALC = VL_RAND_RESET_I(32);
-    __PVT__execute_to_memory_MUL_LH = VL_RAND_RESET_Q(34);
-    __PVT__execute_to_memory_BRANCH_DO = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_IS_DIV = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_IS_DIV = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_SRC2_CTRL = VL_RAND_RESET_I(2);
-    __PVT__decode_to_execute_ALU_CTRL = VL_RAND_RESET_I(2);
-    __PVT__decode_to_execute_SHIFT_CTRL = VL_RAND_RESET_I(2);
-    __PVT__execute_to_memory_SHIFT_CTRL = VL_RAND_RESET_I(2);
-    __PVT__decode_to_execute_SRC2_FORCE_ZERO = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_ENV_CTRL = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_ENV_CTRL = VL_RAND_RESET_I(1);
-    __PVT__memory_to_writeBack_ENV_CTRL = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_MUL_HH = VL_RAND_RESET_Q(34);
-    __PVT__memory_to_writeBack_MUL_HH = VL_RAND_RESET_Q(34);
-    __PVT__decode_to_execute_SRC_LESS_UNSIGNED = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_IS_MUL = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_IS_MUL = VL_RAND_RESET_I(1);
-    __PVT__memory_to_writeBack_IS_MUL = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_FORMAL_PC_NEXT = VL_RAND_RESET_I(32);
-    __PVT__execute_to_memory_FORMAL_PC_NEXT = VL_RAND_RESET_I(32);
-    __PVT__memory_to_writeBack_FORMAL_PC_NEXT = VL_RAND_RESET_I(32);
-    __PVT__decode_to_execute_RS1 = VL_RAND_RESET_I(32);
-    __PVT__decode_to_execute_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
-    __PVT__memory_to_writeBack_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_CSR_READ_OPCODE = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_DO_EBREAK = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_PC = VL_RAND_RESET_I(32);
-    __PVT__execute_to_memory_PC = VL_RAND_RESET_I(32);
-    __PVT__memory_to_writeBack_PC = VL_RAND_RESET_I(32);
-    __PVT__execute_to_memory_REGFILE_WRITE_DATA = VL_RAND_RESET_I(32);
-    __PVT__memory_to_writeBack_REGFILE_WRITE_DATA = VL_RAND_RESET_I(32);
-    __PVT__decode_to_execute_MEMORY_WR = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_MEMORY_WR = VL_RAND_RESET_I(1);
-    __PVT__memory_to_writeBack_MEMORY_WR = VL_RAND_RESET_I(1);
-    __PVT__execute_to_memory_MEMORY_ADDRESS_LOW = VL_RAND_RESET_I(2);
-    __PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW = VL_RAND_RESET_I(2);
     __PVT__decode_to_execute_INSTRUCTION = VL_RAND_RESET_I(32);
     __PVT__execute_to_memory_INSTRUCTION = VL_RAND_RESET_I(32);
     __PVT__memory_to_writeBack_INSTRUCTION = VL_RAND_RESET_I(32);
-    __PVT__decode_to_execute_CSR_WRITE_OPCODE = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_RS2 = VL_RAND_RESET_I(32);
-    __PVT__decode_to_execute_IS_RS2_SIGNED = VL_RAND_RESET_I(1);
-    __PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2 = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_REGFILE_WRITE_VALID = VL_RAND_RESET_I(1);
     __PVT__decode_to_execute_IS_RS1_SIGNED = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_MUL_LH = VL_RAND_RESET_Q(34);
+    __PVT__decode_to_execute_CSR_WRITE_OPCODE = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_IS_CSR = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_ENV_CTRL = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_ENV_CTRL = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_ENV_CTRL = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_SRC2_CTRL = VL_RAND_RESET_I(2);
+    __PVT__decode_to_execute_MEMORY_ENABLE = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_MEMORY_ENABLE = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_MEMORY_ENABLE = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_IS_DIV = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_IS_DIV = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_MEMORY_ADDRESS_LOW = VL_RAND_RESET_I(2);
+    __PVT__memory_to_writeBack_MEMORY_ADDRESS_LOW = VL_RAND_RESET_I(2);
+    __PVT__decode_to_execute_SHIFT_CTRL = VL_RAND_RESET_I(2);
+    __PVT__execute_to_memory_SHIFT_CTRL = VL_RAND_RESET_I(2);
+    __PVT__decode_to_execute_SRC2_FORCE_ZERO = VL_RAND_RESET_I(1);
     __PVT__decode_to_execute_BRANCH_CTRL = VL_RAND_RESET_I(2);
+    __PVT__decode_to_execute_SRC_USE_SUB_LESS = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_BRANCH_CALC = VL_RAND_RESET_I(32);
+    __PVT__decode_to_execute_RS1 = VL_RAND_RESET_I(32);
+    __PVT__decode_to_execute_PREDICTION_HAD_BRANCHED2 = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_IS_MUL = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_IS_MUL = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_IS_MUL = VL_RAND_RESET_I(1);
     __PVT__decode_to_execute_BYPASSABLE_EXECUTE_STAGE = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_MUL_LOW = VL_RAND_RESET_Q(52);
+    __PVT__execute_to_memory_MUL_HH = VL_RAND_RESET_Q(34);
+    __PVT__memory_to_writeBack_MUL_HH = VL_RAND_RESET_Q(34);
+    __PVT__execute_to_memory_SHIFT_RIGHT = VL_RAND_RESET_I(32);
+    __PVT__decode_to_execute_MEMORY_WR = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_MEMORY_WR = VL_RAND_RESET_I(1);
+    __PVT__memory_to_writeBack_MEMORY_WR = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_SRC_LESS_UNSIGNED = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_ALU_BITWISE_CTRL = VL_RAND_RESET_I(2);
+    __PVT__decode_to_execute_SRC1_CTRL = VL_RAND_RESET_I(2);
+    __PVT__execute_to_memory_BRANCH_DO = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_ALU_CTRL = VL_RAND_RESET_I(2);
+    __PVT__execute_to_memory_MUL_HL = VL_RAND_RESET_Q(34);
+    __PVT__decode_to_execute_DO_EBREAK = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_IS_RS2_SIGNED = VL_RAND_RESET_I(1);
     __PVT__execute_to_memory_MUL_LL = VL_RAND_RESET_I(32);
+    __PVT__execute_to_memory_REGFILE_WRITE_DATA = VL_RAND_RESET_I(32);
+    __PVT__memory_to_writeBack_REGFILE_WRITE_DATA = VL_RAND_RESET_I(32);
+    __PVT__decode_to_execute_BYPASSABLE_MEMORY_STAGE = VL_RAND_RESET_I(1);
+    __PVT__execute_to_memory_BYPASSABLE_MEMORY_STAGE = VL_RAND_RESET_I(1);
+    __PVT__decode_to_execute_PC = VL_RAND_RESET_I(32);
+    __PVT__execute_to_memory_PC = VL_RAND_RESET_I(32);
+    __PVT__memory_to_writeBack_PC = VL_RAND_RESET_I(32);
     __PVT___zz_200_ = VL_RAND_RESET_I(3);
     __PVT__IBusCachedPlugin_injectionPort_payload_regNext = VL_RAND_RESET_I(32);
-    VL_RAND_RESET_W(72,__PVT__decode_SHIFT_CTRL_string);
-    VL_RAND_RESET_W(96,__PVT__decode_SRC1_CTRL_string);
-    VL_RAND_RESET_W(72,__PVT__memory_SHIFT_CTRL_string);
-    VL_RAND_RESET_W(72,__PVT__execute_SHIFT_CTRL_string);
-    VL_RAND_RESET_W(96,__PVT__execute_SRC1_CTRL_string);
-    VL_RAND_RESET_W(96,__PVT__decode_to_execute_SRC1_CTRL_string);
-    VL_RAND_RESET_W(72,__PVT__decode_to_execute_SHIFT_CTRL_string);
-    VL_RAND_RESET_W(72,__PVT__execute_to_memory_SHIFT_CTRL_string);
     { int __Vi0=0; for (; __Vi0<32; ++__Vi0) {
 	    RegFilePlugin_regFile[__Vi0] = VL_RAND_RESET_I(32);
     }}
@@ -9551,12 +8918,8 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__IBusCachedPlugin_cache__DOT__lineLoader_flushCounter = VL_RAND_RESET_I(4);
     __PVT__IBusCachedPlugin_cache__DOT___zz_3_ = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_cache__DOT__lineLoader_cmdSent = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_cache__DOT__lineLoader_wayToAllocate_willIncrement = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_cache__DOT__lineLoader_wordIndex = VL_RAND_RESET_I(3);
     __PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_physicalAddress = VL_RAND_RESET_I(32);
-    __PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_isIoAccess = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowRead = VL_RAND_RESET_I(1);
-    __PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowWrite = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_cache__DOT__decodeStage_mmuRsp_allowExecute = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_valid = VL_RAND_RESET_I(1);
     __PVT__IBusCachedPlugin_cache__DOT__decodeStage_hit_tags_0_error = VL_RAND_RESET_I(1);
@@ -9603,12 +8966,6 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_valid = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_error = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__tagsWriteCmd_payload_data_address = VL_RAND_RESET_I(24);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_valid = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_way = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_address = VL_RAND_RESET_I(3);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_valid = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_error = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__tagsWriteLastCmd_payload_data_address = VL_RAND_RESET_I(24);
     __PVT__dataCache_1___DOT__dataReadCmd_valid = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__dataReadCmd_payload = VL_RAND_RESET_I(6);
     __PVT__dataCache_1___DOT__dataWriteCmd_valid = VL_RAND_RESET_I(1);
@@ -9630,11 +8987,8 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__dataCache_1___DOT__stageB_mmuRsp_physicalAddress = VL_RAND_RESET_I(32);
     __PVT__dataCache_1___DOT__stageB_mmuRsp_isIoAccess = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__stageB_mmuRsp_allowWrite = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__stageB_mmuRsp_allowExecute = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__stageB_mmuRsp_exception = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_valid = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_error = VL_RAND_RESET_I(1);
-    __PVT__dataCache_1___DOT__stageB_tagsReadRsp_0_address = VL_RAND_RESET_I(24);
     __PVT__dataCache_1___DOT__stageB_dataReadRsp_0 = VL_RAND_RESET_I(32);
     __PVT__dataCache_1___DOT__stageB_waysHits = VL_RAND_RESET_I(1);
     __PVT__dataCache_1___DOT__stageB_mask = VL_RAND_RESET_I(4);
@@ -9668,44 +9022,4 @@ void VBriey_VexRiscv::_ctor_var_reset() {
     __PVT__dataCache_1___DOT___zz_25_ = VL_RAND_RESET_I(8);
     __PVT__dataCache_1___DOT___zz_26_ = VL_RAND_RESET_I(8);
     __PVT__dataCache_1___DOT___zz_27_ = VL_RAND_RESET_I(8);
-    __Vtableidx3 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(72,__Vtable3___PVT__decode_SHIFT_CTRL_string[0],0x00000044,0x49534142,0x4c455f31);
-    VL_CONST_W_3X(72,__Vtable3___PVT__decode_SHIFT_CTRL_string[1],0x00000053,0x4c4c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable3___PVT__decode_SHIFT_CTRL_string[2],0x00000053,0x524c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable3___PVT__decode_SHIFT_CTRL_string[3],0x00000053,0x52415f31,0x20202020);
-    __Vtableidx7 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(96,__Vtable7___PVT__decode_SRC1_CTRL_string[0],0x52532020,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable7___PVT__decode_SRC1_CTRL_string[1],0x494d5520,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable7___PVT__decode_SRC1_CTRL_string[2],0x50435f49,0x4e435245,0x4d454e54);
-    VL_CONST_W_3X(96,__Vtable7___PVT__decode_SRC1_CTRL_string[3],0x55525331,0x20202020,0x20202020);
-    __Vtableidx11 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(72,__Vtable11___PVT__memory_SHIFT_CTRL_string[0],0x00000044,0x49534142,0x4c455f31);
-    VL_CONST_W_3X(72,__Vtable11___PVT__memory_SHIFT_CTRL_string[1],0x00000053,0x4c4c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable11___PVT__memory_SHIFT_CTRL_string[2],0x00000053,0x524c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable11___PVT__memory_SHIFT_CTRL_string[3],0x00000053,0x52415f31,0x20202020);
-    __Vtableidx13 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(72,__Vtable13___PVT__execute_SHIFT_CTRL_string[0],0x00000044,0x49534142,0x4c455f31);
-    VL_CONST_W_3X(72,__Vtable13___PVT__execute_SHIFT_CTRL_string[1],0x00000053,0x4c4c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable13___PVT__execute_SHIFT_CTRL_string[2],0x00000053,0x524c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable13___PVT__execute_SHIFT_CTRL_string[3],0x00000053,0x52415f31,0x20202020);
-    __Vtableidx15 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(96,__Vtable15___PVT__execute_SRC1_CTRL_string[0],0x52532020,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable15___PVT__execute_SRC1_CTRL_string[1],0x494d5520,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable15___PVT__execute_SRC1_CTRL_string[2],0x50435f49,0x4e435245,0x4d454e54);
-    VL_CONST_W_3X(96,__Vtable15___PVT__execute_SRC1_CTRL_string[3],0x55525331,0x20202020,0x20202020);
-    __Vtableidx21 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(96,__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[0],0x52532020,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[1],0x494d5520,0x20202020,0x20202020);
-    VL_CONST_W_3X(96,__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[2],0x50435f49,0x4e435245,0x4d454e54);
-    VL_CONST_W_3X(96,__Vtable21___PVT__decode_to_execute_SRC1_CTRL_string[3],0x55525331,0x20202020,0x20202020);
-    __Vtableidx22 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(72,__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[0],0x00000044,0x49534142,0x4c455f31);
-    VL_CONST_W_3X(72,__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[1],0x00000053,0x4c4c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[2],0x00000053,0x524c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable22___PVT__decode_to_execute_SHIFT_CTRL_string[3],0x00000053,0x52415f31,0x20202020);
-    __Vtableidx23 = VL_RAND_RESET_I(2);
-    VL_CONST_W_3X(72,__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[0],0x00000044,0x49534142,0x4c455f31);
-    VL_CONST_W_3X(72,__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[1],0x00000053,0x4c4c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[2],0x00000053,0x524c5f31,0x20202020);
-    VL_CONST_W_3X(72,__Vtable23___PVT__execute_to_memory_SHIFT_CTRL_string[3],0x00000053,0x52415f31,0x20202020);
 }

@@ -36,7 +36,6 @@ VM_USER_CFLAGS = \
 	-std=c++11 \
 	-pthread \
 	-lSDL2 \
-	-DTRACE \
 	-O3 \
 	-DVGA \
 	-DTRACE_START=0 \
