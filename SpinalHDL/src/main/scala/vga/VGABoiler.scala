@@ -87,7 +87,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
     vga.io.vga.hSync <> io.hSync
     vga.io.vga.vSync <> io.vSync
-    vga.io.vga.videoOn <> io.videoOn
+    vga.io.vga.colorEn <> io.videoOn
 
     fill.io.start := False
     fill.io.coord1(0).clearAll()

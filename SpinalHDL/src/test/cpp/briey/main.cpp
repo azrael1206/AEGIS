@@ -361,7 +361,7 @@ public:
 			x = 0;
 		}
 		if(top->io_vga_colorEn){
-			this->set((top->io_vga_color_r << 19) + (top->io_vga_color_g << 10) + (top->io_vga_color_b << 3));
+			this->set((top->io_vga_rgb_0 << 19) + (top->io_vga_rgb_1 << 10) + (top->io_vga_rgb_2 << 3));
 			incX();
 		}
 

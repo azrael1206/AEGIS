@@ -8,7 +8,7 @@ import spinal.lib._
 class BufferControl(config : VGAConfig) extends Component{
 
   val io = new Bundle {
-    val vga = master(VGAInterfaceOut(config))
+    val vga = master(VGAInterfaceOutintern(config))
     val wValid = in Bool
     val wData = in Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
     val wAddress = in UInt(1 + log2Up(config.vDisplayArea) + log2Up(config.hDisplayArea) bits)
@@ -29,9 +29,11 @@ class BufferControl(config : VGAConfig) extends Component{
 
   io.vga.vSync := vSyncDelay
   io.vga.hSync := hSyncDelay
-  io.vga.videoOn := videoOn
+  io.vga.colorEn := videoOn
   when (vga.io.vga.videoOn) {
-    io.vga.rgb := buffer.io.interface.rData
+    io.vga.rgb(0).setAllTo(buffer.io.interface.rData(0).asBool)
+    io.vga.rgb(1).setAllTo(buffer.io.interface.rData(1).asBool)
+    io.vga.rgb(2).setAllTo(buffer.io.interface.rData(2).asBool)
   } otherwise {
     io.vga.rgb(0).clearAll()
     io.vga.rgb(1).clearAll()

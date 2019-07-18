@@ -17,7 +17,7 @@ import spinal.lib.memory.sdram._
 import spinal.lib.misc.HexTools
 import spinal.lib.soc.pinsec.{PinsecTimerCtrl, PinsecTimerCtrlExternal}
 import spinal.lib.system.debugger.{JtagAxi4SharedDebugger, JtagBridge, SystemDebugger, SystemDebuggerConfig}
-import vga.{VGAConfig, VGAInterface, VGAInterfaceOut}
+import vga.{VGAConfig, VGAInterface, VGAInterfaceOutextern, VGAInterfaceOutintern}
 import blitter._
 
 import scala.collection.mutable.ArrayBuffer
@@ -185,7 +185,7 @@ class Briey(config: BrieyConfig) extends Component{
     val gpioA         = master(TriStateArray(32 bits))
     val gpioB         = master(TriStateArray(32 bits))
     val uart          = master(Uart())
-    val vga           = master(VGAInterfaceOut(VGAConfig.setAs_640_480_60))
+    val vga           = master(VGAInterfaceOutextern(VGAConfig.setAs_640_480_60))
     val timerExternal = in(PinsecTimerCtrlExternal())
     val coreInterrupt = in Bool
   }
@@ -370,12 +370,19 @@ class Briey(config: BrieyConfig) extends Component{
   io.timerExternal  <> axi.timerCtrl.io.external
   io.uart           <> axi.uartCtrl.io.uart
   io.sdram          <> axi.sdramCtrl.io.sdram
-  io.vga            <> axi.gpu.io.vga
+  io.vga.colorEn <> axi.gpu.io.vga.colorEn
+  io.vga.vSync <> axi.gpu.io.vga.vSync
+  io.vga.hSync <> axi.gpu.io.vga.hSync
+  io.vga.rgb   <> axi.gpu.io.vga.rgb
+  io.vga.videoClock <> io.vgaClk
+
+
 }
 
 //DE1-SoC
 object Briey{
   def main(args: Array[String]) {
+    SpinalVerilog(new Briey(BrieyConfig.default))
     SpinalVhdl(new Briey(BrieyConfig.default))
   }
 }

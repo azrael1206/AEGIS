@@ -1,5 +1,5 @@
 DEBUG?=no
-TRACE?=no
+TRACE?=yes
 TRACE_INSTRUCTION?=no
 TRACE_REG?=no
 PRINT_PERF?=no

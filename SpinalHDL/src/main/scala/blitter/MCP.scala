@@ -13,7 +13,7 @@ import spinal.lib.bus.amba4.axi._
 case class MCP(config : VGAConfig) extends Component{
 
   val io = new Bundle {
-    val vga = master(VGAInterfaceOut(config))
+    val vga = master(VGAInterfaceOutintern(config))
     val axicpu = slave(Axi4Shared(Axi4Config(24, 32, 4)))
     val axiram = master(Axi4ReadOnly(Axi4Config(32, 32, useId = false, useRegion = false,
       useBurst = false,
@@ -30,6 +30,7 @@ case class MCP(config : VGAConfig) extends Component{
   val storeRadius = Reg(UInt(log2Up(config.hDisplayArea) bits)) init 0
   val storeColor  = Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits)))
   val write      = Reg(Bool)
+  val trigger = Reg(Bool) init True
   val mode = Reg(UInt(3 bits))
   val counter = Reg(UInt(8 bits)) init 0
   val temp = (UInt (8 bits))
@@ -80,7 +81,7 @@ case class MCP(config : VGAConfig) extends Component{
 
   vga.io.vga.hSync <> io.vga.hSync
   vga.io.vga.vSync <> io.vga.vSync
-  vga.io.vga.videoOn <> io.vga.videoOn
+  vga.io.vga.colorEn <> io.vga.colorEn
 
   io.vga.rgb := vga.io.vga.rgb
 
@@ -97,7 +98,7 @@ case class MCP(config : VGAConfig) extends Component{
   vga.io.wData(0) := io.axicpu.writeData.data(10 downto 0).resize(config.colorR)
   vga.io.wData(1) := io.axicpu.writeData.data(21 downto 11).resize(config.colorG)
   vga.io.wData(2) := io.axicpu.writeData.data(31 downto 22).resize(config.colorB)
-  vga.io.wAddress := io.axicpu.sharedCmd.addr.resized
+  vga.io.wAddress := (!switchVGA ## io.axicpu.sharedCmd.addr(10 + log2Up(config.vDisplayArea) downto 11) ## io.axicpu.sharedCmd.addr(log2Up(config.hDisplayArea) - 1 downto 0)).asUInt
   vga.io.wValid := io.axicpu.sharedCmd.write & io.axicpu.sharedCmd.valid
 
   io.axicpu.writeRsp.id := id
@@ -187,6 +188,10 @@ case class MCP(config : VGAConfig) extends Component{
           //Blitter copy Sprite to Framebuffer
           goto(idle)
         }
+        is(7) {
+          switchVGA := !switchVGA
+          goto(idle)
+        }
       }
     }
     /*
@@ -200,7 +205,7 @@ case class MCP(config : VGAConfig) extends Component{
     }
 */
     fRect.whenIsActive{
-      vga.io.wAddress := (switchVGA.asBits ## fillRect.io.address.asBits).asUInt.resized
+      vga.io.wAddress := (!switchVGA ## fillRect.io.address.asBits).asUInt.resized
       vga.io.wData := storeColor.resized
       vga.io.wValid := fillRect.io.setPixel
       when (fillRect.io.ready) {
@@ -209,7 +214,7 @@ case class MCP(config : VGAConfig) extends Component{
     }
 
     bCircle.whenIsActive{
-      vga.io.wAddress := (switchVGA.asBits ## bresCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+      vga.io.wAddress := (!switchVGA ## bresCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
       vga.io.wData := storeColor.resized
       vga.io.wValid := bresCircle.io.setPixel
       when (fillRect.io.ready) {
@@ -218,7 +223,7 @@ case class MCP(config : VGAConfig) extends Component{
     }
 
     bLine.whenIsActive{
-      vga.io.wAddress := (switchVGA.asBits ## bresLine.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresLine.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+      vga.io.wAddress := (!switchVGA ## bresLine.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresLine.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
       vga.io.wData := storeColor.resized
       vga.io.wValid := bresCircle.io.setPixel
       when (fillRect.io.ready) {
@@ -439,7 +444,7 @@ case class MCP(config : VGAConfig) extends Component{
             vga.io.wData(0) := buffer(10 downto 0).resized
             vga.io.wData(1) := buffer(21 downto 11).resized
             vga.io.wData(2) := buffer(31 downto 12).resized
-            vga.io.wAddress := ((storeVals1(1) + temp(5 downto 3)) ## (storeVals1(0) + temp(2 downto 0))).asUInt.resized
+            vga.io.wAddress := (!switchVGA ## (storeVals1(1) + temp(5 downto 3)) ## (storeVals1(0) + temp(2 downto 0))).asUInt
             vga.io.wValid   := alpha(i - 4)
             counter := counter + 1
             goto(readRam)
@@ -455,12 +460,13 @@ case class MCP(config : VGAConfig) extends Component{
     io.axiram.readCmd.size := B"101".asUInt
     io.axiram.readCmd.len := 0
     io.axiram.readRsp.ready := False
+    when (!vga.io.vga.vSync & trigger) {
+      switchVGA := !switchVGA
+      trigger := False
+    } elsewhen(vga.io.vga.vSync) {
+      trigger := True
+    }
 
-  }
-  var vgaClock = new SlowArea(100 MHz) {
-    var clock = Reg(Bool) init False
-    io.vga.videoClock := clock
-    clock := !clock
   }
 
 

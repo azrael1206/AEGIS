@@ -22,4 +22,5 @@
 **/gen
 **/build
 **/*.pdf
-
+**/Quartus
+**/*.vcd
