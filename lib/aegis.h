@@ -19,7 +19,6 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 // ------------ CONSTANTS ------------
 
@@ -31,12 +30,15 @@
 #define BLITTER_DRAW_FONT_ADDR       0xd0000014
 #define BLITTER_DRAW_SPRITE_ADDR     0xd0000018
 
+#define AE_NOT_YET_IMPL_ERR          99
+#define AE_INIT_MEM_ERR               1
+
 // ------------ MACROS ------------
 
 #define COLOR(red, green, blue)\
-    red << (10 + 11) | \
-    green << 10 | \
-    blue 
+    blue << (11 + 11) | \
+    green << 11 | \
+    red 
 
 // ------------ STRUCTURES ------------
 
@@ -77,6 +79,14 @@ typedef struct {
   uint32_t col;
 }Rectangle;
 
+
+typedef struct {
+  uint32_t x1;
+  uint32_t y1;
+  uint32_t* sprite;
+  uint64_t* mask;
+}Blitter;
+
 // ------------ GLOBALS ------------
 
 volatile Line* line_addr;
@@ -98,15 +108,16 @@ uint32_t* blitter_val;
 // ------------ FUNCTIONS ------------
 
 /**
+  * Initializing the globals for the 
   * 
-  * 
+  * @return The result if the drawing happend successfully (0) or not (> 0)
   */
 uint32_t ae_init();
 
 /**
   * 
   */
-uint32_t ae_deinit();
+void ae_deinit();
 
 /**
   * Using the Bresenham Line drawing algorithm to draw a line from (x1 | y1) to (x2 | y2).
@@ -192,7 +203,8 @@ uint32_t ae_draw_font(uint32_t x, uint32_t y, char character, Color col);
   * @param sprite The Sprite address to be drawn
   * @param mask Alpha Mask for the sprite
   * @return The result if the drawing happend successfully (0) or not (> 0)
+  * 
   */
-uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint32_t* mask);
+uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t* mask);
 
 #endif // !__AEGIS_H
