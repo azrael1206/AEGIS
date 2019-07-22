@@ -18,8 +18,8 @@ case class VGAConfig(hDisplayArea : Int,
 
 object VGAConfig {
   def setAs_640_480_60 : VGAConfig = VGAConfig(
-    hDisplayArea = 640,
-    vDisplayArea = 480,
+    hDisplayArea = 320,
+    vDisplayArea = 240,
     hFrontPorch = 16,
     hBackPorch = 48,
     hRetrace = 96,
