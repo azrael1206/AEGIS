@@ -5,49 +5,49 @@ uint32_t ae_init() {
     line_addr = malloc(sizeof(Line));
     line_val = malloc(sizeof(Line));
     if(line_val == NULL) {
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     circle_addr = malloc(sizeof(Circle));
     circle_val = malloc(sizeof(Circle));
     if(circle_val == NULL) {
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     ellipse_addr = malloc(sizeof(Ellipse));
     ellipse_val = malloc(sizeof(Ellipse));
     if(ellipse_val == NULL) {
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     fill_addr = malloc(sizeof(Rectangle));
     fill_val = malloc(sizeof(Rectangle));
     if(fill_val == NULL) {
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     cp_font_addr = malloc(sizeof(uint32_t));
     cp_font_val = malloc(sizeof(uint32_t));
     if(cp_font_val == NULL){
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     dr_font_addr = malloc(sizeof(uint32_t));
     dr_font_val = malloc(sizeof(uint32_t));
     if(dr_font_val == NULL){
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     blitter_addr = malloc(sizeof(uint32_t));
     blitter_val = malloc(sizeof(uint32_t));
     if(blitter_val == NULL ) {
-        return 1;
+        return AE_INIT_MEM_ERR;
     }
 
     return 0;
 }
 
-uint32_t ae_deinit() {
+void ae_deinit() {
     free(line_addr);
     free(line_val);
     free(circle_addr);
@@ -62,7 +62,6 @@ uint32_t ae_deinit() {
     free(dr_font_val);
     free(blitter_addr);
     free(blitter_val);
-    return 0;
 }
 
 uint32_t ae_draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col) {
@@ -111,13 +110,13 @@ uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
 }
 
 uint32_t ae_copy_font(uint32_t* font) {
-    return 0;
+    return AE_NOT_YET_IMPL_ERR;
 }
 
 uint32_t ae_draw_font(uint32_t x, uint32_t y, char letter, Color col) {
-    return 0;
+    return AE_NOT_YET_IMPL_ERR;
 }
 
-uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint32_t* mask) {
-    return 0;
+uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t* mask) {
+    return AE_NOT_YET_IMPL_ERR;
 }
