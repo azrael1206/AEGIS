@@ -9,8 +9,8 @@ case class Buffer(config : VGAConfig) extends Component{
     val interface = master(BufferInterface(config))
   }
 
-  var vAreaTemp = config.vDisplayArea
-  var hAreaTemp = config.hDisplayArea
+  var vAreaTemp = config.vDisplayBuffer
+  var hAreaTemp = config.hDisplayBuffer
 
   if (!isPow2(vAreaTemp)) {
     while(!isPow2(vAreaTemp)) {

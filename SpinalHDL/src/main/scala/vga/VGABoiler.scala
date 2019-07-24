@@ -156,7 +156,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       obereSeitenlinie.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
-        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresham.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -172,7 +172,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       linkeSeitenlinie.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
-        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresham.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -188,7 +188,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       untereSeitenlinie.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
-        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresham.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -204,7 +204,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       rechteSeitenlinie.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
-        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresham.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -220,7 +220,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       mittelLinie.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
-        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayArea)) ## bresham.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -235,7 +235,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       kreisMittellinie.whenIsActive {
         vga.io.wValid := breshamCircle.io.setPixel
-        vga.io.wAddress:= (breshamCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (breshamCircle.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
         vga.io.wData(1).setAll()
         vga.io.wData(2).setAll()
@@ -250,7 +250,7 @@ class VGABoiler(config : VGAConfig) extends Component{
 
       ball.whenIsActive{
         vga.io.wValid := breshamCircle.io.setPixel
-        vga.io.wAddress:= (breshamCircle.io.address(1).resize(log2Up(config.vDisplayArea)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayArea))).asUInt
+        vga.io.wAddress:= (breshamCircle.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0)clearAll()
         vga.io.wData(1).clearAll()
         vga.io.wData(2).clearAll()

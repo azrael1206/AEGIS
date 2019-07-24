@@ -7,29 +7,29 @@ import vga._
 class BreshamLine(config : VGAConfig) extends Component{
 
   val io = new Bundle {
-    val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
-    val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
+    val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), UInt(1 + log2Up(config.vDisplayBuffer) bits))
+    val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), UInt(1 + log2Up(config.vDisplayBuffer) bits))
     val start = in Bool
     val ready = out Bool
-    val address = out Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
+    val address = out Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits))
     val setPixel = out Bool
   }
 
-  val dx = Reg(SInt(1 + log2Up(config.hDisplayArea) bits)) init 0
+  val dx = Reg(SInt(1 + log2Up(config.hDisplayBuffer) bits)) init 0
 
-  val dy = Reg(SInt(1 + log2Up(config.vDisplayArea) bits)) init 0
+  val dy = Reg(SInt(1 + log2Up(config.vDisplayBuffer) bits)) init 0
 
   val down = Reg(Bool) init False
   val right = Reg(Bool) init False
   val downTemp = Bool
   val rightTemp = Bool
-  val err = Reg(SInt(1 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)) init 0
-  val e2 = SInt(1 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)
-  val errTemp = SInt(1 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)
-  val x = Reg(UInt (log2Up(config.hDisplayArea) bits)) init 0
-  val x2 = Reg(UInt (log2Up(config.hDisplayArea) bits)) init 0
-  val y = Reg(UInt (log2Up(config.vDisplayArea) bits)) init 0
-  val y2 = Reg(UInt (log2Up(config.vDisplayArea) bits)) init 0
+  val err = Reg(SInt(1 + (log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer)) bits)) init 0
+  val e2 = SInt(1 + (log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer)) bits)
+  val errTemp = SInt(1 + (log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer)) bits)
+  val x = Reg(UInt (log2Up(config.hDisplayBuffer) bits)) init 0
+  val x2 = Reg(UInt (log2Up(config.hDisplayBuffer) bits)) init 0
+  val y = Reg(UInt (log2Up(config.vDisplayBuffer) bits)) init 0
+  val y2 = Reg(UInt (log2Up(config.vDisplayBuffer) bits)) init 0
 
   io.ready := True
   io.address(0) := x

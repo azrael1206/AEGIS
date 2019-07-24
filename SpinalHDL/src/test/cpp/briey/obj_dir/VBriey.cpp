@@ -325,8 +325,8 @@ VL_INLINE_OPT QData VBriey::_change_request(VBriey__Syms* __restrict vlSymsp) {
     QData __req = false;  // Logically a bool
     __req |= ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset)
 	 | (vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset));
-    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19949: resetCtrl_systemReset\n"); );
-    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19950: resetCtrl_axiReset\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19979: resetCtrl_systemReset\n"); );
+    VL_DEBUG_IF( if(__req && ((vlSymsp->TOP__Briey.__PVT__resetCtrl_axiReset ^ vlTOPp->__Vchglast__TOP__Briey__resetCtrl_axiReset))) VL_DBG_MSGF("        CHANGE: ../../../../Briey.v:19980: resetCtrl_axiReset\n"); );
     // Final
     vlTOPp->__Vchglast__TOP__Briey__resetCtrl_systemReset 
 	= vlSymsp->TOP__Briey.__PVT__resetCtrl_systemReset;

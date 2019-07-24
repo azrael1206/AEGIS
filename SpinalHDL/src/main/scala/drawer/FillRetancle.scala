@@ -8,19 +8,19 @@ import vga._
 class FillRetancle (config : VGAConfig) extends Component {
 
   val io = new Bundle{
-    val coord1 = in Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
-    val coord2 = in Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
+    val coord1 = in Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits))
+    val coord2 = in Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits))
     val start = in Bool
     val ready = out Bool
-    val address = out UInt(log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea) bits)
+    val address = out UInt(log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer) bits)
     val setPixel = out Bool
   }
 
-  val counterX = Reg(UInt (log2Up(config.hDisplayArea) bits))
-  val counterY = Reg(UInt (log2Up(config.vDisplayArea) bits))
-  val x1 = Reg(UInt (log2Up(config.hDisplayArea) bits))
-  val x2 = Reg(UInt (log2Up(config.hDisplayArea) bits))
-  val y2 = Reg(UInt (log2Up(config.vDisplayArea) bits))
+  val counterX = Reg(UInt (log2Up(config.hDisplayBuffer) bits))
+  val counterY = Reg(UInt (log2Up(config.vDisplayBuffer) bits))
+  val x1 = Reg(UInt (log2Up(config.hDisplayBuffer) bits))
+  val x2 = Reg(UInt (log2Up(config.hDisplayBuffer) bits))
+  val y2 = Reg(UInt (log2Up(config.vDisplayBuffer) bits))
 
   io.address := (counterY ## counterX).asUInt
   io.setPixel := False

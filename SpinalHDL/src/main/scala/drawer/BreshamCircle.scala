@@ -7,21 +7,21 @@ import vga.VGAConfig
 class BreshamCircle (config : VGAConfig) extends Component{
 
   val io = new Bundle {
-    val coord = in Vec(UInt(1 + log2Up(config.hDisplayArea) bits), UInt(1 + log2Up(config.vDisplayArea) bits))
-    val r = in UInt(1 + log2Up(config.hDisplayArea) bits)
+    val coord = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), UInt(1 + log2Up(config.vDisplayBuffer) bits))
+    val r = in UInt(1 + log2Up(config.hDisplayBuffer) bits)
     val start = in Bool
     val ready = out Bool
     val setPixel = out Bool
-    val address = out Vec(UInt(log2Up(config.hDisplayArea) bits), UInt(log2Up(config.vDisplayArea) bits))
+    val address = out Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits))
   }
 
 
-  val x = Reg(SInt(2 + log2Up(config.hDisplayArea) bits)) init 0
-  val y = Reg(SInt(2 + log2Up(config.vDisplayArea) bits)) init 0
-  val err = Reg(SInt(2 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)) init 0
-  val rTemp = Reg(SInt(2 + (log2Up(config.hDisplayArea) + log2Up(config.vDisplayArea)) bits)) init 0
-  val x1 = Reg(UInt(1 + log2Up(config.hDisplayArea) bits)) init 0
-  val y1 = Reg(UInt(1 + log2Up(config.vDisplayArea) bits)) init 0
+  val x = Reg(SInt(2 + log2Up(config.hDisplayBuffer) bits)) init 0
+  val y = Reg(SInt(2 + log2Up(config.vDisplayBuffer) bits)) init 0
+  val err = Reg(SInt(2 + (log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer)) bits)) init 0
+  val rTemp = Reg(SInt(2 + (log2Up(config.hDisplayBuffer) + log2Up(config.vDisplayBuffer)) bits)) init 0
+  val x1 = Reg(UInt(1 + log2Up(config.hDisplayBuffer) bits)) init 0
+  val y1 = Reg(UInt(1 + log2Up(config.vDisplayBuffer) bits)) init 0
   io.address(0).clearAll()
   io.address(1).clearAll()
   io.ready := True

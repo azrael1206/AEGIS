@@ -6,9 +6,9 @@ import vga._
 
 class BlitterFontCopy(config : VGAConfig) extends Component {
   val io = new Bundle {
-    val addressOut = out (UInt(1 + log2Up(config.vDisplayArea) + log2Up(config.hDisplayArea) bits))
-    val addressXIn = in (UInt(log2Up(config.hDisplayArea) bits))
-    val addressYIn = in (UInt(log2Up(config.vDisplayArea) bits))
+    val addressOut = out (UInt(1 + log2Up(config.vDisplayBuffer) + log2Up(config.hDisplayBuffer) bits))
+    val addressXIn = in (UInt(log2Up(config.hDisplayBuffer) bits))
+    val addressYIn = in (UInt(log2Up(config.vDisplayBuffer) bits))
     val font = in (Bits(64 bits))
     val write = out Bool
     val start = in Bool
@@ -21,7 +21,7 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
   val x = Reg(UInt(4 bits)) init 0
   val y = Reg(UInt(4 bits)) init 0
 
-  io.addressOut := ((io.addressXIn + x).resize(log2Up (config.hDisplayArea)) ## (io.addressYIn + y).resize(1 + log2Up (config.vDisplayArea))).asUInt
+  io.addressOut := ((io.addressXIn + x).resize(log2Up (config.hDisplayBuffer)) ## (io.addressYIn + y).resize(1 + log2Up (config.vDisplayBuffer))).asUInt
 
   val state = new StateMachine {
     val idle = new State with EntryPoint

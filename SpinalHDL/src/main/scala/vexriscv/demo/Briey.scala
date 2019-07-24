@@ -34,8 +34,8 @@ object BrieyConfig{
 
   def default = {
     val config = BrieyConfig(
-      axiFrequency = 100 MHz,
-      onChipRamSize  = 4 kB,
+      axiFrequency = 50 MHz,
+      onChipRamSize  = 128 kB,
       sdramLayout = IS42x320D.layout,
       sdramTimings = IS42x320D.timingGrade7,
       uartCtrlConfig = UartCtrlMemoryMappedConfig(
@@ -59,7 +59,7 @@ object BrieyConfig{
           resetVector = 0x80000000l,
           prediction = STATIC,
           config = InstructionCacheConfig(
-            cacheSize = 256,
+            cacheSize = 4096,
             bytePerLine =32,
             wayCount = 1,
             addressWidth = 32,
@@ -82,7 +82,7 @@ object BrieyConfig{
         //                    ),
         new DBusCachedPlugin(
           config = new DataCacheConfig(
-            cacheSize         = 256,
+            cacheSize         = 4096,
             bytePerLine       = 32,
             wayCount          = 1,
             addressWidth      = 32,
@@ -386,22 +386,22 @@ object Briey{
     SpinalVhdl(new Briey(BrieyConfig.default))
   }
 }
-/*
+
 //DE1-SoC with memory init
 object BrieyWithMemoryInit{
   def main(args: Array[String]) {
     val config = SpinalConfig()
     config.generateVerilog({
       val toplevel = new Briey(BrieyConfig.default)
-      toplevel.axi.vgaCtrl.vga.ctrl.io.error.addAttribute(Verilator.public)
-      toplevel.axi.vgaCtrl.vga.ctrl.io.frameStart.addAttribute(Verilator.public)
-      HexTools.initRam(toplevel.axi.ram.ram, "src/main/ressource/hex/muraxDemo.hex", 0x80000000l)
+      //toplevel.axi.vgaCtrl.vga.ctrl.io.error.addAttribute(Verilator.public)
+      //toplevel.axi.vgaCtrl.vga.ctrl.io.frameStart.addAttribute(Verilator.public)
+      HexTools.initRam(toplevel.axi.ram.ram, "src/main/ressource/hex/vga.hex", 0x80000000l)
       toplevel
     })
   }
 }
 
-
+/*
 //DE0-Nano
 object BrieyDe0Nano{
   def main(args: Array[String]) {

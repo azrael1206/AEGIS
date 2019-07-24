@@ -282,25 +282,23 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT___zz_16_,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_rsp_valid,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_insertBubble,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_read_counter,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_read_busy,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_write_counter,2,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_write_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_precharge_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_precharge_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_precharge_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_active_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_active_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_0_active_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_precharge_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_precharge_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_precharge_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_active_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_active_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_1_active_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_precharge_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_precharge_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_precharge_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_active_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_active_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_2_active_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_precharge_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_precharge_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_precharge_busy,0,0);
-	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_active_counter,2,0);
+	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_active_counter,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__bubbleInserter_timings_banks_3_active_busy,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_sdram_BA,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_sdram_DQ_writeEnable,0,0);
@@ -323,10 +321,10 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_cmd_payload_context_delay_3_id,3,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_cmd_payload_context_delay_3_last,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_cmd_payload_context_delay_4_id,3,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_cmd_payload_context_delay_4_last,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_contextDelayed_id,3,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_contextDelayed_last,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_sdramCkeNext,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_sdramCkeInternal,0,0);
@@ -389,10 +387,10 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_timerCtrl__DOT___zz_10_,0,0);
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__interruptCtrl_1___05Fio_masks_driver,3,0);
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__bufferCC_8___DOT__buffers_0_clear,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__bufferCC_8___DOT__buffers_0_tick,0,0);
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__bufferCC_8___DOT__buffers_1_clear,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__bufferCC_8___DOT__buffers_1_tick,0,0);
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__timerA__DOT__limitHit,0,0);
 	VL_SIG8(__PVT__axi_timerCtrl__DOT__timerA__DOT__inhibitFull,0,0);
@@ -455,10 +453,10 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_popPtr_willIncrement,0,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_popPtr_valueNext,3,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_popPtr_value,3,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_ptrMatch,0,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_risingOccupancy,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_pushing,0,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_popping,0,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_full,0,0);
@@ -483,16 +481,20 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_gpu__DOT___zz_4_,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT___zz_10_,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT___zz_14_,0,0);
+	VL_SIG8(__PVT__axi_gpu__DOT___zz_16_,7,0);
+	VL_SIG8(__PVT__axi_gpu__DOT___zz_18_,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT___zz_19_,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresCircle_io_setPixel,0,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__bresCircle_io_address_1,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__fillRect_io_ready,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__fillRect_io_setPixel,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT___zz_21_,0,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__storeVals1_1,7,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__storeVals2_1,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__storeColor_0,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__storeColor_1,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__storeColor_2,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__write,0,0);
-	VL_SIG8(__PVT__axi_gpu__DOT__trigger,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__mode,2,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__counter,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__switchVGA,0,0);
@@ -505,7 +507,7 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__hSyncDelay,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vSyncDelay,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__videoOn,0,0);
-	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT___zz_1_,1,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT___zz_1_,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT___zz_2_,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT___zz_2___05FregNext,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT__vgaArea_hEnd,0,0);
@@ -518,13 +520,17 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__right,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__downTemp,0,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__rightTemp,0,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__y,7,0);
+    };
+    struct {
+	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__y2,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__breshamSM_stateReg,2,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresLine__DOT__breshamSM_stateNext,2,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__bresCircle__DOT__BreshamCircSM_stateReg,2,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_gpu__DOT__bresCircle__DOT__BreshamCircSM_stateNext,2,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__fillRect__DOT___zz_1_,0,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__fillRect__DOT__counterY,7,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__fillRect__DOT__y2,7,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__fillRect__DOT__fill_stateReg,1,0);
 	VL_SIG8(__PVT__axi_gpu__DOT__fillRect__DOT__fill_stateNext,1,0);
 	VL_SIG8(__PVT__streamFork_5___DOT__linkEnable_0,0,0);
@@ -581,14 +587,14 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingDataCounter_incrementIt,0,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingDataCounter_decrementIt,0,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingDataCounter_valueNext,2,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingDataCounter_value,2,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__decodedCmdSels,3,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingSels,3,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__pendingError,0,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__allowCmd,0,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT___zz_5_,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__readRspIndex,1,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__errorSlave__DOT___zz_1_,0,0);
 	VL_SIG8(__PVT__axi_core_dBus_decoder__DOT__errorSlave__DOT__consumeData,0,0);
@@ -647,14 +653,14 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__streamFork_5___05Fio_outputs_0_valid,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__streamFork_5___05Fio_outputs_1_valid,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__streamFifoLowLatency_5___05Fio_pop_valid,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT___zz_4_,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT___zz_9_,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT___zz_12_,1,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT___zz_13_,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT__locked,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT__maskLocked_0,0,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT__maskLocked_1,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT__maskLocked_2,0,0);
 	VL_SIG8(__PVT__axi_sdramCtrl_io_axi_arbiter__DOT__cmdArbiter__DOT__maskRouted_0,0,0);
@@ -713,14 +719,14 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__cmdArbiter__DOT__locked,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__cmdArbiter__DOT__maskLocked_0,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__cmdArbiter__DOT__maskRouted_0,0,0);
+    };
+    struct {
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__cmdArbiter__DOT___zz_3_,1,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFork_5___DOT__linkEnable_0,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFork_5___DOT__linkEnable_1,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__pushPtr_willIncrement,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__pushPtr_valueNext,1,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__pushPtr_value,1,0);
-    };
-    struct {
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__popPtr_willIncrement,0,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__popPtr_valueNext,1,0);
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__popPtr_value,1,0);
@@ -731,19 +737,15 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG8(__PVT__axi_gpu_io_axicpu_arbiter__DOT__streamFifoLowLatency_5___DOT__popping,0,0);
 	VL_SIG8(__PVT__io_apb_decoder__DOT___zz_1_,0,0);
 	VL_SIG8(__PVT__apb3Router_1___DOT__selIndex,1,0);
-	VL_SIG16(__PVT__axi_ram_io_axi_arbiter_io_output_arw_halfPipe_regs_payload_addr,11,0);
-	VL_SIG16(__PVT__axi_ram__DOT__arw_payload_fragment_addr,11,0);
-	VL_SIG16(__PVT__axi_ram__DOT__unburstify_buffer_transaction_addr,11,0);
-	VL_SIG16(__PVT__axi_ram__DOT__unburstify_buffer_result,11,0);
 	VL_SIG16(__PVT__axi_ram__DOT__Axi4Incr_base,11,0);
 	VL_SIG16(__PVT__axi_ram__DOT__Axi4Incr_baseIncr,11,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl_io_bus_rsp_payload_data_regNextWhen,15,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__Axi4Incr_base,11,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__Axi4Incr_baseIncr,11,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_backupIn_fifo_io_pop_payload_data,15,0);
-	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__refresh_counter_valueNext,9,0);
-	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__refresh_counter_value,9,0);
-	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__powerup_counter,13,0);
+	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__refresh_counter_valueNext,8,0);
+	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__refresh_counter_value,8,0);
+	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__powerup_counter,12,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__frontend_banks_0_row,12,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__frontend_banks_1_row,12,0);
 	VL_SIG16(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__frontend_banks_2_row,12,0);
@@ -762,44 +764,35 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG16(__PVT__axi_timerCtrl__DOT__timerB__DOT__counter,15,0);
 	VL_SIG16(__PVT__axi_timerCtrl__DOT__timerC__DOT__counter,15,0);
 	VL_SIG16(__PVT__axi_timerCtrl__DOT__timerD__DOT__counter,15,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_6_,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_7_,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_8_,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_9_,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_11_,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_12_,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_13_,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_15_,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_16_,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_17_,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT___zz_18_,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle_io_address_0,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle_io_address_1,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__storeVals1_0,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__storeVals1_1,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__storeVals2_0,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__storeVals2_1,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__storeRadius,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_6_,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_7_,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_8_,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_9_,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_11_,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_12_,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_13_,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_15_,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT___zz_17_,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle_io_address_0,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__storeVals1_0,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__storeVals2_0,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__storeRadius,8,0);
 	VL_SIG16(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT__vgaArea_hCounter,9,0);
 	VL_SIG16(__PVT__axi_gpu__DOT__vga__DOT__vga__DOT__vgaArea_vCounter,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT___zz_7_,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__dx,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__dy,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT___zz_7_,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__dx,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__dy,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__x,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__x2,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__x,10,0);
     };
     struct {
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__x,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__x2,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__y,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresLine__DOT__y2,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__x,11,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__y,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__x1,10,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__y1,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__counterX,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__counterY,8,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__x1,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__x2,9,0);
-	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__y2,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__y,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__x1,9,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__bresCircle__DOT__y1,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__counterX,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__x1,8,0);
+	VL_SIG16(__PVT__axi_gpu__DOT__fillRect__DOT__x2,8,0);
 	VL_SIG(__PVT__axi_gpioACtrl_io_apb_PRDATA,31,0);
 	VL_SIG(__PVT__axi_gpioBCtrl_io_apb_PRDATA,31,0);
 	VL_SIG(__PVT__axi_timerCtrl_io_apb_PRDATA,31,0);
@@ -814,6 +807,7 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG(__PVT___zz_28_,31,0);
 	VL_SIG(__PVT___zz_56_,31,0);
 	VL_SIG(__PVT__axi_gpu_io_axiram_ar_halfPipe_regs_payload_addr,31,0);
+	VL_SIG(__PVT__axi_ram_io_axi_arbiter_io_output_arw_halfPipe_regs_payload_addr,16,0);
 	VL_SIG(__PVT___zz_65_,31,0);
 	VL_SIG(__PVT___zz_69_,31,0);
 	VL_SIG(__PVT__axi_sdramCtrl_io_axi_arbiter_io_output_arw_halfPipe_regs_payload_addr,25,0);
@@ -822,6 +816,9 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG(__PVT__axi_apbBridge_io_axi_arbiter_io_output_arw_halfPipe_regs_payload_addr,19,0);
 	VL_SIG(__PVT__axi_apbBridge_io_axi_arbiter_io_output_w_halfPipe_regs_payload_data,31,0);
 	VL_SIG(__PVT__axi_ram__DOT___zz_13_,31,0);
+	VL_SIG(__PVT__axi_ram__DOT__arw_payload_fragment_addr,16,0);
+	VL_SIG(__PVT__axi_ram__DOT__unburstify_buffer_transaction_addr,16,0);
+	VL_SIG(__PVT__axi_ram__DOT__unburstify_buffer_result,16,0);
 	VL_SIG(__PVT__axi_sdramCtrl__DOT___zz_14_,24,0);
 	VL_SIG(__PVT__axi_sdramCtrl__DOT__ctrlBusAdapted_rsp_payload_data,31,0);
 	VL_SIG(__PVT__axi_sdramCtrl__DOT__unburstify_buffer_transaction_addr,25,0);
@@ -840,35 +837,35 @@ VL_MODULE(VBriey_Briey) {
 	VL_SIG(__PVT__axi_timerCtrl__DOT__timerA__DOT__counter,31,0);
 	VL_SIG(__PVT__axi_uartCtrl__DOT__bridge_uartConfigReg_clockDivider,19,0);
 	VL_SIG(__PVT__axi_uartCtrl__DOT__uartCtrl_1___DOT__clockDivider_counter,19,0);
-	VL_SIG(__PVT__axi_gpu__DOT___zz_5_,19,0);
+	VL_SIG(__PVT__axi_gpu__DOT___zz_5_,17,0);
 	VL_SIG(__PVT__axi_gpu__DOT__address,31,0);
 	VL_SIG(__PVT__axi_gpu__DOT__buffer_2_,31,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT___zz_11_,19,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT___zz_13_,19,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT__err,19,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT__e2,19,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_37_,20,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_39_,20,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_45_,20,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_48_,20,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT___zz_11_,17,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT___zz_13_,17,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT__err,17,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresLine__DOT__e2,17,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_37_,18,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_39_,18,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_45_,18,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT___zz_48_,18,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT__err,18,0);
+	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT__rTemp,18,0);
+	VL_SIG(__PVT__jtagBridge_1___DOT__system_rsp_payload_data,31,0);
     };
     struct {
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT__err,20,0);
-	VL_SIG(__PVT__axi_gpu__DOT__bresCircle__DOT__rTemp,20,0);
-	VL_SIG(__PVT__jtagBridge_1___DOT__system_rsp_payload_data,31,0);
 	VL_SIG(__PVT__jtagBridge_1___DOT__jtag_idcodeArea_shifter,31,0);
 	VL_SIGW(__PVT__systemDebugger_1___DOT__dispatcher_dataShifter,66,0,3);
 	VL_SIG(__PVT__apb3Router_1___DOT___zz_5_,31,0);
 	VL_SIG64(__PVT__axi_gpu__DOT__alpha,63,0);
 	VL_SIG64(__PVT__jtagBridge_1___DOT__jtag_readArea_shifter,33,0);
-	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol0[1024],7,0);
-	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol1[1024],7,0);
-	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol2[1024],7,0);
-	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol3[1024],7,0);
+	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol0[32768],7,0);
+	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol1[32768],7,0);
+	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol2[32768],7,0);
+	VL_SIG8(__PVT__axi_ram__DOT__ram_symbol3[32768],7,0);
 	VL_SIG(__PVT__axi_sdramCtrl__DOT__ctrl__DOT__chip_backupIn_fifo__DOT__ram[2],20,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__bridge_write_streamUnbuffered_queueWithOccupancy__DOT__logic_ram[16],7,0);
 	VL_SIG8(__PVT__axi_uartCtrl__DOT__uartCtrl_1___05Fio_read_queueWithOccupancy__DOT__logic_ram[16],7,0);
-	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__buffer_2___DOT__bufferFrame[1048576],2,0);
+	VL_SIG8(__PVT__axi_gpu__DOT__vga__DOT__buffer_2___DOT__bufferFrame[262144],2,0);
     };
     
     // LOCAL VARIABLES

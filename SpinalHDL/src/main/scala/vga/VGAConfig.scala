@@ -3,9 +3,11 @@ package vga
 import spinal.core._
 import spinal.lib._
 
-case class VGAConfig(hDisplayArea : Int,
-                     vDisplayArea : Int,
+case class VGAConfig(hDisplayBuffer : Int,
+                     vDisplayBuffer : Int,
                      hFrontPorch : Int,
+                     hDisplayArea : Int,
+                     vDisplayArea : Int,
                      hBackPorch : Int,
                      hRetrace : Int,
                      vFrontPorch : Int,
@@ -18,8 +20,10 @@ case class VGAConfig(hDisplayArea : Int,
 
 object VGAConfig {
   def setAs_640_480_60 : VGAConfig = VGAConfig(
-    hDisplayArea = 320,
-    vDisplayArea = 240,
+    hDisplayBuffer = 320,
+    vDisplayBuffer = 240,
+    hDisplayArea = 640,
+    vDisplayArea = 480,
     hFrontPorch = 16,
     hBackPorch = 48,
     hRetrace = 96,
@@ -33,6 +37,8 @@ object VGAConfig {
   )
 
   def setAs_800_600_60 : VGAConfig = VGAConfig(
+    hDisplayBuffer = 800,
+    vDisplayBuffer = 600,
     hDisplayArea = 800,
     vDisplayArea = 600,
     hFrontPorch = 40,
@@ -48,6 +54,8 @@ object VGAConfig {
   )
 
   def setAs_1280_720_60 : VGAConfig = VGAConfig(
+    hDisplayBuffer = 1280,
+    vDisplayBuffer = 720,
     hDisplayArea = 1280,
     vDisplayArea = 720,
     hFrontPorch = 110,
@@ -63,6 +71,8 @@ object VGAConfig {
   )
 
   def setAs_1920_1080_60 : VGAConfig = VGAConfig(
+    hDisplayBuffer = 1920,
+    vDisplayBuffer = 1080,
     hDisplayArea = 1920,
     vDisplayArea = 1080,
     hFrontPorch = 88,
