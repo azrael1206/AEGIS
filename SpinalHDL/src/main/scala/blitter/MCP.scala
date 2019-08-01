@@ -14,7 +14,7 @@ case class MCP(config : VGAConfig) extends Component{
 
   val io = new Bundle {
     val vga = master(VGAInterfaceOutintern(config))
-    val axicpu = slave(Axi4Shared(Axi4Config(24, 32, 4)))
+    val axicpu = slave(Axi4Shared(Axi4Config(28, 32, 4)))
     val axiram = master(Axi4ReadOnly(Axi4Config(32, 32, useId = false, useRegion = false,
       useBurst = false,
       useLock = false,
@@ -23,25 +23,28 @@ case class MCP(config : VGAConfig) extends Component{
   }
 
 
-  val id         = Reg(UInt(4 bits))
-  val address = Reg(UInt(32 bits))
+  val id         = Reg(UInt(4 bits)) init 0
+  val address = Reg(UInt(28 bits)) init 0
+  val raddress = Reg(UInt(32 bits)) init 0
   val storeVals1  = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
   val storeVals2  = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
   val storeRadius = Reg(UInt(log2Up(config.hDisplayBuffer) bits)) init 0
   val storeColor  = Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits)))
-  val write      = Reg(Bool)
+  val write      = Reg(Bool) init False
   val trigger = Reg(Bool) init True
-  val mode = Reg(UInt(3 bits))
+  val mode = Reg(UInt(3 bits)) init 0
   val counter = Reg(UInt(8 bits)) init 0
   val temp = (UInt (8 bits))
-  val toCount = Reg(Bits(8 bits))
+  val toCount = Reg(Bits(8 bits)) init 0
   val switchVGA = Reg(Bool) init False
-  val alpha = Reg(Bits(64 bits))
+  val alpha = Reg(Bits(64 bits)) init 0
   //val sprite = Vec(Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))), 64)
   val vga = new BufferControl(config)
   val bresLine = new BreshamLine(config)
   val bresCircle = new BreshamCircle(config)
   val fillRect = new FillRetancle(config)
+  val len = Reg(UInt (8 bits)) init 0
+  val valid = Reg(Bool) init False
   //val blitterFont = new BlitterFontCopy(config)
   val buffer = Reg(Bits(32 bits))
   //val fontRam = new FontRam
@@ -105,6 +108,9 @@ case class MCP(config : VGAConfig) extends Component{
   io.axicpu.readRsp.resp := Axi4.resp.OKAY
   io.axicpu.writeRsp.resp := Axi4.resp.OKAY
 
+  io.axiram.readCmd.valid := valid
+  io.axiram.readCmd.len := len
+
   val mcpState = new StateMachine {
     val idle = new State with EntryPoint
     val response = new State
@@ -125,7 +131,8 @@ case class MCP(config : VGAConfig) extends Component{
           io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
           goto(response)
         } otherwise{
-          address := io.axicpu.writeData.data.asUInt
+          address := io.axicpu.sharedCmd.addr
+          raddress := io.axicpu.writeData.data.asUInt
           io.axicpu.sharedCmd.ready := True
           io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
           goto(response)
@@ -137,7 +144,11 @@ case class MCP(config : VGAConfig) extends Component{
       when(write) {
         io.axicpu.writeRsp.valid := True
         when (io.axicpu.writeRsp.ready){
-          goto (idle)
+          when(!address(23)) {
+            goto(idle)
+          } otherwise {
+            goto(readData)
+          }
         }
       } otherwise{
         io.axicpu.readRsp.valid := True
@@ -148,47 +159,48 @@ case class MCP(config : VGAConfig) extends Component{
     }
 
     readData.whenCompleted{
-      switch(address(22 downto 1)) {
+      switch(io.axicpu.sharedCmd.addr(10 downto 2)) {
         //Bresenham Line
-        is(0) {
+        is(B"000000000".asUInt) {
           bresLine.io.coord1 := storeVals1.resized
           bresLine.io.coord2 := storeVals2.resized
           bresLine.io.start := True
           goto(bLine)
         }
         //Bresenham Cirlce
-        is(1) {
+        is(B"000000001".asUInt) {
           bresCircle.io.coord := storeVals1.resized
           bresCircle.io.r := storeRadius.resized
           bresCircle.io.start := True
           goto(bCircle)
         }
         //Bresenham Ellipse
-        is(2) {
+        is(B"000000010".asUInt) {
           goto(idle)
         }
-        is(3) {
+        is(B"000000011".asUInt) {
           //Fill rect
           fillRect.io.coord1 := storeVals2.resized
           fillRect.io.coord2 := storeVals2.resized
           fillRect.io.start := True
           goto(fRect)
         }
-        is(4) {
+        is(B"000000100".asUInt) {
           //Blitter copy Font from Ram
           goto(idle)
         }
-        is(5) {
+        is(B"000000101".asUInt) {
           //Blitter copy font from GPURAM to Framebuffer
           //blitterFont.io.addressXIn := storeVals1(0).resized
           //blitterFont.io.addressYIn := storeVals1(1).resized
           goto(idle)
         }
-        is(6) {
+        is(B"000000110".asUInt) {
           //Blitter copy Sprite to Framebuffer
           goto(idle)
         }
-        is(7) {
+        default {
+        //is(B"000000111".asUInt) {
           when (!vga.io.vga.vSync) {
             switchVGA := !switchVGA
             goto(idle)
@@ -250,60 +262,67 @@ case class MCP(config : VGAConfig) extends Component{
     idle.whenIsActive{
       counter := 0
 
-      switch(address(22 downto 1)) {
+      switch(address(10 downto 2)) {
         //Bresenham Line
-        is(0) {
+        is(B"000000000".asUInt) {
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
           mode := 0
+          goto(readRam)
         }
         //Bresenham Cirlce
-        is(1) {
+        is(B"000000001".asUInt) {
           io.axiram.readCmd.len := 3
           io.axiram.readCmd.valid := True
           mode := 1
+          goto(readRam)
         }
         //Bresenham Ellipse
-        is(2) {
+        is(B"000000010".asUInt) {
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
           mode := 0
+          goto(readRam)
         }
-        is(3) {
+        is(B"000000011".asUInt) {
           //Fill rect
-          io.axiram.readCmd.len := 4
-          io.axiram.readCmd.valid := True
+          len := 4
+          valid := True
           mode := 0
+          goto(readRam)
         }
-        is(4) {
+        is(B"000000100".asUInt) {
           //Blitter copy Font from Ram
           io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
           mode := 2
+          goto(readRam)
         }
-        is(5) {
+        is(B"000000101".asUInt) {
           //Blitter copy font from GPURAM to Framebuffer
           io.axiram.readCmd.len := 2
           io.axiram.readCmd.valid := True
           mode := 1
+          goto(readRam)
         }
-        is(6) {
+        is(B"000000110".asUInt) {
           //Blitter copy Sprite to Framebuffer
           io.axiram.readCmd.len := 67
           io.axiram.readCmd.valid := True
           mode := 3
+          goto(readRam)
         }
         default {
-          goto(idle)
+          exitFsm()
         }
       }
-      goto(readRam)
+
 
     }
 
     readRam.whenIsActive{
       when(io.axiram.readRsp.valid) {
-        buffer := io.axiram.r.data
+        buffer := io.axiram.readRsp.data
         io.axiram.readRsp.ready := True
         switch(mode) {
           is(0) {
@@ -345,6 +364,7 @@ case class MCP(config : VGAConfig) extends Component{
         is(3) {
           storeVals2(1) := buffer.asUInt.resized
           counter := counter + 1
+          valid := False
           goto(readRam)
 
         }
@@ -457,10 +477,10 @@ case class MCP(config : VGAConfig) extends Component{
         }
       }
     }
-    io.axiram.readCmd.addr := address.resized
-    io.axiram.readCmd.valid := False
+    io.axiram.readCmd.addr := raddress.resized
+
     io.axiram.readCmd.size := B"101".asUInt
-    io.axiram.readCmd.len := 0
+
     io.axiram.readRsp.ready := False
     /*
     when (!vga.io.vga.vSync & trigger) {

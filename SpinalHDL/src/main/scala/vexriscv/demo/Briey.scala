@@ -306,7 +306,7 @@ class Briey(config: BrieyConfig) extends Component{
     axiCrossbar.addSlaves(
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
-      gpu.io.axicpu    -> (0xD0000000L,   8 MB),
+      gpu.io.axicpu    -> (0xD0000000L,   16 MB),
       apbBridge.io.axi -> (0xF0000000L,   1 MB)
 
     )

@@ -1,9 +1,9 @@
 DEBUG?=no
-TRACE?=no
+TRACE?=yes
 TRACE_INSTRUCTION?=no
 TRACE_REG?=no
 PRINT_PERF?=no
-VGA?=yes
+VGA?=no
 TRACE_START=0
 ADDCFLAGS += -CFLAGS -pthread 
 ADDCFLAGS += -CFLAGS -lSDL2
@@ -43,7 +43,7 @@ ADDCFLAGS += -CFLAGS -DTRACE_START=${TRACE_START}
 all: clean compile
 
 run: compile
-	./obj_dir/VBriey
+	sudo nice -10 ./obj_dir/VBriey
 
 verilate: ../../../../Briey.v
 	rm -f Briey.v*.bin
