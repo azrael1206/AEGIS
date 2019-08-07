@@ -43,7 +43,7 @@ ADDCFLAGS += -CFLAGS -DTRACE_START=${TRACE_START}
 all: clean compile
 
 run: compile
-	sudo nice -10 ./obj_dir/VBriey
+	sudo nice -19 ./obj_dir/VBriey
 
 verilate: ../../../../Briey.v
 	rm -f Briey.v*.bin

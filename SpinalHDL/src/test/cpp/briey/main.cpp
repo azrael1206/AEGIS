@@ -103,7 +103,7 @@ public:
 			if(!opened)
 				cout << "SDRAM : write in closed bank" << endl;
 			uint32_t addr = byteId + (column + openedRow * config->colSize) * config->byteCount;
-			//printf("SDRAM : Write A=%08x D=%02x\n",addr,data);
+			printf("SDRAM : Write A=%08x D=%02x\n",addr,data);
 			this->data[addr] = data;
 
 		}
@@ -112,7 +112,7 @@ public:
 			if(!opened)
 				cout << "SDRAM : write in closed bank" << endl;
 			uint32_t addr = byteId + (column + openedRow * config->colSize) * config->byteCount;
-			//printf("SDRAM : Read A=%08x D=%02x\n",addr,data[addr]);
+			printf("SDRAM : Read A=%08x D=%02x\n",addr,data[addr]);
 			return data[addr];
 		}
 	};

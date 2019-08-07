@@ -59,7 +59,7 @@ object BrieyConfig{
           resetVector = 0x80000000l,
           prediction = STATIC,
           config = InstructionCacheConfig(
-            cacheSize = 4096,
+            cacheSize = 32,
             bytePerLine =32,
             wayCount = 1,
             addressWidth = 32,
@@ -82,7 +82,7 @@ object BrieyConfig{
         //                    ),
         new DBusCachedPlugin(
           config = new DataCacheConfig(
-            cacheSize         = 4096,
+            cacheSize         = 32,
             bytePerLine       = 32,
             wayCount          = 1,
             addressWidth      = 32,

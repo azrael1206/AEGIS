@@ -38,16 +38,14 @@ case class MCP(config : VGAConfig) extends Component{
   val toCount = Reg(Bits(8 bits)) init 0
   val switchVGA = Reg(Bool) init False
   val alpha = Reg(Bits(64 bits)) init 0
-  //val sprite = Vec(Reg(Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))), 64)
   val vga = new BufferControl(config)
   val bresLine = new BreshamLine(config)
   val bresCircle = new BreshamCircle(config)
   val fillRect = new FillRetancle(config)
   val len = Reg(UInt (8 bits)) init 0
   val valid = Reg(Bool) init False
-  //val blitterFont = new BlitterFontCopy(config)
   val buffer = Reg(Bits(32 bits))
-  //val fontRam = new FontRam
+
 
 
   vga.io.switch := switchVGA
@@ -113,9 +111,11 @@ case class MCP(config : VGAConfig) extends Component{
 
   val mcpState = new StateMachine {
     val idle = new State with EntryPoint
+    val waitState = new State
     val response = new State
     val readData = new StateFsm(fsm = internalFSM())
     val copyOutFont = new State
+    val switchFrame = new State
     val fRect = new State
     val bCircle = new State
     val bLine = new State
@@ -127,17 +127,18 @@ case class MCP(config : VGAConfig) extends Component{
       id := io.axicpu.sharedCmd.id
       when(io.axicpu.sharedCmd.valid && (!io.axicpu.sharedCmd.write || io.axicpu.writeData.valid)) {
         when (!io.axicpu.sharedCmd.addr(23)) {
-          io.axicpu.sharedCmd.ready := True
-          io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
-          goto(response)
+          goto(waitState)
         } otherwise{
           address := io.axicpu.sharedCmd.addr
           raddress := io.axicpu.writeData.data.asUInt
-          io.axicpu.sharedCmd.ready := True
-          io.axicpu.writeData.ready := io.axicpu.sharedCmd.write
-          goto(response)
+          goto(waitState)
         }
       }
+    }
+    waitState.whenIsActive{
+      io.axicpu.sharedCmd.ready := True
+      io.axicpu.writeData.ready := write
+      goto(response)
     }
 
     response.whenIsActive{
@@ -147,7 +148,11 @@ case class MCP(config : VGAConfig) extends Component{
           when(!address(23)) {
             goto(idle)
           } otherwise {
-            goto(readData)
+            when(address === B"000000111".asUInt) {
+              goto(switchFrame)
+            } otherwise {
+              goto(readData)
+            }
           }
         }
       } otherwise{
@@ -159,7 +164,7 @@ case class MCP(config : VGAConfig) extends Component{
     }
 
     readData.whenCompleted{
-      switch(io.axicpu.sharedCmd.addr(10 downto 2)) {
+      switch(address(10 downto 2)) {
         //Bresenham Line
         is(B"000000000".asUInt) {
           bresLine.io.coord1 := storeVals1.resized
@@ -218,6 +223,13 @@ case class MCP(config : VGAConfig) extends Component{
       }
     }
 */
+    switchFrame.whenIsActive{
+      when (!vga.io.vga.vSync) {
+        switchVGA := !switchVGA
+        goto(idle)
+      }
+    }
+
     fRect.whenIsActive{
       vga.io.wAddress := (!switchVGA ## fillRect.io.address.asBits).asUInt.resized
       vga.io.wData := storeColor.resized
@@ -257,6 +269,7 @@ case class MCP(config : VGAConfig) extends Component{
     val font = new State
     val copyFont = new State
     val copySprite = new State
+    val lastack = new State
 
 
     idle.whenIsActive{
@@ -323,6 +336,7 @@ case class MCP(config : VGAConfig) extends Component{
     readRam.whenIsActive{
       when(io.axiram.readRsp.valid) {
         buffer := io.axiram.readRsp.data
+        valid := False
         io.axiram.readRsp.ready := True
         switch(mode) {
           is(0) {
@@ -349,22 +363,25 @@ case class MCP(config : VGAConfig) extends Component{
         is(0) {
           storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(1) {
           storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(2) {
           storeVals2(0) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(3) {
           storeVals2(1) := buffer.asUInt.resized
           counter := counter + 1
-          valid := False
+          valid := True
           goto(readRam)
 
         }
@@ -372,7 +389,8 @@ case class MCP(config : VGAConfig) extends Component{
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
           storeColor(2) := buffer(31 downto 10).resized
-          exitFsm()
+          len := 0
+          goto(lastack)
         }
         default {
           exitFsm()
@@ -477,11 +495,17 @@ case class MCP(config : VGAConfig) extends Component{
         }
       }
     }
+
+    lastack.whenIsActive{
+      io.axiram.readRsp.ready := True
+      exitFsm()
+    }
+
     io.axiram.readCmd.addr := raddress.resized
 
-    io.axiram.readCmd.size := B"101".asUInt
+    io.axiram.readCmd.size := B"010".asUInt
 
-    io.axiram.readRsp.ready := False
+    io.axiram.readRsp.ready := True
     /*
     when (!vga.io.vga.vSync & trigger) {
       switchVGA := !switchVGA
