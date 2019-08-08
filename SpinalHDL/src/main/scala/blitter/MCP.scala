@@ -148,7 +148,7 @@ case class MCP(config : VGAConfig) extends Component{
           when(!address(23)) {
             goto(idle)
           } otherwise {
-            when(address === B"000000111".asUInt) {
+            when(address(10 downto 2) === B"000000111".asUInt) {
               goto(switchFrame)
             } otherwise {
               goto(readData)
@@ -206,10 +206,7 @@ case class MCP(config : VGAConfig) extends Component{
         }
         default {
         //is(B"000000111".asUInt) {
-          when (!vga.io.vga.vSync) {
-            switchVGA := !switchVGA
-            goto(idle)
-          }
+          goto(idle)
         }
       }
     }
@@ -388,7 +385,7 @@ case class MCP(config : VGAConfig) extends Component{
         is(4) {
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
-          storeColor(2) := buffer(31 downto 10).resized
+          storeColor(2) := buffer(31 downto 22).resized
           len := 0
           goto(lastack)
         }
