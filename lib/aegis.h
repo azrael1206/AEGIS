@@ -22,13 +22,13 @@
 
 // ------------ CONSTANTS ------------
 
-#define BRESENHAM_LINE_ADDR          0xd0000000
-#define BRESENHAM_CIRCLE_ADDR        0xd0000004
-#define BRESENHAM_ELLIPSE_ADDR       0xd0000008
-#define FILL_RECTANGLE_ADDR          0xd000000c
-#define BLITTER_COPY_FONT_ADDR       0xd0000010
-#define BLITTER_DRAW_FONT_ADDR       0xd0000014
-#define BLITTER_DRAW_SPRITE_ADDR     0xd0000018
+#define BRESENHAM_LINE_ADDR          0xd0800000
+#define BRESENHAM_CIRCLE_ADDR        0xd0800004
+#define BRESENHAM_ELLIPSE_ADDR       0xd0800008
+#define FILL_RECTANGLE_ADDR          0xd080000c
+#define BLITTER_DRAW_FONT_ADDR       0xd0800014
+#define BLITTER_DRAW_SPRITE_ADDR     0xd0800018
+#define GPU_SWITCH_BUFFER_ADDR       0xd080001c
 
 #define AE_NOT_YET_IMPL_ERR          99
 #define AE_INIT_MEM_ERR               1
@@ -83,27 +83,33 @@ typedef struct {
 typedef struct {
   uint32_t x1;
   uint32_t y1;
-  uint32_t* sprite;
-  uint64_t* mask;
+  uint32_t col;
+  uint64_t letter;
+}Font;
+
+typedef struct {
+  uint32_t x1;
+  uint32_t y1;
+  uint64_t mask;
+  uint32_t[64] sprite;
 }Blitter;
 
 // ------------ GLOBALS ------------
 
-volatile Line* line_addr;
-volatile Circle* circle_addr;
-volatile Ellipse* ellipse_addr;
-volatile Rectangle* fill_addr;
-volatile uint32_t* cp_font_addr;
+volatile uint32_t* line_addr;
+volatile uint32_t* circle_addr;
+volatile uint32_t* ellipse_addr;
+volatile uint32_t* fill_addr;
 volatile uint32_t* dr_font_addr;
 volatile uint32_t* blitter_addr;
+volatile uint32_t* switch_addr;
 
 Line* line_val;
 Circle* circle_val;
 Ellipse* ellipse_val;
 Rectangle* fill_val;
-uint32_t* cp_font_val;
-uint32_t* dr_font_val;
-uint32_t* blitter_val;
+Font* dr_font_val;
+Blitter* blitter_val;
 
 // ------------ FUNCTIONS ------------
 
@@ -171,18 +177,6 @@ uint32_t ae_draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Col
 uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col);
 
 /**
-  * Copy the given font from CPU memory into GPU memory.
-  * On success this function will return 0, on error this function will return a value greater than 0.
-  * 
-  * 127 Character, every character has 64 bit
-  * NOTE: The array has to be double as long because of the size of the character and the size of the datatype
-  * 
-  * @param font
-  * @return The result if the loading happend successfully (0) or not (> 0)
-  */
-uint32_t ae_copy_font(uint32_t* font);
-
-/**
   * Bit Blit a character from the loaded font to the position (x | y)
   * On success this function will return 0, on error this function will return a value greater than 0.
   * 
@@ -206,5 +200,11 @@ uint32_t ae_draw_font(uint32_t x, uint32_t y, char character, Color col);
   * 
   */
 uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t* mask);
+
+
+/**
+  * 
+  */
+void ae_switch_buffer();
 
 #endif // !__AEGIS_H

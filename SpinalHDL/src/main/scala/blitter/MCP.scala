@@ -474,7 +474,7 @@ case class MCP(config : VGAConfig) extends Component{
         is(3) {
           alpha(63 downto 32) := buffer
           counter := counter + 1
-          exitFsm()
+          goto(readRam)
         }
         for (i <- 4 to 67) {
           is(i) {

@@ -1,66 +1,55 @@
 #include "aegis.h"
+#include <stdlib.h>
 
 uint32_t ae_init() {
     
-    line_addr = malloc(sizeof(Line));
+    line_addr = (uint32_t*)BRESENHAM_LINE_ADDR;
     line_val = malloc(sizeof(Line));
     if(line_val == NULL) {
         return AE_INIT_MEM_ERR;
     }
 
-    circle_addr = malloc(sizeof(Circle));
+    circle_addr = (uint32_t*)BRESENHAM_CIRCLE_ADDR;
     circle_val = malloc(sizeof(Circle));
     if(circle_val == NULL) {
         return AE_INIT_MEM_ERR;
     }
 
-    ellipse_addr = malloc(sizeof(Ellipse));
+    ellipse_addr = (uint32_t*)BRESENHAM_ELLIPSE_ADDR;
     ellipse_val = malloc(sizeof(Ellipse));
     if(ellipse_val == NULL) {
         return AE_INIT_MEM_ERR;
     }
 
-    fill_addr = malloc(sizeof(Rectangle));
+    fill_addr = (uint32_t*)FILL_RECTANGLE_ADDR;
     fill_val = malloc(sizeof(Rectangle));
     if(fill_val == NULL) {
         return AE_INIT_MEM_ERR;
     }
 
-    cp_font_addr = malloc(sizeof(uint32_t));
-    cp_font_val = malloc(sizeof(uint32_t));
-    if(cp_font_val == NULL){
-        return AE_INIT_MEM_ERR;
-    }
-
-    dr_font_addr = malloc(sizeof(uint32_t));
+    dr_font_addr = (uint32_t*)BLITTER_DRAW_FONT_ADDR;
     dr_font_val = malloc(sizeof(uint32_t));
     if(dr_font_val == NULL){
         return AE_INIT_MEM_ERR;
     }
 
-    blitter_addr = malloc(sizeof(uint32_t));
+    blitter_addr = (uint32_t*)BLITTER_DRAW_SPRITE_ADDR;
     blitter_val = malloc(sizeof(uint32_t));
     if(blitter_val == NULL ) {
         return AE_INIT_MEM_ERR;
     }
 
+    switch_addr = (uint32_t*)GPU_SWITCH_BUFFER_ADDR;
+
     return 0;
 }
 
 void ae_deinit() {
-    free(line_addr);
     free(line_val);
-    free(circle_addr);
     free(circle_val);
-    free(ellipse_addr);
     free(ellipse_val);
-    free(fill_addr);
     free(fill_val);
-    free(cp_font_addr);
-    free(cp_font_val);
-    free(dr_font_addr);
     free(dr_font_val);
-    free(blitter_addr);
     free(blitter_val);
 }
 
@@ -71,7 +60,7 @@ uint32_t ae_draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
     line_val->y2 = y2;
     line_val->col = COLOR(col.red, col.green, col.blue); 
     
-    *line_addr = *line_val;
+    *line_addr = (uint32_t) (line_val);
 
     return 0;
 }
@@ -82,7 +71,7 @@ uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col) {
     circle_val->r = r;
     circle_val->col = COLOR(col.red, col.green, col.blue); 
 
-    *circle_addr = *circle_val;
+    *circle_addr = (uint32_t) circle_val;
 
     return 0;
 }
@@ -94,7 +83,7 @@ uint32_t ae_draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Col
     ellipse_val->y2 = y2;
     line_val->col = COLOR(col.red, col.green, col.blue); 
     
-    *ellipse_addr = *ellipse_val;
+    *ellipse_addr = (uint32_t) ellipse_val;
 
     return 0;
 }
@@ -106,17 +95,37 @@ uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
     fill_val->y2 = y2;
     fill_val->col = COLOR(col.red, col.green, col.blue); 
     
-    *fill_addr = *fill_val;
+    *fill_addr = (uint32_t) (fill_val);
+
+    return 0;
 }
 
-uint32_t ae_copy_font(uint32_t* font) {
+uint32_t ae_draw_font(uint32_t x, uint32_t y, uint64_t letter , Color col) {
+    dr_font_val->x1 = x;
+    dr_font_val->y1 = y;
+    dr_font_val->col = col;
+    dr_font_val->letter = letter;
+
+    *dr_font_addr = (uint32_t) dr_font_val
+    
     return AE_NOT_YET_IMPL_ERR;
 }
 
-uint32_t ae_draw_font(uint32_t x, uint32_t y, char letter, Color col) {
-    return AE_NOT_YET_IMPL_ERR;
+uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t mask) {
+    blitter_val->x1 = x;
+    blitter_val->y1 = y;
+    
+    for(int i =0; i < 64; i++) {
+        blitter_val->sprite[i] = sprite[i];
+    }
+
+    blitter_val->mask = mask;
+    
+    *blitter_addr = (uint32_t) blitter_val;
+    
+    return 0;
 }
 
-uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t* mask) {
-    return AE_NOT_YET_IMPL_ERR;
+void ae_switch_buffer(){
+    *switch_addr = 1;
 }
