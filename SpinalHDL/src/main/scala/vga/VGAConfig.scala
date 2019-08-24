@@ -111,7 +111,7 @@ case class VGAInterfaceOutintern(config : VGAConfig) extends Bundle with IMaster
 
   val hSync = Bool
   val vSync = Bool
-  val rgb = Vec(Bits(5 bits), Bits(6 bits), Bits(5 bits))
+  val rgb = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
   val colorEn = Bool
 
 
@@ -126,13 +126,13 @@ case class VGAInterfaceOutextern(config : VGAConfig) extends Bundle with IMaster
 
   val hSync = Bool
   val vSync = Bool
-  val rgb = Vec(Bits(5 bits), Bits(6 bits), Bits(5 bits))
+  val rgb = Vec(Bits(config.colorR bits), Bits(config.colorG bits), Bits(config.colorB bits))
   val colorEn = Bool
-  val videoClock = Bool
+
 
 
   def asMaster(): Unit = {
-    out (hSync, vSync, rgb, colorEn, videoClock)
+    out (hSync, vSync, rgb, colorEn)
   }
 
 }

@@ -9,6 +9,8 @@ class VGAControl(config : VGAConfig) extends Component{
     val vga = master(VGAInterface(config))
   }
 
+  //setting up a slow area with the frequency needed for the vga resolution
+  //the vga resolution and frequency comes from the config
   val vgaArea = new SlowArea(config.freq) {
 
     val hEnd = Bool

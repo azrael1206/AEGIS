@@ -269,7 +269,7 @@ class Briey(config: BrieyConfig) extends Component{
 
 
     val uartCtrl = Apb3UartCtrl(uartCtrlConfig)
-
+    //make a gpu object with a VGAConfig
     val gpu = MCP(VGAConfig.setAs_640_480_60)
 
 
@@ -306,6 +306,7 @@ class Briey(config: BrieyConfig) extends Component{
     axiCrossbar.addSlaves(
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
+      //set the address space for the gpu slave
       gpu.io.axicpu    -> (0xD0000000L,   16 MB),
       apbBridge.io.axi -> (0xF0000000L,   1 MB)
 
@@ -314,6 +315,7 @@ class Briey(config: BrieyConfig) extends Component{
     axiCrossbar.addConnections(
       core.iBus       -> List(ram.io.axi, sdramCtrl.io.axi),
       core.dBus       -> List(ram.io.axi, sdramCtrl.io.axi, apbBridge.io.axi, gpu.io.axicpu),
+      //this is for that the gpu master has access to the sdram
       gpu.io.axiram   -> List(            sdramCtrl.io.axi)
     )
 
@@ -338,7 +340,7 @@ class Briey(config: BrieyConfig) extends Component{
       crossbar.writeRsp              <<  ctrl.writeRsp
       crossbar.readRsp               <<  ctrl.readRsp
     })
-
+    //
     axiCrossbar.addPipelining(gpu.io.axiram)((ctrl,crossbar) => {
       ctrl.readCmd.halfPipe()    >>  crossbar.readCmd
       ctrl.readRsp               <<  crossbar.readRsp
@@ -364,17 +366,20 @@ class Briey(config: BrieyConfig) extends Component{
       )
     )
   }
-
+  //val clock = Reg(Bool) init False
   io.gpioA          <> axi.gpioACtrl.io.gpio
   io.gpioB          <> axi.gpioBCtrl.io.gpio
   io.timerExternal  <> axi.timerCtrl.io.external
   io.uart           <> axi.uartCtrl.io.uart
   io.sdram          <> axi.sdramCtrl.io.sdram
+  //Wire connection between the gpu module and the output port
   io.vga.colorEn <> axi.gpu.io.vga.colorEn
   io.vga.vSync <> axi.gpu.io.vga.vSync
   io.vga.hSync <> axi.gpu.io.vga.hSync
   io.vga.rgb   <> axi.gpu.io.vga.rgb
-  io.vga.videoClock <> io.vgaClk
+  //io.vga.videoClock := clock
+  //clock := !clock
+
 
 
 }
