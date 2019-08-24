@@ -114,14 +114,14 @@ Blitter* blitter_val;
 // ------------ FUNCTIONS ------------
 
 /**
-  * Initializing the globals for the 
+  * Initializing the globals for the Graphics Accelerator (Constructor)
   * 
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
 uint32_t ae_init();
 
 /**
-  * 
+  * Deinitializing the globals for the Graphics Accelerator (Destructor)
   */
 void ae_deinit();
 
@@ -186,7 +186,7 @@ uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
   * @param col The color that has to be drawn
   * @return The result if the drawing happend successfully (0) or not (> 0)
   */
-uint32_t ae_draw_font(uint32_t x, uint32_t y, char character, Color col);
+uint32_t ae_draw_font(uint32_t x, uint32_t y, uint64_t letter, Color col);
 
 /**
   * Bit Blit a given Sprite with an alpha mask to the position (x | y). Sprites and alpha masks are of the size 8*8. 
@@ -199,11 +199,11 @@ uint32_t ae_draw_font(uint32_t x, uint32_t y, char character, Color col);
   * @return The result if the drawing happend successfully (0) or not (> 0)
   * 
   */
-uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t* mask);
+uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t mask);
 
 
 /**
-  * 
+  * Swap the two buffers manually to draw the new image
   */
 void ae_switch_buffer();
 

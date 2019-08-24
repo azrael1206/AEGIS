@@ -28,13 +28,13 @@ uint32_t ae_init() {
     }
 
     dr_font_addr = (uint32_t*)BLITTER_DRAW_FONT_ADDR;
-    dr_font_val = malloc(sizeof(uint32_t));
+    dr_font_val = malloc(sizeof(Font));
     if(dr_font_val == NULL){
         return AE_INIT_MEM_ERR;
     }
 
     blitter_addr = (uint32_t*)BLITTER_DRAW_SPRITE_ADDR;
-    blitter_val = malloc(sizeof(uint32_t));
+    blitter_val = malloc(sizeof(Blitter));
     if(blitter_val == NULL ) {
         return AE_INIT_MEM_ERR;
     }
