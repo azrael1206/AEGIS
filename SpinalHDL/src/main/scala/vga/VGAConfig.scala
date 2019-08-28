@@ -18,6 +18,7 @@ case class VGAConfig(hDisplayBuffer : Int,
                      colorG : Int,
                      colorB : Int)
 
+//some default values for standard resolution
 object VGAConfig {
   def setAs_640_480_60 : VGAConfig = VGAConfig(
     hDisplayBuffer = 320,
@@ -70,6 +71,7 @@ object VGAConfig {
     colorB = 1
   )
 
+  //WARNING untested resolution, can break the vga. We take no responsibility for damages
   def setAs_1920_1080_60 : VGAConfig = VGAConfig(
     hDisplayBuffer = 1920,
     vDisplayBuffer = 1080,
@@ -90,7 +92,7 @@ object VGAConfig {
 
 }
 
-
+//this interface is for the VGA Control
 case class VGAInterface(config : VGAConfig) extends Bundle with IMasterSlave{
 
 
@@ -106,6 +108,7 @@ case class VGAInterface(config : VGAConfig) extends Bundle with IMasterSlave{
 
 }
 
+//this Interface is for every class that sends out the vga data to an internal component
 case class VGAInterfaceOutintern(config : VGAConfig) extends Bundle with IMasterSlave{
 
 
@@ -121,6 +124,7 @@ case class VGAInterfaceOutintern(config : VGAConfig) extends Bundle with IMaster
 
 }
 
+//this Interface is for every class that sends out the vga data to an external component. This is legacy code
 case class VGAInterfaceOutextern(config : VGAConfig) extends Bundle with IMasterSlave{
 
 

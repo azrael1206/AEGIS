@@ -4,10 +4,10 @@ import spinal.core._
 import framebuffer._
 import drawer._
 import spinal.lib.fsm._
+//this class is a test class for the GPU primitives
 
 class VGABoiler(config : VGAConfig) extends Component{
   val io = new Bundle {
-    //val sw = in Bits(6 bit)
     val hSync = out Bool
     val vSync = out Bool
     val rgb = out Bits(3 bit)
@@ -22,10 +22,11 @@ class VGABoiler(config : VGAConfig) extends Component{
 
   }
   //noIoPrefix()
-  // Has to be this way, cause frequency for 720p is weird
+  // This line define the clocking speed of the main component
   val vgaClockDomain = ClockDomain.internal("vgaClock", frequency = FixedFrequency(100 MHz))
 
-  // The rest is just for testing purposes
+
+  // The out commented lines are when a mmcm is needed
   //val pll = new PLL()
   //pll.io.clkIn := io.clk
 
@@ -33,9 +34,11 @@ class VGABoiler(config : VGAConfig) extends Component{
   vgaClockDomain.clock := io.clk
   vgaClockDomain.reset := io.reset //& !pll.io.isLocked
 
+  //this part making a ClockingArea with a predefined Clocking speed
   val clkArea = new ClockingArea(vgaClockDomain) {
+
+    //instantiate needed objects and Register
     val vga = new BufferControl(config)
-    //val counter = Reg(UInt (log2Up(config.vDisplayArea) + log2Up(config.hDisplayArea) bits)) init 0
     val bresham = new BreshamLine(config)
     val breshamCircle = new BreshamCircle(config)
     val fill = new FillRetancle(config)
@@ -43,6 +46,7 @@ class VGABoiler(config : VGAConfig) extends Component{
     val bally = Reg(UInt(log2Up(480) bits)) init 240
     val x = Reg(SInt(3 bits)) init 2
     val y = Reg(SInt(3 bits)) init 1
+
     val playerOne = RotaryEncoder()
     val paddlePlayerOne = Reg(UInt(log2Up(480) bits)) init 240
     val paddleOneHit = Reg(Bool) init False
@@ -51,12 +55,13 @@ class VGABoiler(config : VGAConfig) extends Component{
     val paddlePlayerTwo = Reg(UInt(log2Up(480) bits)) init 240
     val paddleTwoHit = Reg(Bool) init False
 
+    //connecting some wire
     playerOne.io.a := io.a1
     playerOne.io.b := io.b1
     playerTwo.io.a := io.a2
     playerTwo.io.b := io.b2
 
-
+    //this when statement controls the paddles for player one
     when(playerOne.io.event & playerOne.io.left) {
       when (((U"0" ## paddlePlayerOne).asSInt - 15 - 10) <= 0) {
         paddlePlayerOne := U"d10"
@@ -71,6 +76,7 @@ class VGABoiler(config : VGAConfig) extends Component{
       }
     }
 
+    //this when statement controls the paddles for player two
     when(playerTwo.io.event & playerTwo.io.left) {
       when (((U"0" ## paddlePlayerTwo).asSInt - 15 - 10) <= 0) {
         paddlePlayerTwo := U"d10"
@@ -85,6 +91,7 @@ class VGABoiler(config : VGAConfig) extends Component{
       }
     }
 
+    //setting the standard values and connecting some wires
     vga.io.vga.hSync <> io.hSync
     vga.io.vga.vSync <> io.vSync
     vga.io.vga.colorEn <> io.videoOn
@@ -113,15 +120,16 @@ class VGABoiler(config : VGAConfig) extends Component{
     vga.io.wData(2).clearAll()
     vga.io.switch := False
 
+    //this is the state machine for the demo. The demo is a Pong clone, and all the graphic are build from the GPU primitives
     val demo = new StateMachine {
       val idle = new State with EntryPoint
-      val spielfeld = new State
-      val obereSeitenlinie = new State
-      val linkeSeitenlinie = new State
-      val untereSeitenlinie = new State
-      val rechteSeitenlinie = new State
-      val mittelLinie = new State
-      val kreisMittellinie = new State
+      val playfield = new State
+      val upperSideLine = new State
+      val leftSideLine = new State
+      val lowerSideLine = new State
+      val rightSideLine = new State
+      val middleLine = new State
+      val circleMiddleLine = new State
       val wait2Redraw = new State
       val ball = new State
       val leftPadle = new State
@@ -134,11 +142,11 @@ class VGABoiler(config : VGAConfig) extends Component{
         fill.io.coord2(0) := U"d640"
         fill.io.coord2(1) := U"d480"
         fill.io.start := True
-        goto(spielfeld)
+        goto(playfield)
 
       }
 
-      spielfeld.whenIsActive {
+      playfield.whenIsActive {
         vga.io.wValid := fill.io.setPixel
         vga.io.wAddress:= fill.io.address
         vga.io.wData(0) := 0
@@ -150,11 +158,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           bresham.io.coord2(0) := U"d630"
           bresham.io.coord2(1) := U"d10"
           bresham.io.start := True
-          goto(obereSeitenlinie)
+          goto(upperSideLine)
         }
       }
 
-      obereSeitenlinie.whenIsActive{
+      upperSideLine.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
         vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
@@ -166,11 +174,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           bresham.io.coord2(0) := U"d10"
           bresham.io.coord2(1) := U"d470"
           bresham.io.start := True
-          goto(linkeSeitenlinie)
+          goto(leftSideLine)
         }
       }
 
-      linkeSeitenlinie.whenIsActive{
+      leftSideLine.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
         vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
@@ -182,11 +190,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           bresham.io.coord2(0) := U"d630"
           bresham.io.coord2(1) := U"d470"
           bresham.io.start := True
-          goto(untereSeitenlinie)
+          goto(lowerSideLine)
         }
       }
 
-      untereSeitenlinie.whenIsActive{
+      lowerSideLine.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
         vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
@@ -198,11 +206,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           bresham.io.coord2(0) := U"d630"
           bresham.io.coord2(1) := U"d470"
           bresham.io.start := True
-          goto(rechteSeitenlinie)
+          goto(rightSideLine)
         }
       }
 
-      rechteSeitenlinie.whenIsActive{
+      rightSideLine.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
         vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
@@ -214,11 +222,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           bresham.io.coord2(0) := U"d310"
           bresham.io.coord2(1) := U"d470"
           bresham.io.start := True
-          goto(mittelLinie)
+          goto(middleLine)
         }
       }
 
-      mittelLinie.whenIsActive{
+      middleLine.whenIsActive{
         vga.io.wValid := bresham.io.setPixel
         vga.io.wAddress:= (bresham.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresham.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()
@@ -229,11 +237,11 @@ class VGABoiler(config : VGAConfig) extends Component{
           breshamCircle.io.coord(1) := U"d230"
           breshamCircle.io.r := U"d30"
           breshamCircle.io.start := True
-          goto(kreisMittellinie)
+          goto(circleMiddleLine)
         }
       }
 
-      kreisMittellinie.whenIsActive {
+      circleMiddleLine.whenIsActive {
         vga.io.wValid := breshamCircle.io.setPixel
         vga.io.wAddress:= (breshamCircle.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## breshamCircle.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
         vga.io.wData(0).setAll()

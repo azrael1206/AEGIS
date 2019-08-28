@@ -16,7 +16,7 @@ class BufferControl(config : VGAConfig) extends Component{
     val switch = in Bool
   }
 
-  //instanciate the vga and the buffer object
+  //instantiate the vga and the buffer object
   val vga = new VGAControl(config)
   val buffer = Buffer(config)
   //some register to delay the signals

@@ -3,6 +3,8 @@ package vga
 
 import spinal.core._
 
+//this object is a Blackbox for the Xilinx mmcm
+
 class PLL() extends BlackBox {
 
   val io = new Bundle {

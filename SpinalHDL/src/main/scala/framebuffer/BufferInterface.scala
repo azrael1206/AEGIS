@@ -4,6 +4,9 @@ import spinal.lib._
 import spinal.core._
 import vga._
 
+
+//this object define the interface of the framebuffer
+
 case class BufferInterface(config : VGAConfig) extends Bundle with IMasterSlave{
 
   val rValid = Bool
