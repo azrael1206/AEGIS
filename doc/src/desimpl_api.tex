@@ -1,0 +1,27 @@
+\subsubsection*{Design}
+
+During the implementation of the application programming interface (in short API), we had to decide if the user would have to code most of the features from scratch or use the functions we provide for the API.
+We decided to choose a mix of both approaches, as we are only giving access to our basic functions of AEGIS. A function of the API should look as follows:
+\begin{lstlisting}[language=C, caption={The Circle Drawing Function}, label=CircDraw]
+uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
+\end{lstlisting}
+The return type of the function indicates, if the function executed successfully (return value \(0\)) or executed with an error (return value greater than \(0\)). To decide if an error occurred or not we would have to read a register flag of the graphics accelerator. A special parameter of the function is the color value. As this should be a 32-bit value, we decided that the user should give us a color as three 32-bit values for each separate color channel as seen in \cref{colStruct}.
+\begin{lstlisting}[language=C, caption={The Color Stuct}, label=colStruct]
+typedef struct {
+	uint32_t red;
+	uint32_t green;
+	uint32_t blue;
+} Color;
+\end{lstlisting}
+
+To access the function on the graphics accelerator itself, we plan to use two pointers. One pointer should be used to access the address of the function, while the other one should be used to hold the actual data. 
+
+\subsubsection*{Implementation}
+
+\begin{itemize}
+	\item How did it get actually implemented
+	\item global pointers to access the single functions of AEGIS
+	\item global pointer for the storage of data
+	\item implementation of the functions is bare bones, a repeating pattern for every function
+	\item return type became legacy code for later implementations
+\end{itemize}

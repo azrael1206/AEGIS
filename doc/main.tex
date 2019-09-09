@@ -86,6 +86,7 @@
 \lstset{inputpath=./resources/code}
 
 
+
 \usepackage{abstract} % Allows abstract customization
 \renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
 \renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
@@ -105,6 +106,8 @@
 
 \usepackage[hidelinks]{hyperref} % For hyperlinks in the PDF
 \usepackage{cleveref}
+\crefname{lstlisting}{listing}{listings}
+\Crefname{lstlisting}{Listing}{Listings}
 
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -139,6 +142,9 @@
 %----------------------------------------------------------------------------------------
 %TODO: Remove all PLACEHOLDERS
 %TODO: Add REFERENCES
+%TODO: Redo ABSTRACT
+%TODO: Add CODE snippets
+%TODO: Add Analysis DATA
 \begin{document}
 	
 	
@@ -178,6 +184,11 @@
 	
 	\subsection{AEGIS Core}
 	\input{src/desimpl_core}
+	
+	\subsection{Application Programming Interface}
+	\input{src/desimpl_api}
+	
+	\section{Analysis}
 	
 	
 	\section{Conclusion}
