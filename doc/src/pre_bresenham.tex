@@ -1,6 +1,6 @@
-The original Bresenham Algorithms was developed by J. Bresenham in 1965~\cite{Bresenham65Line}. The target was to build a algorithm to draw a line between to coordinates on a pixel grid. The family of Bresenham Algorithms that exist, e.g. to draw a circle are developed by others. In the following section, the Bresenham Line and Circle algorithm will be explained.
+The original Bresenham Algorithms was developed by J. Bresenham in 1965~\cite{Bresenham65Line}. The goal was to build an algorithm to draw a line between to coordinates on a pixel grid. The family of Bresenham Algorithms that exist, e.g. to draw a circle were developed by others. In the following section, the Bresenham Line and Circle algorithm will be explained.
 \subsubsection*{Line Drawing}
-The original line drawing algorithm uses only additions, subtractions, and a multiplication with the constant value of two. In a Cartesian coordinate system it exist eight variation of a gradient from a line, called octanes. The algorithm uses only one octants. It archived it by transforming the coordinates.
+The original line drawing algorithm uses only additions, subtractions, and a multiplication with the constant value of two.
 
 \begin{algorithm}[H]
 	\SetAlgoLined
@@ -26,7 +26,30 @@ The original line drawing algorithm uses only additions, subtractions, and a mul
 	\label{alg:bresline}
 \end{algorithm}
 
-The first step is to set the start coordinate. After that an error variable is set. The error variable is for the decision, which pixel is set next. Is value of the error variable smaller than zero it goes one step in the x direction, is the value bigger equal to zero it goes one step in the y and one step in the x direction. It ends when the new x and y coordinate equals the end x and y coordinate.
+As seen in \cref{alg:bresline} the first step is to set the start coordinate. After that an error variable is set. The error variable is for evaluating, which pixel to draw next. Is the value of the error variable lesser than zero it goes one step in the x direction, is the value greater or equal than zero it goes one step in the y and one step in the x direction. It ends when the new x and y coordinate equal to the destination x and y coordinate.
  
 \subsubsection*{Circle Drawing}
-The circle algorithm function are similar to the line algorithm but it has some differences. One difference is, that it has a circle radius and the coordinate of the middle point of the circle.
+For the Circle Drawing Algorithm often referred to as the Bresenham Circle Drawing Algorithm or the Midpoint circle drawing algorithm, we first have to define smaller in a Cartesian coordinate system. Usually such a coordinate system consists of four areas called quadrants. If we now go an split each quadrant up into two area with a diagonal line with its origin at the the center of the coordinate system, we create areas called octants.
+
+\begin{algorithm}
+	\SetAlgoLined
+	\KwIn{\(x_c\), \(y_c\), radius}
+	\(x \gets 0\)\;
+	\(y \gets \text{radius}\)\;
+	\(\text{err} \gets 3 - 2 \times \text{radius}\)\;
+	\While{\(y \geqslant x\)}{
+		\(x \gets x + 1\)\;
+		\eIf{\(\text{err} > 0\)}{
+			\(y \gets y - 1\)\;
+			\(\text{err} \gets \text{err} + 4 \times (x - y) + 10\)\;
+		}{
+			\(\text{err} \gets \text{err} + 4 \times x + 6\)\;
+		}
+		Draw corresponding pixel in each quadrant\;
+	}
+	\caption{Bresenham Circle Drawing Algorithm}
+	\label{alg:brescircle}
+\end{algorithm}
+
+As seen in \cref{alg:brescircle} the fundamental function of the two algorithms are the same, the main difference lies is how many pixels are drawn at the same time and the calculation of the error value.
+
