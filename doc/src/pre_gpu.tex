@@ -1,6 +1,11 @@
-\subsubsection*{General Purpose GPU}
-
-How a general purpose GPU works
-
-\subsubsection*{Embedded GPU}
-What is needed for an embedded GPU
+\begin{itemize}
+	\item Basic functionality of modern GPUs \cite{kilgariff2005geforce} have not changed over the years \cite{nvidia2018turing}
+	\item Based on a graphics pipeline:
+	\item Vertex Processing: Takes  three dimensional vertices and transforms it into screen space (what means screen space), each vertex independently
+	\item Primitive Processing: Takes primitives, in this case a group of vertices that belong together and form a triangle, clips and culls them (what does that mean)
+	\item Rasterization: Primitives are rasterized into so called pixel fragments (a group of undefined pixels without color information)
+	\item Fragment processing: Afterwards these pixel fragments are then shaded to compute color at each pixel
+	\item Pixel operation: Fragments are bleneded into the frame at their pixel locations (z-buffer determines visibility)
+	\item as this is needed for each unit(vertex, primitive, fragment and pixel) independently, this is the of one core.
+	\item A modern GPU can consist now at up to 2944 cores that all act in somewhat of the previously described functionality
+\end{itemize}
