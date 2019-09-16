@@ -58,6 +58,10 @@ case class MCP(config : VGAConfig) extends Component{
   //a buffer to store the data from the axi bus
   val buffer = Reg(Bits(32 bits))
 
+  val storeCircle = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
+  val storeSprite = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
+  val storeFont = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
+
   //############################################
   //#instanciate needed objects with the config#
   //############################################
@@ -104,7 +108,7 @@ case class MCP(config : VGAConfig) extends Component{
 
   blitterFont.io.start := False
   blitterFont.io.addressYIn := storeVals1(1)
-  blitterFont.io.addressXIn := storeVals1(0)
+  blitterFont.io.addressXIn := storeVals2(0)
   blitterFont.io.font := alpha
 
   //connecting the vga object to the outworld
@@ -238,7 +242,7 @@ case class MCP(config : VGAConfig) extends Component{
 
     //State for copying the font from alpha register to the framebuffer
     copyOutFont.whenIsActive{
-      vga.io.wAddress := blitterFont.io.addressOut.resized
+      vga.io.wAddress := (!switchVGA ## blitterFont.io.addressOut).asUInt.resized
       vga.io.wData := storeColor.resized
       vga.io.wValid := blitterFont.io.write
       when (blitterFont.io.ready) {
@@ -248,6 +252,7 @@ case class MCP(config : VGAConfig) extends Component{
     //switching the two framebuffer when he is in vsync
     switchFrame.whenIsActive{
       when (!vga.io.vga.vSync) {
+        switchVGA := !switchVGA
         vga.io.switch := True
         goto(idle)
       }
@@ -268,7 +273,7 @@ case class MCP(config : VGAConfig) extends Component{
       vga.io.wAddress := (!switchVGA ## bresCircle.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresCircle.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
       vga.io.wData := storeColor.resized
       vga.io.wValid := bresCircle.io.setPixel
-      when (fillRect.io.ready) {
+      when (bresCircle.io.ready) {
         goto(idle)
       }
     }
@@ -277,8 +282,8 @@ case class MCP(config : VGAConfig) extends Component{
     bLine.whenIsActive{
       vga.io.wAddress := (!switchVGA ## bresLine.io.address(1).resize(log2Up(config.vDisplayBuffer)) ## bresLine.io.address(0).resize(log2Up(config.hDisplayBuffer))).asUInt
       vga.io.wData := storeColor.resized
-      vga.io.wValid := bresCircle.io.setPixel
-      when (fillRect.io.ready) {
+      vga.io.wValid := bresLine.io.setPixel
+      when (bresLine.io.ready) {
         goto(idle)
       }
     }
@@ -295,12 +300,13 @@ case class MCP(config : VGAConfig) extends Component{
     val font = new State
     val copyFont = new State
     val copySprite = new State
+    val exit = new State
 
     //idle function here start the state machine,
     // setting up the the number of words and setting the counter to zero
     idle.whenIsActive{
       counter := 0
-
+      valid := False
       switch(address(10 downto 2)) {
         //Bresenham Line
         is(B"000000000".asUInt) {
@@ -352,7 +358,7 @@ case class MCP(config : VGAConfig) extends Component{
           goto(readRam)
         }
         default {
-          exitFsm()
+          goto(exit)
         }
       }
 
@@ -378,9 +384,6 @@ case class MCP(config : VGAConfig) extends Component{
           }
           is(3) {
             goto(copySprite)
-          }
-          default {
-            exitFsm()
           }
         }
       }
@@ -419,10 +422,7 @@ case class MCP(config : VGAConfig) extends Component{
           storeColor(1) := buffer(21 downto 11).resized
           storeColor(2) := buffer(31 downto 22).resized
           len := 0
-          exitFsm()
-        }
-        default {
-          exitFsm()
+          goto(exit)
         }
       }
     }
@@ -433,26 +433,29 @@ case class MCP(config : VGAConfig) extends Component{
         is(0) {
           storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(1) {
           storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(2) {
           storeRadius := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(3) {
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
           storeColor(2) := buffer(31 downto 10).resized
-          exitFsm()
+          goto(exit)
         }
         default
-          exitFsm()
+        goto(exit)
       }
     }
     //this state saves the font in alpha
@@ -461,22 +464,26 @@ case class MCP(config : VGAConfig) extends Component{
         is(0) {
           storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(1) {
           storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(2) {
           alpha(63 downto 32) := buffer
           counter := counter + 1
+          valid := True
           goto(readRam)
 
         }
         is(3) {
           alpha(31 downto 0) := buffer
           counter := counter + 1
+          valid := True
           goto(readRam)
 
         }
@@ -484,12 +491,9 @@ case class MCP(config : VGAConfig) extends Component{
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
           storeColor(2) := buffer(31 downto 10).resized
-          exitFsm()
+          goto(exit)
         }
 
-        default {
-          exitFsm()
-        }
       }
     }
 
@@ -499,22 +503,26 @@ case class MCP(config : VGAConfig) extends Component{
         is(0) {
           storeVals1(0) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(1) {
           storeVals1(1) := buffer.asUInt.resized
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
 
         is(2) {
           alpha(31 downto 0) := buffer
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         is(3) {
           alpha(63 downto 32) := buffer
           counter := counter + 1
+          valid := True
           goto(readRam)
         }
         for (i <- 4 to 67) {
@@ -525,15 +533,22 @@ case class MCP(config : VGAConfig) extends Component{
             vga.io.wAddress := (!switchVGA ## (storeVals1(1) + temp(5 downto 3)) ## (storeVals1(0) + temp(2 downto 0))).asUInt
             vga.io.wValid   := alpha(i - 4)
             counter := counter + 1
+            valid := True
             goto(readRam)
           }
         }
+        is(68) {
+          goto(exit)
+        }
         default {
-          exitFsm()
+          goto(exit)
         }
       }
     }
 
+    exit.whenIsActive{
+      exitFsm();
+    }
 
     //setting up some signals for the axi master
     io.axiram.readCmd.addr := raddress.resized

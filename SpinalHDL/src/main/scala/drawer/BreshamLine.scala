@@ -34,11 +34,12 @@ class BreshamLine(config : VGAConfig) extends Component{
   io.ready := True
   io.address(0) := x
   io.address(1) := y
+  io.setPixel := False
   downTemp.clear()
   rightTemp.clear()
   e2.clearAll()
   errTemp.clearAll()
-  io.setPixel := False
+
 
   val breshamSM = new StateMachine {
     val idle = new State with EntryPoint
