@@ -1,6 +1,6 @@
 \subsubsection*{Design}
 
-During the implementation of the application programming interface (in short API), we had to decide if the user would have to code most of the features from scratch or use the functions we provide for the API.
+Before the implementation of the application programming interface (in short API), we had to decide if the user would have to code most of the features from scratch or use the functions we provide for the API.
 We decided to choose a mix of both approaches, as we are only giving access to our basic functions of AEGIS. A function of the API should look as follows:
 \begin{lstlisting}[language=C, caption={The Circle Drawing Function}, label=CircDraw]
 uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col);
@@ -18,10 +18,27 @@ To access the function on the graphics accelerator itself, we plan to use two po
 
 \subsubsection*{Implementation}
 
-\begin{itemize}
-	\item How did it get actually implemented
-	\item global pointers to access the single functions of AEGIS
-	\item global pointer for the storage of data
-	\item implementation of the functions is bare bones, a repeating pattern for every function
-	\item return type became legacy code for later implementations
-\end{itemize}
+During the previously explained design process, we had to work out how implement the API so that a user can work with all the functionality our graphics accelerator offers. To hold the data and access the functionality we had to use a pair of pointers. As seen in \cref{pointPair} the volatile pointer gives the user access to the function while the regular pointer holds the value for the call.
+\begin{lstlisting}[language=C, caption={Pair of pointers}, label=pointPair]
+volatile uint32_t* circle_addr;
+Circle* circle_val;
+\end{lstlisting}
+To access the functionality of the hardware accelerator, we did not want the users to have to work with the raw pointers, as for that we created separate functions that send the call to the hardware. As it is seen in \cref{funcStruc} the basic structure of the is as follows. First we organize the given data in the corresponding value structure, then we pass the values to the address pointer. Afterwards we return zero to tell the user that the function ended properly. The return value of the function is a mix of legacy code and future work. This will be discussed in \cref{sec:future}.
+\begin{lstlisting}[language=C, caption={Structure of the functions}, label=funcStruc]
+uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col) {
+	circle_val->x1 = x;
+	circle_val->y1 = y;
+	circle_val->r = r;
+	circle_val->col = COLOR(col.red, col.green, col.blue); 
+
+	*circle_addr = (uint32_t) circle_val;
+
+	return 0;
+}
+\end{lstlisting}
+The only outlier from this pattern are the functions to initialize and de-initialize the pointers and the function to switch the frame buffers. As this does not have an underlying structure to hold any data, we opted for just accessing the address and giving it a random value. In this case the value of one. As this could not potentially go wrong we decided to omit the return value of the function.
+\begin{lstlisting}[language=C, caption={Switching the Buffer}, label=switchBuff]
+void ae_switch_buffer(){
+	*switch_addr = 1;
+}
+\end{lstlisting}
