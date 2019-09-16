@@ -345,9 +345,9 @@ case class MCP(config : VGAConfig) extends Component{
         }
         is(B"000000101".asUInt) {
           //Blitter copy font from GPURAM to Framebuffer
-          io.axiram.readCmd.len := 2
+          io.axiram.readCmd.len := 4
           io.axiram.readCmd.valid := True
-          mode := 1
+          mode := 2
           goto(readRam)
         }
         is(B"000000110".asUInt) {

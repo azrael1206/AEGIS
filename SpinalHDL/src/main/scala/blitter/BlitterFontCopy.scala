@@ -20,11 +20,10 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
   io.ready := True
 
   //Counter for the x and y coordinates
-  val x = Reg(UInt(4 bits)) init 0
-  val y = Reg(UInt(4 bits)) init 0
+  val counter = Reg(UInt(6 bits)) init 0
 
   //setting the address for the framebuffer
-  io.addressOut := ((io.addressXIn + x).resize(log2Up (config.hDisplayBuffer)) ## (io.addressYIn + y).resize(1 + log2Up (config.vDisplayBuffer))).asUInt
+  io.addressOut := ((io.addressXIn + counter(2 downto 0)).resize(log2Up (config.hDisplayBuffer)) ## (io.addressYIn + counter(5 downto 3)).resize(1 + log2Up (config.vDisplayBuffer))).asUInt
 
   //State machine: this copy the 8x8 pixel font into the framebuffer
   val state = new StateMachine {
@@ -34,8 +33,7 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
     //the idle State, when the start signal is high the x and y register are both set to zero
     idle.whenIsActive {
       when(io.start) {
-        x := 0
-        y := 0
+        counter := 0
         goto(copy)
       }
     }
@@ -44,21 +42,17 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
     //Also it increment the x and y register
     copy.whenIsActive {
       io.ready := False
-      switch(x * y) {
+      switch(counter) {
         for (i <- 0 to 63) {
           is(i) {
             io.write := io.font(63 - i)
+            counter := counter + 1
           }
         }
       }
 
-      when(x + 1 < 8 & y + 1 < 8) {
+      when(counter === 63) {
         goto(idle)
-      } elsewhen (x + 1 < 8) {
-        x := x + 1
-      } otherwise {
-        x := 0
-        y := y + 1
       }
     }
   }
