@@ -58,10 +58,6 @@ case class MCP(config : VGAConfig) extends Component{
   //a buffer to store the data from the axi bus
   val buffer = Reg(Bits(32 bits))
 
-  val storeCircle = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
-  val storeSprite = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
-  val storeFont = Reg(Vec(UInt(log2Up(config.hDisplayBuffer) bits), UInt(log2Up(config.vDisplayBuffer) bits)))
-
   //############################################
   //#instanciate needed objects with the config#
   //############################################

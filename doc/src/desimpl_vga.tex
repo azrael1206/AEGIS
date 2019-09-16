@@ -1,3 +1,25 @@
 \subsubsection*{Design}
 
+\begin{itemize}
+	\item the framebuffer is a true dual port design
+	\item one port is for the vga signal generator, and the second one is for the gpu to read and to write
+	\item is a double buffer, for that the framebuffer is divided in two half, one half acutal frame and the second half is the new frame
+	\item framebuffer is instanciate with the max size of the frame and depth of the colour  
+	\item the vga interface can be instanciate wiht the resolution
+	\item the theoretical max resolution is 1080p
+	\item it generates is clock from a master clock
+\end{itemize}
 \subsubsection*{Implementation}
+\begin{itemize}
+	\item the framebuffer object as two read and one write port. 
+	\item instanciate with the data it becomes from the VGAConfig
+	\item it calculates the size of the mem automaticly. 
+	\item first it looks if the resolution is a size of power of two  //code
+	\item after that it multiplcate the x and y resolution after that it muliplikate it with two //code
+	\item first the vga generate a slow clock area with the frequenc in the VGAConfig
+	\item after that it set up some signals and register
+	\item the io are connected to the corropending signals
+	\item after that some checks are made it y and x counter reaches some special values like end of the line and end of the frame an d picture draw
+	\item the buffer control controlls witch buffer the vga can read
+	\item the buffer control connects the buffer with the vga and the MCP and here is the logic for the pixel doupler
+\end{itemize}

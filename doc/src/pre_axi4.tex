@@ -5,4 +5,6 @@ The AXI4 is a bus that can handle multiple master and slave over intermediate le
 
 \subsubsection{Handshake protocol}
 \label{section:handshake}
-This section describes the handshake protocol that is found in the AXI4 bus. The first step is that the master put on the address and when data are written the data. After that the master put an high signal on the valid signal
+This section describes the handshake protocol that is found in the AXI4 bus. The first step is that the master put on the address and when he want to write the write signal. After that the master put an high signal on the valid signal. The slave response with a high signal on the ready signal and a high on the write signal when the master want to write something, to tell the master he get the command. When the slave finished the command, the slave pull the valid response signal to high, then the slave is waiting until the master says that he recieve the responseover the ready signal.
+
+
