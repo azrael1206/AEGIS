@@ -127,8 +127,8 @@ case class MCP(config : VGAConfig) extends Component{
   vga.io.wData(0) := io.axicpu.writeData.data(10 downto 0).resize(config.colorR)
   vga.io.wData(1) := io.axicpu.writeData.data(21 downto 11).resize(config.colorG)
   vga.io.wData(2) := io.axicpu.writeData.data(31 downto 22).resize(config.colorB)
-  vga.io.wAddress := (io.axicpu.sharedCmd.addr(22) ## io.axicpu.sharedCmd.addr(10 + log2Up(config.vDisplayBuffer) downto 11) ## io.axicpu.sharedCmd.addr(log2Up(config.hDisplayBuffer) - 1 downto 0)).asUInt
-  vga.io.wValid := io.axicpu.sharedCmd.write & io.axicpu.sharedCmd.valid & !io.axicpu.sharedCmd.addr(23)
+  vga.io.wAddress := (io.axicpu.sharedCmd.addr(18) ## io.axicpu.sharedCmd.addr(9 + log2Up(config.vDisplayBuffer) downto 10) ## io.axicpu.sharedCmd.addr(log2Up(config.hDisplayBuffer) + 1 downto 2)).asUInt
+  vga.io.wValid := io.axicpu.sharedCmd.write & io.axicpu.sharedCmd.valid & !io.axicpu.sharedCmd.addr(25)
 
   io.axicpu.writeRsp.id := id
   io.axicpu.readRsp.resp := Axi4.resp.OKAY
@@ -157,7 +157,7 @@ case class MCP(config : VGAConfig) extends Component{
       write := io.axicpu.sharedCmd.write
       id := io.axicpu.sharedCmd.id
       when(io.axicpu.sharedCmd.valid && (!io.axicpu.sharedCmd.write || io.axicpu.writeData.valid)) {
-        when (!io.axicpu.sharedCmd.addr(23)) {
+        when (!io.axicpu.sharedCmd.addr(25)) {
           goto(waitState)
         } otherwise{
           address := io.axicpu.sharedCmd.addr
@@ -180,7 +180,7 @@ case class MCP(config : VGAConfig) extends Component{
         io.axicpu.writeRsp.valid := True
         when (io.axicpu.writeRsp.ready){
           //when the bit is not set it writes directly to the framebuffer
-          when(!address(23)) {
+          when(!address(25)) {
             goto(idle)
           } otherwise {
             //this is do determine is the address is for the switch framebuffer

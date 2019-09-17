@@ -5,4 +5,9 @@
 	\item need 2,624,256 bits of blockmemory, only simple dual port, that why we get only a resolution of 320x240
 	\item and need 4 dsp
 	\item the max frequency is between 81 to 85 MHz
+	\item the axi bus has a latence of ca 5 cylcen, depending of load of the axi bus
+	\item the cycle may be different from the exact values because of the load of the ram and axi bus
+	\item Fill Rect  the complete screen 131624 cyclen from start of the function to the end of drawing
+	\item Bresenham line from the point 0 0 to 320 240 1105 cyclen from start of the function to the end of drawing
+	\item Brsenham circle at the middle point 160 120 with a radius 20 841 cyclen from the start of the function to the end of drawing
 \end{itemize}

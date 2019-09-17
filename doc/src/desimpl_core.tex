@@ -21,7 +21,7 @@ When a write command is send over the AXI4 bus the graphics accelerator looks at
 	\item it has two state machine, the second one is a nested one
 	\item it controlls both axi buses, the shared one as a slave and the readonly as a master
 	\item the idle state waits until on the slave axi bus the following signal are set io.axicpu.sharedCmd.valid and he looks if the axi bus wants to read or write
-	\item after that when the 23 bit is set it saves some data from the axi bus and goes to a wait state
+	\item after that when the 25 bit is set it saves some data from the axi bus and goes to a wait state
 	\item in the wait state it set the needed axi bus signals for the handshake and goes to the respones state
 	\item here it set the neede signals for the responseand wait until the axi bus says its ok, after that it goes to the readdata state. or it goes to the switch state if a switch frame buffer is requested
 	\item befor the switch case in the readdata is running, the nested state machine is activated
