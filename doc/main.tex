@@ -46,26 +46,7 @@
 \usepackage[ruled, english]{algorithm2e}
 
 \usepackage{xcolor}
-\lstset{
-	numbers=left,
-	numberstyle=\tiny,
-	numbersep=5pt,
-	breaklines=true,
-	showstringspaces=false,
-	frame=single ,
-	xleftmargin=15pt,
-	xrightmargin=15pt,
-	basicstyle=\ttfamily \footnotesize,
-	stepnumber=2,
-	captionpos=b,
-	language=C,   %Sprache Festelegen
-	floatplacement=H,
-	tabsize=2,
-	keepspaces=true
-	%	keywordstyle=\color{blue},          % keyword style
-	%	commentstyle=\color{dkgreen},       % comment style
-	%	stringstyle=\color{mauve}         % string literal style
-}
+
 
 
 \lstdefinelanguage{scala}{
@@ -85,8 +66,15 @@
 	morestring=[b]"""
 }
 
+\lstset{
+	stepnumber=1,
+	numberstyle=\tiny,
+	basicstyle=\ttfamily\small,
+	frame=bt,
+	numbers=left,
+	captionpos=b
+}
 
-\lstset{inputpath=./resources/code}
 
 
 
@@ -102,7 +90,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{} % Custom header text
+\fancyhead[C]{AEGIS - An Architecture for Embedded Graphical Interfaces} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
@@ -169,7 +157,7 @@
 	\subsection{Bresenham Algorithm}
 	\input{src/pre_bresenham}
 	
-	\subsection{Bit Blit}\label{sec:blitter}
+	\subsection{Bit Blit}\label{subsec:blitter}
 	\input{src/pre_blit}
 	
 	\subsection{Advanced Extensible Interface   4 Bus}
@@ -186,10 +174,10 @@
 	\subsection{Bresenham Line and Circle}\label{subsec:des_bresenham}
 	\input{src/desimp_bresenham}
 	
-	\subsection{Bit Blit}
+	\subsection{Bit Blit}\label{subsec:des_blit}
 	\input{src/desimpl_blit}
 	
-	\subsection{AEGIS Core}
+	\subsection{AEGIS Core}\label{subsec:core}
 	\input{src/desimpl_core}
 	
 	\subsection{Application Programming Interface}
@@ -202,7 +190,7 @@
 	\section{Conclusion}
 	\input{src/conclusion}
 	
-	\section{Future Work}
+	\section{Future Work}\label{sec:future}
 	\input{src/futur}
 	
 	\printbibliography

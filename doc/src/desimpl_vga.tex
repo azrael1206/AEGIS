@@ -1,25 +1,32 @@
-\subsubsection*{Design}
+\subsubsection*{Design}\label{subsubsec:des_buff}
+The needs for the implementation were clear from the start of the project. We knew that we are going to need some sort of output to a screen and a framebuffer for an image to be drawn to.
 
-\begin{itemize}
-	\item the framebuffer is a true dual port design
-	\item one port is for the vga signal generator, and the second one is for the gpu to read and to write
-	\item is a double buffer, for that the framebuffer is divided in two half, one half acutal frame and the second half is the new frame
-	\item framebuffer is instanciate with the max size of the frame and depth of the colour  
-	\item the vga interface can be instanciate wiht the resolution
-	\item the theoretical max resolution is 1080p
-	\item it generates is clock from a master clock
-\end{itemize}
+The design of the VGA interface was held flexible, as we wanted the option not only to exchange it with a different interface, but also that we are able to instantiate it with different resolutions. If the FPGA would allow it, a resolution of up to 1080p would be theoretically possible, as it generates its clock from a master clock that is fed in.
+
+The framebuffer is designed to hold two frames at the same time, meaning it is a double buffer. This is something taken from GPU design, as this eliminates the chance of screen tear. This happens when one would want to draw into the image as it is being projected to the screen. Additionally the framebuffer should be instantiated with the maximal size of a frame and its depth of color.
+
+To have the VGA interface and our graphics accelerator access it at the same time, we also decided to give it a true dual port design. As one of the ports is for the VGA interface to read from, while the other port is the the graphics accelerator to read from and write to.
+
+
 \subsubsection*{Implementation}
-\begin{itemize}
-	\item the framebuffer object as two read and one write port. 
-	\item instanciate with the data it becomes from the VGAConfig
-	\item it calculates the size of the mem automaticly. 
-	\item first it looks if the resolution is a size of power of two  //code
-	\item after that it multiplcate the x and y resolution after that it muliplikate it with two //code
-	\item first the vga generate a slow clock area with the frequenc in the VGAConfig
-	\item after that it set up some signals and register
-	\item the io are connected to the corropending signals
-	\item after that some checks are made it y and x counter reaches some special values like end of the line and end of the frame an d picture draw
-	\item the buffer control controlls witch buffer the vga can read
-	\item the buffer control connects the buffer with the vga and the MCP and here is the logic for the pixel doupler
-\end{itemize}
+
+As discussed in \cref{subsubsec:des_buff} the framebuffer will have two read ports an one write port. One read port is going to our core, which will be discussed in \cref{subsec:core}, and one is going to the VGA interface. To instantiate the buffer we need to pass it our configuration for the VGA interface. This can be found in the \texttt{VGAConfig} class. As seen in \cref{powtwo}, the calculation of the framebuffer size is done automatically. As it is more convenient to work with sizes that are of the power of two, we first have to increase it to the net number that is a power of two. Afterwards it creates its size by multiplying the horizontal and the vertical size and doubles it afterwards to create two buffers. 
+\begin{lstlisting}[language=scala, caption={Resolution Check}, label=powtwo]
+if (!isPow2(vAreaTemp)) {
+	while(!isPow2(vAreaTemp)) {
+		vAreaTemp = vAreaTemp + 1
+	}
+}
+
+if (!isPow2(hAreaTemp)) {
+	while(!isPow2(hAreaTemp)) {
+		hAreaTemp = hAreaTemp + 1
+	}
+}
+
+val bufferFrame = Mem(Vec(Bits(config.colorR bits), 
+			  Bits(config.colorG bits), 
+			  Bits(config.colorB bits)), 
+			  2 * (vAreaTemp * hAreaTemp))
+\end{lstlisting}
+The VGA interface itself needs to generate a slow clock area with the frequency given in the VGAConfig. In this slow area is the implementation for the VGA interface, as it check that we are allowed to draw or are at the end of the line or the actual frame. The position of the current drawn pixel is held in a register. The information of which frame to read it gets from the framebuffer controller.

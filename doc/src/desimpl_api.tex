@@ -36,7 +36,7 @@ uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col) {
 	return 0;
 }
 \end{lstlisting}
-The only outlier from this pattern are the functions to initialize and de-initialize the pointers and the function to switch the frame buffers. As this does not have an underlying structure to hold any data, we opted for just accessing the address and giving it a random value. In this case the value of one. As this could not potentially go wrong we decided to omit the return value of the function.
+The only outlier from this pattern are the functions to initialize and de-initialize the pointers and the function to switch the frame buffers (see \cref{switchBuff}). As this does not have an underlying structure to hold any data, we opted for just accessing the address and giving it a random value. In this case the value of one. As this could not potentially go wrong we decided to omit the return value of the function.
 \begin{lstlisting}[language=C, caption={Switching the Buffer}, label=switchBuff]
 void ae_switch_buffer(){
 	*switch_addr = 1;
