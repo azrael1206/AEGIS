@@ -1,14 +1,11 @@
 \subsubsection*{Design}
+The needs for the implementation were clear from the start of the project. We knew that we are going to need some sort of output to a screen and a framebuffer for an image to be drawn to.
 
-\begin{itemize}
-	\item the framebuffer is a true dual port design
-	\item one port is for the vga signal generator, and the second one is for the gpu to read and to write
-	\item is a double buffer, for that the framebuffer is divided in two half, one half acutal frame and the second half is the new frame
-	\item framebuffer is instanciate with the max size of the frame and depth of the colour  
-	\item the vga interface can be instanciate wiht the resolution
-	\item the theoretical max resolution is 1080p
-	\item it generates is clock from a master clock
-\end{itemize}
+The design of the VGA interface was held flexible, as we wanted the option not only to exchange it with a different interface, but also that we are able to instantiate it with different resolutions. If the FPGA would allow it, a resolution of up to 1080p would be theoretically possible, as it generates its clock from a master clock that is fed in.
+
+The framebuffer is designed to hold two frames at the same time, meaning it is a double buffer. This is something taken from GPU design, as this eliminates the chance of screen tear. This happens when one would want to draw into the image as it is being projected to the screen. Additionally the framebuffer should be instantiated with the maximal size of a frame and its depth of color.
+
+To have the VGA interface and our graphics accelerator access it at the same time, we also decided to give it a true dual port design. As one of the ports is for the VGA interface to read from, while the other port is the the graphics accelerator to read from and write to.
 \subsubsection*{Implementation}
 \begin{itemize}
 	\item the framebuffer object as two read and one write port. 
