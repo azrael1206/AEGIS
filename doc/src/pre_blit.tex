@@ -1,4 +1,12 @@
+\subsubsection*{Atari ST and Amiga Blitter} 
+The functionality of a Bit Block Transfer Processor or Bit Blitter can be simply described as moving bit aligned data from a source to a destination with certain given logical operations. Not only could a Bit Blitter move sprites, but had an array of other features like filling an area with a given color or a pattern, transforming texts or rotating objects~\cite{atari1987blit}. Although its main purpose was a general memory-to-memory block copying.
+
+Throughout the mid-1980s to the early 1990s several iterations of such a co-processor were created. The two major Bit Blitters known today were in the Atari ST and in the Commodore Amiga~\cite{data1988amiga}. Their basic functionality was virtually the same, they differentiated in one major aspect though. Their approach to moving data was different.
+
 \subsubsection*{Moving Data}
-Some Text
-\subsubsection*{Atari ST and Amiga Blitter}
-Some Text
+In general terms the Bit Blit Processor took two memory blocks, usually a sprite and a mask~\cite{data1988amiga}. It combined them through a logical operation e.g a XOR, and the moved the result into the destination block.
+
+The Atari STs approach for that type of operation was rather straight forward. It took as previously described, the result of the two sources with a logical operation and transferred it bit by bit. Meanwhile the Commodore Amiga took this design and expanded upon it~\cite{amigaBlitter}. It offered several modes of operation, among others a block mode and a line mode. Additionally the Amiga Blitter is does not operate on a bit level, but copies the data 16-bit word wise meaning it is a word Blitter.
+
+Taken that into the account, if we have a screen with the resolution of \(320 \times 200\) with a total of 16 displayable colors and four bit-planes. The Amiga Blitter would have to do 20 operations per row on it as it consists of \(200\) rows of \(40\) bytes of data   
+

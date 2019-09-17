@@ -1,8 +1,3 @@
-\begin{itemize}
-	\item no known modern embedded graphics accelerator
-	\item we had to make an open design
-	\item not as complex as a regular GPU
-	\item more in the lines of a retro gpu like the ones found in an Atari ST or a Commodore Amiga
-	\item should take load of the cpu, as the drawing operations would be done by software usually
-	\item basic functionality: drawing lines, drawing circles, filling rectangles, drawing font, and drawing in some way a sprite
-\end{itemize}
+As no known open source design of a modern embedded graphics accelerator was available, we had to deign our own version of what we thought was necessary for creating an embedded graphics accelerator. We decided to approach a more retro-esque design and base it more on the likes of an Atari ST or a Commodore Amiga as discussed in \cref{subsec:blitter}. The basic functionality of our hardware accelerator is to draw lines with any two given coordinates, drawing circles with a given center and a radius, drawing a given bitmap font, and lastly bit-blitting a sprite on the screen.
+
+For the line and circle drawing algorithms we want to use algorithms of the Bresenham family. These will be discussed in \cref{subsec:des_bresenham}. As the bit-blitter from the Commodore Amiga seemed for us to complex for our needs, we decided do design this in more of the approach of an Atari ST, as this will be discussed in \cref{subsec:des_blit}.
