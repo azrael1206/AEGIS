@@ -1,3 +1,21 @@
 \subsubsection*{Design}
-
+\begin{itemize}
+	\item two copy system, the first one to copy a font and the second one is to copy a sprite
+	\item both of them has 8x8 pixel
+	\item the difference between them are that the font has one colour and a alpha mask, the sprite can have on every pixel a different colour and has a alpha mask
+	
+\end{itemize}
 \subsubsection*{Implementation}
+\begin{itemize}
+	\item for the font copy a object is made
+	\item the font copy object has a state machine
+	\item the first state is the idle state
+	\item when the start signal is high, it set the counter to zero and goes to the copy state
+	\item here is a big switch case, every value in the alpha mask has its one case
+	\item when a bit in the alpha mask is high the write signal is high
+	\item when the counter reaches 63 it goes to the idle state
+	\item to calculate the address the first three bits in the counter variable are the x coordinate and last three bits is for the y coordinate
+	\item the sprite are copy directly to the frame buffer.
+	\item it has also a big switch case
+	\item after it gets the alpha mask it write the value from the sprite if the corospending alpha bit is set  
+\end{itemize}

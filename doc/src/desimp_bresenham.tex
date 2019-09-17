@@ -1,3 +1,19 @@
 \subsubsection*{Design}
-
+\begin{itemize}
+	\item 
+\end{itemize}
 \subsubsection*{Implementation}
+\begin{itemize}
+	\item both the line and circle works with a state machine
+	\item the interface of the line algorithm are two coordinates the first one is the start coordninate and the second one is the end coordinate. The coordinate are a vector of two UInt values. After that comes the start and ready signal. At the end the address where the pixel is written and a signal to write
+	\item the first state is the idle state here it waits until the start signal is high
+	\item on the line algorithm it after the start signal come it calculate needed variables
+	\item the next to states in the line algorithm calculate also needed variables, why in other states because of the depencies of the variables
+	\item after that in the line algorithm comes the main part where the line is drawn, is the line at the right postition it goto the idle state
+	\item the cirlce interface has simalarity to the line interface. the only difference between them is that the scond cooordinate in the line algorithm is a radius in the cirle algorithm
+	\item the circel alogrithm after the start signal comes, it set the some variables
+	\item after the idle state it comes four draw state.
+	\item four states because we can save only one pixel per cycle
+	\item two calculate state comes after the drawing states.  
+	\item here are the same reason for two states like the line algorithm, because of depencies of the variables
+\end{itemize}
