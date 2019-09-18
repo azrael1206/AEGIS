@@ -6,13 +6,13 @@ The inputs and outputs for all three algorithms are rather straight forward. The
 \begin{lstlisting}[language=scala, caption={Line IOs}, label=bundline]
 val io = new Bundle {
 	val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), 
-			    UInt(1 + log2Up(config.vDisplayBuffer) bits))
+			    		UInt(1 + log2Up(config.vDisplayBuffer) bits))
 	val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), 
-			    UInt(1 + log2Up(config.vDisplayBuffer) bits))
+			    		UInt(1 + log2Up(config.vDisplayBuffer) bits))
 	val start = in Bool
 	val ready = out Bool
 	val address = out Vec(UInt(log2Up(config.hDisplayBuffer) bits), 
-			      UInt(log2Up(config.vDisplayBuffer) bits))
+			      		  UInt(log2Up(config.vDisplayBuffer) bits))
 	val setPixel = out Bool
 }
 \end{lstlisting}

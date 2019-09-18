@@ -1,21 +1,30 @@
 \subsubsection*{Design}
-\begin{itemize}
-	\item two copy system, the first one to copy a font and the second one is to copy a sprite
-	\item both of them has 8x8 pixel
-	\item the difference between them are that the font has one colour and a alpha mask, the sprite can have on every pixel a different colour and has a alpha mask
-	
-\end{itemize}
+As we want our bit blitter to be nothing more than the memory-to-memory blocking in the Atari ST. We are going to split this process up into two parts. One for the font drawing and one for the sprite drawing, as they have minor differences in how the data looks like.
+
+Both of the will consist of eight by eight pixel information that has to be copied, the difference between them is that the font only consists of an alpha mask, the area which will be drawn, and one color for the letter to be drawn in. The sprite on the other hand has beside the alpha mask, the sprite data that needs to be drawn. This consists of an eight by eight grid of color information. 
+
 \subsubsection*{Implementation}
-\begin{itemize}
-	\item for the font copy a object is made
-	\item the font copy object has a state machine
-	\item the first state is the idle state
-	\item when the start signal is high, it set the counter to zero and goes to the copy state
-	\item here is a big switch case, every value in the alpha mask has its one case
-	\item when a bit in the alpha mask is high the write signal is high
-	\item when the counter reaches 63 it goes to the idle state
-	\item to calculate the address the first three bits in the counter variable are the x coordinate and last three bits is for the y coordinate
-	\item the sprite are copy directly to the frame buffer.
-	\item it has also a big switch case
-	\item after it gets the alpha mask it write the value from the sprite if the corospending alpha bit is set  
-\end{itemize}
+A separate object is made to copy a letter from the font into the frame buffer. In its state machine we differentiate between the idle state and the copy state, seen in \cref{fontfsm}. When the idle state gets triggered it waits till the start flag is set, similar as in \cref{subsec:des_bresenham}. Once it is triggered to draw it sets a counter to zero and switches into the copy state.
+\begin{lstlisting}[language=scala, caption={States of the Font Blitter}, label=fontfsm]
+val idle = new State with EntryPoint
+val copy = new State
+\end{lstlisting}
+In the copy state we evaluate each pixel of the alpha mask in a big switch-case. When the value of the pixel is set to high we write the color information for the corresponding pixel. When the whole alpha mask is done, for our case when the counter reaches 63, we go back into the idle state.
+to know to which pixel to draw to, the first three bits act as a part of the x-coordinate and the last three bits count for y-coordinate.
+\begin{lstlisting}[language=scala, caption={Copying the sprite color information into the frame buffer}, label={blitbuffer}]
+for (i <- 4 to 67) {
+	is(i) {
+		vga.io.wData(0) := buffer(10 downto 0).resized
+		vga.io.wData(1) := buffer(21 downto 11).resized
+		vga.io.wData(2) := buffer(31 downto 12).resized
+		vga.io.wAddress := (!switchVGA 
+				  			## (storeVals1(1) + temp(5 downto 3)) 
+				  			## (storeVals1(0) + temp(2 downto 0))).asUInt
+		vga.io.wValid   := alpha(i - 4)
+		counter := counter + 1
+		valid := True
+		goto(readRam)
+	}
+}
+\end{lstlisting}
+The sprite blitter is part of our core, which is discussed in \cref{subsec:core}. The way we have to copy the data functions similarly to how it is done in the font copying. We have to check if the alpha mask is set at a certain pixel. If it is we can draw the pixel of the sprite, this can be seen in \cref{blitbuffer}. Here we also use a switch-case to check the corresponding pixels.
