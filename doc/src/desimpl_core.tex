@@ -18,21 +18,33 @@ For the communication between the CPU and the graphics accelerator, we use two A
 When a write command is send over the AXI4 bus the graphics accelerator looks at the address. Is the address in the range of the double frame buffer, then it writes to it. Otherwise the address determines, what the graphics accelerator do. Further information he needs to operate get it from RAM at the address in the data value. 
 
 \subsubsection*{Implementation}
-\begin{itemize}
-	\item is the main controll system, that is why is called mcp (tron)
-	\item it has two state machine, the second one is a nested one
-	\item it controlls both axi buses, the shared one as a slave and the readonly as a master
-	\item the idle state waits until on the slave axi bus the following signal are set io.axicpu.sharedCmd.valid and he looks if the axi bus wants to read or write
-	\item after that when the 25 bit is set it saves some data from the axi bus and goes to a wait state
-	\item in the wait state it set the needed axi bus signals for the handshake and goes to the respones state
-	\item here it set the neede signals for the responseand wait until the axi bus says its ok, after that it goes to the readdata state. or it goes to the switch state if a switch frame buffer is requested
-	\item befor the switch case in the readdata is running, the nested state machine is activated
-	\item the nested state machine is for the communication to the ram.
-	\item it set the needed signals for the axi master bus, like how big is a word and the burst mode
-	\item the read state is diveded in two stages the first one get the signals and the second one saves it into the temp variables
-	\item the second state is divided into four states because we need different variables, and the sprite state saves the sprite directly to the framebuffer
-	\item when all the data are read it goes to the exit state, we can have only one exitState int the hole state machine
-	\item after the nested state machine is ready the readdata state determine which function we want
-	\item after the function are ready it goes to the idle state.
-	\item when the 23 bit is not set, the state machine read or write directly to the framebuffer. The programmer must keep track which framebuffer he want to read or write
-\end{itemize}
+The core of the graphics accelerator can be found in the file \texttt{MCP}. Because we need to connect it with the RISCV and need extra memory, the core is connected to two AXI buses. The first one being a shared bus with the RISCV as a slave, while the second one is one to a read-only bus for the additional memory as a master.
+
+As the cores logic is higher in complexity we needed to use two state machines, with one being the main state machine and the other being nested in the first. The idle state of the main state machine waits until the shared AXI bus the valid command is set. This can be seen in \cref{idlecore} on line 4. After that we have to check if the AXI bus wants to read or write. When the \(\text{25}^{\text{th}}\) bit is set, we save data from the AXI bus and continue with the wait state, when that bit is not set the state machine can directly read and write from the frame buffer. The user must keep track which frame buffer they want to read or write to, though.
+\begin{lstlisting}[language=scala, caption={Idle State of the core}, label=idlecore]
+idle.whenIsActive{
+	write := io.axicpu.sharedCmd.write
+	id := io.axicpu.sharedCmd.id
+	when(io.axicpu.sharedCmd.valid 
+		&& (!io.axicpu.sharedCmd.write || io.axicpu.writeData.valid)) {
+		when (!io.axicpu.sharedCmd.addr(25)) {
+			goto(waitState)
+		} otherwise{
+			address := io.axicpu.sharedCmd.addr
+			raddress := io.axicpu.writeData.data.asUInt
+			goto(waitState)
+		}
+	}
+}
+\end{lstlisting}
+In the wait state, we set the needed AXI bus signals for the handshake described in \cref{subsec:axi} and continues to the response state. Here we set the needed signals for the response and wait until the AXI bus gives its ok. After that it can go into the readdata state or the switch state, depending of if the frame buffer switch is requested.
+
+Before the switch case in the readdata state is running, the nested state machine is activated. This state machine is used for the communication with the memory that is connected via the read-only bus. In this state machine we set the signals for the AXI master bus, this can be seen in \cref{axisetting}. Here we set how big a word is for the burst mode and that we are able to receive data.
+\begin{lstlisting}[language=scala, caption={Setting the AXI master bus signals}, label=axisetting]
+io.axiram.readCmd.addr := raddress.resized
+io.axiram.readCmd.size := B"010".asUInt
+io.axiram.readRsp.ready := True
+\end{lstlisting}
+The read state is then divided into two stages. The first stage gets the signals and the second one saves them into the temporary variables. Internally the second state is also split up into four separate states, because of the different variable needed for the separate functions. Here the sprite state saves the sprite directly into the frame buffer, as discussed in \cref{subsec:des_blit}. When all the data is read, we go into the exit state. This is needed as we are only allowed to exit the state machine from one state and not several.
+
+After the nested state machine is ready the readdata state determines which function we want to execute. After the functions are ready it goes back into the idle state.
