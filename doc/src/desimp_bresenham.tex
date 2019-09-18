@@ -1,24 +1,32 @@
 \subsubsection*{Design}
-\begin{itemize}
-	\item both are self-sufficient objects
-	\item that means theoretical both can work at the same time
-	\item for a maybe future work paralism
-	\item used the optimized version of the algorithm
-	\item and they are designed to put out a maximum of one pixel per clock
-	\item 
-\end{itemize}
+Under the design of the two algorithms of the Bresenham family, we also consider the algorithm for filling rectangles, so everything mentioned for the line and circle also counts for the rectangle. We planned to make all three functions self-sufficient objects, meaning that they could also be used on their own without the thought of a graphics accelerator. Theoretically as they are implemented in hardware they would be able to run in parallel, though the execution on the graphics accelerator is planned to sequential, so that the drawing order can be assured. As there are several renditions of the Bresenham algorithms, we decided to use the most optimized versions, as they lend themselves better for a concurrent execution and were most likely simpler to implement in hardware and as they are designed to draw the most pixels per iteration, in our case this would be on pixel per clock cycle.
+
 \subsubsection*{Implementation}
-\begin{itemize}
-	\item both the line and circle works with a state machine
-	\item the interface of the line algorithm are two coordinates the first one is the start coordninate and the second one is the end coordinate. The coordinate are a vector of two UInt values. After that comes the start and ready signal. At the end the address where the pixel is written and a signal to write
-	\item the first state is the idle state here it waits until the start signal is high
-	\item on the line algorithm it after the start signal come it calculate needed variables
-	\item the next to states in the line algorithm calculate also needed variables, why in other states because of the depencies of the variables
-	\item after that in the line algorithm comes the main part where the line is drawn, is the line at the right postition it goto the idle state
-	\item the cirlce interface has simalarity to the line interface. the only difference between them is that the scond cooordinate in the line algorithm is a radius in the cirle algorithm
-	\item the circel alogrithm after the start signal comes, it set the some variables
-	\item after the idle state it comes four draw state.
-	\item four states because we can save only one pixel per cycle
-	\item two calculate state comes after the drawing states.  
-	\item here are the same reason for two states like the line algorithm, because of depencies of the variables
-\end{itemize}
+The inputs and outputs for all three algorithms are rather straight forward. They mainly consist of the input values discussed in \cref{subsec:bres}. As we cannot draw into the negative screen space we decided to create the coordinates as vectors of unsigned integers. This can be seen in \cref{bundline} for the inputs and outputs of the line algorithm. Furthermore we needed a way to trigger the algorithm, which is done with the start boolean. The ready signal tells the rest of the hardware when the algorithm is done and can accept the next values. The last to signals determine the address to where the pixel information is written and if the algorithm is writing pixels at all.
+\begin{lstlisting}[language=scala, caption={Line IOs}, label=bundline]
+val io = new Bundle {
+	val coord1 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), 
+			    UInt(1 + log2Up(config.vDisplayBuffer) bits))
+	val coord2 = in Vec(UInt(1 + log2Up(config.hDisplayBuffer) bits), 
+			    UInt(1 + log2Up(config.vDisplayBuffer) bits))
+	val start = in Bool
+	val ready = out Bool
+	val address = out Vec(UInt(log2Up(config.hDisplayBuffer) bits), 
+			      UInt(log2Up(config.vDisplayBuffer) bits))
+	val setPixel = out Bool
+}
+\end{lstlisting}
+All three algorithms, the line, rectangle and circle, operate with a finite state machine. One such state of this state machine can be seen in \cref{fsmCircle}. This is the idle state. Being the first and initial state of the algorithm, it waits till the start signal is set to high before it starts setting the needed values and calculates certain value. This is done by all three algorithms. After that the line algorithm goes into two state where it calculates the needed error value. This has to be calculated by two states, in the line algorithm, for dependencies reasons, as the error value is dependent on the correct delta values of the x- and y-coordinate. Once the needed variables are calculated the state machine goes into drawing the actual pixels, before it goes back to idle once it is done drawing.
+\begin{lstlisting}[language=scala, caption={Start of the Circle Algorithm}, label=fsmCircle]
+idle.whenIsActive{
+	when (io.start) {
+		x1 := io.coord(0)
+		y1 := io.coord(1)
+		x := (- io.r.asSInt).resized
+		y := 0
+		err := (2 - (io.r << 1).asSInt).resized
+		goto(setPixel1)
+	}
+}
+\end{lstlisting}
+The circle algorithm is structured in a similar way as the line algorithm. We can ommit the second coordinate from the line algorithm an replace it with the circle radius. Similarly to the line algorithm it sets and calculates some variables, though it does not need another calculation state, as all the values it needs are done in idle. We the have to draw the four pixels individually, as we have only one write access to the frame buffer. Once it is done with drawing the set of pixels we have to calculate where we have to draw the next. This is done in two calculation states afterwards, similarly to the line algorithm. When it is finished with drawing and calculating it goes back into the idle state.

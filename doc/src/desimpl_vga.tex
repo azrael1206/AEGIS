@@ -1,7 +1,5 @@
 \subsubsection*{Design}\label{subsubsec:des_buff}
-The needs for the implementation were clear from the start of the project. We knew that we are going to need some sort of output to a screen and a framebuffer for an image to be drawn to.
-
-The design of the VGA interface was held flexible, as we wanted the option not only to exchange it with a different interface, but also that we are able to instantiate it with different resolutions. If the FPGA would allow it, a resolution of up to 1080p would be theoretically possible, as it generates its clock from a master clock that is fed in.
+The needs for the implementation were clear from the start of the project. We knew that we are going to need some sort of output to a screen and a framebuffer for an  image to be drawn to. The design of the VGA interface was held flexible, as we wanted the option not only to exchange it with a different interface, but also that we are able to instantiate it with different resolutions. If the FPGA would allow it, a resolution of up to 1080p would be theoretically possible, as it generates its clock from a master clock that is fed in.
 
 The framebuffer is designed to hold two frames at the same time, meaning it is a double buffer. This is something taken from GPU design, as this eliminates the chance of screen tear. This happens when one would want to draw into the image as it is being projected to the screen. Additionally the framebuffer should be instantiated with the maximal size of a frame and its depth of color.
 
