@@ -307,7 +307,7 @@ class Briey(config: BrieyConfig) extends Component{
       ram.io.axi       -> (0x80000000L,   onChipRamSize),
       sdramCtrl.io.axi -> (0x40000000L,   sdramLayout.capacity),
       //set the address space for the gpu slave
-      gpu.io.axicpu    -> (0xD0000000L,   16 MB),
+      gpu.io.axicpu    -> (0xD0000000L,   1024 MB),
       apbBridge.io.axi -> (0xF0000000L,   1 MB)
 
     )

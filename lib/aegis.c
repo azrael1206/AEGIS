@@ -39,6 +39,8 @@ uint32_t ae_init() {
         return AE_INIT_MEM_ERR;
     }
 
+
+
     switch_addr = (uint32_t*)GPU_SWITCH_BUFFER_ADDR;
 
     return 0;
@@ -60,7 +62,7 @@ uint32_t ae_draw_line(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
     line_val->y2 = y2;
     line_val->col = COLOR(col.red, col.green, col.blue); 
     
-    *line_addr = (uint32_t) (line_val);
+    *line_addr = (uint32_t) line_val;
 
     return 0;
 }
@@ -77,15 +79,15 @@ uint32_t ae_draw_circle(uint32_t x, uint32_t y, uint32_t r, Color col) {
 }
 
 uint32_t ae_draw_ellipse(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col) {
-    ellipse_val->x1 = x1;
+ /*   ellipse_val->x1 = x1;
     ellipse_val->y1 = y1;
     ellipse_val->x2 = x2;
     ellipse_val->y2 = y2;
     line_val->col = COLOR(col.red, col.green, col.blue); 
     
     *ellipse_addr = (uint32_t) ellipse_val;
-
-    return 0;
+*/
+    return AE_NOT_YET_IMPL_ERR;
 }
 
 uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color col) {
@@ -100,26 +102,27 @@ uint32_t ae_fill_rect(uint32_t x1, uint32_t y1, uint32_t x2, uint32_t y2, Color 
     return 0;
 }
 
-uint32_t ae_draw_font(uint32_t x, uint32_t y, uint64_t letter , Color col) {
+uint32_t ae_draw_font(uint32_t x, uint32_t y, uint64_t letter, Color col) {
     dr_font_val->x1 = x;
     dr_font_val->y1 = y;
-    dr_font_val->col = col;
     dr_font_val->letter = letter;
+    dr_font_val->col = COLOR(col.red, col.green, col.blue);
 
-    *dr_font_addr = (uint32_t) dr_font_val
+
+    *dr_font_addr = (uint32_t) dr_font_val;
     
-    return AE_NOT_YET_IMPL_ERR;
+    return 0;
 }
 
 uint32_t ae_draw_sprite(uint32_t x, uint32_t y, uint32_t* sprite, uint64_t mask) {
     blitter_val->x1 = x;
     blitter_val->y1 = y;
-    
+    blitter_val->mask = mask;  
     for(int i =0; i < 64; i++) {
         blitter_val->sprite[i] = sprite[i];
     }
 
-    blitter_val->mask = mask;
+
     
     *blitter_addr = (uint32_t) blitter_val;
     

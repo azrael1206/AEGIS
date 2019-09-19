@@ -6,7 +6,7 @@ import vga._
 
 class BlitterFontCopy(config : VGAConfig) extends Component {
   val io = new Bundle {
-    val addressOut = out (UInt(1 + log2Up(config.vDisplayBuffer) + log2Up(config.hDisplayBuffer) bits))
+    val addressOut = out (UInt(log2Up(config.vDisplayBuffer) + log2Up(config.hDisplayBuffer) bits))
     val addressXIn = in (UInt(log2Up(config.hDisplayBuffer) bits))
     val addressYIn = in (UInt(log2Up(config.vDisplayBuffer) bits))
     val font = in (Bits(64 bits))
@@ -23,7 +23,7 @@ class BlitterFontCopy(config : VGAConfig) extends Component {
   val counter = Reg(UInt(6 bits)) init 0
 
   //setting the address for the framebuffer
-  io.addressOut := ((io.addressXIn + counter(2 downto 0)).resize(log2Up (config.hDisplayBuffer)) ## (io.addressYIn + counter(5 downto 3)).resize(1 + log2Up (config.vDisplayBuffer))).asUInt
+  io.addressOut := ((io.addressYIn + counter(5 downto 3)).resize(log2Up (config.vDisplayBuffer)) ## (io.addressXIn + counter(2 downto 0)).resize(log2Up (config.hDisplayBuffer))).asUInt
 
   //State machine: this copy the 8x8 pixel font into the framebuffer
   val state = new StateMachine {

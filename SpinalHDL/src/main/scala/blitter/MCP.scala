@@ -82,7 +82,7 @@ case class MCP(config : VGAConfig) extends Component{
   //is for the framebuffer switch
   vga.io.switch := False
   //calculating a different counter value
-  temp := counter - 2
+  temp := counter - 4
 
   //standard values for the objects
   fillRect.io.start := False
@@ -104,7 +104,7 @@ case class MCP(config : VGAConfig) extends Component{
 
   blitterFont.io.start := False
   blitterFont.io.addressYIn := storeVals1(1)
-  blitterFont.io.addressXIn := storeVals2(0)
+  blitterFont.io.addressXIn := storeVals1(0)
   blitterFont.io.font := alpha
 
   //connecting the vga object to the outworld
@@ -447,7 +447,7 @@ case class MCP(config : VGAConfig) extends Component{
         is(3) {
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
-          storeColor(2) := buffer(31 downto 10).resized
+          storeColor(2) := buffer(31 downto 22).resized
           goto(exit)
         }
         default
@@ -486,7 +486,7 @@ case class MCP(config : VGAConfig) extends Component{
         is(4) {
           storeColor(0) := buffer(10 downto 0).resized
           storeColor(1) := buffer(21 downto 11).resized
-          storeColor(2) := buffer(31 downto 10).resized
+          storeColor(2) := buffer(31 downto 22).resized
           goto(exit)
         }
 
@@ -525,9 +525,9 @@ case class MCP(config : VGAConfig) extends Component{
           is(i) {
             vga.io.wData(0) := buffer(10 downto 0).resized
             vga.io.wData(1) := buffer(21 downto 11).resized
-            vga.io.wData(2) := buffer(31 downto 12).resized
+            vga.io.wData(2) := buffer(31 downto 22).resized
             vga.io.wAddress := (!switchVGA ## (storeVals1(1) + temp(5 downto 3)) ## (storeVals1(0) + temp(2 downto 0))).asUInt
-            vga.io.wValid   := alpha(i - 4)
+            vga.io.wValid   := alpha(63 - (i - 4))
             counter := counter + 1
             valid := True
             goto(readRam)

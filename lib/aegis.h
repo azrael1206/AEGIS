@@ -22,13 +22,13 @@
 
 // ------------ CONSTANTS ------------
 
-#define BRESENHAM_LINE_ADDR          0xd0800000
-#define BRESENHAM_CIRCLE_ADDR        0xd0800004
-#define BRESENHAM_ELLIPSE_ADDR       0xd0800008
-#define FILL_RECTANGLE_ADDR          0xd080000c
-#define BLITTER_DRAW_FONT_ADDR       0xd0800014
-#define BLITTER_DRAW_SPRITE_ADDR     0xd0800018
-#define GPU_SWITCH_BUFFER_ADDR       0xd080001c
+#define BRESENHAM_LINE_ADDR          0xd2000000
+#define BRESENHAM_CIRCLE_ADDR        0xd2000004
+#define BRESENHAM_ELLIPSE_ADDR       0xd2000008
+#define FILL_RECTANGLE_ADDR          0xd200000c
+#define BLITTER_DRAW_FONT_ADDR       0xd2000014
+#define BLITTER_DRAW_SPRITE_ADDR     0xd2000018
+#define GPU_SWITCH_BUFFER_ADDR       0xd200001c
 
 #define AE_NOT_YET_IMPL_ERR          99
 #define AE_INIT_MEM_ERR               1
@@ -83,15 +83,16 @@ typedef struct {
 typedef struct {
   uint32_t x1;
   uint32_t y1;
-  uint32_t col;
   uint64_t letter;
+  uint32_t col;
 }Font;
 
 typedef struct {
   uint32_t x1;
   uint32_t y1;
   uint64_t mask;
-  uint32_t[64] sprite;
+  uint32_t sprite[64];
+
 }Blitter;
 
 // ------------ GLOBALS ------------
