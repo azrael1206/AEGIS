@@ -1,1 +1,9 @@
-for a maybe future work paralism (algorithms)
+As work is never done on a project, there are several additions that can be done on the graphics accelerator. First and foremost are the additions of more algorithms. One could implement an ellipse drawing algorithm, a spline drawing algorithm, or a flood fill algorithm to fill out random shapes. 
+
+Additionally one could implement a fifo that collects the pixel data, before the are written into the frame buffer. This could enable us to optimize the algorithms, as this could open up the possibility of writing them more parallel, and create a small pipeline for the algorithms. This pipeline would have several cores of the algorithms and a separate core that would orchestrate them.
+
+Another big undertaking would be to decouple the graphics accelerator from the RISCV. As of right now both are running with the same clock. Once it is decoupled the RISCV could run independently from each other. As there is the possibility that the graphics accelerator is slowing down the overall frequency.
+
+Finally on the hardware part of the project one could implement a cache for the sprites. They have to be always loaded from the main memory when a sprite has to be drawn into the frame buffer. This increases the load in the bus. If a sprite cache would be implemented, it could eliminate possible future bottlenecks.
+
+On the software side of the project, there are two main factors that can be done. The main issue right now is the lack of error checking. When certain value are given the graphics accelerator unexpected results could be printed on the screen. To avoid this, assertions can be added to the functions. Additionally one could add more quality of life functions to the API. This could result in printing a string to the screen and not just letters, adding color constants.

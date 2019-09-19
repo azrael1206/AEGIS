@@ -1,0 +1,9 @@
+With the results of this project, we have to ask ourselves several question:
+
+\begin{description}
+	\item[Did we achive everything planed for the Project?] Unfortunately we had to cut back on some features. We are only able to draw up to eight colors at a resolution of \(320 \times 240\). This is unfortunately the result of the lack of memory on the development boards. If the Altera development boards would have true dual port block memory, then we would have achieved a resolution of up to \(640 \times 480\).
+	\item[What was easier than expected?] Two parts were simpler to implement than expected. The Bresenham algorithms fall under this category, as it was almost possible to implement them as they are in software. Also the implementation of the API went quicker than expected, with less errors than expected.
+	\item[What was more difficult than expected?] The biggest problem that occurred during the implementation of the graphic accelerator, was the connection to the AXI bus. Not only was it difficult to understand the architecture itself, but also to understand how to use the implementation of the bus for SpinalHDL. This resulted in the most workload of the project.
+	\item[Did the results line up with our expectations?] The final results of our project went far and beyond our expectations we had in the beginning of the project. We expected to achieve a frequency of around 45 MHz, which in the end got almost doubled. We also did not expect the difference in cycles needed. We expected more of a factor of between 20 and 30, but not a speedup of up to the factor of 160.
+\end{description}
+

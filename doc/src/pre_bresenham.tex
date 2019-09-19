@@ -2,28 +2,39 @@ The original Bresenham Algorithms was developed by J. Bresenham in 1965~\cite{Br
 \subsubsection*{Line Drawing}
 The original line drawing algorithm uses only additions, subtractions, and a multiplication with the constant value of two.
 
-\begin{algorithm}[H]
-	\SetAlgoLined
-	\KwIn{\(x_0,~ y_0,~ x_1,~ y_1\)}
-	\(\varDelta_x \gets \abs{x_1 - x_0}\)\;
-	\(\varDelta_y \gets \abs{y_1 - y_0}\)\;
-	\(\text{step}_x \gets x_0 < x_1~ ? ~1 ~:~ -1 \)\;
-	\(\text{step}_y \gets y_0 < y_1~ ?~ 1 ~:~ -1\)\;
-	err \( \gets \varDelta_x + \varDelta_y \)	
-	\While{\(x_0 \neq x_1\) and \(y_0 \neq y_1\)}{
-		draw Pixel at \(x_0 | y_0\) \;
-		err2 \(\gets 2 \times err\)\;
-		\If{err2 \(> \varDelta_y\)}{
-			err \(\gets \text{err} + \varDelta_y\)\;
-			\(x_0 \gets x_0 + \text{step}_x\)\;
-		}
-		\If{err2 \(< d_x\)}{
-			err \(\gets \text{err} + \varDelta_x\)\;
-			\(y_0 \gets y_0 + \text{step}_y\)\;
-		}	
-	}
-	\caption{Bresenham Line Drawing Algorithm}
+\begin{algorithm}
+	\caption{Bresenham Line Drawing Algorithm Part \rom{1}}
 	\label{alg:bresline}
+	\KwIn{\(x_0,~ y_0,~ x_1,~ y_1\)}
+	\SetKwBlock{Begin}{Begin}{}
+	\SetAlgoLined
+	\Begin{
+		\(\varDelta_x \gets \abs{x_1 - x_0}\)\;
+		\(\varDelta_y \gets \abs{y_1 - y_0}\)\;
+		\(\text{step}_x \gets x_0 < x_1~ ? ~1 ~:~ -1 \)\;
+		\(\text{step}_y \gets y_0 < y_1~ ?~ 1 ~:~ -1\)\;
+		err \( \gets \varDelta_x + \varDelta_y \)
+	}	
+\end{algorithm}
+\begin{algorithm}
+	\caption{Bresenham Line Drawing Algorithm Part \rom{2}}
+	\SetAlgoVlined
+	%This is to hide Begin keyword
+	\SetKwBlock{Begin}{}{end}
+	\Begin{
+		\While{\(x_0 \neq x_1\) and \(y_0 \neq y_1\)}{
+			draw Pixel at \(x_0 | y_0\) \;
+			err2 \(\gets 2 \times err\)\;
+			\If{err2 \(> \varDelta_y\)}{
+				err \(\gets \text{err} + \varDelta_y\)\;
+				\(x_0 \gets x_0 + \text{step}_x\)\;
+			}
+			\If{err2 \(< d_x\)}{
+				err \(\gets \text{err} + \varDelta_x\)\;
+				\(y_0 \gets y_0 + \text{step}_y\)\;
+			}	
+		}
+	}
 \end{algorithm}
 
 As seen in \cref{alg:bresline} the first step is to set the start coordinate. After that an error variable is set. The error variable is for evaluating, which pixel to draw next. Is the value of the error variable lesser than zero it goes one step in the x direction, is the value greater or equal than zero it goes one step in the y and one step in the x direction. It ends when the new x and y coordinate equal to the destination x and y coordinate.
@@ -31,9 +42,12 @@ As seen in \cref{alg:bresline} the first step is to set the start coordinate. Af
 \subsubsection*{Circle Drawing}
 For the Circle Drawing Algorithm often referred to as the Bresenham Circle Drawing Algorithm or the Midpoint circle drawing algorithm, we first have to define smaller in a Cartesian coordinate system. Usually such a coordinate system consists of four areas called quadrants. If we now go an split each quadrant up into two area with a diagonal line with its origin at the the center of the coordinate system, we create areas called octants.
 
-\begin{algorithm}
-	\SetAlgoLined
+\begin{algorithm}[H]
+	
 	\KwIn{\(x_c\), \(y_c\), radius}
+	\SetKwBlock{Begin}{Begin}{End}
+	\SetAlgoLined
+	\Begin{
 	\(x \gets 0\)\;
 	\(y \gets \text{radius}\)\;
 	\(\text{err} \gets 3 - 2 \times \text{radius}\)\;
@@ -47,6 +61,7 @@ For the Circle Drawing Algorithm often referred to as the Bresenham Circle Drawi
 		}
 		Draw corresponding pixel in each quadrant\;
 	}
+}
 	\caption{Bresenham Circle Drawing Algorithm}
 	\label{alg:brescircle}
 \end{algorithm}

@@ -1,13 +1,30 @@
 \subsection{Analysis}
-\begin{itemize}
-	\item board is a de10-soc with a altera 5CSEMA5F31C6 fpga
-	\item need 2473 alm and 3703 flipflops
-	\item need 2,624,256 bits of blockmemory, only simple dual port, that why we get only a resolution of 320x240
-	\item and need 4 dsp
-	\item the max frequency is between 81 to 85 MHz
-	\item the axi bus has a latence of ca 5 cylcen, depending of load of the axi bus
-	\item the cycle may be different from the exact values because of the load of the ram and axi bus
-	\item Fill Rect  the complete screen 131624 cyclen from start of the function to the end of drawing in software 4283088 cylcen
-	\item Bresenham line from the point 0 0 to 320 240 1105 cyclen from start of the function to the end of drawing in software 180755
-	\item Bresenham circle at the middle point 160 120 with a radius 20 841 cyclen from the start of the function to the end of drawing, in software 38176
-\end{itemize}
+For the following analysis of our graphics accelerator we are using a Terasic DE10-SoC with an Altera Cyclone 5 SE FPGA. Additionally we connected the accelerator with the VexRiscV to get realistic data, as this is how it should be used in the end.
+
+The resources needed can be seen in \cref{tab:pmem}. For clarification, an Adaptive Logic Module consists of two lookup tables, so the final result might be higher for other hardware vendors. The four DSPs in use are not by the graphics accelerator, but by the VexRiscV itself. They are needed for the multiplication unit. As Quartus \rom{2} delivers us several frequency values for the maximal frequency, we decided to considered it to be approximately between the values of 81 - 85 MHz.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{5cm}|c}
+			\toprule
+			\textbf{Type} & \textbf{Value} 
+			\\\midrule
+			Adaptive Logic Modules & 2473                     \\ 
+			FlipFlops              & 3703                      \\ 
+			Block Memory           & 2,624,256 bits             \\ 
+			DSP                    & 4                           \\ 
+			Frequency              & \textasciitilde ~81 - 85 MHz \\
+			Slack at 50 MHz        & 0.221 ns                      \\
+			\bottomrule
+		\end{tabular}
+		\caption{Parameters of size and speed}
+		\label{tab:pmem}
+	\end{center}
+\end{table}
+
+For comparison purposes we also ran tests to compare the speeds of a pure software solution of drawing to a screen and our solution. In software the VexRiscV writes directly into the frame buffer. In this comparison we have to consider one major factor. The AXI bus itself has a latency of about five cycles in our test, depending of the load on the bus. The exact value may be different, as more complexity in the code may also increase the load on the bus and the memory. 
+
+For filling the complete screen at a resolution of \(320 \times 240\) with one color our fill rect function takes 131,624 cycles. If this is done in pure software it takes up to 4,283,088 cycles.
+Drawing a line from the coordinate \((0|0)\) to \(320|240\) takes in hardware 1,105 cycles while in software it takes up to 180,755 cycles. Lastly the test of drawing a circle with the Bresenham Midpoint algorithm at the coordinate \(160|120\) with a radius of \(20\) takes in hardware 841 cycles and in software 38,176 cycles.
+
+This results in a speed up of the hardware by a factor of about 32.5 for filling rectangles, 163.6 for drawing lines, and 45.4 for drawing circles. This results mainly in the software having to calculate the addresses for writing into the frame buffer. In hardware this is not technically needed, as the seperate functions calculate this on the fly.

@@ -23,6 +23,10 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 
+\makeatletter
+\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,9 +48,14 @@
 \usepackage{listings}
 
 \usepackage[ruled, english]{algorithm2e}
+\SetAlFnt{\small}
+\SetAlCapFnt{\normalsize}
+\SetAlCapNameFnt{\normalsize}
+\usepackage{algorithmic}
+\algsetup{linenosize=\tiny}
 
 \usepackage{xcolor}
-
+\usepackage{booktabs}
 
 
 \lstdefinelanguage{scala}{
@@ -127,16 +136,11 @@
 		rasterize lines and circles, bliting bit graphics, and will have a core for various arithmetic operations.
 		The creation of an open-source hardware based graphics accelerator has several reasons. One key factor is to have hardware sovereignity, meaning to become independent form
 		hardware manufacturers. Additionaly it is also important to learn how GPUs work, since not much of the inner workings is publicised. Lastly certain
-		embedded systems have the need of displaying data. This can be done with Project AEGIS. TODO: REWRITE MOST OF IT
+		embedded systems have the need of displaying data. This can be done with Project AEGIS.
 	\end{abstract}
 }
 
 %----------------------------------------------------------------------------------------
-%TODO: Remove all PLACEHOLDERS
-%TODO: Add REFERENCES
-%TODO: Redo ABSTRACT
-%TODO: Add CODE snippets
-%TODO: Add Analysis DATA
 \begin{document}
 	
 	
@@ -169,7 +173,7 @@
 	\subsection{Embedded Graphics Accelerator}
 	\input{src/desimpl_gpu}
 	
-	\subsection{VGA and Framebuffer}
+	\subsection{VGA and Frame Buffer}
 	\input{src/desimpl_vga}
 	
 	\subsection{Bresenham Line and Circle}\label{subsec:des_bresenham}

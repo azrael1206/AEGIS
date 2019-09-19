@@ -16,11 +16,11 @@ for (i <- 4 to 67) {
 	is(i) {
 		vga.io.wData(0) := buffer(10 downto 0).resized
 		vga.io.wData(1) := buffer(21 downto 11).resized
-		vga.io.wData(2) := buffer(31 downto 12).resized
+		vga.io.wData(2) := buffer(31 downto 22).resized
 		vga.io.wAddress := (!switchVGA 
 				  			## (storeVals1(1) + temp(5 downto 3)) 
 				  			## (storeVals1(0) + temp(2 downto 0))).asUInt
-		vga.io.wValid   := alpha(i - 4)
+		vga.io.wValid   := alpha(63 - (i - 4))
 		counter := counter + 1
 		valid := True
 		goto(readRam)

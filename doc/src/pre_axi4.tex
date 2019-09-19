@@ -1,12 +1,8 @@
-TODO: CORRECT
+The advanced micro-controller bus architecture advanced extensible interface 4 (AMBA-AXI4) is a bus system specified by Advanced RISC Machines (ARM) in the year 2010 \cite{6129797}. The bus system has a lot of features, hence we are not explaining them all in this chapter.
 
-The  advanced microcontroller bus architecture (AMBA) advanced extensible interface 4 (AXI4) is a bus system specified by Advanced RISC Machines (ARM) in the year 2010 \cite{6129797}. The bus system has many features, thats why not all feature is described in detail in this chapter.
-
-The AXI4 is a bus that can handle multiple master and slave over intermediate level called interconnect. This construction allows an n to n relation. The data bus width can be 32, 64, 128 and 256 bits. But the address bus is limited to 32 bits. Which means that he can only address 4 GB of memory space. For a high data transfer it can use the burst mode. With the burst mode, AXI4 can transfer 256 words without to align a new address. To establish and to release the communication it use a handshake protocol \cref{section:handshake}\cite{6129797}. 
+The AXI4 is a bus that can handle multiple masters and slaves over an intermediate level called interconnect. This construction allows for a n to n relation. The data bus width can be 32, 64, 128 and 256 bits, but the address bus is limited to 32 bits. Which means that he can only address 4 GB of memory space. If a high data transfer is needed, it can use the burst mode. With the burst mode, AXI4 can transfer 256 words without the need to align a new address. To establish and to release the communication it uses a handshake protocol~\cite{ARMLimited2019}. 
 
 \subsubsection{Handshake protocol}
-\label{section:handshake}
-
-This section describes the handshake protocol that is found in the AXI4 bus. The first step is that the master put on the address and when he want to write the write signal. After that the master put an high signal on the valid signal. The slave response with a high signal on the ready signal and a high on the write signal when the master want to write something, to tell the master he get the command. When the slave finished the command, the slave pull the valid response signal to high, then the slave is waiting until the master says that he recieve the responseover the ready signal.
+The first step is that the master sets the address and when he want to write he also sets the write signal. After that the master sets the valid signal to high. The slave responds with a high on the ready signal. If the master has previously also set the write signal to high, the slave has to do the same thing, to tell the master he is ready to receive the command. When the slave finishes the command, he pulls the valid response signal to high. Then the slave is waiting until the master says that he received the response over the ready signal.
 
 
