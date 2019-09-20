@@ -21,8 +21,8 @@ Planned are:
 
 - [x] Video output
 - [x] Framebuffer (Double-Buffering)
-- [ ] Bus to a CPU (RISC V, VexRiscv)
-- [ ] Blitter
+- [x] Bus to a CPU (RISC V, VexRiscv)
+- [x] Blitter
 - [x] Line drawing through the Bresenham Algorithm
 - [x] Circle drawing through the Bresenham Algorithm
 - [ ] Ellipse drawing through the Bresenham Algorithm?
